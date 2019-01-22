@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5F0E49E21F686AA00908F6E /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0E49D21F686AA00908F6E /* SetupViewController.swift */; };
+		A5F0E4A021F6912D00908F6E /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0E49F21F6912D00908F6E /* TitleViewController.swift */; };
 		C572255E21CEEC330013D534 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C572255D21CEEC330013D534 /* AppDelegate.swift */; };
 		C572256021CEEC330013D534 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C572255F21CEEC330013D534 /* GameScene.sks */; };
 		C572256221CEEC330013D534 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = C572256121CEEC330013D534 /* Actions.sks */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A5F0E49D21F686AA00908F6E /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
+		A5F0E49F21F6912D00908F6E /* TitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
 		C572255A21CEEC330013D534 /* MAD 2018-19.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MAD 2018-19.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C572255D21CEEC330013D534 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C572255F21CEEC330013D534 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 				C572256321CEEC330013D534 /* GameScene.swift */,
 				C572256521CEEC330013D534 /* GameViewController.swift */,
 				C572256721CEEC330013D534 /* Main.storyboard */,
+				A5F0E49F21F6912D00908F6E /* TitleViewController.swift */,
+				A5F0E49D21F686AA00908F6E /* SetupViewController.swift */,
 				C572256A21CEEC340013D534 /* Assets.xcassets */,
 				C572256C21CEEC340013D534 /* LaunchScreen.storyboard */,
 				C572256F21CEEC340013D534 /* Info.plist */,
@@ -267,9 +273,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5F0E49E21F686AA00908F6E /* SetupViewController.swift in Sources */,
 				C572256421CEEC330013D534 /* GameScene.swift in Sources */,
 				C572256621CEEC330013D534 /* GameViewController.swift in Sources */,
 				C572255E21CEEC330013D534 /* AppDelegate.swift in Sources */,
+				A5F0E4A021F6912D00908F6E /* TitleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
