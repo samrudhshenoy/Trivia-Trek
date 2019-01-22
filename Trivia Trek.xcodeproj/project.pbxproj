@@ -87,9 +87,9 @@
 		C572255121CEEC330013D534 = {
 			isa = PBXGroup;
 			children = (
-				C572255C21CEEC330013D534 /* MAD 2018-19 */,
-				C572257721CEEC340013D534 /* MAD 2018-19Tests */,
-				C572258221CEEC340013D534 /* MAD 2018-19UITests */,
+				C572255C21CEEC330013D534 /* Trivia Trek */,
+				C572257721CEEC340013D534 /* Trivia TrekTests */,
+				C572258221CEEC340013D534 /* Trivia TrekUITests */,
 				C572255B21CEEC330013D534 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -104,7 +104,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C572255C21CEEC330013D534 /* MAD 2018-19 */ = {
+		C572255C21CEEC330013D534 /* Trivia Trek */ = {
 			isa = PBXGroup;
 			children = (
 				C572255D21CEEC330013D534 /* AppDelegate.swift */,
@@ -119,25 +119,25 @@
 				C572256C21CEEC340013D534 /* LaunchScreen.storyboard */,
 				C572256F21CEEC340013D534 /* Info.plist */,
 			);
-			path = "MAD 2018-19";
+			path = "Trivia Trek";
 			sourceTree = "<group>";
 		};
-		C572257721CEEC340013D534 /* MAD 2018-19Tests */ = {
+		C572257721CEEC340013D534 /* Trivia TrekTests */ = {
 			isa = PBXGroup;
 			children = (
 				C572257821CEEC340013D534 /* MAD_2018_19Tests.swift */,
 				C572257A21CEEC340013D534 /* Info.plist */,
 			);
-			path = "MAD 2018-19Tests";
+			path = "Trivia TrekTests";
 			sourceTree = "<group>";
 		};
-		C572258221CEEC340013D534 /* MAD 2018-19UITests */ = {
+		C572258221CEEC340013D534 /* Trivia TrekUITests */ = {
 			isa = PBXGroup;
 			children = (
 				C572258321CEEC340013D534 /* MAD_2018_19UITests.swift */,
 				C572258521CEEC340013D534 /* Info.plist */,
 			);
-			path = "MAD 2018-19UITests";
+			path = "Trivia TrekUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -454,7 +454,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "MAD 2018-19/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Trivia Trek/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -472,7 +472,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "MAD 2018-19/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Trivia Trek/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
