@@ -16,6 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let attr = NSDictionary(object: UIFont(name: "ChalkboardSE-Regular", size: 12.0)!, forKey: NSAttributedString.Key.font as NSCopying)
+        UISegmentedControl.appearance().setTitleTextAttributes(attr as? [NSAttributedString.Key : Any] , for: .normal)
+        
+        let buttonFont = NSDictionary(object: UIFont(name: "ChalkboardSE-Regular", size: 16.0)!, forKey: NSAttributedString.Key.font as NSCopying)
+        UIBarButtonItem.appearance().setTitleTextAttributes(buttonFont as? [NSAttributedString.Key : Any], for: .normal)
+                
         return true
     }
 

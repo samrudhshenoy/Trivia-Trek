@@ -20,6 +20,10 @@ class SetupViewController: UIViewController {
     @IBOutlet weak var turnLabel: UILabel!
     @IBOutlet weak var turnIncrementButton: UIStepper!
     
+    var mapImages: [UIImage] = []
+    var mapNames: [String] = []
+    var currentMap: Int = 0
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -33,6 +37,15 @@ class SetupViewController: UIViewController {
         self.turnIncrementButton.maximumValue = 20
         
         self.turnLabel.text! = "Number of Turns: \(Int(self.turnIncrementButton.value))"
+        
+        let navigationTitleFont = UIFont(name: "ChalkboardSE-Bold", size: 16)!
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: navigationTitleFont, NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+        self.mapImages = [UIImage(named: "normal-map")!,
+                     UIImage(named: "winter-map")!]
+        self.mapNames = ["Normal", "Winter"]
+        self.mapImageView.image! = self.mapImages[0]
+        self.mapLabel.text! = "Map: \(self.mapNames[0])"
         
     }
     
@@ -52,10 +65,37 @@ class SetupViewController: UIViewController {
     
     @IBAction func moveMapLeft(_ sender: Any) {
         
+        if self.currentMap - 1 >= 0 {
+            
+            self.currentMap -= 1
+            
+        }
+        else {
+            
+            self.currentMap = self.mapImages.count - 1
+            
+        }
+        
+        self.mapImageView.image! = self.mapImages[self.currentMap]
+        self.mapLabel.text! = "Map: \(self.mapNames[self.currentMap])"
     }
     
     @IBAction func moveMapRight(_ sender: Any) {
         
+        if self.currentMap + 1 <= self.mapImages.count - 1 {
+            
+            self.currentMap += 1
+            
+        }
+        else {
+            
+            self.currentMap = 0
+            
+        }
+        
+        self.mapImageView.image! = self.mapImages[self.currentMap]
+        self.mapLabel.text! = "Map: \(self.mapNames[self.currentMap])"
+
     }
     
     @IBAction func cancelButtonClicked(_ sender: Any) {
