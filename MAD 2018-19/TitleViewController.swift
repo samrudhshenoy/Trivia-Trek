@@ -10,10 +10,19 @@ import UIKit
 
 class TitleViewController: UIViewController {
 
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var connectButton: UIButton!
+    @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var helpButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.playButton.layer.cornerRadius = 5
+        self.connectButton.layer.cornerRadius = 5
+        self.settingsButton.layer.cornerRadius = 5
+        self.helpButton.layer.cornerRadius = 5
+
     }
     
     @IBAction func cancelGameStart(segue: UIStoryboardSegue) {
