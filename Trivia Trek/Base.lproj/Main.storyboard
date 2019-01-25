@@ -83,7 +83,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.41176470588235292" green="0.76470588235294112" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.27578987957003021" green="0.5690254805178494" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="wP8-nx-thg" firstAttribute="trailing" secondItem="owf-95-HvK" secondAttribute="trailing" id="0L9-u4-HP7"/>
                             <constraint firstItem="8k2-oq-kRe" firstAttribute="top" secondItem="Yod-FH-Ifl" secondAttribute="top" id="6ar-Tj-SIY"/>
@@ -204,7 +204,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.41176470590000003" green="0.76470588240000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.2736760675907135" green="0.56862745098039214" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="7OQ-Qv-sX8"/>
                     </view>
                     <navigationItem key="navigationItem" title="Game Setup" id="btc-hd-kYO">
@@ -310,7 +310,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.41176470590000003" green="0.76470588240000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.27450980392156865" green="0.56862745098039214" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="dvk-PD-Lwj"/>
                     </view>
                 </viewController>
@@ -334,7 +334,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.41176470590000003" green="0.76470588240000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.27450980392156865" green="0.56862745098039214" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="tX3-u8-OTP"/>
                     </view>
                 </viewController>
@@ -370,7 +370,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.41176470590000003" green="0.76470588240000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.27450980390000002" green="0.56862745100000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="8oL-N8-kfC"/>
                     </view>
                 </viewController>
@@ -422,7 +422,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.41176470590000003" green="0.76470588240000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.27450980392156865" green="0.56862745098039214" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="lhg-SZ-0EO"/>
                     </view>
                 </viewController>
@@ -438,6 +438,6 @@
         <image name="right-arrow" width="225" height="225"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="44U-7y-lrh"/>
+        <segue reference="xpo-av-9yD"/>
     </inferredMetricsTieBreakers>
 </document>
