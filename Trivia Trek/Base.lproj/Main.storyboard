@@ -241,10 +241,10 @@
             </objects>
             <point key="canvasLocation" x="989.60000000000002" y="130.88455772113943"/>
         </scene>
-        <!--View Controller-->
+        <!--Board View Controller-->
         <scene sceneID="RqI-5R-ilh">
             <objects>
-                <viewController id="D3Z-TO-FCo" sceneMemberID="viewController">
+                <viewController id="D3Z-TO-FCo" customClass="BoardViewController" customModule="MAD_2018_19" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bun-OM-EH3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -252,13 +252,26 @@
                             <skView contentMode="scaleToFill" fixedFrame="YES" sceneName="Board.sks" translatesAutoresizingMaskIntoConstraints="NO" id="1BS-5x-GD5">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Fao-cg-1VB" appends="YES" id="DZZ-wm-NcJ"/>
+                                </connections>
                             </skView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="c6n-o3-a1S"/>
                     </view>
+                    <connections>
+                        <outlet property="boardView" destination="1BS-5x-GD5" id="L4T-sc-RxW"/>
+                        <outlet property="tapTester" destination="Fao-cg-1VB" id="xDw-on-ePM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J58-sP-4RB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Fao-cg-1VB">
+                    <connections>
+                        <action selector="moveRight:" destination="D3Z-TO-FCo" id="rak-Gh-iIu"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1784.8" y="129.08545727136433"/>
         </scene>
@@ -434,7 +447,7 @@
     <resources>
         <image name="MustangGameLogoBetter" width="185.25" height="153"/>
         <image name="left-arrow" width="225" height="225"/>
-        <image name="normal-map" width="241" height="209"/>
+        <image name="normal-map" width="180.75" height="156.75"/>
         <image name="right-arrow" width="225" height="225"/>
     </resources>
     <inferredMetricsTieBreakers>

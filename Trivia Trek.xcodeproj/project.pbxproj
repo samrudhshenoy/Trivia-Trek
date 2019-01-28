@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5779E7421FE734A00D755AA /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5779E7321FE734A00D755AA /* BoardViewController.swift */; };
+		A5779E7621FE77EB00D755AA /* BoardMoves.sks in Resources */ = {isa = PBXBuildFile; fileRef = A5779E7521FE77EB00D755AA /* BoardMoves.sks */; };
 		A5C333D521F830BA00A3D4C0 /* HelpPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C333D421F830BA00A3D4C0 /* HelpPageViewController.swift */; };
 		A5F0E49E21F686AA00908F6E /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0E49D21F686AA00908F6E /* SetupViewController.swift */; };
 		A5F0E4A021F6912D00908F6E /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0E49F21F6912D00908F6E /* TitleViewController.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A5779E7321FE734A00D755AA /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
+		A5779E7521FE77EB00D755AA /* BoardMoves.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoardMoves.sks; sourceTree = "<group>"; };
 		A5C333D421F830BA00A3D4C0 /* HelpPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPageViewController.swift; sourceTree = "<group>"; };
 		A5F0E49D21F686AA00908F6E /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		A5F0E49F21F6912D00908F6E /* TitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
@@ -106,9 +110,11 @@
 			isa = PBXGroup;
 			children = (
 				A5F0E4A121F6B64700908F6E /* Board.sks */,
+				A5779E7521FE77EB00D755AA /* BoardMoves.sks */,
 				C572255D21CEEC330013D534 /* AppDelegate.swift */,
 				C572256521CEEC330013D534 /* GameViewController.swift */,
 				C572256721CEEC330013D534 /* Main.storyboard */,
+				A5779E7321FE734A00D755AA /* BoardViewController.swift */,
 				A5C333D421F830BA00A3D4C0 /* HelpPageViewController.swift */,
 				A5F0E49F21F6912D00908F6E /* TitleViewController.swift */,
 				A5F0E49D21F686AA00908F6E /* SetupViewController.swift */,
@@ -242,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C572256921CEEC330013D534 /* Main.storyboard in Resources */,
+				A5779E7621FE77EB00D755AA /* BoardMoves.sks in Resources */,
 				C572256B21CEEC340013D534 /* Assets.xcassets in Resources */,
 				C572256E21CEEC340013D534 /* LaunchScreen.storyboard in Resources */,
 				A5F0E4A221F6B64700908F6E /* Board.sks in Resources */,
@@ -269,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5779E7421FE734A00D755AA /* BoardViewController.swift in Sources */,
 				A5F0E49E21F686AA00908F6E /* SetupViewController.swift in Sources */,
 				C572256621CEEC330013D534 /* GameViewController.swift in Sources */,
 				A5C333D521F830BA00A3D4C0 /* HelpPageViewController.swift in Sources */,
