@@ -38,7 +38,7 @@ class SetupViewController: UIViewController {
         
         self.turnLabel.text! = "Number of Turns: \(Int(self.turnIncrementButton.value))"
         
-        let navigationTitleFont = UIFont(name: "ChalkboardSE-Bold", size: 16)!
+        let navigationTitleFont = UIFont(name: "AvenirNext-Bold", size: 16)!
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: navigationTitleFont, NSAttributedString.Key.foregroundColor: UIColor.white]
         
         self.mapImages = [UIImage(named: "normal-map")!,

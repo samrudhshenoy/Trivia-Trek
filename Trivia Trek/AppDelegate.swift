@@ -25,10 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let attr = NSDictionary(object: UIFont(name: "Futura-Medium", size: 10.0)!, forKey: NSAttributedString.Key.font as NSCopying)
-        UISegmentedControl.appearance().setTitleTextAttributes(attr as? [NSAttributedString.Key : Any] , for: .normal)
+        let selectorFont = NSDictionary(object: UIFont(name: "AvenirNext-Regular", size: 11.0)!, forKey: NSAttributedString.Key.font as NSCopying)
+        UISegmentedControl.appearance().setTitleTextAttributes(selectorFont as? [NSAttributedString.Key : Any] , for: .normal)
         
-        let buttonFont = NSDictionary(object: UIFont(name: "Futura-Medium", size: 14.0)!, forKey: NSAttributedString.Key.font as NSCopying)
+        let buttonFont = NSDictionary(object: UIFont(name: "AvenirNext-Regular", size: 16.0)!, forKey: NSAttributedString.Key.font as NSCopying)
         UIBarButtonItem.appearance().setTitleTextAttributes(buttonFont as? [NSAttributedString.Key : Any], for: .normal)
         
 //        UIApplicationDelegate.application(application, didFinishLaunchingWithOptions: launchOptions)
