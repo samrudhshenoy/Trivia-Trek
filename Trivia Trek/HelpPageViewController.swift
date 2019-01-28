@@ -8,14 +8,23 @@
 
 import UIKit
 
+
+
 class HelpPageViewController: UIPageViewController, UIPageViewControllerDataSource {
 
     var pages: [UIViewController] = []
     
+    @IBOutlet weak var letsGo: UIButton!
+    
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
-
+        
+        if (letsGo != nil) {
+            self.letsGo.layer.cornerRadius = 10;
+        }
+        
         self.dataSource = self
         
         self.pages = [self.loadPage(number: "One"),

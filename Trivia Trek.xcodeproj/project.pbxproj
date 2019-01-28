@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0517A33B247062F6D3191EC4 /* Pods_MAD_2018_19UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B2647E7835C02F470D94879 /* Pods_MAD_2018_19UITests.framework */; };
+		2C7FDD3921FAC19B009CC4FD /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7FDD3821FAC19A009CC4FD /* ConnectViewController.swift */; };
+		2C81464A21FCFF6700EFDB6B /* HelpFinalPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C81464921FCFF6700EFDB6B /* HelpFinalPageViewController.swift */; };
+		2CD47DD321FD0D68007A9D0F /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD47DD221FD0D67007A9D0F /* Player.swift */; };
+		2CF52C3121FCC82A00863B39 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF52C3021FCC82900863B39 /* Default-568h@2x.png */; };
+		2CF52C3621FCD55700863B39 /* MustangGameLogoBetter.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF52C3521FCD55700863B39 /* MustangGameLogoBetter.png */; };
+		31BAA9233273A2135EDE2922 /* Pods_MAD_2018_19.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB2FAFFF6FABB4FE2C40F95 /* Pods_MAD_2018_19.framework */; };
+		350E9869EB3D3BE5184DAC05 /* Pods_MAD_2018_19Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F62D4D5893E71B6BC8DB1D4C /* Pods_MAD_2018_19Tests.framework */; };
 		A5C333D521F830BA00A3D4C0 /* HelpPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C333D421F830BA00A3D4C0 /* HelpPageViewController.swift */; };
 		A5F0E49E21F686AA00908F6E /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0E49D21F686AA00908F6E /* SetupViewController.swift */; };
 		A5F0E4A021F6912D00908F6E /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0E49F21F6912D00908F6E /* TitleViewController.swift */; };
@@ -38,6 +46,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		013EC9562B46EE681C17FE27 /* Pods-MAD 2018-19UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MAD 2018-19UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MAD 2018-19UITests/Pods-MAD 2018-19UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		05BD6C5648D254E3C21DEF27 /* Pods-MAD 2018-19Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MAD 2018-19Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MAD 2018-19Tests/Pods-MAD 2018-19Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		2C7FDD3821FAC19A009CC4FD /* ConnectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
+		2C81464921FCFF6700EFDB6B /* HelpFinalPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpFinalPageViewController.swift; sourceTree = "<group>"; };
+		2CD47DD221FD0D67007A9D0F /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		2CF52C3021FCC82900863B39 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		2CF52C3521FCD55700863B39 /* MustangGameLogoBetter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MustangGameLogoBetter.png; path = Assets.xcassets/MustangGameLogoBetter.imageset/MustangGameLogoBetter.png; sourceTree = "<group>"; };
+		647EC0BD28CA14E9DAE486E9 /* Pods-MAD 2018-19Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MAD 2018-19Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MAD 2018-19Tests/Pods-MAD 2018-19Tests.release.xcconfig"; sourceTree = "<group>"; };
+		653C80F16A9A9D6F4C975A55 /* Pods-MAD 2018-19.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MAD 2018-19.release.xcconfig"; path = "Pods/Target Support Files/Pods-MAD 2018-19/Pods-MAD 2018-19.release.xcconfig"; sourceTree = "<group>"; };
+		8B2647E7835C02F470D94879 /* Pods_MAD_2018_19UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MAD_2018_19UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CB2FAFFF6FABB4FE2C40F95 /* Pods_MAD_2018_19.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MAD_2018_19.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5C333D421F830BA00A3D4C0 /* HelpPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPageViewController.swift; sourceTree = "<group>"; };
 		A5F0E49D21F686AA00908F6E /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		A5F0E49F21F6912D00908F6E /* TitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +74,9 @@
 		C572257F21CEEC340013D534 /* MAD 2018-19UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MAD 2018-19UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C572258321CEEC340013D534 /* MAD_2018_19UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAD_2018_19UITests.swift; sourceTree = "<group>"; };
 		C572258521CEEC340013D534 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECEA66EA3049063CF00E355A /* Pods-MAD 2018-19UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MAD 2018-19UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MAD 2018-19UITests/Pods-MAD 2018-19UITests.release.xcconfig"; sourceTree = "<group>"; };
+		F62D4D5893E71B6BC8DB1D4C /* Pods_MAD_2018_19Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MAD_2018_19Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F76AA5355CF1AC343EDA1768 /* Pods-MAD 2018-19.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MAD 2018-19.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MAD 2018-19/Pods-MAD 2018-19.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31BAA9233273A2135EDE2922 /* Pods_MAD_2018_19.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				350E9869EB3D3BE5184DAC05 /* Pods_MAD_2018_19Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,19 +100,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0517A33B247062F6D3191EC4 /* Pods_MAD_2018_19UITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28A89E1ED9E6AA3D8A7E18A6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F76AA5355CF1AC343EDA1768 /* Pods-MAD 2018-19.debug.xcconfig */,
+				653C80F16A9A9D6F4C975A55 /* Pods-MAD 2018-19.release.xcconfig */,
+				05BD6C5648D254E3C21DEF27 /* Pods-MAD 2018-19Tests.debug.xcconfig */,
+				647EC0BD28CA14E9DAE486E9 /* Pods-MAD 2018-19Tests.release.xcconfig */,
+				013EC9562B46EE681C17FE27 /* Pods-MAD 2018-19UITests.debug.xcconfig */,
+				ECEA66EA3049063CF00E355A /* Pods-MAD 2018-19UITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C572255121CEEC330013D534 = {
 			isa = PBXGroup;
 			children = (
+				2CF52C3021FCC82900863B39 /* Default-568h@2x.png */,
 				C572255C21CEEC330013D534 /* Trivia Trek */,
 				C572257721CEEC340013D534 /* Trivia TrekTests */,
 				C572258221CEEC340013D534 /* Trivia TrekUITests */,
 				C572255B21CEEC330013D534 /* Products */,
+				28A89E1ED9E6AA3D8A7E18A6 /* Pods */,
+				DF8612F66003815AB6CF032A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,12 +150,16 @@
 				C572255D21CEEC330013D534 /* AppDelegate.swift */,
 				C572256521CEEC330013D534 /* GameViewController.swift */,
 				C572256721CEEC330013D534 /* Main.storyboard */,
+				2CD47DD221FD0D67007A9D0F /* Player.swift */,
+				2C81464921FCFF6700EFDB6B /* HelpFinalPageViewController.swift */,
+				2C7FDD3821FAC19A009CC4FD /* ConnectViewController.swift */,
 				A5C333D421F830BA00A3D4C0 /* HelpPageViewController.swift */,
 				A5F0E49F21F6912D00908F6E /* TitleViewController.swift */,
 				A5F0E49D21F686AA00908F6E /* SetupViewController.swift */,
 				C572256A21CEEC340013D534 /* Assets.xcassets */,
 				C572256C21CEEC340013D534 /* LaunchScreen.storyboard */,
 				C572256F21CEEC340013D534 /* Info.plist */,
+				2CF52C3521FCD55700863B39 /* MustangGameLogoBetter.png */,
 			);
 			path = "Trivia Trek";
 			sourceTree = "<group>";
@@ -137,6 +182,16 @@
 			path = "Trivia TrekUITests";
 			sourceTree = "<group>";
 		};
+		DF8612F66003815AB6CF032A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8CB2FAFFF6FABB4FE2C40F95 /* Pods_MAD_2018_19.framework */,
+				F62D4D5893E71B6BC8DB1D4C /* Pods_MAD_2018_19Tests.framework */,
+				8B2647E7835C02F470D94879 /* Pods_MAD_2018_19UITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,9 +199,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C572258821CEEC340013D534 /* Build configuration list for PBXNativeTarget "MAD 2018-19" */;
 			buildPhases = (
+				AC3DD16082FECE6C933FAC81 /* [CP] Check Pods Manifest.lock */,
 				C572255621CEEC330013D534 /* Sources */,
 				C572255721CEEC330013D534 /* Frameworks */,
 				C572255821CEEC330013D534 /* Resources */,
+				11EFA31AFAC03BCC35B63610 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -161,6 +218,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C572258B21CEEC340013D534 /* Build configuration list for PBXNativeTarget "MAD 2018-19Tests" */;
 			buildPhases = (
+				FA4B39C191ECFB3166F18F93 /* [CP] Check Pods Manifest.lock */,
 				C572257021CEEC340013D534 /* Sources */,
 				C572257121CEEC340013D534 /* Frameworks */,
 				C572257221CEEC340013D534 /* Resources */,
@@ -179,6 +237,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C572258E21CEEC340013D534 /* Build configuration list for PBXNativeTarget "MAD 2018-19UITests" */;
 			buildPhases = (
+				2AF772C4ED98EBCC5E8BD1F7 /* [CP] Check Pods Manifest.lock */,
 				C572257B21CEEC340013D534 /* Sources */,
 				C572257C21CEEC340013D534 /* Frameworks */,
 				C572257D21CEEC340013D534 /* Resources */,
@@ -205,6 +264,7 @@
 				TargetAttributes = {
 					C572255921CEEC330013D534 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					C572257321CEEC340013D534 = {
 						CreatedOnToolsVersion = 10.1;
@@ -243,7 +303,9 @@
 			files = (
 				C572256921CEEC330013D534 /* Main.storyboard in Resources */,
 				C572256B21CEEC340013D534 /* Assets.xcassets in Resources */,
+				2CF52C3621FCD55700863B39 /* MustangGameLogoBetter.png in Resources */,
 				C572256E21CEEC340013D534 /* LaunchScreen.storyboard in Resources */,
+				2CF52C3121FCC82A00863B39 /* Default-568h@2x.png in Resources */,
 				A5F0E4A221F6B64700908F6E /* Board.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +326,105 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		11EFA31AFAC03BCC35B63610 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MAD 2018-19/Pods-MAD 2018-19-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKPlacesKit/FBSDKPlacesKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKPlacesKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MAD 2018-19/Pods-MAD 2018-19-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2AF772C4ED98EBCC5E8BD1F7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MAD 2018-19UITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC3DD16082FECE6C933FAC81 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MAD 2018-19-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA4B39C191ECFB3166F18F93 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MAD 2018-19Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C572255621CEEC330013D534 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -272,7 +433,10 @@
 				A5F0E49E21F686AA00908F6E /* SetupViewController.swift in Sources */,
 				C572256621CEEC330013D534 /* GameViewController.swift in Sources */,
 				A5C333D521F830BA00A3D4C0 /* HelpPageViewController.swift in Sources */,
+				2C7FDD3921FAC19B009CC4FD /* ConnectViewController.swift in Sources */,
+				2CD47DD321FD0D68007A9D0F /* Player.swift in Sources */,
 				C572255E21CEEC330013D534 /* AppDelegate.swift in Sources */,
+				2C81464A21FCFF6700EFDB6B /* HelpFinalPageViewController.swift in Sources */,
 				A5F0E4A021F6912D00908F6E /* TitleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,8 +610,10 @@
 		};
 		C572258921CEEC340013D534 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F76AA5355CF1AC343EDA1768 /* Pods-MAD 2018-19.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Trivia Trek/Info.plist";
@@ -455,8 +621,23 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Bolts\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+					"-framework",
+					"\"FBSDKPlacesKit\"",
+					"-framework",
+					"\"FBSDKShareKit\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hhsfbla.Trivia-Trek";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -464,14 +645,30 @@
 		};
 		C572258A21CEEC340013D534 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 653C80F16A9A9D6F4C975A55 /* Pods-MAD 2018-19.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Trivia Trek/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Bolts\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+					"-framework",
+					"\"FBSDKPlacesKit\"",
+					"-framework",
+					"\"FBSDKShareKit\"",
+					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.hhsfbla.Trivia-Trek";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -482,6 +679,7 @@
 		};
 		C572258C21CEEC340013D534 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05BD6C5648D254E3C21DEF27 /* Pods-MAD 2018-19Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -502,6 +700,7 @@
 		};
 		C572258D21CEEC340013D534 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 647EC0BD28CA14E9DAE486E9 /* Pods-MAD 2018-19Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -522,6 +721,7 @@
 		};
 		C572258F21CEEC340013D534 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 013EC9562B46EE681C17FE27 /* Pods-MAD 2018-19UITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -541,6 +741,7 @@
 		};
 		C572259021CEEC340013D534 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECEA66EA3049063CF00E355A /* Pods-MAD 2018-19UITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
