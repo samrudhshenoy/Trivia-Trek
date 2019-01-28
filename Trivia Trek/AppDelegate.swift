@@ -7,22 +7,31 @@
 //
 
 import UIKit
+//import FBSDKCoreKit
 
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return true
 
+//        return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let attr = NSDictionary(object: UIFont(name: "ChalkboardSE-Regular", size: 12.0)!, forKey: NSAttributedString.Key.font as NSCopying)
+        let attr = NSDictionary(object: UIFont(name: "Futura-Medium", size: 10.0)!, forKey: NSAttributedString.Key.font as NSCopying)
         UISegmentedControl.appearance().setTitleTextAttributes(attr as? [NSAttributedString.Key : Any] , for: .normal)
         
-        let buttonFont = NSDictionary(object: UIFont(name: "ChalkboardSE-Regular", size: 16.0)!, forKey: NSAttributedString.Key.font as NSCopying)
+        let buttonFont = NSDictionary(object: UIFont(name: "Futura-Medium", size: 14.0)!, forKey: NSAttributedString.Key.font as NSCopying)
         UIBarButtonItem.appearance().setTitleTextAttributes(buttonFont as? [NSAttributedString.Key : Any], for: .normal)
-                
+        
+//        UIApplicationDelegate.application(application, didFinishLaunchingWithOptions: launchOptions)
         return true
     }
 
@@ -42,6 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

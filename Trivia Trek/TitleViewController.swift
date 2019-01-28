@@ -22,8 +22,10 @@ class TitleViewController: UIViewController {
         self.connectButton.layer.cornerRadius = 5
         self.settingsButton.layer.cornerRadius = 5
         self.helpButton.layer.cornerRadius = 5
-
+            
     }
+    
+    
     
     @IBAction func cancelGameStart(segue: UIStoryboardSegue) {
         
