@@ -1,0 +1,6 @@
+framework module Pods_MAD_2018_19UITests {
+  umbrella header "Pods-MAD 2018-19UITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

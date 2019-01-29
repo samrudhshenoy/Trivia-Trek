@@ -6,6 +6,11 @@ target 'MAD 2018-19' do
   use_frameworks!
 
   # Pods for MAD 2018-19
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
+  pod 'FacebookSDK'
+  pod 'FBSDKPlacesKit'
 
   target 'MAD 2018-19Tests' do
     inherit! :search_paths

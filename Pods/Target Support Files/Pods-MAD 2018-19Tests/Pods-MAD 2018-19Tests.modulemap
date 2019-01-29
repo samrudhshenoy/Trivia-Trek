@@ -1,0 +1,6 @@
+framework module Pods_MAD_2018_19Tests {
+  umbrella header "Pods-MAD 2018-19Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

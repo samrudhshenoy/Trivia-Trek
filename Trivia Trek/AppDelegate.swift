@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import FBSDKCoreKit
+import FBSDKCoreKit
 
 @UIApplicationMain
 
@@ -17,9 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        return true
-
-//        return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+        return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -31,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let buttonFont = NSDictionary(object: UIFont(name: "AvenirNext-Regular", size: 16.0)!, forKey: NSAttributedString.Key.font as NSCopying)
         UIBarButtonItem.appearance().setTitleTextAttributes(buttonFont as? [NSAttributedString.Key : Any], for: .normal)
         
-//        UIApplicationDelegate.application(application, didFinishLaunchingWithOptions: launchOptions)
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         return true
     }
 

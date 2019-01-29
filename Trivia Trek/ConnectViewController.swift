@@ -9,7 +9,7 @@
 import UIKit
 import FBSDKLoginKit
 
-class ConnectViewController: UIViewController, FBSDKLoginButtonDelegate {
+class ConnectViewController: UIViewController {
     
     @IBOutlet weak var loginButton: FBSDKLoginButton!
     
@@ -41,7 +41,7 @@ class ConnectViewController: UIViewController, FBSDKLoginButtonDelegate {
             }
         }
     }
-    
+
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("User Logged Out")
     }

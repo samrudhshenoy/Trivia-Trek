@@ -7,16 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A5779E7421FE734A00D755AA /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5779E7321FE734A00D755AA /* BoardViewController.swift */; };
-		A5779E7621FE77EB00D755AA /* BoardMoves.sks in Resources */ = {isa = PBXBuildFile; fileRef = A5779E7521FE77EB00D755AA /* BoardMoves.sks */; };
 		0517A33B247062F6D3191EC4 /* Pods_MAD_2018_19UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B2647E7835C02F470D94879 /* Pods_MAD_2018_19UITests.framework */; };
 		2C7FDD3921FAC19B009CC4FD /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7FDD3821FAC19A009CC4FD /* ConnectViewController.swift */; };
 		2C81464A21FCFF6700EFDB6B /* HelpFinalPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C81464921FCFF6700EFDB6B /* HelpFinalPageViewController.swift */; };
 		2CD47DD321FD0D68007A9D0F /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD47DD221FD0D67007A9D0F /* Player.swift */; };
-		2CF52C3121FCC82A00863B39 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF52C3021FCC82900863B39 /* Default-568h@2x.png */; };
 		2CF52C3621FCD55700863B39 /* MustangGameLogoBetter.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF52C3521FCD55700863B39 /* MustangGameLogoBetter.png */; };
 		31BAA9233273A2135EDE2922 /* Pods_MAD_2018_19.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB2FAFFF6FABB4FE2C40F95 /* Pods_MAD_2018_19.framework */; };
 		350E9869EB3D3BE5184DAC05 /* Pods_MAD_2018_19Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F62D4D5893E71B6BC8DB1D4C /* Pods_MAD_2018_19Tests.framework */; };
+		A5779E7421FE734A00D755AA /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5779E7321FE734A00D755AA /* BoardViewController.swift */; };
+		A5779E7621FE77EB00D755AA /* BoardMoves.sks in Resources */ = {isa = PBXBuildFile; fileRef = A5779E7521FE77EB00D755AA /* BoardMoves.sks */; };
 		A5C333D521F830BA00A3D4C0 /* HelpPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C333D421F830BA00A3D4C0 /* HelpPageViewController.swift */; };
 		A5F0E49E21F686AA00908F6E /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0E49D21F686AA00908F6E /* SetupViewController.swift */; };
 		A5F0E4A021F6912D00908F6E /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0E49F21F6912D00908F6E /* TitleViewController.swift */; };
@@ -48,19 +47,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A5779E7321FE734A00D755AA /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
-		A5779E7521FE77EB00D755AA /* BoardMoves.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoardMoves.sks; sourceTree = "<group>"; };
 		013EC9562B46EE681C17FE27 /* Pods-MAD 2018-19UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MAD 2018-19UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MAD 2018-19UITests/Pods-MAD 2018-19UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		05BD6C5648D254E3C21DEF27 /* Pods-MAD 2018-19Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MAD 2018-19Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MAD 2018-19Tests/Pods-MAD 2018-19Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		2C7FDD3821FAC19A009CC4FD /* ConnectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
 		2C81464921FCFF6700EFDB6B /* HelpFinalPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpFinalPageViewController.swift; sourceTree = "<group>"; };
 		2CD47DD221FD0D67007A9D0F /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		2CF52C3021FCC82900863B39 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		2CF52C3521FCD55700863B39 /* MustangGameLogoBetter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MustangGameLogoBetter.png; path = Assets.xcassets/MustangGameLogoBetter.imageset/MustangGameLogoBetter.png; sourceTree = "<group>"; };
 		647EC0BD28CA14E9DAE486E9 /* Pods-MAD 2018-19Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MAD 2018-19Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MAD 2018-19Tests/Pods-MAD 2018-19Tests.release.xcconfig"; sourceTree = "<group>"; };
 		653C80F16A9A9D6F4C975A55 /* Pods-MAD 2018-19.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MAD 2018-19.release.xcconfig"; path = "Pods/Target Support Files/Pods-MAD 2018-19/Pods-MAD 2018-19.release.xcconfig"; sourceTree = "<group>"; };
 		8B2647E7835C02F470D94879 /* Pods_MAD_2018_19UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MAD_2018_19UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB2FAFFF6FABB4FE2C40F95 /* Pods_MAD_2018_19.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MAD_2018_19.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5779E7321FE734A00D755AA /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
+		A5779E7521FE77EB00D755AA /* BoardMoves.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BoardMoves.sks; sourceTree = "<group>"; };
 		A5C333D421F830BA00A3D4C0 /* HelpPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPageViewController.swift; sourceTree = "<group>"; };
 		A5F0E49D21F686AA00908F6E /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		A5F0E49F21F6912D00908F6E /* TitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
@@ -127,7 +125,6 @@
 		C572255121CEEC330013D534 = {
 			isa = PBXGroup;
 			children = (
-				2CF52C3021FCC82900863B39 /* Default-568h@2x.png */,
 				C572255C21CEEC330013D534 /* Trivia Trek */,
 				C572257721CEEC340013D534 /* Trivia TrekTests */,
 				C572258221CEEC340013D534 /* Trivia TrekUITests */,
@@ -312,7 +309,6 @@
 				C572256B21CEEC340013D534 /* Assets.xcassets in Resources */,
 				2CF52C3621FCD55700863B39 /* MustangGameLogoBetter.png in Resources */,
 				C572256E21CEEC340013D534 /* LaunchScreen.storyboard in Resources */,
-				2CF52C3121FCC82A00863B39 /* Default-568h@2x.png in Resources */,
 				A5F0E4A221F6B64700908F6E /* Board.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,6 +344,9 @@
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKPlacesKit/FBSDKPlacesKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -358,6 +357,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKPlacesKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

@@ -1,0 +1,6 @@
+framework module Pods_MAD_2018_19 {
+  umbrella header "Pods-MAD 2018-19-umbrella.h"
+
+  export *
+  module * { export * }
+}
