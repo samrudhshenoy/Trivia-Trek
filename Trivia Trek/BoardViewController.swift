@@ -18,13 +18,17 @@ class BoardViewController: UIViewController {
         
         super.viewDidLoad()
 
-        let board = SKScene(fileNamed: "Board")
+        let board = SKScene(size: self.boardView.bounds.size)
+
+        let background = SKSpriteNode(imageNamed: "background")
+        background.position = CGPoint(x: board.size.width / 2, y: board.size.height / 2)
+        background.size = CGSize(width: board.size.width, height: board.size.height)
+        board.addChild(background)
         
-        if let player = board?.childNode(withName: "player") as? SKSpriteNode {
-            
-            player.texture = SKTexture(imageNamed: "avatar-sample")
-            
-        }
+        let player = SKSpriteNode(imageNamed: "avatar-sample")
+        player.position = CGPoint(x: board.size.width / 2, y: board.size.height / 2)
+        player.size = CGSize(width: 60, height: 60)
+        board.addChild(player)
         
         self.boardView.presentScene(board)
         
@@ -54,3 +58,18 @@ class BoardViewController: UIViewController {
     */
 
 }
+
+//public extension SKView {
+//
+//    func isIphoneX() -> Bool {
+//
+//        let screenHeight = 2436.0
+//        let screenWidth = 1125.0
+//        let iphoneXAspectRatio = screenHeight / screenWidth
+//
+//        let aspectRatio = Double(self.frame.width/self.frame.height)
+//        return (aspectRatio == iphoneXAspectRatio) ? true : false
+//
+//    }
+//
+//}
