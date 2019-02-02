@@ -14,6 +14,7 @@ class TitleViewController: UIViewController {
     @IBOutlet weak var connectButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var helpButton: UIButton!
+    @IBOutlet weak var gameCenterButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,18 @@ class TitleViewController: UIViewController {
         self.connectButton.layer.cornerRadius = 5
         self.settingsButton.layer.cornerRadius = 5
         self.helpButton.layer.cornerRadius = 5
-            
+        self.gameCenterButton.layer.cornerRadius = 5
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.authChanged(notification:)),
+            name: .authChanged,
+            object: nil
+        )
+        
+        self.gameCenterButton.titleLabel?.text = PlayerAuth.isAuthenticated ? "Connected" : "Login"
+        self.gameCenterButton.isEnabled = !PlayerAuth.isAuthenticated
+        
     }
     
     
@@ -31,6 +43,16 @@ class TitleViewController: UIViewController {
         
         
     }
+    
+    func authChanged(notification: Notification) {
+        
+        let isLoggedIn = notification.object as? Bool ?? false
+
+        self.gameCenterButton.titleLabel?.text = isLoggedIn ? "Connected" : "Login"
+        self.gameCenterButton.isEnabled = !isLoggedIn
+        
+    }
+    
     /*
     // MARK: - Navigation
 
