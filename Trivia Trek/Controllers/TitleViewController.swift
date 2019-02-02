@@ -23,7 +23,11 @@ class TitleViewController: UIViewController {
         self.connectButton.layer.cornerRadius = 5
         self.settingsButton.layer.cornerRadius = 5
         self.helpButton.layer.cornerRadius = 5
+        
         self.gameCenterButton.layer.cornerRadius = 5
+        self.gameCenterButton.layer.borderColor = UIColor(red: 0, green: 0.78, blue: 0, alpha: 1).cgColor
+        self.gameCenterButton.layer.borderWidth = 0
+        self.gameCenterButton.isEnabled = false
         
         PlayerAuth.authenticator.authViewController = self
         
@@ -47,13 +51,12 @@ class TitleViewController: UIViewController {
 
         if isLoggedIn {
             
-            self.gameCenterButton.layer.borderColor = UIColor(red: 0, green: 0.78, blue: 0, alpha: 1).cgColor
             self.gameCenterButton.layer.borderWidth = 3
+            self.gameCenterButton.isEnabled = false
             
         }
         else {
             
-            self.gameCenterButton.layer.borderColor = nil
             self.gameCenterButton.layer.borderWidth = 0
 
         }

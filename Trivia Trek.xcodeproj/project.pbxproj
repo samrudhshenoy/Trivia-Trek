@@ -14,6 +14,7 @@
 		2CF52C3621FCD55700863B39 /* MustangGameLogoBetter.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF52C3521FCD55700863B39 /* MustangGameLogoBetter.png */; };
 		31BAA9233273A2135EDE2922 /* Pods_MAD_2018_19.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB2FAFFF6FABB4FE2C40F95 /* Pods_MAD_2018_19.framework */; };
 		350E9869EB3D3BE5184DAC05 /* Pods_MAD_2018_19Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F62D4D5893E71B6BC8DB1D4C /* Pods_MAD_2018_19Tests.framework */; };
+		A50ADBDA220665BE0061F7D5 /* CPU.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50ADBD9220665BE0061F7D5 /* CPU.swift */; };
 		A512BCFC220625DF00C538EB /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A512BCFB220625DF00C538EB /* GameKit.framework */; };
 		A512BD042206373800C538EB /* PlayerAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = A512BD032206373800C538EB /* PlayerAuth.swift */; };
 		A512BD062206405D00C538EB /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A512BD052206405D00C538EB /* AuthViewController.swift */; };
@@ -58,6 +59,7 @@
 		653C80F16A9A9D6F4C975A55 /* Pods-MAD 2018-19.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MAD 2018-19.release.xcconfig"; path = "Pods/Target Support Files/Pods-MAD 2018-19/Pods-MAD 2018-19.release.xcconfig"; sourceTree = "<group>"; };
 		8B2647E7835C02F470D94879 /* Pods_MAD_2018_19UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MAD_2018_19UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB2FAFFF6FABB4FE2C40F95 /* Pods_MAD_2018_19.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MAD_2018_19.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A50ADBD9220665BE0061F7D5 /* CPU.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPU.swift; sourceTree = "<group>"; };
 		A512BCFB220625DF00C538EB /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		A512BCFD2206303A00C538EB /* MAD 2018-19.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MAD 2018-19.entitlements"; sourceTree = "<group>"; };
 		A512BD032206373800C538EB /* PlayerAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerAuth.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 		A512BD01220636C400C538EB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A50ADBD9220665BE0061F7D5 /* CPU.swift */,
 				2CD47DD221FD0D67007A9D0F /* Player.swift */,
 			);
 			path = Models;
@@ -483,6 +486,7 @@
 				A512BD042206373800C538EB /* PlayerAuth.swift in Sources */,
 				2C7FDD3921FAC19B009CC4FD /* ConnectViewController.swift in Sources */,
 				2CD47DD321FD0D68007A9D0F /* Player.swift in Sources */,
+				A50ADBDA220665BE0061F7D5 /* CPU.swift in Sources */,
 				C572255E21CEEC330013D534 /* AppDelegate.swift in Sources */,
 				2C81464A21FCFF6700EFDB6B /* HelpFinalPageViewController.swift in Sources */,
 				A5F0E4A021F6912D00908F6E /* TitleViewController.swift in Sources */,
