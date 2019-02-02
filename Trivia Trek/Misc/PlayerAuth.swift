@@ -12,6 +12,7 @@ import GameKit
 class PlayerAuth: NSObject {
 
     static let authenticator = PlayerAuth()
+    
     static var isAuthenticated: Bool {
         return GKLocalPlayer.local.isAuthenticated
     }
@@ -26,7 +27,11 @@ class PlayerAuth: NSObject {
             
             NotificationCenter.default.post(name: .authChanged, object: GKLocalPlayer.local.isAuthenticated)
             
-            if let controller = gcAuthController {
+            if GKLocalPlayer.local.isAuthenticated {
+                
+                
+            }
+            else if let controller = gcAuthController {
                 
                 self.authViewController?.present(controller, animated: true, completion: nil)
                 

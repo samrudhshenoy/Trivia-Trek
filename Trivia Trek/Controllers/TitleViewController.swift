@@ -18,12 +18,14 @@ class TitleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.playButton.layer.cornerRadius = 5
         self.connectButton.layer.cornerRadius = 5
         self.settingsButton.layer.cornerRadius = 5
         self.helpButton.layer.cornerRadius = 5
         self.gameCenterButton.layer.cornerRadius = 5
+        
+        PlayerAuth.authenticator.authViewController = self
         
         NotificationCenter.default.addObserver(
             self,
@@ -32,24 +34,29 @@ class TitleViewController: UIViewController {
             object: nil
         )
         
-        self.gameCenterButton.titleLabel?.text = PlayerAuth.isAuthenticated ? "Connected" : "Login"
-        self.gameCenterButton.isEnabled = !PlayerAuth.isAuthenticated
-        
     }
-    
-    
     
     @IBAction func cancelGameStart(segue: UIStoryboardSegue) {
         
         
     }
     
-    func authChanged(notification: Notification) {
+    @objc func authChanged(notification: Notification) {
         
         let isLoggedIn = notification.object as? Bool ?? false
 
-        self.gameCenterButton.titleLabel?.text = isLoggedIn ? "Connected" : "Login"
-        self.gameCenterButton.isEnabled = !isLoggedIn
+        if isLoggedIn {
+            
+            self.gameCenterButton.layer.borderColor = UIColor(red: 0, green: 0.78, blue: 0, alpha: 1).cgColor
+            self.gameCenterButton.layer.borderWidth = 3
+            
+        }
+        else {
+            
+            self.gameCenterButton.layer.borderColor = nil
+            self.gameCenterButton.layer.borderWidth = 0
+
+        }
         
     }
     
