@@ -23,6 +23,8 @@ class SetupViewController: UIViewController {
     var mapImages: [UIImage] = []
     var mapNames: [String] = []
     var currentMap: Int = 0
+    var numCPU: Int = 0
+    var numQuestions: Int = 0
     
     override func viewDidLoad() {
         
@@ -51,15 +53,15 @@ class SetupViewController: UIViewController {
     
     @IBAction func changeNumberOfPlayers(_ sender: Any) {
         
-        let numberOfPlayers = Int(self.playerIncrementButton.value)
-        self.playerLabel.text! = "Number of Players: \(numberOfPlayers)"
+        let numCPU = Int(self.playerIncrementButton.value)-1
+        self.playerLabel.text! = "Number of Players: \(numCPU)"
     
     }
     
     @IBAction func changeTurns(_ sender: Any) {
         
-        let numberOfTurns = Int(self.turnIncrementButton.value)
-        self.turnLabel.text! = "Number of Turns: \(numberOfTurns)"
+        let numQuestions = Int(self.turnIncrementButton.value)
+        self.turnLabel.text! = "Number of Questions: \(numQuestions)"
         
     }
     
@@ -100,6 +102,8 @@ class SetupViewController: UIViewController {
     
     @IBAction func cancelButtonClicked(_ sender: Any) {
      
+        
+        
         performSegue(withIdentifier: "cancelGameStart", sender: self)
         
     }
