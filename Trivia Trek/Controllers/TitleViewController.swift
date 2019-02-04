@@ -28,6 +28,17 @@ class TitleViewController: UIViewController {
         self.gameCenterLogo.layer.cornerRadius = 5
         self.gameCenterLogo.layer.borderColor = UIColor(red: 0, green: 0.78, blue: 0, alpha: 1).cgColor
 
+        if GKLocalPlayer.local.isAuthenticated {
+            
+            self.gameCenterLogo.layer.borderWidth = 3
+            
+        }
+        else {
+            
+            self.gameCenterLogo.layer.borderWidth = 0
+            
+        }
+        
         GKLocalPlayer.local.authenticateHandler = { authScreen, error in
             
             NotificationCenter.default.post(name: .authChanged, object: GKLocalPlayer.local.isAuthenticated)
@@ -58,7 +69,7 @@ class TitleViewController: UIViewController {
         
     }
     
-    @IBAction func cancelGameStart(segue: UIStoryboardSegue) {
+    @IBAction func unwindToTitle(segue: UIStoryboardSegue) {
         
         
     }

@@ -16,6 +16,9 @@
 		350E9869EB3D3BE5184DAC05 /* Pods_MAD_2018_19Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F62D4D5893E71B6BC8DB1D4C /* Pods_MAD_2018_19Tests.framework */; };
 		A50ADBDA220665BE0061F7D5 /* CPU.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50ADBD9220665BE0061F7D5 /* CPU.swift */; };
 		A512BCFC220625DF00C538EB /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A512BCFB220625DF00C538EB /* GameKit.framework */; };
+		A571D2812208BBFD002AF7CD /* MatchmakingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A571D2802208BBFD002AF7CD /* MatchmakingViewController.swift */; };
+		A571D2852208CF18002AF7CD /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A571D2842208CF18002AF7CD /* JoinViewController.swift */; };
+		A571D2872208D022002AF7CD /* HelpIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A571D2862208D022002AF7CD /* HelpIntroViewController.swift */; };
 		A5779E7421FE734A00D755AA /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5779E7321FE734A00D755AA /* BoardViewController.swift */; };
 		A5C333D521F830BA00A3D4C0 /* HelpPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C333D421F830BA00A3D4C0 /* HelpPageViewController.swift */; };
 		A5F0E49E21F686AA00908F6E /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0E49D21F686AA00908F6E /* SetupViewController.swift */; };
@@ -60,6 +63,9 @@
 		A50ADBD9220665BE0061F7D5 /* CPU.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPU.swift; sourceTree = "<group>"; };
 		A512BCFB220625DF00C538EB /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		A512BCFD2206303A00C538EB /* MAD 2018-19.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MAD 2018-19.entitlements"; sourceTree = "<group>"; };
+		A571D2802208BBFD002AF7CD /* MatchmakingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchmakingViewController.swift; sourceTree = "<group>"; };
+		A571D2842208CF18002AF7CD /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
+		A571D2862208D022002AF7CD /* HelpIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpIntroViewController.swift; sourceTree = "<group>"; };
 		A5779E7321FE734A00D755AA /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		A5C333D421F830BA00A3D4C0 /* HelpPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPageViewController.swift; sourceTree = "<group>"; };
 		A5F0E49D21F686AA00908F6E /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +141,9 @@
 				A5F0E49D21F686AA00908F6E /* SetupViewController.swift */,
 				C572256521CEEC330013D534 /* GameViewController.swift */,
 				A5779E7321FE734A00D755AA /* BoardViewController.swift */,
+				A571D2802208BBFD002AF7CD /* MatchmakingViewController.swift */,
+				A571D2842208CF18002AF7CD /* JoinViewController.swift */,
+				A571D2862208D022002AF7CD /* HelpIntroViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -472,6 +481,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A571D2872208D022002AF7CD /* HelpIntroViewController.swift in Sources */,
 				A5779E7421FE734A00D755AA /* BoardViewController.swift in Sources */,
 				A5F0E49E21F686AA00908F6E /* SetupViewController.swift in Sources */,
 				C572256621CEEC330013D534 /* GameViewController.swift in Sources */,
@@ -482,6 +492,8 @@
 				C572255E21CEEC330013D534 /* AppDelegate.swift in Sources */,
 				2C81464A21FCFF6700EFDB6B /* HelpFinalPageViewController.swift in Sources */,
 				A5F0E4A021F6912D00908F6E /* TitleViewController.swift in Sources */,
+				A571D2852208CF18002AF7CD /* JoinViewController.swift in Sources */,
+				A571D2812208BBFD002AF7CD /* MatchmakingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

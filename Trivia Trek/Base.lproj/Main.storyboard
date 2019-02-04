@@ -26,7 +26,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.97207802534103394" green="0.98871308565139771" blue="0.90814751386642456" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="30"/>
-                                <state key="normal" title="Play">
+                                <state key="normal" title="Start Game">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -58,13 +58,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.97207802534103394" green="0.98871308565139771" blue="0.90814751386642456" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="30"/>
-                                <state key="normal" title="Connect">
+                                <state key="normal" title="Join Game">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="GB2-gh-uta" kind="popoverPresentation" popoverAnchorView="owf-95-HvK" id="YCm-yA-nse">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="07t-nU-9rM" kind="show" id="tr0-rv-kAR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yod-FH-Ifl">
@@ -188,12 +186,10 @@
                                 <action selector="cancelButtonClicked:" destination="zEc-ou-xD4" id="qZw-qy-THo"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Ready" id="KRl-41-Zer">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="KRl-41-Zer">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="D3Z-TO-FCo" kind="popoverPresentation" popoverAnchorBarButtonItem="KRl-41-Zer" id="hBW-Uu-9gO">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
+                                <segue destination="Jhm-Cc-7lo" kind="show" id="wA7-UH-CuO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -205,7 +201,7 @@
                         <outlet property="rightMapButton" destination="dQd-VD-IBr" id="aiV-kR-5c5"/>
                         <outlet property="turnIncrementButton" destination="bso-SC-hOd" id="jcr-Ie-hyw"/>
                         <outlet property="turnLabel" destination="g4Q-wc-TfR" id="aLg-n1-WtW"/>
-                        <segue destination="RDM-Ol-qLa" kind="unwind" identifier="cancelGameStart" unwindAction="cancelGameStartWithSegue:" id="Tsk-j7-xus"/>
+                        <segue destination="RDM-Ol-qLa" kind="unwind" identifier="cancelGameStart" unwindAction="unwindToTitleWithSegue:" id="qq0-iW-qok"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EW1-YP-gle" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -213,16 +209,52 @@
             </objects>
             <point key="canvasLocation" x="989.60000000000002" y="130.88455772113943"/>
         </scene>
+        <!--Find Players-->
+        <scene sceneID="XtC-XL-SKT">
+            <objects>
+                <tableViewController title="Find Players" id="Jhm-Cc-7lo" customClass="MatchmakingViewController" customModule="MAD_2018_19" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="i85-Vg-0Sy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.41176470590000003" green="0.64705882349999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="JpR-Qe-SwX">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JpR-Qe-SwX" id="LTY-uu-E0k">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.41176470590000003" green="0.64705882349999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Jhm-Cc-7lo" id="U60-8i-cLa"/>
+                            <outlet property="delegate" destination="Jhm-Cc-7lo" id="kjK-p0-DBd"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Find Players" id="e2A-Dh-t77">
+                        <barButtonItem key="rightBarButtonItem" title="Start" id="kNk-Gh-1dK">
+                            <connections>
+                                <segue destination="D3Z-TO-FCo" kind="show" id="JJD-Qi-chA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RWJ-QS-Met" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1785" y="131"/>
+        </scene>
         <!--Board View Controller-->
         <scene sceneID="RqI-5R-ilh">
             <objects>
                 <viewController id="D3Z-TO-FCo" customClass="BoardViewController" customModule="MAD_2018_19" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bun-OM-EH3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <skView contentMode="scaleToFill" sceneName="Board.sks" translatesAutoresizingMaskIntoConstraints="NO" id="1BS-5x-GD5">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="Fao-cg-1VB" appends="YES" id="DZZ-wm-NcJ"/>
@@ -250,7 +282,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1784.8" y="129.08545727136433"/>
+            <point key="canvasLocation" x="2481" y="131"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3pM-9J-sKa">
@@ -261,7 +293,7 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" red="0.2156862745" green="0.33333333329999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -393,9 +425,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="miT-Rc-EUv" kind="popoverPresentation" popoverAnchorView="QnR-aq-tV8" id="wuh-TP-d21">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="miT-Rc-EUv" kind="presentation" modalTransitionStyle="flipHorizontal" id="wuh-TP-d21"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You can access these pages any time from the Help menu" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96e-Qb-ZU9">
@@ -428,34 +458,10 @@
             </objects>
             <point key="canvasLocation" x="3952.8000000000002" y="802.848575712144"/>
         </scene>
-        <!--Connect View Controller-->
-        <scene sceneID="1F3-ts-89X">
-            <objects>
-                <viewController id="GB2-gh-uta" customClass="ConnectViewController" customModule="MAD_2018_19" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="tER-Ql-JBf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Connect" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNW-XZ-fJC">
-                                <rect key="frame" x="115" y="74" width="149" height="52"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.41176470590000003" green="0.64705882349999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="IuH-WV-BzX"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qRq-10-2Ys" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-628" y="803"/>
-        </scene>
-        <!--View Controller-->
+        <!--Help Intro View Controller-->
         <scene sceneID="TIU-XF-DLI">
             <objects>
-                <viewController id="CGh-zN-PPh" sceneMemberID="viewController">
+                <viewController id="CGh-zN-PPh" customClass="HelpIntroViewController" customModule="MAD_2018_19" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d4D-BK-T8t">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -476,7 +482,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="FE0-NM-WPi" kind="showDetail" id="Fdp-dh-RzH"/>
+                                    <segue destination="FE0-NM-WPi" kind="presentation" modalTransitionStyle="crossDissolve" id="Fdp-dh-RzH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6n-dY-yrt">
@@ -488,9 +494,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="miT-Rc-EUv" kind="popoverPresentation" popoverAnchorView="c6n-dY-yrt" id="xOY-wv-heq">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <action selector="backButtonClicked:" destination="CGh-zN-PPh" eventType="touchUpInside" id="P8D-v1-v0j"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Take a quick tour of Trivia Trek" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdu-GM-VcD">
@@ -504,8 +508,12 @@
                         <color key="backgroundColor" red="0.41176470588235292" green="0.6470588235294118" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="lhg-SZ-0EO"/>
                     </view>
+                    <connections>
+                        <segue destination="eW0-cK-iAI" kind="unwind" identifier="backToHome" unwindAction="unwindToTitleWithSegue:" id="Ks7-1n-XMX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NcK-xT-rV2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="eW0-cK-iAI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="164" y="803"/>
         </scene>
@@ -551,6 +559,68 @@
             </objects>
             <point key="canvasLocation" x="2480.8000000000002" y="802.848575712144"/>
         </scene>
+        <!--Find Players-->
+        <scene sceneID="hCP-o3-vbM">
+            <objects>
+                <exit id="zQR-Qi-GAm" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OHk-zp-vff" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="akf-UZ-0kv" customClass="JoinViewController" customModule="MAD_2018_19" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="81Y-uB-Vlc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.41176470590000003" green="0.64705882349999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.41176470590000003" green="0.64705882349999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="KDM-Dr-6pg">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KDM-Dr-6pg" id="phg-hu-kmF">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="akf-UZ-0kv" id="j20-j0-X27"/>
+                            <outlet property="delegate" destination="akf-UZ-0kv" id="XBi-Eu-NJg"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Find Players" id="1jM-m5-tUM">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="5wP-eY-sUi">
+                            <connections>
+                                <action selector="cancel:" destination="akf-UZ-0kv" id="aRI-Q6-wZg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="zQR-Qi-GAm" kind="unwind" identifier="cancelGameJoin" unwindAction="unwindToTitleWithSegue:" id="psi-VV-ACe"/>
+                    </connections>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="990" y="-573"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9KP-fS-334">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jb4-mE-yqK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="07t-nU-9rM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eWL-Ub-Moh">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="akf-UZ-0kv" kind="relationship" relationship="rootViewController" id="VnM-xt-YZT"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="164" y="-573"/>
+        </scene>
     </scenes>
     <resources>
         <image name="MustangGameLogoBetter" width="185.25" height="153"/>
@@ -565,7 +635,5 @@
         <image name="right-arrow" width="225" height="225"/>
         <image name="videogameicon" width="2000" height="2000"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="wuh-TP-d21"/>
-    </inferredMetricsTieBreakers>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
