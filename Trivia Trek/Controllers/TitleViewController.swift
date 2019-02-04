@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GameKit
 
 class TitleViewController: UIViewController {
 
@@ -14,7 +15,7 @@ class TitleViewController: UIViewController {
     @IBOutlet weak var connectButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var helpButton: UIButton!
-    @IBOutlet weak var gameCenterButton: UIButton!
+    @IBOutlet weak var gameCenterLogo: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +25,29 @@ class TitleViewController: UIViewController {
         self.settingsButton.layer.cornerRadius = 5
         self.helpButton.layer.cornerRadius = 5
         
-        self.gameCenterButton.layer.cornerRadius = 5
-        self.gameCenterButton.layer.borderColor = UIColor(red: 0, green: 0.78, blue: 0, alpha: 1).cgColor
-        self.gameCenterButton.layer.borderWidth = 0
-        self.gameCenterButton.isEnabled = false
-        
-        PlayerAuth.authenticator.authViewController = self
+        self.gameCenterLogo.layer.cornerRadius = 5
+        self.gameCenterLogo.layer.borderColor = UIColor(red: 0, green: 0.78, blue: 0, alpha: 1).cgColor
+
+        GKLocalPlayer.local.authenticateHandler = { authScreen, error in
+            
+            NotificationCenter.default.post(name: .authChanged, object: GKLocalPlayer.local.isAuthenticated)
+            
+            if GKLocalPlayer.local.isAuthenticated {
+                
+                
+            }
+            else if authScreen != nil {
+                
+                self.present(authScreen!, animated: true, completion: nil)
+                
+            }
+            else {
+                
+                print("authentication failed with error: \(error?.localizedDescription ?? "none")")
+                
+            }
+            
+        }
         
         NotificationCenter.default.addObserver(
             self,
@@ -51,26 +69,23 @@ class TitleViewController: UIViewController {
 
         if isLoggedIn {
             
-            self.gameCenterButton.layer.borderWidth = 3
-            self.gameCenterButton.isEnabled = false
+            self.gameCenterLogo.layer.borderWidth = 3
             
         }
         else {
             
-            self.gameCenterButton.layer.borderWidth = 0
+            self.gameCenterLogo.layer.borderWidth = 0
 
         }
         
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+extension Notification.Name {
+    
+    static let presentGame = Notification.Name("presentGame")
+    static let authChanged = Notification.Name("authChanged")
+    
+}
+

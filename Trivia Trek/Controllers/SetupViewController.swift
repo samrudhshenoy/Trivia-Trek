@@ -10,8 +10,6 @@ import UIKit
 
 class SetupViewController: UIViewController {
 
-    @IBOutlet weak var playerLabel: UILabel!
-    @IBOutlet weak var playerIncrementButton: UIStepper!
     @IBOutlet weak var difficultySelector: UISegmentedControl!
     @IBOutlet weak var mapLabel: UILabel!
     @IBOutlet weak var mapImageView: UIImageView!
@@ -23,18 +21,12 @@ class SetupViewController: UIViewController {
     var mapImages: [UIImage] = []
     var mapNames: [String] = []
     var currentMap: Int = 0
-    var numCPU: Int = 0
-    var numQuestions: Int = 0
+    var numberOfTurns: Int = 0
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
 
-        self.playerIncrementButton.minimumValue = 3
-        self.playerIncrementButton.maximumValue = 6
-        
-        self.playerLabel.text! = "Number of Players: \(Int(self.playerIncrementButton.value))"
-        
         self.turnIncrementButton.minimumValue = 10
         self.turnIncrementButton.maximumValue = 20
         
@@ -51,17 +43,10 @@ class SetupViewController: UIViewController {
         
     }
     
-    @IBAction func changeNumberOfPlayers(_ sender: Any) {
-        
-        let numCPU = Int(self.playerIncrementButton.value)-1
-        self.playerLabel.text! = "Number of Players: \(numCPU)"
-    
-    }
-    
     @IBAction func changeTurns(_ sender: Any) {
         
-        let numQuestions = Int(self.turnIncrementButton.value)
-        self.turnLabel.text! = "Number of Questions: \(numQuestions)"
+        let turns = Int(self.turnIncrementButton.value)
+        self.turnLabel.text! = "Number of Turns: \(turns)"
         
     }
     
@@ -101,21 +86,9 @@ class SetupViewController: UIViewController {
     }
     
     @IBAction func cancelButtonClicked(_ sender: Any) {
-     
-        
-        
+    
         performSegue(withIdentifier: "cancelGameStart", sender: self)
         
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

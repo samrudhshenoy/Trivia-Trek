@@ -40,36 +40,11 @@ class BoardViewController: UIViewController {
         let board = SKScene(fileNamed: "Board")
         
         if let player = board?.childNode(withName: "player") as? SKSpriteNode {
-            print("hi")
+            
             player.run(moveRight!)
             
         }
         
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
-
-//public extension SKView {
-//
-//    func isIphoneX() -> Bool {
-//
-//        let screenHeight = 2436.0
-//        let screenWidth = 1125.0
-//        let iphoneXAspectRatio = screenHeight / screenWidth
-//
-//        let aspectRatio = Double(self.frame.width/self.frame.height)
-//        return (aspectRatio == iphoneXAspectRatio) ? true : false
-//
-//    }
-//
-//}
