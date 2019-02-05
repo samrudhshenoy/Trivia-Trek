@@ -10,10 +10,16 @@ import UIKit
 
 class HelpIntroViewController: UIViewController {
 
+    @IBOutlet weak var getStartedButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.getStartedButton.layer.cornerRadius = 5
+        self.backButton.layer.cornerRadius = 5
+
     }
     
     @IBAction func backButtonClicked(_ sender: Any) {

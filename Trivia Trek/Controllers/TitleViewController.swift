@@ -6,6 +6,27 @@
 //  Copyright © 2019 Homestead FBLA. All rights reserved.
 //
 
+/*
+ Todo:
+ 
+ - fix search results in join screen
+    - maybe only show result if they started a game?
+ - update lobby view - show ppl currently in game (including cpus)
+    - allow invites?
+    - make cpu creation thing
+    - make sure table view length doesn't exceed max
+ - finalize matchmaking, start game with settings specified @ setup
+ - finish animations/designs/whatever to get game functional
+    - database w flask api
+ - finish detailed tutorial stuff
+ - finish feedback stuff
+    - dummy email @hhsfbla.com
+    - smtp library
+ - finish settings if any
+ - polish, finalize, document, etc then submit
+ 
+ */
+
 import UIKit
 import GameKit
 

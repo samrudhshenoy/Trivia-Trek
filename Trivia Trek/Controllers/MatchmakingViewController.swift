@@ -19,7 +19,7 @@ class MatchmakingViewController: UITableViewController {
         self.matchRequest.minPlayers = 3
         self.matchRequest.maxPlayers = 5
         self.matchRequest.defaultNumberOfPlayers = 3
-        self.matchRequest.inviteMessage! = "Join my Trivia Trek game!"
+        self.matchRequest.inviteMessage = "Join my Trivia Trek game!"
         
     }
 

@@ -7,17 +7,22 @@
 //
 
 import UIKit
+import GameKit
 
-class JoinViewController: UITableViewController {
+class JoinViewController: UITableViewController, UISearchResultsUpdating {
 
+    let searchController = UISearchController(searchResultsController: nil)
+    var potentialMatches: [GKPlayer]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.searchController.searchResultsUpdater = self
+        self.searchController.obscuresBackgroundDuringPresentation = false
+        self.searchController.searchBar.placeholder = "Enter Host Nickname"
+        self.navigationItem.searchController = self.searchController
+        self.definesPresentationContext = true
+        
     }
 
     // MARK: - Table view data source
@@ -37,6 +42,37 @@ class JoinViewController: UITableViewController {
         performSegue(withIdentifier: "cancelGameJoin", sender: self)
 
     }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        self.findPlayerWithNickname(self.searchController.searchBar.text!)
+        
+    }
+    
+    private func searchBarIsEmpty() -> Bool {
+        
+        return self.searchController.searchBar.text?.isEmpty ?? true
+        
+    }
+    
+    private func findPlayerWithNickname(_ nickname: String, scope: String = "All") {
+        
+        GKPlayer.loadPlayers(forIdentifiers: [nickname], withCompletionHandler: {players, error -> Void in
+            if error != nil {
+                print("Search failed with error: \(error?.localizedDescription ?? "none")")
+            }
+            
+            if players != nil {
+                
+                self.potentialMatches = players
+                
+            }
+        })
+        
+        self.tableView.reloadData()
+        
+    }
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

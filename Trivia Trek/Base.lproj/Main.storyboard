@@ -509,6 +509,8 @@
                         <viewLayoutGuide key="safeArea" id="lhg-SZ-0EO"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="c6n-dY-yrt" id="5XQ-Uu-uR6"/>
+                        <outlet property="getStartedButton" destination="CK6-24-a3I" id="YbE-y1-m70"/>
                         <segue destination="eW0-cK-iAI" kind="unwind" identifier="backToHome" unwindAction="unwindToTitleWithSegue:" id="Ks7-1n-XMX"/>
                     </connections>
                 </viewController>
@@ -559,7 +561,7 @@
             </objects>
             <point key="canvasLocation" x="2480.8000000000002" y="802.848575712144"/>
         </scene>
-        <!--Find Players-->
+        <!--Find Match-->
         <scene sceneID="hCP-o3-vbM">
             <objects>
                 <exit id="zQR-Qi-GAm" userLabel="Exit" sceneMemberID="exit"/>
@@ -578,6 +580,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.41176470590000003" green="0.64705882349999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -585,7 +588,7 @@
                             <outlet property="delegate" destination="akf-UZ-0kv" id="XBi-Eu-NJg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Find Players" id="1jM-m5-tUM">
+                    <navigationItem key="navigationItem" title="Find Match" id="1jM-m5-tUM">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="5wP-eY-sUi">
                             <connections>
                                 <action selector="cancel:" destination="akf-UZ-0kv" id="aRI-Q6-wZg"/>
