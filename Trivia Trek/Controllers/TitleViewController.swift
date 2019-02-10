@@ -6,21 +6,6 @@
 //  Copyright © 2019 Homestead FBLA. All rights reserved.
 //
 
-/*
- Game flow (main loop pseudocode):
- - for each player:
-    - roll dice (or other do movement decision thing)
-    - move
-        - need to make split path choice thing if applicable
-        - do any actions necessary while moving (depending on spaces hit, etc)
-    - do final action for space landed on if any
- - pull up minigame screen
-    - choose random minigame to do (maybe animate choice screen)
-    - do minigame
-    - update game state based on results
- - continue to next turn
- */
-
 import UIKit
 import GameKit
 

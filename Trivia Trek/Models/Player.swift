@@ -7,12 +7,12 @@
 //
 
 import UIKit
+import GameKit
 
 class Player {
     
     var pos: Int
-    var qRight: Int
-    var numQuestion: Int
+    var numberCorrect: Int
     var photo: UIImage?
     
     init(photo: UIImage?) {
@@ -21,38 +21,7 @@ class Player {
         }
         
         self.pos = 0
-        self.qRight = 0
-        self.numQuestion = 1
+        self.numberCorrect = 0
     }
-    
-    func getPos () -> Int {
-        return pos
-    }
-    
-    func getQuestionsRight () -> Int {
-        return qRight
-    }
-    
-    func getNumQuestion () -> Int {
-        return numQuestion
-    }
-    
-    func getQuestionsWrong () -> Int {
-        return numQuestion - qRight
-    }
-    
-    func nextPos () {
-        pos += 1
-    }
-    
-    func correct () {
-        qRight += 1
-        numQuestion += 1
-    }
-    
-    func incorrect () {
-        numQuestion += 1
-    }
-    
     
 }
