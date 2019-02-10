@@ -6,6 +6,21 @@
 //  Copyright © 2019 Homestead FBLA. All rights reserved.
 //
 
+/*
+ Game flow (main loop pseudocode):
+ - for each player:
+    - roll dice (or other do movement decision thing)
+    - move
+        - need to make split path choice thing if applicable
+        - do any actions necessary while moving (depending on spaces hit, etc)
+    - do final action for space landed on if any
+ - pull up minigame screen
+    - choose random minigame to do (maybe animate choice screen)
+    - do minigame
+    - update game state based on results
+ - continue to next turn
+ */
+
 import UIKit
 import GameKit
 
@@ -28,6 +43,17 @@ class TitleViewController: UIViewController {
         self.gameCenterLogo.layer.cornerRadius = 5
         self.gameCenterLogo.layer.borderColor = UIColor(red: 0, green: 0.78, blue: 0, alpha: 1).cgColor
 
+        if GKLocalPlayer.local.isAuthenticated {
+            
+            self.gameCenterLogo.layer.borderWidth = 3
+            
+        }
+        else {
+            
+            self.gameCenterLogo.layer.borderWidth = 0
+            
+        }
+        
         GKLocalPlayer.local.authenticateHandler = { authScreen, error in
             
             NotificationCenter.default.post(name: .authChanged, object: GKLocalPlayer.local.isAuthenticated)
@@ -43,7 +69,7 @@ class TitleViewController: UIViewController {
             }
             else {
                 
-                print("authentication failed with error: \(error?.localizedDescription ?? "none")")
+                print("Authentication failed with error: \(error?.localizedDescription ?? "none")")
                 
             }
             
