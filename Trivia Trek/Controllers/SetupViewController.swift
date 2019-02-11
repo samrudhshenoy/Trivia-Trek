@@ -43,6 +43,15 @@ class SetupViewController: UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.destination is BoardViewController {
+            
+            let board = segue.destination as? BoardViewController
+            board?.game = Game(maxTurns: self.numberOfTurns, player: Player(photo: nil), map: self.mapImages[self.currentMap])
+            
+        }
+    }
     @IBAction func changeTurns(_ sender: Any) {
         
         let turns = Int(self.turnIncrementButton.value)
@@ -87,7 +96,7 @@ class SetupViewController: UIViewController {
     
     @IBAction func cancelButtonClicked(_ sender: Any) {
     
-        performSegue(withIdentifier: "cancelGameStart", sender: self)
+        performSegue(withIdentifier: "rewindToHome", sender: self)
         
     }
 

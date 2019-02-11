@@ -14,5 +14,6 @@ enum Move {
     case right
     case up
     case down
+    case end
     
 }

@@ -1,31 +1,33 @@
 //
-//  HelpFinalPageViewController.swift
+//  HelpIntroViewController.swift
 //  MAD 2018-19
 //
-//  Created by Samrudh Shenoy on 1/26/19.
+//  Created by Arthur Lafrance on 2/10/19.
 //  Copyright © 2019 Homestead FBLA. All rights reserved.
 //
 
 import UIKit
 
-class HelpFinalPageViewController: UIViewController {
-    
-    @IBOutlet weak var letsGo: UIButton!
+class HelpIntroViewController: UIViewController {
 
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.letsGo.layer.cornerRadius = 7
 
         // Do any additional setup after loading the view.
+        self.startButton.layer.cornerRadius = 7
+        self.backButton.layer.cornerRadius = 7
+        
     }
     
-
-    @IBAction func buttonClicked(_ sender: Any) {
+    @IBAction func backButtonClicked(_ sender: Any) {
         
         self.performSegue(withIdentifier: "rewindToHome", sender: self)
         
     }
+    
     /*
     // MARK: - Navigation
 

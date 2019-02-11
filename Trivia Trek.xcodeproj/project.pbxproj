@@ -18,8 +18,11 @@
 		A512BCFC220625DF00C538EB /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A512BCFB220625DF00C538EB /* GameKit.framework */; };
 		A571D2F42210EAB0002AF7CD /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A571D2F32210EAB0002AF7CD /* Game.swift */; };
 		A571D2F62210EEA9002AF7CD /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = A571D2F52210EEA9002AF7CD /* Move.swift */; };
+		A571D2F82210F660002AF7CD /* HelpIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A571D2F72210F660002AF7CD /* HelpIntroViewController.swift */; };
 		A5779E7421FE734A00D755AA /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5779E7321FE734A00D755AA /* BoardViewController.swift */; };
 		A5C333D521F830BA00A3D4C0 /* HelpPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C333D421F830BA00A3D4C0 /* HelpPageViewController.swift */; };
+		A5CE3CA62211F16300121B61 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CE3CA52211F16300121B61 /* QuestionViewController.swift */; };
+		A5CE3CA82211F24500121B61 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CE3CA72211F24500121B61 /* Question.swift */; };
 		A5F0E49E21F686AA00908F6E /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0E49D21F686AA00908F6E /* SetupViewController.swift */; };
 		A5F0E4A021F6912D00908F6E /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0E49F21F6912D00908F6E /* TitleViewController.swift */; };
 		C572255E21CEEC330013D534 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C572255D21CEEC330013D534 /* AppDelegate.swift */; };
@@ -64,8 +67,11 @@
 		A512BCFD2206303A00C538EB /* MAD 2018-19.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MAD 2018-19.entitlements"; sourceTree = "<group>"; };
 		A571D2F32210EAB0002AF7CD /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		A571D2F52210EEA9002AF7CD /* Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
+		A571D2F72210F660002AF7CD /* HelpIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpIntroViewController.swift; sourceTree = "<group>"; };
 		A5779E7321FE734A00D755AA /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		A5C333D421F830BA00A3D4C0 /* HelpPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPageViewController.swift; sourceTree = "<group>"; };
+		A5CE3CA52211F16300121B61 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		A5CE3CA72211F24500121B61 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		A5F0E49D21F686AA00908F6E /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		A5F0E49F21F6912D00908F6E /* TitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
 		C572255A21CEEC330013D534 /* MAD 2018-19.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MAD 2018-19.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +145,8 @@
 				A5F0E49D21F686AA00908F6E /* SetupViewController.swift */,
 				C572256521CEEC330013D534 /* GameViewController.swift */,
 				A5779E7321FE734A00D755AA /* BoardViewController.swift */,
+				A571D2F72210F660002AF7CD /* HelpIntroViewController.swift */,
+				A5CE3CA52211F16300121B61 /* QuestionViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -150,6 +158,7 @@
 				2CD47DD221FD0D67007A9D0F /* Player.swift */,
 				A571D2F32210EAB0002AF7CD /* Game.swift */,
 				A571D2F52210EEA9002AF7CD /* Move.swift */,
+				A5CE3CA72211F24500121B61 /* Question.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -478,7 +487,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5CE3CA82211F24500121B61 /* Question.swift in Sources */,
+				A571D2F82210F660002AF7CD /* HelpIntroViewController.swift in Sources */,
 				A5779E7421FE734A00D755AA /* BoardViewController.swift in Sources */,
+				A5CE3CA62211F16300121B61 /* QuestionViewController.swift in Sources */,
 				A5F0E49E21F686AA00908F6E /* SetupViewController.swift in Sources */,
 				C572256621CEEC330013D534 /* GameViewController.swift in Sources */,
 				A5C333D521F830BA00A3D4C0 /* HelpPageViewController.swift in Sources */,

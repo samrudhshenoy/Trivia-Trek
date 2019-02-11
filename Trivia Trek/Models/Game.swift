@@ -7,21 +7,36 @@
 //
 
 import UIKit
+import GameKit
 
 class Game: NSObject {
 
     var maxTurns: Int
     var turnsTaken: Int
+    
     var player: Player
-    var map: [Move] = []
+    
+    var path: [Move] = []
+    var map: UIImage
+
     var currentRoll: Int
     
-    init(maxTurns: Int, player: Player) {
+    var questions: [Question]
+    
+    init(maxTurns: Int, player: Player, map: UIImage) {
         
         self.maxTurns = maxTurns
         self.player = player
         self.turnsTaken = 0
         self.currentRoll = 0
+        self.map = map
+        
+        self.loadQuestions()
+    }
+    
+    func loadQuestions() {
+        
+        self.questions = []
         
     }
     
@@ -36,6 +51,7 @@ class Game: NSObject {
                 - multiply by answer streak multiplier thing
              - move one tile at a time
             */
+            
         }
         
     }
@@ -54,7 +70,6 @@ class Game: NSObject {
             - update game state based on results
          - continue to next turn
          */
-        
         
     }
     
