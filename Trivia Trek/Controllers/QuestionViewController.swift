@@ -19,6 +19,8 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var thirdChoiceButton: UIButton!
     @IBOutlet weak var fourthChoiceButton: UIButton!
     
+    @IBOutlet weak var doneButton: UIButton!
+    
     var game: Game?
     var questionIndex: Int = -1
     
@@ -43,7 +45,11 @@ class QuestionViewController: UIViewController {
         self.fourthChoiceButton.setTitle(question.answers[3], for: .normal)
         self.fourthChoiceButton.layer.cornerRadius = 7
 
+        self.doneButton.layer.cornerRadius = 7
+        self.doneButton.isHidden = true
 
+        self.game?.turnsTaken += 1
+        
     }
     
     @IBAction func answerChosen(sender: AnyObject) {
@@ -59,26 +65,71 @@ class QuestionViewController: UIViewController {
         // unhide done button
         // update game state
         
-        choiceButton.backgroundColor = UIColor.red
+        let correctIndex = self.game!.questions![self.questionIndex].correctAnswer + 1
         
-        let correctIndex = self.game!.questions![self.questionIndex].correctAnswer
-        
-        switch correctIndex {
+        if choiceButton.tag != correctIndex {
             
-        case 0:
-            self.firstChoiceButton.backgroundColor = UIColor.green
-        case 1:
-            self.secondChoiceButton.backgroundColor = UIColor.green
-        case 2:
-            self.thirdChoiceButton.backgroundColor = UIColor.green
-        case 3:
-            self.fourthChoiceButton.backgroundColor = UIColor.green
-        default:
-            return
+            UIView.animate(withDuration: 0.7, animations: {
+                choiceButton.backgroundColor = UIColor.red
+            })
+
+        }
+        else {
+            
+            self.game!.player.numberCorrect += 1
             
         }
         
+        switch correctIndex {
+            
+            case 1:
+                UIView.animate(withDuration: 0.7, animations: {
+                    self.firstChoiceButton.backgroundColor = UIColor.green
+                    
+                    self.secondChoiceButton.isEnabled = false
+                    self.thirdChoiceButton.isEnabled = false
+                    self.fourthChoiceButton.isEnabled = false
+                })
+            case 2:
+                UIView.animate(withDuration: 0.7, animations: {
+                    self.secondChoiceButton.backgroundColor = UIColor.green
+                    
+                    self.firstChoiceButton.isEnabled = false
+                    self.thirdChoiceButton.isEnabled = false
+                    self.fourthChoiceButton.isEnabled = false
+                })
+            case 3:
+                UIView.animate(withDuration: 0.7, animations: {
+                    self.thirdChoiceButton.backgroundColor = UIColor.green
+                    
+                    self.firstChoiceButton.isEnabled = false
+                    self.secondChoiceButton.isEnabled = false
+                    self.fourthChoiceButton.isEnabled = false
+                })
+            case 4:
+                UIView.animate(withDuration: 0.7, animations: {
+                    self.fourthChoiceButton.backgroundColor = UIColor.green
+                    
+                    self.firstChoiceButton.isEnabled = false
+                    self.secondChoiceButton.isEnabled = false
+                    self.thirdChoiceButton.isEnabled = false
+                })
+            default:
+                return
+            
+        }
+        
+        UIView.animate(withDuration: 0.7, animations: {
+            self.doneButton.isHidden = false
+        })
     }
+    
+    @IBAction func doneButtonPressed(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "backToBoard", sender: self)
+        
+    }
+    
     /*
     // MARK: - Navigation
 

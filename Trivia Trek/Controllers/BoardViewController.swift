@@ -17,6 +17,7 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var turnLabel: UILabel!
     @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var quitButton: UIButton!
+    @IBOutlet weak var scoreLabel: UILabel!
     
     var game: Game?
     
@@ -47,9 +48,8 @@ class BoardViewController: UIViewController {
         
         super.viewDidAppear(animated)
         
-        UIView.animate(withDuration: 1.5, animations: {
-            self.turnLabel.alpha = 0
-        })
+        self.fadeInTurnLabel()
+        self.fadeOutTurnLabel()
         
     }
     
@@ -66,6 +66,27 @@ class BoardViewController: UIViewController {
             
         }
     }
+    
+    func fadeInTurnLabel() {
+        
+        self.turnLabel.alpha = 0
+        
+        UIView.animate(withDuration: 1.5, animations: {
+            self.turnLabel.alpha = 1
+        })
+        
+    }
+    
+    func fadeOutTurnLabel() {
+        
+        self.turnLabel.alpha = 1
+        
+        UIView.animate(withDuration: 1.5, animations: {
+            self.turnLabel.alpha = 0
+        })
+        
+    }
+    
     @IBAction func moveRight(_ sender: Any) {
         
         let moveRight = SKAction(named: "moveLeft")
@@ -88,6 +109,24 @@ class BoardViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         
         self.present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func backToBoard(segue: UIStoryboardSegue) {
+        
+        if segue.source is QuestionViewController {
+            
+            let srcController = segue.source as? QuestionViewController
+            self.game = srcController?.game
+            
+            self.turnLabel.alpha = 1
+            self.turnLabel.text = "Turn \(self.game!.turnsTaken)"
+
+            self.fadeOutTurnLabel()
+            
+            self.scoreLabel.text = "Score: \(self.game!.player.numberCorrect)"
+            
+        }
         
     }
     

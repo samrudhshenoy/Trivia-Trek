@@ -25,7 +25,7 @@ class Game: NSObject {
         
         self.maxTurns = maxTurns
         self.player = player
-        self.turnsTaken = 0
+        self.turnsTaken = 1
         self.map = map
         
         super.init()
