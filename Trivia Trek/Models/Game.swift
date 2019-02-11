@@ -18,25 +18,27 @@ class Game: NSObject {
     
     var path: [Move] = []
     var map: UIImage
-
-    var currentRoll: Int
     
-    var questions: [Question]
+    var questions: [Question]?
     
     init(maxTurns: Int, player: Player, map: UIImage) {
         
         self.maxTurns = maxTurns
         self.player = player
         self.turnsTaken = 0
-        self.currentRoll = 0
         self.map = map
         
+        super.init()
+
         self.loadQuestions()
     }
     
     func loadQuestions() {
         
-        self.questions = []
+        let question = Question(text: "what's 1 + 2?", answers: ["1", "2", "3", "4"], correctAnswer: 2)
+        let secondQuestion = Question(text: "what's 2 * 2?", answers: ["2", "4", "6", "8"], correctAnswer: 1)
+        
+        self.questions = [question, secondQuestion]
         
     }
     
