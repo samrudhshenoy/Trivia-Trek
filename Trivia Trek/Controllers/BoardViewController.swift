@@ -40,7 +40,7 @@ class BoardViewController: UIViewController {
         
         let player = SKSpriteNode(imageNamed: "avatar-sample")
         player.position = CGPoint(x: board.size.width / 2, y: board.size.height / 2 - 100)
-        player.size = CGSize(width: 60, height: 60)
+        player.size = CGSize(width: 30, height: 30)
         board.addChild(player)
         
         self.boardView.presentScene(board)
