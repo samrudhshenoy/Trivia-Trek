@@ -86,6 +86,7 @@ class QuestionViewController: UIViewController {
                 UIView.animate(withDuration: 0.7, animations: {
                     self.firstChoiceButton.backgroundColor = UIColor.green
                     
+                    self.firstChoiceButton.isEnabled = false
                     self.secondChoiceButton.isEnabled = false
                     self.thirdChoiceButton.isEnabled = false
                     self.fourthChoiceButton.isEnabled = false
@@ -95,6 +96,7 @@ class QuestionViewController: UIViewController {
                     self.secondChoiceButton.backgroundColor = UIColor.green
                     
                     self.firstChoiceButton.isEnabled = false
+                    self.secondChoiceButton.isEnabled = false
                     self.thirdChoiceButton.isEnabled = false
                     self.fourthChoiceButton.isEnabled = false
                 })
@@ -104,6 +106,7 @@ class QuestionViewController: UIViewController {
                     
                     self.firstChoiceButton.isEnabled = false
                     self.secondChoiceButton.isEnabled = false
+                    self.thirdChoiceButton.isEnabled = false
                     self.fourthChoiceButton.isEnabled = false
                 })
             case 4:
@@ -113,6 +116,7 @@ class QuestionViewController: UIViewController {
                     self.firstChoiceButton.isEnabled = false
                     self.secondChoiceButton.isEnabled = false
                     self.thirdChoiceButton.isEnabled = false
+                    self.fourthChoiceButton.isEnabled = false
                 })
             default:
                 return

@@ -18,8 +18,11 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var quitButton: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var pauseLabel: UILabel!
     
     var game: Game?
+    var isPaused: Bool = false
+    var currentTurn: DispatchWorkItem?
     
     override func viewDidLoad() {
         
@@ -48,13 +51,24 @@ class BoardViewController: UIViewController {
         
         super.viewDidAppear(animated)
         
-        self.fadeInTurnLabel()
+        self.turnLabel.alpha = 1
+        self.turnLabel.text = "Turn \(self.game!.turnsTaken)"
+        
+        self.scoreLabel.text = "Score: \(self.game!.player.numberCorrect)"
+        
         self.fadeOutTurnLabel()
+
+        self.takeTurn()
         
     }
     
-    func startGame() {
+    func takeTurn() {
         
+        self.currentTurn = DispatchWorkItem(block: {
+            self.performSegue(withIdentifier: "showQuestion", sender: self)
+        })
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: self.currentTurn!)
         
     }
     
@@ -100,7 +114,30 @@ class BoardViewController: UIViewController {
         
     }
 
+    @IBAction func pauseGame(_ sender: Any) {
+        
+        if self.isPaused {
+            
+            self.takeTurn()
+            
+        }
+        else {
+            
+            self.currentTurn!.cancel()
+            
+        }
+        
+        UIView.animate(withDuration: 0.7, animations: {
+            self.pauseLabel.isHidden = !self.pauseLabel.isHidden
+        })
+
+        self.pauseLabel.isHidden = !self.pauseLabel.isHidden
+
+    }
+    
     @IBAction func quitGame(_ sender: Any) {
+        
+        self.currentTurn!.cancel()
         
         let alertController = UIAlertController(title: "Quit Game?", message: "Are you sure you want to quit?", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Quit", style: .default, handler: { action in
@@ -108,7 +145,9 @@ class BoardViewController: UIViewController {
         }))
         alertController.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         
-        self.present(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: {
+            DispatchQueue.main.resume()
+        })
         
     }
     
@@ -118,13 +157,6 @@ class BoardViewController: UIViewController {
             
             let srcController = segue.source as? QuestionViewController
             self.game = srcController?.game
-            
-            self.turnLabel.alpha = 1
-            self.turnLabel.text = "Turn \(self.game!.turnsTaken)"
-
-            self.fadeOutTurnLabel()
-            
-            self.scoreLabel.text = "Score: \(self.game!.player.numberCorrect)"
             
         }
         
