@@ -29,7 +29,8 @@ class HelpPageViewController: UIPageViewController, UIPageViewControllerDataSour
         
         self.pages = [self.loadPage(number: "One"),
                       self.loadPage(number: "Two"),
-                      self.loadPage(number: "Three")]
+                      self.loadPage(number: "Three"),
+                      self.loadPage(number: "Four")]
         
         self.setViewControllers([self.pages[0]], direction: .forward, animated: true, completion: nil)
         
