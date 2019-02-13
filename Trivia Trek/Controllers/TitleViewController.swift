@@ -13,7 +13,6 @@ class TitleViewController: UIViewController {
 
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var connectButton: UIButton!
-    @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var helpButton: UIButton!
     
     override func viewDidLoad() {
@@ -21,7 +20,6 @@ class TitleViewController: UIViewController {
         
         self.playButton.layer.cornerRadius = 7
         self.connectButton.layer.cornerRadius = 7
-        self.settingsButton.layer.cornerRadius = 7
         self.helpButton.layer.cornerRadius = 7
         
     }

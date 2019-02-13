@@ -12,12 +12,30 @@ import FBSDKLoginKit
 class ConnectViewController: UIViewController {
     
     @IBOutlet weak var loginButton: FBSDKLoginButton!
+    @IBOutlet weak var backButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let loginButton = FBSDKLoginButton()
         loginButton.center = view.center
+        
+        // Obtain all constraints for the button:
+        let layoutConstraintsArr = loginButton.constraints
+        // Iterate over array and test constraints until we find the correct one:
+        for lc in layoutConstraintsArr { // or attribute is NSLayoutAttributeHeight etc.
+            if ( lc.constant == 28 ){
+                // Then disable it...
+                lc.isActive = false
+                break
+            }
+        }
+        
+        
+        
+        if (backButton != nil) {
+            self.backButton.layer.cornerRadius = 7
+        }
         
         view.addSubview(loginButton)
         
