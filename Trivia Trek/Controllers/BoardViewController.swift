@@ -32,10 +32,11 @@ class BoardViewController: UIViewController {
         self.quitButton.layer.cornerRadius = 7
         
         let board = SKScene(size: self.boardView.bounds.size)
-
+        board.backgroundColor = UIColor(red: 18/255, green: 126/255, blue: 13/255, alpha: 1)
+        
         let background = SKSpriteNode(imageNamed: "background")
-        background.position = CGPoint(x: board.size.width / 2, y: board.size.height / 2)
-        background.size = CGSize(width: board.size.width, height: board.size.height)
+        background.position = CGPoint(x: board.size.width / 2, y: board.size.height / 2 - 10)
+        background.size = CGSize(width: board.size.width, height: board.size.height - 10)
         board.addChild(background)
         
         let player = SKSpriteNode(imageNamed: "avatar-sample")
