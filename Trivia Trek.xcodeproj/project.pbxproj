@@ -23,6 +23,7 @@
 		A5C333D521F830BA00A3D4C0 /* HelpPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C333D421F830BA00A3D4C0 /* HelpPageViewController.swift */; };
 		A5CE3CA62211F16300121B61 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CE3CA52211F16300121B61 /* QuestionViewController.swift */; };
 		A5CE3CA82211F24500121B61 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CE3CA72211F24500121B61 /* Question.swift */; };
+		A5CE3CAA2214DA9E00121B61 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CE3CA92214DA9E00121B61 /* CloudKit.framework */; };
 		A5F0E49E21F686AA00908F6E /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0E49D21F686AA00908F6E /* SetupViewController.swift */; };
 		A5F0E4A021F6912D00908F6E /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0E49F21F6912D00908F6E /* TitleViewController.swift */; };
 		C572255E21CEEC330013D534 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C572255D21CEEC330013D534 /* AppDelegate.swift */; };
@@ -72,6 +73,7 @@
 		A5C333D421F830BA00A3D4C0 /* HelpPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPageViewController.swift; sourceTree = "<group>"; };
 		A5CE3CA52211F16300121B61 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		A5CE3CA72211F24500121B61 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		A5CE3CA92214DA9E00121B61 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		A5F0E49D21F686AA00908F6E /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		A5F0E49F21F6912D00908F6E /* TitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
 		C572255A21CEEC330013D534 /* MAD 2018-19.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MAD 2018-19.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5CE3CAA2214DA9E00121B61 /* CloudKit.framework in Frameworks */,
 				31BAA9233273A2135EDE2922 /* Pods_MAD_2018_19.framework in Frameworks */,
 				A512BCFC220625DF00C538EB /* GameKit.framework in Frameworks */,
 			);
@@ -229,6 +232,7 @@
 		DF8612F66003815AB6CF032A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A5CE3CA92214DA9E00121B61 /* CloudKit.framework */,
 				A512BCFB220625DF00C538EB /* GameKit.framework */,
 				8CB2FAFFF6FABB4FE2C40F95 /* Pods_MAD_2018_19.framework */,
 				F62D4D5893E71B6BC8DB1D4C /* Pods_MAD_2018_19Tests.framework */,
@@ -315,6 +319,9 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
 								enabled = 1;
 							};
 						};

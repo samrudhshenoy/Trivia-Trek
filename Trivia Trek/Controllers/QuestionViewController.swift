@@ -28,8 +28,8 @@ class QuestionViewController: UIViewController {
         super.viewDidLoad()
 
         // get random question from game
-        self.questionIndex = Int.random(in: 0..<self.game!.questions!.count)
-        let question = self.game!.questions![self.questionIndex]
+        self.questionIndex = Int.random(in: 0..<self.game!.questions.count)
+        let question = self.game!.questions[self.questionIndex]
         
         self.questionLabel.text = question.text
         
@@ -65,7 +65,7 @@ class QuestionViewController: UIViewController {
         // unhide done button
         // update game state
         
-        let correctIndex = self.game!.questions![self.questionIndex].correctAnswer + 1
+        let correctIndex = self.game!.questions[self.questionIndex].correctAnswer + 1
         
         if choiceButton.tag != correctIndex {
             
@@ -83,40 +83,40 @@ class QuestionViewController: UIViewController {
         switch correctIndex {
             
             case 1:
+                self.firstChoiceButton.isEnabled = false
+                self.secondChoiceButton.isEnabled = false
+                self.thirdChoiceButton.isEnabled = false
+                self.fourthChoiceButton.isEnabled = false
+                
                 UIView.animate(withDuration: 0.7, animations: {
                     self.firstChoiceButton.backgroundColor = UIColor.green
-                    
-                    self.firstChoiceButton.isEnabled = false
-                    self.secondChoiceButton.isEnabled = false
-                    self.thirdChoiceButton.isEnabled = false
-                    self.fourthChoiceButton.isEnabled = false
                 })
             case 2:
+                self.firstChoiceButton.isEnabled = false
+                self.secondChoiceButton.isEnabled = false
+                self.thirdChoiceButton.isEnabled = false
+                self.fourthChoiceButton.isEnabled = false
+                
                 UIView.animate(withDuration: 0.7, animations: {
                     self.secondChoiceButton.backgroundColor = UIColor.green
-                    
-                    self.firstChoiceButton.isEnabled = false
-                    self.secondChoiceButton.isEnabled = false
-                    self.thirdChoiceButton.isEnabled = false
-                    self.fourthChoiceButton.isEnabled = false
                 })
             case 3:
+                self.firstChoiceButton.isEnabled = false
+                self.secondChoiceButton.isEnabled = false
+                self.thirdChoiceButton.isEnabled = false
+                self.fourthChoiceButton.isEnabled = false
+                
                 UIView.animate(withDuration: 0.7, animations: {
                     self.thirdChoiceButton.backgroundColor = UIColor.green
-                    
-                    self.firstChoiceButton.isEnabled = false
-                    self.secondChoiceButton.isEnabled = false
-                    self.thirdChoiceButton.isEnabled = false
-                    self.fourthChoiceButton.isEnabled = false
                 })
             case 4:
+                self.firstChoiceButton.isEnabled = false
+                self.secondChoiceButton.isEnabled = false
+                self.thirdChoiceButton.isEnabled = false
+                self.fourthChoiceButton.isEnabled = false
+                
                 UIView.animate(withDuration: 0.7, animations: {
                     self.fourthChoiceButton.backgroundColor = UIColor.green
-                    
-                    self.firstChoiceButton.isEnabled = false
-                    self.secondChoiceButton.isEnabled = false
-                    self.thirdChoiceButton.isEnabled = false
-                    self.fourthChoiceButton.isEnabled = false
                 })
             default:
                 return

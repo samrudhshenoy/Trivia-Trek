@@ -8,6 +8,7 @@
 
 import UIKit
 import GameKit
+import CloudKit
 
 class Game: NSObject {
 
@@ -19,7 +20,7 @@ class Game: NSObject {
     var path: [Move] = []
     var map: UIImage
     
-    var questions: [Question]?
+    var questions: [Question] = []
     
     init(maxTurns: Int, player: Player, map: UIImage) {
         
@@ -35,11 +36,33 @@ class Game: NSObject {
     
     func loadQuestions() {
         
-        let question = Question(text: "what's 1 + 2?", answers: ["1", "2", "3", "4"], correctAnswer: 2)
-        let secondQuestion = Question(text: "what's 2 * 2?", answers: ["2", "4", "6", "8"], correctAnswer: 1)
+//        let question = Question(text: "what's 1 + 2?", answers: ["1", "2", "3", "4"], correctAnswer: 2)
+//        let secondQuestion = Question(text: "what's 2 * 2?", answers: ["2", "4", "6", "8"], correctAnswer: 1)
+//
+//        self.questions = [question, secondQuestion]
         
-        self.questions = [question, secondQuestion]
+        let database = CKContainer.default().publicCloudDatabase
         
+        let query = CKQuery(recordType: "Question", predicate: NSPredicate(value: true))
+        
+        database.perform(query, inZoneWith: nil, completionHandler: { questions, error in
+            if error != nil {
+                
+                print("Query failed with error \(error?.localizedDescription ?? "none")")
+                
+            }
+            else {
+                
+                for questionRecord in questions! {
+                    
+                    self.questions.append(Question(record: questionRecord))
+                    print(questionRecord.object(forKey: "text") as! String)
+                    
+                }
+                
+            }
+            
+        })
     }
     
     func start() {
