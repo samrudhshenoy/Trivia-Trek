@@ -55,7 +55,9 @@ class BugReportViewController: UIViewController, MFMailComposeViewControllerDele
         self.textField.layer.masksToBounds = true
         self.textField.layer.borderColor = UIColor.darkGray.cgColor
         self.textField.layer.borderWidth = 2
-        
+        self.textField.text = "Let us know the issue here"
+        self.textField.keyboardType = UIKeyboardType.default
+        self.textField.clearsOnInsertion = true
         
     }
     
