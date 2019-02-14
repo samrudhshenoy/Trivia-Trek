@@ -56,6 +56,7 @@ class BugReportViewController: UIViewController, MFMailComposeViewControllerDele
         self.textField.layer.borderColor = UIColor.darkGray.cgColor
         self.textField.layer.borderWidth = 2
         
+        
     }
     
     override func didReceiveMemoryWarning() {
