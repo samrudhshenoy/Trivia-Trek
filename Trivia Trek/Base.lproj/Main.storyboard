@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Game Setup-->
+        <!--Bug Report View Controller-->
         <scene sceneID="wdc-g5-SWy">
             <objects>
                 <viewController id="Jvi-fk-BFw" customClass="BugReportViewController" customModule="MAD_2018_19" customModuleProvider="target" sceneMemberID="viewController">
@@ -27,7 +27,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Describe the issue here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tpi-j6-rw3">
-                                <rect key="frame" x="16" y="241" width="343" height="365"/>
+                                <rect key="frame" x="16" y="241" width="343" height="321"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
@@ -56,17 +56,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7XW-XM-veZ"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Game Setup" id="QO7-4n-EOx">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="cP7-9O-oeO">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="cancelButtonClicked:" destination="zEc-ou-xD4" id="nE0-xJ-fw5"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Ready" id="gE3-Zg-yU4">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </barButtonItem>
-                    </navigationItem>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="textField" destination="tpi-j6-rw3" id="yHv-ed-m6R"/>
                     </connections>
@@ -131,14 +122,14 @@
                                     <constraint firstAttribute="width" secondItem="6C8-hT-fxA" secondAttribute="height" multiplier="185:177" id="AN8-rs-cX9"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fZ-0C-bvq">
-                                <rect key="frame" x="49" y="581" width="277" height="44"/>
+                            <button opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fZ-0C-bvq">
+                                <rect key="frame" x="103" y="623" width="168" height="24"/>
                                 <color key="backgroundColor" red="0.97207802529999998" green="0.98871308570000005" blue="0.90814751390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="277" id="rpk-FG-av3"/>
+                                    <constraint firstAttribute="width" constant="168" id="rpk-FG-av3"/>
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="nb9-LE-z2e"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="23"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <state key="normal" title="Report a Bug">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -146,17 +137,6 @@
                                     <segue destination="Jvi-fk-BFw" kind="popoverPresentation" popoverAnchorView="8fZ-0C-bvq" id="rgq-Vl-7LS">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
-                                </connections>
-                            </button>
-                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wh6-08-dil">
-                                <rect key="frame" x="166" y="544" width="114" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.97207802529999998" green="0.98871308570000005" blue="0.90814751390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Query">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="doQuery:" destination="miT-Rc-EUv" eventType="touchUpInside" id="1qd-1q-NiP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -189,7 +169,7 @@
                             <constraint firstItem="owf-95-HvK" firstAttribute="width" secondItem="wP8-nx-thg" secondAttribute="width" id="lj5-td-bMM"/>
                             <constraint firstItem="wP8-nx-thg" firstAttribute="leading" secondItem="hAX-RF-sVo" secondAttribute="leading" constant="16" id="oLe-ia-VuZ"/>
                             <constraint firstItem="owf-95-HvK" firstAttribute="centerX" secondItem="AdF-Ny-A0x" secondAttribute="centerX" id="qWn-Zn-Woy"/>
-                            <constraint firstItem="hAX-RF-sVo" firstAttribute="bottom" secondItem="8fZ-0C-bvq" secondAttribute="bottom" constant="42" id="ukY-ox-Y42"/>
+                            <constraint firstItem="hAX-RF-sVo" firstAttribute="bottom" secondItem="8fZ-0C-bvq" secondAttribute="bottom" constant="20" id="ukY-ox-Y42"/>
                             <constraint firstItem="Lcb-ZD-3YA" firstAttribute="top" secondItem="6C8-hT-fxA" secondAttribute="bottom" constant="20" id="v95-aH-0MU"/>
                             <constraint firstItem="wP8-nx-thg" firstAttribute="top" secondItem="Lcb-ZD-3YA" secondAttribute="bottom" constant="37" id="vV7-a7-cj4"/>
                         </constraints>
@@ -199,6 +179,7 @@
                         <outlet property="connectButton" destination="owf-95-HvK" id="KZY-hr-NOR"/>
                         <outlet property="helpButton" destination="Yod-FH-Ifl" id="Pgp-y0-10v"/>
                         <outlet property="playButton" destination="wP8-nx-thg" id="fCS-fn-D8I"/>
+                        <outlet property="reportBug" destination="8fZ-0C-bvq" id="Eho-eQ-zXy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZJH-Py-6xw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -622,7 +603,6 @@
         <!--View Controller-->
         <scene sceneID="Y02-Ow-tCu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3Z1-55-OPR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="PageThree" id="tY3-uj-IFt" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s7o-FY-gIO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -663,6 +643,7 @@
                         <viewLayoutGuide key="safeArea" id="tX3-u8-OTP"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Z1-55-OPR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3192.8000000000002" y="802.848575712144"/>
         </scene>
@@ -774,8 +755,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6n-dY-yrt">
-                                <rect key="frame" x="79" y="499" width="217" height="47"/>
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6n-dY-yrt">
+                                <rect key="frame" x="160" y="499" width="55" height="47"/>
                                 <color key="backgroundColor" red="0.97207802529999998" green="0.98871308570000005" blue="0.90814751390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="25"/>
                                 <state key="normal" title="Back">
@@ -794,8 +775,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CK6-24-a3I">
-                                <rect key="frame" x="79" y="397" width="217" height="47"/>
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CK6-24-a3I">
+                                <rect key="frame" x="70" y="397" width="235" height="47"/>
                                 <color key="backgroundColor" red="0.97207802529999998" green="0.98871308570000005" blue="0.90814751390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="25"/>
                                 <state key="normal" title="Get Started">
@@ -818,6 +799,7 @@
                             <constraint firstItem="c6n-dY-yrt" firstAttribute="top" secondItem="CK6-24-a3I" secondAttribute="bottom" constant="55" id="fh4-Bn-aJO"/>
                             <constraint firstItem="Cdu-GM-VcD" firstAttribute="centerX" secondItem="d4D-BK-T8t" secondAttribute="centerX" id="nmZ-88-xpU"/>
                             <constraint firstItem="Cdu-GM-VcD" firstAttribute="top" secondItem="PM4-es-JPw" secondAttribute="bottom" constant="77" id="rhb-kB-xCi"/>
+                            <constraint firstItem="c6n-dY-yrt" firstAttribute="width" secondItem="CK6-24-a3I" secondAttribute="width" id="w2c-P8-RX7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lhg-SZ-0EO"/>
                     </view>
