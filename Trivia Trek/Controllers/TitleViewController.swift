@@ -22,7 +22,7 @@ class TitleViewController: UIViewController {
         self.playButton.layer.cornerRadius = 7
         self.connectButton.layer.cornerRadius = 7
         self.helpButton.layer.cornerRadius = 7
-        self.reportBug.layer.cornerRadius = 5
+        self.reportBug.layer.cornerRadius = 7
         
     }
     
@@ -30,8 +30,5 @@ class TitleViewController: UIViewController {
         
         
     }
-    
-    @IBAction func doQuery(_ sender: Any) {
-        
-    }
+
 }

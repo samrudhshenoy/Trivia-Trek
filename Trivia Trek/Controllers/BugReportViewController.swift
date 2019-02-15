@@ -9,9 +9,10 @@
 import UIKit
 import MessageUI
 
-class BugReportViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class BugReportViewController: UIViewController, MFMailComposeViewControllerDelegate, UITextViewDelegate {
     
     @IBOutlet weak var textField: UITextView!
+    @IBOutlet weak var submitButton: UIButton!
     
     //Submit button pressed
     @available(iOS, deprecated: 9.0)
@@ -40,7 +41,7 @@ class BugReportViewController: UIViewController, MFMailComposeViewControllerDele
     //Returns error message if email sending is unsuccessful
     @available(iOS, deprecated: 9.0)
     func showSendMailErrorAlert() {
-        let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
+        let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send email.  Please check email configuration and try again.", delegate: self, cancelButtonTitle: "OK")
         sendMailErrorAlert.show()
     }
     
@@ -55,9 +56,11 @@ class BugReportViewController: UIViewController, MFMailComposeViewControllerDele
         self.textField.layer.masksToBounds = true
         self.textField.layer.borderColor = UIColor.darkGray.cgColor
         self.textField.layer.borderWidth = 2
-        self.textField.text = "Let us know the issue here"
         self.textField.keyboardType = UIKeyboardType.default
         self.textField.clearsOnInsertion = true
+        
+        self.submitButton.layer.cornerRadius = 7
+        self.cancelButton.layer.cornerRadius = 7
         
     }
     
@@ -65,4 +68,8 @@ class BugReportViewController: UIViewController, MFMailComposeViewControllerDele
         super.didReceiveMemoryWarning()
     }
     
+    @IBAction func rewindToHome(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "rewindToHome", sender: self)
+    }
 }
