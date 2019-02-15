@@ -8,13 +8,13 @@
 
 import UIKit
 import FBSDKLoginKit
-import SCSDKLoginKit
+//import SCSDKLoginKit
 
 class ConnectViewController: UIViewController {
     
     @IBOutlet weak var loginButton: FBSDKLoginButton!
     @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var scLoginButton: SCSDKLoginButton!
+//    @IBOutlet weak var scLoginButton: SCSDKLoginButton!
     
     
     override func viewDidLoad() {
@@ -22,15 +22,15 @@ class ConnectViewController: UIViewController {
         
         let loginButton = FBSDKLoginButton()
         
-        let scLoginButton = SCSDKLoginButton()
+//        let scLoginButton = SCSDKLoginButton()
         
             self.loginButton.center = view.center
-            self.scLoginButton.center = view.center
+//            self.scLoginButton.center = view.center
         
         
         // Obtain all constraints for the button:
         let layoutConstraintsArr = loginButton.constraints
-        let layoutConstraintsArrSC = scLoginButton.constraints
+//        let layoutConstraintsArrSC = scLoginButton.constraints
         // Iterate over array and test constraints until we find the correct one:
         for lc in layoutConstraintsArr { // or attribute is NSLayoutAttributeHeight etc.
             if ( lc.constant == 28 ){
@@ -40,12 +40,12 @@ class ConnectViewController: UIViewController {
             }
         }
         
-        for lc in layoutConstraintsArrSC {
-            if lc.constant == 28 {
-                lc.isActive = false
-                break
-            }
-        }
+//        for lc in layoutConstraintsArrSC {
+//            if lc.constant == 28 {
+//                lc.isActive = false
+//                break
+//            }
+//        }
         
         
         
@@ -55,7 +55,7 @@ class ConnectViewController: UIViewController {
         
         
         view.addSubview(loginButton)
-        view.addSubview(scLoginButton)
+//        view.addSubview(scLoginButton)
         
     }
 
