@@ -8,6 +8,7 @@
 
 import UIKit
 import FBSDKCoreKit
+import SCSDKLoginKit
 
 @UIApplicationMain
 
@@ -17,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+        return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options) || SCSDKLoginClient.application(app, open: url, options: options)
+        
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
