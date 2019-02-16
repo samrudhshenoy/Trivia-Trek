@@ -7,15 +7,49 @@
 //
 
 import UIKit
-import CloudKit
+import MessageUI
 
-class BugReportViewController: UIViewController, UITextViewDelegate {
+class BugReportViewController: UIViewController, MFMailComposeViewControllerDelegate, UITextViewDelegate {
     
     @IBOutlet weak var textField: UITextView!
     @IBOutlet weak var submitButton: UIButton!
     
-    @IBOutlet weak var cancelButton: UIButton!
+    //Submit button pressed
+    @available(iOS, deprecated: 9.0)
+    @IBAction func submitButton(_ sender: Any) {
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            self.showSendMailErrorAlert()
+        }
+        
+    }
     
+    //Configures a view controller in which to send the email
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self as MFMailComposeViewControllerDelegate // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        
+        mailComposerVC.setToRecipients(["triviatrek@hhsfbla.com"])
+        mailComposerVC.setSubject("Trivia Trek Bug Report")
+        mailComposerVC.setMessageBody(textField.text, isHTML: false)
+        
+        return mailComposerVC
+    }
+    
+    //Returns error message if email sending is unsuccessful
+    @available(iOS, deprecated: 9.0)
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send email.  Please check email configuration and try again.", delegate: self, cancelButtonTitle: "OK")
+        sendMailErrorAlert.show()
+    }
+    
+    // MARK: MFMailComposeViewControllerDelegate Method
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    @IBOutlet weak var cancelButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.textField.layer.cornerRadius = 8
@@ -24,27 +58,9 @@ class BugReportViewController: UIViewController, UITextViewDelegate {
         self.textField.layer.borderWidth = 2
         self.textField.keyboardType = UIKeyboardType.default
         self.textField.clearsOnInsertion = true
-        self.textField.resignFirstResponder()
-        self.textField.delegate = self
         
         self.submitButton.layer.cornerRadius = 7
         self.cancelButton.layer.cornerRadius = 7
-        
-    }
-    
-    @IBAction func submitButton(_ sender: Any) {
-        
-        // do the query
-        let bugReport = CKRecord(recordType: "Bug")
-        bugReport.setObject(self.textField!.text as NSString, forKey: "description")
-        
-        let database = CKContainer.default().publicCloudDatabase
-        
-        database.save(bugReport, completionHandler: { record, error in
-            DispatchQueue.main.sync {
-                self.performSegue(withIdentifier: "rewindToHome", sender: self)
-            }
-        })
         
     }
     
@@ -56,15 +72,4 @@ class BugReportViewController: UIViewController, UITextViewDelegate {
         
         self.performSegue(withIdentifier: "rewindToHome", sender: self)
     }
-    
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if(text == "\n") {
-            self.textField.endEditing(true)
-            return false
-        }
-        else {
-            return true
-        }
-    }
-    
 }
