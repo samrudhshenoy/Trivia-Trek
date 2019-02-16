@@ -39,6 +39,17 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.40.0):
     - FBSDKCoreKit
+  - PINCache (2.3)
+  - PINOperation (1.1.1)
+  - SnapSDK (1.2.0):
+    - SnapSDK/SCSDKBitmojiKit (= 1.2.0)
+    - SnapSDK/SCSDKCreativeKit (= 1.2.0)
+    - SnapSDK/SCSDKLoginKit (= 1.2.0)
+  - SnapSDK/SCSDKBitmojiKit (1.2.0):
+    - PINCache (< 3.1, >= 2.3)
+    - PINOperation (~> 1.1)
+  - SnapSDK/SCSDKCreativeKit (1.2.0)
+  - SnapSDK/SCSDKLoginKit (1.2.0)
 
 DEPENDENCIES:
   - FacebookCore
@@ -46,6 +57,7 @@ DEPENDENCIES:
   - FacebookSDK
   - FacebookShare
   - FBSDKPlacesKit
+  - SnapSDK
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -59,6 +71,9 @@ SPEC REPOS:
     - FBSDKMarketingKit
     - FBSDKPlacesKit
     - FBSDKShareKit
+    - PINCache
+    - PINOperation
+    - SnapSDK
 
 SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
@@ -71,7 +86,10 @@ SPEC CHECKSUMS:
   FBSDKMarketingKit: e609f39d74ab273cf52e2f8b7e8829ed412b2827
   FBSDKPlacesKit: 02fce2a3a1da77dc107823920e83f7e10dc13b50
   FBSDKShareKit: 0e45916f4150da485928ae2a17ca021950b194f5
+  PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
+  PINOperation: a6219e6fc9db9c269eb7a7b871ac193bcf400aac
+  SnapSDK: ab99c79e619067da4ed60c98ea5a04a288b83dc0
 
-PODFILE CHECKSUM: 79ff078ae5889b85de1571c3b22d2efa4a0b8659
+PODFILE CHECKSUM: 2258a9a83e4defd76dabd6d159fd3cd69d908c8e
 
 COCOAPODS: 1.5.3
