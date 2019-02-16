@@ -11,7 +11,8 @@ target 'MAD 2018-19' do
   pod 'FacebookShare'
   pod 'FacebookSDK'
   pod 'FBSDKPlacesKit'
-
+  pod 'SnapSDK'
+  
   target 'MAD 2018-19Tests' do
     inherit! :search_paths
     # Pods for testing
