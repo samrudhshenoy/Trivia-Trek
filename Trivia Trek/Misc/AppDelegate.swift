@@ -12,8 +12,10 @@ import FBSDKCoreKit
 
 @UIApplicationMain
 
+// Main application delegate class which controls all subprocesses
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    /// UIWindow from which the app is displayed from
     var window: UIWindow?
 
     

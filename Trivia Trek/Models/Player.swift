@@ -9,12 +9,17 @@
 import UIKit
 import GameKit
 
+/// Represents the current player object and properties
 class Player {
     
+    /// The tile the player is currently positioned on
     var pos: Int
+    /// The number of questions the player currently has correct
     var numberCorrect: Int
+    /// The image (optional) of the player
     var photo: UIImage?
     
+    /// Initializes a new player with an optional photo
     init(photo: UIImage?) {
         if photo != nil {
             self.photo = photo
