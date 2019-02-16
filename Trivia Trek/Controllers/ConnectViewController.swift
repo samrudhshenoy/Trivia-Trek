@@ -24,7 +24,7 @@ class ConnectViewController: UIViewController {
         
 //        let scLoginButton = SCSDKLoginButton()
         
-            self.loginButton.center = view.center
+        self.loginButton.center = view.center
 //            self.scLoginButton.center = view.center
         
         

@@ -48,6 +48,7 @@ class BoardViewController: UIViewController {
         
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
@@ -114,6 +115,7 @@ class BoardViewController: UIViewController {
         }
         
     }
+    
 
     @IBAction func pauseGame(_ sender: Any) {
         
