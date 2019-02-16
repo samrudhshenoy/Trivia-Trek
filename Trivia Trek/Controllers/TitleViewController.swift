@@ -19,6 +19,7 @@ class TitleViewController: UIViewController {
     
     @IBOutlet weak var highScoreLabel: UILabel!
     @IBOutlet weak var avatarButton: UIButton!
+    @IBOutlet weak var avatarPicker: UIView!
     
     var playerName: String?
     
@@ -30,11 +31,28 @@ class TitleViewController: UIViewController {
         self.helpButton.layer.cornerRadius = 7
         self.reportBug.layer.cornerRadius = 7
         
+        self.avatarPicker.alpha = 0
+        
     }
     
     @IBAction func rewindToHome(segue: UIStoryboardSegue) {
         
+        if segue.source is AvatarPickerViewController {
+            
+            UIView.animate(withDuration: 0.7, animations: {
+                self.avatarPicker.alpha = 0
+            })
+            
+        }
         
     }
 
+    @IBAction func showAvatarPicker(_ sender: Any) {
+        
+        UIView.animate(withDuration: 0.7, animations: {
+            self.avatarPicker.alpha = 1
+        })
+        
+        
+    }
 }

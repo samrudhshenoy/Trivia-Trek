@@ -59,7 +59,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="backButtonClicked:" destination="CGh-zN-PPh" eventType="touchUpInside" id="DkT-dh-X55"/>
                                     <action selector="submitButton:" destination="Jvi-fk-BFw" eventType="touchUpInside" id="nxY-6V-05u"/>
                                 </connections>
                             </button>
@@ -181,6 +180,9 @@
                                     <constraint firstAttribute="width" secondItem="IcP-Uk-sYR" secondAttribute="height" multiplier="23:22" id="dtb-OJ-z82"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="avatar-sample"/>
+                                <connections>
+                                    <action selector="showAvatarPicker:" destination="miT-Rc-EUv" eventType="touchUpInside" id="ldT-1c-G9d"/>
+                                </connections>
                             </button>
                             <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yod-FH-Ifl">
                                 <rect key="frame" x="16" y="429" width="343" height="53"/>
@@ -194,13 +196,25 @@
                                     <segue destination="CGh-zN-PPh" kind="presentation" id="44U-7y-lrh"/>
                                 </connections>
                             </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zan-4b-qUi">
+                                <rect key="frame" x="16" y="286" width="343" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="Tx9-a6-31w"/>
+                                    <constraint firstAttribute="height" constant="216" id="rcx-Nd-Yuz"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="pDI-9C-spm" kind="embed" identifier="showAvatarPicker" id="UX6-JN-nIm"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="0.41167658567428589" green="0.64030134677886963" blue="0.98686724901199341" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="zan-4b-qUi" firstAttribute="centerY" secondItem="AdF-Ny-A0x" secondAttribute="centerY" constant="60.5" id="0BS-Ih-FKH"/>
                             <constraint firstItem="Yod-FH-Ifl" firstAttribute="top" secondItem="owf-95-HvK" secondAttribute="bottom" constant="8" id="1pi-E8-UPr"/>
                             <constraint firstItem="Yod-FH-Ifl" firstAttribute="centerX" secondItem="AdF-Ny-A0x" secondAttribute="centerX" id="3oA-ey-t1A"/>
                             <constraint firstItem="wP8-nx-thg" firstAttribute="centerY" secondItem="AdF-Ny-A0x" secondAttribute="centerY" id="6fE-ZX-cGm"/>
                             <constraint firstItem="Lcb-ZD-3YA" firstAttribute="leading" secondItem="6C8-hT-fxA" secondAttribute="trailing" constant="8" id="Cab-7b-Glb"/>
+                            <constraint firstItem="zan-4b-qUi" firstAttribute="centerX" secondItem="AdF-Ny-A0x" secondAttribute="centerX" id="DBZ-cw-d0u"/>
                             <constraint firstItem="6C8-hT-fxA" firstAttribute="leading" secondItem="hAX-RF-sVo" secondAttribute="leading" constant="16" id="DPB-fE-IXS"/>
                             <constraint firstItem="6C8-hT-fxA" firstAttribute="top" secondItem="hAX-RF-sVo" secondAttribute="top" constant="55" id="E9k-Yd-cxK"/>
                             <constraint firstItem="owf-95-HvK" firstAttribute="width" secondItem="Yod-FH-Ifl" secondAttribute="width" id="Fsp-WT-E0B"/>
@@ -224,6 +238,7 @@
                     </view>
                     <connections>
                         <outlet property="avatarButton" destination="IcP-Uk-sYR" id="qsV-72-Ddg"/>
+                        <outlet property="avatarPicker" destination="zan-4b-qUi" id="SG1-tI-eIL"/>
                         <outlet property="connectButton" destination="owf-95-HvK" id="KZY-hr-NOR"/>
                         <outlet property="helpButton" destination="Yod-FH-Ifl" id="Pgp-y0-10v"/>
                         <outlet property="highScoreLabel" destination="Cgn-Hc-as3" id="cTj-Vs-7yw"/>
@@ -940,14 +955,96 @@
             </objects>
             <point key="canvasLocation" x="2480.8000000000002" y="802.848575712144"/>
         </scene>
+        <!--Avatar Picker View Controller-->
+        <scene sceneID="B1a-1m-trN">
+            <objects>
+                <viewController id="pDI-9C-spm" customClass="AvatarPickerViewController" customModule="MAD_2018_19" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Go-Ih-Dbl">
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="216"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fblogo" translatesAutoresizingMaskIntoConstraints="NO" id="CDK-ZD-cJ8">
+                                <rect key="frame" x="125" y="20" width="92" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="scicon" translatesAutoresizingMaskIntoConstraints="NO" id="LFx-9l-2Hq">
+                                <rect key="frame" x="225" y="20" width="92" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar-sample" translatesAutoresizingMaskIntoConstraints="NO" id="81x-wn-Pq5">
+                                <rect key="frame" x="16" y="20" width="92" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZOP-rQ-bsa">
+                                <rect key="frame" x="16" y="116" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.97207802529999998" green="0.98871308570000005" blue="0.90814751390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="Select">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0YV-lh-bOB">
+                                <rect key="frame" x="235" y="116" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.97207802529999998" green="0.98871308570000005" blue="0.90814751390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="Select">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="crg-XL-nWr">
+                                <rect key="frame" x="125" y="166" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.97207802529999998" green="0.98871308570000005" blue="0.90814751390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelSelection:" destination="pDI-9C-spm" eventType="touchUpInside" id="8Hb-gE-cA4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OK5-zK-5Re">
+                                <rect key="frame" x="125" y="116" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.97207802529999998" green="0.98871308570000005" blue="0.90814751390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="Select">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.80392156859999997" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <viewLayoutGuide key="safeArea" id="VcJ-Bg-FUF"/>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="crg-XL-nWr" id="ENO-ja-cBi"/>
+                        <outlet property="defaultAvatarView" destination="81x-wn-Pq5" id="MrS-dQ-TzS"/>
+                        <outlet property="defaultSelectButton" destination="ZOP-rQ-bsa" id="Nzt-0O-yJW"/>
+                        <outlet property="fbAvatarView" destination="CDK-ZD-cJ8" id="CXB-Jw-u3e"/>
+                        <outlet property="fbSelectButton" destination="OK5-zK-5Re" id="ahH-eH-t0h"/>
+                        <outlet property="mainView" destination="1Go-Ih-Dbl" id="hwL-y2-eK1"/>
+                        <outlet property="scAvatarView" destination="LFx-9l-2Hq" id="GK6-nP-5Ku"/>
+                        <outlet property="scSelectButton" destination="0YV-lh-bOB" id="x87-1l-ZNh"/>
+                        <segue destination="njM-Hn-0w8" kind="unwind" identifier="rewindToHome" unwindAction="rewindToHomeWithSegue:" id="hRL-7w-XDQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pTH-XA-0dZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="njM-Hn-0w8" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-642.39999999999998" y="-460.56971514242883"/>
+        </scene>
     </scenes>
     <resources>
         <image name="MustangGameLogoBetter" width="185.25" height="153"/>
         <image name="MustangGameLogoBetter.png" width="247" height="204"/>
         <image name="avatar-sample" width="203.25" height="203.25"/>
+        <image name="fblogo" width="1878.2608642578125" height="1878.2608642578125"/>
         <image name="left-arrow" width="225" height="225"/>
         <image name="normal-map" width="180.75" height="156.75"/>
         <image name="right-arrow" width="225" height="225"/>
+        <image name="scicon" width="512" height="512"/>
         <image name="videogameicon" width="2000" height="2000"/>
     </resources>
     <inferredMetricsTieBreakers>

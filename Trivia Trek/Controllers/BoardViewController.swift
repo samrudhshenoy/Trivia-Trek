@@ -15,20 +15,17 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var boardView: SKView!
     @IBOutlet weak var tapTester: UITapGestureRecognizer!
     @IBOutlet weak var turnLabel: UILabel!
-    @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var quitButton: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var pauseLabel: UILabel!
     
     var game: Game?
-    var isPaused: Bool = false
     var currentTurn: DispatchWorkItem?
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
 
-        self.pauseButton.layer.cornerRadius = 7
         self.quitButton.layer.cornerRadius = 7
         
         let board = SKScene(size: self.boardView.bounds.size)
@@ -114,28 +111,6 @@ class BoardViewController: UIViewController {
             
         }
         
-    }
-    
-
-    @IBAction func pauseGame(_ sender: Any) {
-        
-        if self.isPaused {
-            
-            self.takeTurn()
-            
-        }
-        else {
-            
-            self.currentTurn!.cancel()
-            
-        }
-        
-        UIView.animate(withDuration: 0.7, animations: {
-            self.pauseLabel.isHidden = !self.pauseLabel.isHidden
-        })
-
-        self.pauseLabel.isHidden = !self.pauseLabel.isHidden
-
     }
     
     @IBAction func quitGame(_ sender: Any) {

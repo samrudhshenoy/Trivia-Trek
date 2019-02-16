@@ -20,6 +20,7 @@
 		A571D2F62210EEA9002AF7CD /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = A571D2F52210EEA9002AF7CD /* Move.swift */; };
 		A571D2F82210F660002AF7CD /* HelpIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A571D2F72210F660002AF7CD /* HelpIntroViewController.swift */; };
 		A5779E7421FE734A00D755AA /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5779E7321FE734A00D755AA /* BoardViewController.swift */; };
+		A5ACC4F72218B29B00982E1C /* AvatarPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ACC4F62218B29B00982E1C /* AvatarPickerViewController.swift */; };
 		A5C333D521F830BA00A3D4C0 /* HelpPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C333D421F830BA00A3D4C0 /* HelpPageViewController.swift */; };
 		A5CE3CA62211F16300121B61 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CE3CA52211F16300121B61 /* QuestionViewController.swift */; };
 		A5CE3CA82211F24500121B61 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CE3CA72211F24500121B61 /* Question.swift */; };
@@ -71,6 +72,7 @@
 		A571D2F52210EEA9002AF7CD /* Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
 		A571D2F72210F660002AF7CD /* HelpIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpIntroViewController.swift; sourceTree = "<group>"; };
 		A5779E7321FE734A00D755AA /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
+		A5ACC4F62218B29B00982E1C /* AvatarPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerViewController.swift; sourceTree = "<group>"; };
 		A5C333D421F830BA00A3D4C0 /* HelpPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPageViewController.swift; sourceTree = "<group>"; };
 		A5CE3CA52211F16300121B61 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		A5CE3CA72211F24500121B61 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				A571D2F72210F660002AF7CD /* HelpIntroViewController.swift */,
 				A5CE3CA52211F16300121B61 /* QuestionViewController.swift */,
 				A5CE3CAB2216038900121B61 /* BugReportViewController.swift */,
+				A5ACC4F62218B29B00982E1C /* AvatarPickerViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 			files = (
 				A5CE3CA82211F24500121B61 /* Question.swift in Sources */,
 				A5CE3CAC2216038900121B61 /* BugReportViewController.swift in Sources */,
+				A5ACC4F72218B29B00982E1C /* AvatarPickerViewController.swift in Sources */,
 				A571D2F82210F660002AF7CD /* HelpIntroViewController.swift in Sources */,
 				A5779E7421FE734A00D755AA /* BoardViewController.swift in Sources */,
 				A5CE3CA62211F16300121B61 /* QuestionViewController.swift in Sources */,

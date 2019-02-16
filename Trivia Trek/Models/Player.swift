@@ -17,12 +17,12 @@ class Player {
     /// The number of questions the player currently has correct
     var numberCorrect: Int
     /// The image (optional) of the player
-    var photo: UIImage?
+    var avatar: UIImage?
     
     /// Initializes a new player with an optional photo
-    init(photo: UIImage?) {
-        if photo != nil {
-            self.photo = photo
+    init(avatar: UIImage?) {
+        if avatar != nil {
+            self.avatar = avatar
         }
         
         self.pos = 0
