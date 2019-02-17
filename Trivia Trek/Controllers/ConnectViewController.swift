@@ -8,24 +8,23 @@
 
 import UIKit
 import FBSDKLoginKit
-//import SCSDKLoginKit
+import SCSDKLoginKit
 
 class ConnectViewController: UIViewController {
     
     @IBOutlet weak var loginButton: FBSDKLoginButton!
     @IBOutlet weak var backButton: UIButton!
-//    @IBOutlet weak var scLoginButton: SCSDKLoginButton!
+    @IBOutlet weak var scLoginButton: SCSDKLoginButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let loginButton = FBSDKLoginButton()
-        
-//        let scLoginButton = SCSDKLoginButton()
+        _ = SCSDKLoginButton()
         
         self.loginButton.center = view.center
-//            self.scLoginButton.center = view.center
+        self.scLoginButton.center = view.center
         
         
         // Obtain all constraints for the button:
@@ -55,7 +54,7 @@ class ConnectViewController: UIViewController {
         
         
         view.addSubview(loginButton)
-//        view.addSubview(scLoginButton)
+        view.addSubview(scLoginButton)
         
     }
 
@@ -81,6 +80,8 @@ class ConnectViewController: UIViewController {
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("User Logged Out")
     }
+    
+    
 
     /*
     // MARK: - Navigation

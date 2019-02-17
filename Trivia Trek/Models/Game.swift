@@ -22,6 +22,9 @@ class Game: NSObject {
     /// Player object which is stored in the game
     var player: Player
     
+    
+    var cpu: [CPU] = []
+    
     /// Array of possible moves within the gameboard
     var path: [Move] = []
     
@@ -48,7 +51,11 @@ class Game: NSObject {
         self.map = map
         
         super.init()
-
+        
+//        for i in 0..<cpu.count {
+//            cpu[i] = CPU(diff: CPUDiff, numCPU: i)
+//        }
+        
         self.loadQuestions()
     }
     

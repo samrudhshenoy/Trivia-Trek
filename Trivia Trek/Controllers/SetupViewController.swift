@@ -55,8 +55,8 @@ class SetupViewController: UIViewController {
     }
     @IBAction func changeTurns(_ sender: Any) {
         
-        let turns = Int(self.turnIncrementButton.value)
-        self.turnLabel.text! = "Number of Turns: \(turns)"
+        numberOfTurns = Int(self.turnIncrementButton.value)
+        self.turnLabel.text! = "Number of Turns: \(numberOfTurns)"
         
     }
     
