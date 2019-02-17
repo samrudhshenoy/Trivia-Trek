@@ -13,6 +13,7 @@ class BugReportViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var textField: UITextView!
     @IBOutlet weak var submitButton: UIButton!
+    
     @IBOutlet weak var cancelButton: UIButton!
     
     override func viewDidLoad() {
@@ -37,29 +38,16 @@ class BugReportViewController: UIViewController, UITextViewDelegate {
         let bugReport = CKRecord(recordType: "Bug")
         bugReport.setObject(self.textField!.text as NSString, forKey: "description")
         
-        let database = CKContainer.default().privateCloudDatabase
+        let database = CKContainer.default().publicCloudDatabase
         
         database.save(bugReport, completionHandler: { record, error in
             DispatchQueue.main.sync {
-                if error != nil {
-                    
-                    let alert = UIAlertController(title: "Error", message: "There was a problem reporting your bug", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                        self.performSegue(withIdentifier: "rewindToHome", sender: self)
-                    }))
-                    self.present(alert, animated: true, completion: nil)
-                    
-                }
-                else {
-                    self.performSegue(withIdentifier: "rewindToHome", sender: self)
-
-                }
-        
+                self.performSegue(withIdentifier: "rewindToHome", sender: self)
             }
         })
         
     }
-        
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

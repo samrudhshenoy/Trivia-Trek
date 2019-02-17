@@ -48,10 +48,9 @@ class SetupViewController: UIViewController {
         if segue.destination is BoardViewController {
             
             let board = segue.destination as? BoardViewController
-            board?.game = Game(maxTurns: self.numberOfTurns, player: Player(avatar: nil), map: self.mapImages[self.currentMap])
+            board?.game = Game(maxTurns: self.numberOfTurns, player: Player(photo: nil), map: self.mapImages[self.currentMap])
             
         }
-        
     }
     @IBAction func changeTurns(_ sender: Any) {
         

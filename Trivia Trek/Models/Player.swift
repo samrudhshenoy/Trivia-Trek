@@ -17,12 +17,12 @@ class Player {
     /// The number of points the player currently has
     var points: Int
     /// The image (optional) of the player
-    var avatar: UIImage?
+    var photo: UIImage?
     
     /// Initializes a new player with an optional photo
-    init(avatar: UIImage?) {
-        if avatar != nil {
-            self.avatar = avatar
+    init(photo: UIImage?) {
+        if photo != nil {
+            self.photo = photo
         }
         
         self.pos = 0

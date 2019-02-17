@@ -20,6 +20,7 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var pauseLabel: UILabel!
     
     var game: Game?
+    var isPaused: Bool = false
     var currentTurn: DispatchWorkItem?
     var currentTime: Double = 0
     
@@ -117,6 +118,28 @@ class BoardViewController: UIViewController {
             
         }
         
+    }
+    
+
+    @IBAction func pauseGame(_ sender: Any) {
+        
+        if self.isPaused {
+            
+            self.takeTurn()
+            
+        }
+        else {
+            
+            self.currentTurn!.cancel()
+            
+        }
+        
+        UIView.animate(withDuration: 0.7, animations: {
+            self.pauseLabel.isHidden = !self.pauseLabel.isHidden
+        })
+
+        self.pauseLabel.isHidden = !self.pauseLabel.isHidden
+
     }
     
     @IBAction func quitGame(_ sender: Any) {
