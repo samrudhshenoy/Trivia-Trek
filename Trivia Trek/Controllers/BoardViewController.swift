@@ -22,6 +22,7 @@ class BoardViewController: UIViewController {
     var game: Game?
     var isPaused: Bool = false
     var currentTurn: DispatchWorkItem?
+    var currentTime: Double = 0
     
     override func viewDidLoad() {
         
@@ -43,6 +44,8 @@ class BoardViewController: UIViewController {
         player.size = CGSize(width: 30, height: 30)
         board.addChild(player)
         
+        currentTime = 0
+        
         self.boardView.presentScene(board)
         
     }
@@ -55,7 +58,7 @@ class BoardViewController: UIViewController {
         self.turnLabel.alpha = 1
         self.turnLabel.text = "Turn \(self.game!.turnsTaken)"
         
-        self.scoreLabel.text = "Score: \(self.game!.player.numberCorrect)"
+        self.scoreLabel.text = "Score: \(self.game!.player.points)"
         
         self.fadeOutTurnLabel()
 
@@ -101,6 +104,8 @@ class BoardViewController: UIViewController {
         })
         
     }
+    
+
     
     @IBAction func moveRight(_ sender: Any) {
         

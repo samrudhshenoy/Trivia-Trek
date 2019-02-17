@@ -600,6 +600,12 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oEv-oh-ciM">
+                                <rect key="frame" x="133" y="33" width="109" height="62"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="45"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.41176470590000003" green="0.64705882349999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -613,6 +619,7 @@
                             <constraint firstItem="kf8-9C-XWf" firstAttribute="height" secondItem="Lln-gd-pgO" secondAttribute="height" id="Nlt-PT-3vk"/>
                             <constraint firstItem="Lln-gd-pgO" firstAttribute="width" secondItem="OaG-uF-hCj" secondAttribute="width" id="Pb3-Z3-BKU"/>
                             <constraint firstItem="kf8-9C-XWf" firstAttribute="centerX" secondItem="b1X-a2-7Tn" secondAttribute="centerX" id="QkU-8z-WCL"/>
+                            <constraint firstItem="oEv-oh-ciM" firstAttribute="top" secondItem="F0Q-CN-qgS" secondAttribute="top" constant="13" id="Syi-im-6Ad"/>
                             <constraint firstItem="OaG-uF-hCj" firstAttribute="top" secondItem="Lln-gd-pgO" secondAttribute="bottom" constant="50" id="VQ4-ca-Msy"/>
                             <constraint firstItem="9Dl-SC-O5U" firstAttribute="centerX" secondItem="b1X-a2-7Tn" secondAttribute="centerX" id="ae1-gm-wQz"/>
                             <constraint firstItem="F0Q-CN-qgS" firstAttribute="bottom" secondItem="VYF-d3-II3" secondAttribute="bottom" constant="20" id="aer-AU-uR8"/>
@@ -621,6 +628,8 @@
                             <constraint firstItem="x0t-ur-6JP" firstAttribute="width" secondItem="kf8-9C-XWf" secondAttribute="width" id="mhi-rl-vtn"/>
                             <constraint firstItem="OaG-uF-hCj" firstAttribute="centerX" secondItem="b1X-a2-7Tn" secondAttribute="centerX" id="nbZ-1N-dQj"/>
                             <constraint firstItem="F0Q-CN-qgS" firstAttribute="trailing" secondItem="x0t-ur-6JP" secondAttribute="trailing" constant="16" id="o26-m4-hSR"/>
+                            <constraint firstItem="9Dl-SC-O5U" firstAttribute="top" secondItem="oEv-oh-ciM" secondAttribute="bottom" constant="17" id="qPX-nz-Tr5"/>
+                            <constraint firstItem="oEv-oh-ciM" firstAttribute="centerX" secondItem="F0Q-CN-qgS" secondAttribute="centerX" id="tgp-LE-Vhg"/>
                             <constraint firstItem="x0t-ur-6JP" firstAttribute="top" secondItem="9Dl-SC-O5U" secondAttribute="bottom" constant="102.5" id="vTJ-GS-a1N"/>
                             <constraint firstItem="x0t-ur-6JP" firstAttribute="height" secondItem="kf8-9C-XWf" secondAttribute="height" id="yZo-OM-12G"/>
                         </constraints>
@@ -630,6 +639,7 @@
                         <outlet property="doneButton" destination="VYF-d3-II3" id="wIH-QC-LL9"/>
                         <outlet property="firstChoiceButton" destination="x0t-ur-6JP" id="TGi-OJ-U0r"/>
                         <outlet property="fourthChoiceButton" destination="OaG-uF-hCj" id="761-r2-xSh"/>
+                        <outlet property="pointsLabel" destination="oEv-oh-ciM" id="ulU-L8-0J8"/>
                         <outlet property="questionLabel" destination="9Dl-SC-O5U" id="wRh-Ke-wX6"/>
                         <outlet property="secondChoiceButton" destination="kf8-9C-XWf" id="XCT-hC-oqn"/>
                         <outlet property="thirdChoiceButton" destination="Lln-gd-pgO" id="zUx-h0-jJg"/>
