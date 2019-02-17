@@ -52,12 +52,11 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>SCSDKClientId</key>
-	<string>cdd2050f-4227-4ea8-9c77-5d6291c23c96</string>
+	<string>76837ad7-b982-4151-96b8-c4372626e21c</string>
 	<key>SCSDKRedirectUrl</key>
 	<string>https://github.com/arthurlafrance/MustangGame</string>
 	<key>SCSDKScopes</key>
 	<array>
-		<string>https://auth.snapchat.com/oauth2/api/user.external_id</string>
 		<string>https://auth.snapchat.com/oauth2/api/user.display_name</string>
 		<string>https://auth.snapchat.com/oauth2/api/user.bitmoji.avatar</string>
 	</array>

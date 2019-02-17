@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import MessageUI
 import CloudKit
 
-class BugReportViewController: UIViewController, MFMailComposeViewControllerDelegate, UITextViewDelegate {
+class BugReportViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var textField: UITextView!
     @IBOutlet weak var submitButton: UIButton!
@@ -24,6 +23,8 @@ class BugReportViewController: UIViewController, MFMailComposeViewControllerDele
         self.textField.layer.borderWidth = 2
         self.textField.keyboardType = UIKeyboardType.default
         self.textField.clearsOnInsertion = true
+        self.textField.resignFirstResponder()
+        self.textField.delegate = self
         
         self.submitButton.layer.cornerRadius = 7
         self.cancelButton.layer.cornerRadius = 7
@@ -53,11 +54,12 @@ class BugReportViewController: UIViewController, MFMailComposeViewControllerDele
                     self.performSegue(withIdentifier: "rewindToHome", sender: self)
 
                 }
+        
             }
         })
         
     }
-    
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -66,4 +68,15 @@ class BugReportViewController: UIViewController, MFMailComposeViewControllerDele
         
         self.performSegue(withIdentifier: "rewindToHome", sender: self)
     }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            self.textField.endEditing(true)
+            return false
+        }
+        else {
+            return true
+        }
+    }
+    
 }
