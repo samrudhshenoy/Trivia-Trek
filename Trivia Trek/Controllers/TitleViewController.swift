@@ -8,6 +8,7 @@
 
 import UIKit
 import GameKit
+import CloudKit
 
 class TitleViewController: UIViewController {
 
@@ -15,6 +16,11 @@ class TitleViewController: UIViewController {
     @IBOutlet weak var connectButton: UIButton!
     @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var reportBug: UIButton!
+    
+    @IBOutlet weak var highScoreLabel: UILabel!
+    @IBOutlet weak var avatarButton: UIButton!
+    
+    var playerName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()

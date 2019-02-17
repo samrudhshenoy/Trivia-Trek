@@ -15,7 +15,6 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var boardView: SKView!
     @IBOutlet weak var tapTester: UITapGestureRecognizer!
     @IBOutlet weak var turnLabel: UILabel!
-    @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var quitButton: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var pauseLabel: UILabel!
@@ -28,8 +27,8 @@ class BoardViewController: UIViewController {
         
         super.viewDidLoad()
 
-        self.pauseButton.layer.cornerRadius = 7
         self.quitButton.layer.cornerRadius = 7
+        
         
         let board = SKScene(size: self.boardView.bounds.size)
         board.backgroundColor = UIColor(red: 18/255, green: 126/255, blue: 13/255, alpha: 1)
