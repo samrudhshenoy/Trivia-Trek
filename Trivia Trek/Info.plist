@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Snapchat login completed</key>
-	<false/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -29,14 +27,14 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb2024536594506220</string>
+				<string>fb350924682299093</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>FacebookAppID</key>
-	<string>2024536594506220</string>
+	<string>350924682299093</string>
 	<key>FacebookDisplayName</key>
 	<string>Trivia Trek</string>
 	<key>LSApplicationQueriesSchemes</key>
@@ -54,12 +52,14 @@
 	<key>SCSDKClientId</key>
 	<string>76837ad7-b982-4151-96b8-c4372626e21c</string>
 	<key>SCSDKRedirectUrl</key>
-	<string>https://github.com/arthurlafrance/MustangGame</string>
+    <string>https://accounts.snapchat.com</string>
 	<key>SCSDKScopes</key>
 	<array>
 		<string>https://auth.snapchat.com/oauth2/api/user.display_name</string>
 		<string>https://auth.snapchat.com/oauth2/api/user.bitmoji.avatar</string>
 	</array>
+	<key>Snapchat login completed</key>
+	<false/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

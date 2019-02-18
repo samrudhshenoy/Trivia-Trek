@@ -30,7 +30,13 @@ class AvatarPickerViewController: UIViewController {
         self.mainView.layer.cornerRadius = 10
         
         // Do any additional setup after loading the view.
-        if !FBSDKAccessToken.currentAccessTokenIsActive() {
+        if FBSDKAccessToken.currentAccessTokenIsActive() {
+            
+            self.fbSelectButton.isEnabled = true
+            self.fbSelectButton.alpha = 0.8
+            
+        }
+        else {
             
             self.fbSelectButton.isEnabled = false
             self.fbSelectButton.alpha = 0.5

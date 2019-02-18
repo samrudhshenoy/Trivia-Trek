@@ -15,7 +15,6 @@
 		31BAA9233273A2135EDE2922 /* Pods_MAD_2018_19.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB2FAFFF6FABB4FE2C40F95 /* Pods_MAD_2018_19.framework */; };
 		350E9869EB3D3BE5184DAC05 /* Pods_MAD_2018_19Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F62D4D5893E71B6BC8DB1D4C /* Pods_MAD_2018_19Tests.framework */; };
 		A50ADBDA220665BE0061F7D5 /* CPU.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50ADBD9220665BE0061F7D5 /* CPU.swift */; };
-		A512BCFC220625DF00C538EB /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A512BCFB220625DF00C538EB /* GameKit.framework */; };
 		A571D2F42210EAB0002AF7CD /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A571D2F32210EAB0002AF7CD /* Game.swift */; };
 		A571D2F62210EEA9002AF7CD /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = A571D2F52210EEA9002AF7CD /* Move.swift */; };
 		A571D2F82210F660002AF7CD /* HelpIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A571D2F72210F660002AF7CD /* HelpIntroViewController.swift */; };
@@ -66,7 +65,6 @@
 		8B2647E7835C02F470D94879 /* Pods_MAD_2018_19UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MAD_2018_19UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB2FAFFF6FABB4FE2C40F95 /* Pods_MAD_2018_19.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MAD_2018_19.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A50ADBD9220665BE0061F7D5 /* CPU.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPU.swift; sourceTree = "<group>"; };
-		A512BCFB220625DF00C538EB /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		A512BCFD2206303A00C538EB /* MAD 2018-19.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MAD 2018-19.entitlements"; sourceTree = "<group>"; };
 		A571D2F32210EAB0002AF7CD /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		A571D2F52210EEA9002AF7CD /* Move.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
@@ -80,7 +78,7 @@
 		A5CE3CAB2216038900121B61 /* BugReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BugReportViewController.swift; sourceTree = "<group>"; };
 		A5F0E49D21F686AA00908F6E /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		A5F0E49F21F6912D00908F6E /* TitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
-		C572255A21CEEC330013D534 /* MAD 2018-19.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MAD 2018-19.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C572255A21CEEC330013D534 /* Trivia Trek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trivia Trek.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C572255D21CEEC330013D534 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C572256521CEEC330013D534 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		C572256821CEEC330013D534 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -105,7 +103,6 @@
 			files = (
 				A5CE3CAA2214DA9E00121B61 /* CloudKit.framework in Frameworks */,
 				31BAA9233273A2135EDE2922 /* Pods_MAD_2018_19.framework in Frameworks */,
-				A512BCFC220625DF00C538EB /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,7 +192,7 @@
 		C572255B21CEEC330013D534 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C572255A21CEEC330013D534 /* MAD 2018-19.app */,
+				C572255A21CEEC330013D534 /* Trivia Trek.app */,
 				C572257421CEEC340013D534 /* MAD 2018-19Tests.xctest */,
 				C572257F21CEEC340013D534 /* MAD 2018-19UITests.xctest */,
 			);
@@ -239,7 +236,6 @@
 			isa = PBXGroup;
 			children = (
 				A5CE3CA92214DA9E00121B61 /* CloudKit.framework */,
-				A512BCFB220625DF00C538EB /* GameKit.framework */,
 				8CB2FAFFF6FABB4FE2C40F95 /* Pods_MAD_2018_19.framework */,
 				F62D4D5893E71B6BC8DB1D4C /* Pods_MAD_2018_19Tests.framework */,
 				8B2647E7835C02F470D94879 /* Pods_MAD_2018_19UITests.framework */,
@@ -250,9 +246,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C572255921CEEC330013D534 /* MAD 2018-19 */ = {
+		C572255921CEEC330013D534 /* Trivia Trek */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C572258821CEEC340013D534 /* Build configuration list for PBXNativeTarget "MAD 2018-19" */;
+			buildConfigurationList = C572258821CEEC340013D534 /* Build configuration list for PBXNativeTarget "Trivia Trek" */;
 			buildPhases = (
 				AC3DD16082FECE6C933FAC81 /* [CP] Check Pods Manifest.lock */,
 				C572255621CEEC330013D534 /* Sources */,
@@ -264,9 +260,9 @@
 			);
 			dependencies = (
 			);
-			name = "MAD 2018-19";
+			name = "Trivia Trek";
 			productName = "MAD 2018-19";
-			productReference = C572255A21CEEC330013D534 /* MAD 2018-19.app */;
+			productReference = C572255A21CEEC330013D534 /* Trivia Trek.app */;
 			productType = "com.apple.product-type.application";
 		};
 		C572257321CEEC340013D534 /* MAD 2018-19Tests */ = {
@@ -322,10 +318,10 @@
 						LastSwiftMigration = 1010;
 						SystemCapabilities = {
 							com.apple.GameCenter.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.iCloud = {
 								enabled = 1;
@@ -355,7 +351,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C572255921CEEC330013D534 /* MAD 2018-19 */,
+				C572255921CEEC330013D534 /* Trivia Trek */,
 				C572257321CEEC340013D534 /* MAD 2018-19Tests */,
 				C572257E21CEEC340013D534 /* MAD 2018-19UITests */,
 			);
@@ -553,12 +549,12 @@
 /* Begin PBXTargetDependency section */
 		C572257621CEEC340013D534 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C572255921CEEC330013D534 /* MAD 2018-19 */;
+			target = C572255921CEEC330013D534 /* Trivia Trek */;
 			targetProxy = C572257521CEEC340013D534 /* PBXContainerItemProxy */;
 		};
 		C572258121CEEC340013D534 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C572255921CEEC330013D534 /* MAD 2018-19 */;
+			target = C572255921CEEC330013D534 /* Trivia Trek */;
 			targetProxy = C572258021CEEC340013D534 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -866,7 +862,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C572258821CEEC340013D534 /* Build configuration list for PBXNativeTarget "MAD 2018-19" */ = {
+		C572258821CEEC340013D534 /* Build configuration list for PBXNativeTarget "Trivia Trek" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C572258921CEEC340013D534 /* Debug */,
