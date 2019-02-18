@@ -31,7 +31,7 @@ class TitleViewController: UIViewController {
     var avatar: UIImage!
     
     var avatarPickerController: AvatarPickerViewController?
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -136,22 +136,7 @@ class TitleViewController: UIViewController {
     
     @IBAction func rewindToHome(segue: UIStoryboardSegue) {
         
-        if segue.source is AvatarPickerViewController {
-            
-            UIView.animate(withDuration: 0.7, animations: {
-                self.avatarPicker.alpha = 0
-            })
-            
-        }
         
     }
 
-    @IBAction func showAvatarPicker(_ sender: Any) {
-        
-        UIView.animate(withDuration: 0.7, animations: {
-            self.avatarPicker.alpha = 1
-        })
-        
-        
-    }
 }
