@@ -10,25 +10,22 @@ import UIKit
 import GameKit
 import CloudKit
 
-/// The game object of which the centrality of the entire game is based on
+// The game object of which the centrality of the entire game is based on
 class Game: NSObject {
     
-    /// Maximum number of turns taken by a player
+    // Maximum number of turns taken by a player
     var maxTurns: Int
     
-    /// Current number of turns taken by a player
+    // Current number of turns taken by a player
     var turnsTaken: Int
     
-    /// Player object which is stored in the game
+    // Player object which is stored in the game
     var player: Player
     
-    /// Array of possible moves within the gameboard
-    var path: [Move] = []
-    
-    /// Game background image
+    // Game background image
     var map: UIImage
     
-    /// Array of questions with answers, sourced from the online database
+    // Array of questions with answers, sourced from the online database
     var questions: [Question] = []
     
     /**
@@ -79,7 +76,6 @@ class Game: NSObject {
                 for questionRecord in questions! {
                     
                     self.questions.append(Question(record: questionRecord))
-                    print(questionRecord.object(forKey: "text") as! String)
                     
                 }
                 

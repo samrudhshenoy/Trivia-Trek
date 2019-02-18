@@ -493,12 +493,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Paused" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5mE-ki-Iu5">
-                                <rect key="frame" x="133.5" y="435" width="108" height="24"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQ5-2h-2Ox">
                                 <rect key="frame" x="259" y="606" width="100" height="50"/>
                                 <color key="backgroundColor" red="0.97207802529999998" green="0.98871308570000005" blue="0.90814751390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -520,6 +514,18 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" alpha="0.80000001192092896" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXf-Di-kH4">
+                                <rect key="frame" x="137" y="372" width="100" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.97207802529999998" green="0.98871308570000005" blue="0.90814751390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="21"/>
+                                <state key="normal" title="Ready">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="quitGame:" destination="D3Z-TO-FCo" eventType="touchUpInside" id="leR-rB-Xkx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -528,7 +534,6 @@
                             <constraint firstItem="qQ5-2h-2Ox" firstAttribute="top" secondItem="1BS-5x-GD5" secondAttribute="bottom" constant="11" id="2iw-OX-n7I"/>
                             <constraint firstItem="1BS-5x-GD5" firstAttribute="leading" secondItem="c6n-o3-a1S" secondAttribute="leading" id="2ns-wL-ewq"/>
                             <constraint firstItem="1BS-5x-GD5" firstAttribute="top" secondItem="bun-OM-EH3" secondAttribute="top" id="8gw-od-XXu"/>
-                            <constraint firstItem="5mE-ki-Iu5" firstAttribute="centerX" secondItem="bun-OM-EH3" secondAttribute="centerX" id="CtQ-AE-Qff"/>
                             <constraint firstItem="nLD-Bb-n3U" firstAttribute="leading" secondItem="c6n-o3-a1S" secondAttribute="leading" constant="16" id="FjW-p9-Ldy"/>
                             <constraint firstItem="dsA-2B-fy2" firstAttribute="leading" secondItem="c6n-o3-a1S" secondAttribute="leading" constant="16" id="NFW-Zb-pJ0"/>
                             <constraint firstItem="1BS-5x-GD5" firstAttribute="trailing" secondItem="c6n-o3-a1S" secondAttribute="trailing" id="Sic-z7-l9N"/>
@@ -537,14 +542,13 @@
                             <constraint firstItem="c6n-o3-a1S" firstAttribute="trailing" secondItem="qQ5-2h-2Ox" secondAttribute="trailing" constant="16" id="jF3-Nz-L49"/>
                             <constraint firstItem="30c-7D-rVH" firstAttribute="centerY" secondItem="bun-OM-EH3" secondAttribute="centerY" id="sPR-o0-x1k"/>
                             <constraint firstItem="30c-7D-rVH" firstAttribute="centerX" secondItem="bun-OM-EH3" secondAttribute="centerX" id="smg-hx-9NW"/>
-                            <constraint firstItem="5mE-ki-Iu5" firstAttribute="top" secondItem="30c-7D-rVH" secondAttribute="bottom" constant="70.5" id="yIT-F9-2pu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="c6n-o3-a1S"/>
                     </view>
                     <connections>
                         <outlet property="boardView" destination="1BS-5x-GD5" id="L4T-sc-RxW"/>
-                        <outlet property="pauseLabel" destination="5mE-ki-Iu5" id="7k9-nS-6eI"/>
                         <outlet property="quitButton" destination="qQ5-2h-2Ox" id="HLA-4H-Y0B"/>
+                        <outlet property="readyButton" destination="wXf-Di-kH4" id="wAr-5d-Jpa"/>
                         <outlet property="scoreLabel" destination="dsA-2B-fy2" id="pOU-HX-RN8"/>
                         <outlet property="tapTester" destination="Fao-cg-1VB" id="xDw-on-ePM"/>
                         <outlet property="turnLabel" destination="30c-7D-rVH" id="8dn-wU-nun"/>
