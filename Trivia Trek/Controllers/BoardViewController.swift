@@ -15,7 +15,6 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var boardView: SKView!
     @IBOutlet weak var tapTester: UITapGestureRecognizer!
     @IBOutlet weak var turnLabel: UILabel!
-    @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var quitButton: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var pauseLabel: UILabel!
@@ -23,13 +22,14 @@ class BoardViewController: UIViewController {
     var game: Game?
     var isPaused: Bool = false
     var currentTurn: DispatchWorkItem?
+    var currentTime: Double = 0
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
 
-        self.pauseButton.layer.cornerRadius = 7
         self.quitButton.layer.cornerRadius = 7
+        
         
         let board = SKScene(size: self.boardView.bounds.size)
         board.backgroundColor = UIColor(red: 18/255, green: 126/255, blue: 13/255, alpha: 1)
@@ -44,6 +44,8 @@ class BoardViewController: UIViewController {
         player.size = CGSize(width: 30, height: 30)
         board.addChild(player)
         
+        currentTime = 0
+        
         self.boardView.presentScene(board)
         
     }
@@ -56,7 +58,7 @@ class BoardViewController: UIViewController {
         self.turnLabel.alpha = 1
         self.turnLabel.text = "Turn \(self.game!.turnsTaken)"
         
-        self.scoreLabel.text = "Score: \(self.game!.player.numberCorrect)"
+        self.scoreLabel.text = "Score: \(self.game!.player.points)"
         
         self.fadeOutTurnLabel()
 
@@ -102,6 +104,8 @@ class BoardViewController: UIViewController {
         })
         
     }
+    
+
     
     @IBAction func moveRight(_ sender: Any) {
         

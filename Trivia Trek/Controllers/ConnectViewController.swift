@@ -14,47 +14,24 @@ class ConnectViewController: UIViewController {
     
     @IBOutlet weak var loginButton: FBSDKLoginButton!
     @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var scLoginButton: SCSDKLoginButton!
+    var scLoginButton: SCSDKLoginButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let loginButton = FBSDKLoginButton()
-        _ = SCSDKLoginButton()
+        let scLoginButton = SCSDKLoginButton()
+        loginButton.center = view.center
+        scLoginButton.center = CGPoint(x: 200, y: 200)
         
-        self.loginButton.center = view.center
-        self.scLoginButton.center = view.center
-        
-        
-        // Obtain all constraints for the button:
-        let layoutConstraintsArr = loginButton.constraints
-//        let layoutConstraintsArrSC = scLoginButton.constraints
-        // Iterate over array and test constraints until we find the correct one:
-        for lc in layoutConstraintsArr { // or attribute is NSLayoutAttributeHeight etc.
-            if ( lc.constant == 28 ){
-                // Then disable it...
-                lc.isActive = false
-                break
-            }
-        }
-        
-//        for lc in layoutConstraintsArrSC {
-//            if lc.constant == 28 {
-//                lc.isActive = false
-//                break
-//            }
-//        }
-        
-        
+        view.addSubview(loginButton)
+        view.addSubview(scLoginButton)
         
         if backButton != nil {
             self.backButton.layer.cornerRadius = 7
         }
         
-        
-        view.addSubview(loginButton)
-        view.addSubview(scLoginButton)
         
     }
 
@@ -76,8 +53,53 @@ class ConnectViewController: UIViewController {
             }
         }
     }
+    
+    /*
+    @IBAction func loginButtonTapped(_ sender: Any) {
+        SCSDKLoginClient.login(from: self, completion: { success, error in
+            
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            if success {
+                self.fetchSnapUserInfo()
+            }
+        })
+    }
+    
+    private func fetchSnapUserInfo(){
+        let graphQLQuery = "{me{displayName, bitmoji{avatar}}}"
+        
+        SCSDKLoginClient
+            .fetchUserData(
+                withQuery: graphQLQuery,
+                variables: nil,
+                success: { userInfo in
+                    
+                    if let userInfo = userInfo,
+                        let data = try? JSONSerialization.data(withJSONObject: userInfo, options: .prettyPrinted),
+                        let userEntity = try? JSONDecoder().decode(UserEntity.self, from: data) {
+                        
+                        DispatchQueue.main.async {
+                            self.goToLoginConfirm(userEntity)
+                        }
+                    }
+            }) { (error, isUserLoggedOut) in
+                print(error?.localizedDescription ?? "")
+        }
+    }
+    */
 
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        print("User Logged Out")
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: SCSDKLoginButton!) {
+        SCSDKLoginClient.unlinkCurrentSession { (success: Bool) in
+            // do something
+        }
         print("User Logged Out")
     }
     

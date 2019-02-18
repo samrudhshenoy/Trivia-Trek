@@ -23,14 +23,15 @@ class CPU {
     var diff: Int
     
     /**
-     Initializes a new CPU with an image, difficulty, and number
+     Initializes a new CPU with the provided image, difficulty, and number
      
      - Parameters:
+     - photo: The CPU's displayed image
      - diff: The CPU's difficulty
      - numCPU: The number of the CPU; used to determine the 'gender' of the CPU's
                profile image
      */
-    init(diff: Int, numCPU: Int) {
+    init(photo: UIImage!, diff: Int, numCPU: Int) {
         if (numCPU % 2 == 0) {
             self.photo = UIImage(named: "cpupicmale")
         }

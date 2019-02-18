@@ -6,8 +6,33 @@
 	<dict>
 		<key>MAD 2018-19.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
 			<integer>13</integer>
+		</dict>
+		<key>Trivia Trek.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>C572255921CEEC330013D534</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C572257321CEEC340013D534</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C572257E21CEEC340013D534</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

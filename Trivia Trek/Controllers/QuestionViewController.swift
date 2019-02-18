@@ -18,15 +18,21 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var secondChoiceButton: UIButton!
     @IBOutlet weak var thirdChoiceButton: UIButton!
     @IBOutlet weak var fourthChoiceButton: UIButton!
+    @IBOutlet weak var pointsLabel: UILabel!
     
     @IBOutlet weak var doneButton: UIButton!
     
     var game: Game?
     var questionIndex: Int = -1
+    var start: DispatchTime = DispatchTime.now()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let start = DispatchTime.now() // <<<<<<<<<< Start time
+        
+        self.pointsLabel.alpha = 0
+        
         // get random question from game
         self.questionIndex = Int.random(in: 0..<self.game!.questions.count)
         let question = self.game!.questions[self.questionIndex]
@@ -48,6 +54,8 @@ class QuestionViewController: UIViewController {
         self.doneButton.layer.cornerRadius = 7
         self.doneButton.isHidden = true
 
+        
+        
         self.game?.turnsTaken += 1
         
     }
@@ -76,7 +84,30 @@ class QuestionViewController: UIViewController {
         }
         else {
             
-            self.game!.player.numberCorrect += 1
+            
+            let timeTaken = (DispatchTime.now().uptimeNanoseconds - start.uptimeNanoseconds) / UInt64(1_000_000_000.0)
+            
+            if timeTaken <= 2 {
+            self.game!.player.points += 100
+            self.pointsLabel.text = "+100"
+            fadeOutPointsLabel()
+                
+            }
+            else if timeTaken <= 3 {
+                self.game!.player.points += 75
+                self.pointsLabel.text = "+75"
+                fadeOutPointsLabel()
+            }
+            else if timeTaken <= 4 {
+                self.game!.player.points += 50
+                self.pointsLabel.text = "+50"
+                fadeOutPointsLabel()
+            }
+            else {
+                self.game!.player.points += 25
+                self.pointsLabel.text = "+25"
+                fadeOutPointsLabel()
+            }
             
         }
         
@@ -131,6 +162,17 @@ class QuestionViewController: UIViewController {
     @IBAction func doneButtonPressed(_ sender: Any) {
         
         self.performSegue(withIdentifier: "backToBoard", sender: self)
+        
+    }
+    
+    func fadeOutPointsLabel() {
+        
+        self.pointsLabel.alpha = 1
+        self.pointsLabel.textColor = UIColor.black
+        
+        UIView.animate(withDuration: 1.5, animations: {
+            self.pointsLabel.alpha = 0
+        })
         
     }
     

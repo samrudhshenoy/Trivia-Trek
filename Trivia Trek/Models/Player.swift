@@ -14,8 +14,8 @@ class Player {
     
     /// The tile the player is currently positioned on
     var pos: Int
-    /// The number of questions the player currently has correct
-    var numberCorrect: Int
+    /// The number of points the player currently has
+    var points: Int
     /// The image (optional) of the player
     var photo: UIImage?
     
@@ -26,7 +26,7 @@ class Player {
         }
         
         self.pos = 0
-        self.numberCorrect = 0
+        self.points = 0
     }
     
 }
