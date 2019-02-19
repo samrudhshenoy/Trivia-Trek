@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SpriteKit
 
 class Map {
 
@@ -25,5 +26,11 @@ class Map {
     
     // A tuple storing the map background images for the two map variations
     static let mapBackgrounds = ()
+    
+    static func generateMap() -> [SKSpriteNode] {
+        
+        return []
+        
+    }
     
 }

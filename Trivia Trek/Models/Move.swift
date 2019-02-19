@@ -8,19 +8,21 @@
 
 import UIKit
 
+typealias MoveVector = (x: Int, y: Int)
+
 // Enumeration of a Move with all possible cases
 class Move {
     
     // Move in the left direction
-    static let left = (-20, 0)
+    static let left: MoveVector = (x: -20, y: 0)
     
     // Move in the right direction
-    static let right = (20, 0)
+    static let right: MoveVector = (x: 20, y: 0)
     
     // Move in the upward direction
-    static let up = (0, -20)
+    static let up: MoveVector = (x: 0, y: 20)
     
     // Move in the downward direction
-    static let down = (0, 20)
+    static let down: MoveVector = (x: 0, y: -20)
     
 }
