@@ -27,8 +27,7 @@ class TitleViewController: UIViewController {
     @IBOutlet weak var fbLoginButton: UIButton!
     @IBOutlet weak var scLoginButton: UIButton!
     
-    var playerName: String!
-    var avatar: UIImage!
+    var player: Player = Player()
     
     var avatarPickerController: AvatarPickerViewController?
         
@@ -42,8 +41,6 @@ class TitleViewController: UIViewController {
         
         self.avatarPicker.alpha = 0
         
-        self.avatar = UIImage(named: "avatar-sample")
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -52,6 +49,12 @@ class TitleViewController: UIViewController {
             
             let avatarPickerController = segue.destination as? AvatarPickerViewController
             self.avatarPickerController = avatarPickerController ?? nil
+            
+        }
+        else if segue.identifier == "showSetup" {
+            
+            let setupController = ((segue.destination as? UINavigationController)?.viewControllers[0] as? SetupViewController)
+            setupController?.player = self.player
             
         }
         
@@ -78,8 +81,8 @@ class TitleViewController: UIViewController {
                     //                let profileUrl = URL(string: "http://graph.facebook.com/\(profile?.userID)/picture")
                     //                let data = Data(contentsOf: profileUrl)
                     //                let avatar = UIImage(data: data)
-                    self.avatar = UIImage(contentsOfFile: "http://graph.facebook.com/\(String(describing: profile?.userID))/picture")
-                    self.avatarButton.imageView?.image = self.avatar
+                    self.player.photo = UIImage(contentsOfFile: "http://graph.facebook.com/\(String(describing: profile?.userID))/picture")
+                    self.avatarButton.imageView?.image = self.player.photo
                     
                 }
                 
@@ -104,11 +107,11 @@ class TitleViewController: UIViewController {
                 
                 if avatarData != nil {
                     
-                    self.avatar = UIImage(data: avatarData!)
+                    self.player.photo = UIImage(data: avatarData!)
                     
                 }
                 
-                self.avatarButton.imageView?.image = self.avatar
+                self.avatarButton.imageView?.image = self.player.photo
                 
             }
         })

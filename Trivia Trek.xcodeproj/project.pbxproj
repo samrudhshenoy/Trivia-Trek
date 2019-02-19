@@ -20,6 +20,7 @@
 		A571D2F82210F660002AF7CD /* HelpIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A571D2F72210F660002AF7CD /* HelpIntroViewController.swift */; };
 		A5779E7421FE734A00D755AA /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5779E7321FE734A00D755AA /* BoardViewController.swift */; };
 		A5ACC4F72218B29B00982E1C /* AvatarPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ACC4F62218B29B00982E1C /* AvatarPickerViewController.swift */; };
+		A5ACC4F9221B7EEC00982E1C /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ACC4F8221B7EEC00982E1C /* Map.swift */; };
 		A5C333D521F830BA00A3D4C0 /* HelpPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C333D421F830BA00A3D4C0 /* HelpPageViewController.swift */; };
 		A5CE3CA62211F16300121B61 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CE3CA52211F16300121B61 /* QuestionViewController.swift */; };
 		A5CE3CA82211F24500121B61 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CE3CA72211F24500121B61 /* Question.swift */; };
@@ -28,7 +29,6 @@
 		A5F0E49E21F686AA00908F6E /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0E49D21F686AA00908F6E /* SetupViewController.swift */; };
 		A5F0E4A021F6912D00908F6E /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F0E49F21F6912D00908F6E /* TitleViewController.swift */; };
 		C572255E21CEEC330013D534 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C572255D21CEEC330013D534 /* AppDelegate.swift */; };
-		C572256621CEEC330013D534 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C572256521CEEC330013D534 /* GameViewController.swift */; };
 		C572256921CEEC330013D534 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C572256721CEEC330013D534 /* Main.storyboard */; };
 		C572256B21CEEC340013D534 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C572256A21CEEC340013D534 /* Assets.xcassets */; };
 		C572256E21CEEC340013D534 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C572256C21CEEC340013D534 /* LaunchScreen.storyboard */; };
@@ -71,6 +71,7 @@
 		A571D2F72210F660002AF7CD /* HelpIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpIntroViewController.swift; sourceTree = "<group>"; };
 		A5779E7321FE734A00D755AA /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		A5ACC4F62218B29B00982E1C /* AvatarPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerViewController.swift; sourceTree = "<group>"; };
+		A5ACC4F8221B7EEC00982E1C /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		A5C333D421F830BA00A3D4C0 /* HelpPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPageViewController.swift; sourceTree = "<group>"; };
 		A5CE3CA52211F16300121B61 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		A5CE3CA72211F24500121B61 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -80,7 +81,6 @@
 		A5F0E49F21F6912D00908F6E /* TitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
 		C572255A21CEEC330013D534 /* Trivia Trek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trivia Trek.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C572255D21CEEC330013D534 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C572256521CEEC330013D534 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		C572256821CEEC330013D534 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C572256A21CEEC340013D534 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C572256D21CEEC340013D534 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -147,7 +147,6 @@
 				A5C333D421F830BA00A3D4C0 /* HelpPageViewController.swift */,
 				A5F0E49F21F6912D00908F6E /* TitleViewController.swift */,
 				A5F0E49D21F686AA00908F6E /* SetupViewController.swift */,
-				C572256521CEEC330013D534 /* GameViewController.swift */,
 				A5779E7321FE734A00D755AA /* BoardViewController.swift */,
 				A571D2F72210F660002AF7CD /* HelpIntroViewController.swift */,
 				A5CE3CA52211F16300121B61 /* QuestionViewController.swift */,
@@ -165,6 +164,7 @@
 				A571D2F32210EAB0002AF7CD /* Game.swift */,
 				A571D2F52210EEA9002AF7CD /* Move.swift */,
 				A5CE3CA72211F24500121B61 /* Question.swift */,
+				A5ACC4F8221B7EEC00982E1C /* Map.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -512,10 +512,10 @@
 				A5CE3CAC2216038900121B61 /* BugReportViewController.swift in Sources */,
 				A5ACC4F72218B29B00982E1C /* AvatarPickerViewController.swift in Sources */,
 				A571D2F82210F660002AF7CD /* HelpIntroViewController.swift in Sources */,
+				A5ACC4F9221B7EEC00982E1C /* Map.swift in Sources */,
 				A5779E7421FE734A00D755AA /* BoardViewController.swift in Sources */,
 				A5CE3CA62211F16300121B61 /* QuestionViewController.swift in Sources */,
 				A5F0E49E21F686AA00908F6E /* SetupViewController.swift in Sources */,
-				C572256621CEEC330013D534 /* GameViewController.swift in Sources */,
 				A5C333D521F830BA00A3D4C0 /* HelpPageViewController.swift in Sources */,
 				A571D2F62210EEA9002AF7CD /* Move.swift in Sources */,
 				2C7FDD3921FAC19B009CC4FD /* ConnectViewController.swift in Sources */,

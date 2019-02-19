@@ -23,6 +23,9 @@ class SetupViewController: UIViewController {
     var currentMap: Int = 0
     var numberOfTurns: Int = 0
     
+    var player: Player?
+    var game: Game = Game(maxTurns: 0, player: Player(), map: UIImage(named: "normal-map")!)
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -41,6 +44,10 @@ class SetupViewController: UIViewController {
         self.mapImageView.image! = self.mapImages[0]
         self.mapLabel.text! = "Map: \(self.mapNames[0])"
         
+        self.game.maxTurns = Int(turnIncrementButton.value)
+        self.game.map = self.mapImages[self.currentMap]
+        self.game.player = self.player ?? Player()
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -48,14 +55,16 @@ class SetupViewController: UIViewController {
         if segue.destination is BoardViewController {
             
             let board = segue.destination as? BoardViewController
-            board?.game = Game(maxTurns: self.numberOfTurns, player: Player(photo: nil), map: self.mapImages[self.currentMap])
+            board?.game = self.game
             
         }
     }
+    
     @IBAction func changeTurns(_ sender: Any) {
         
         let turns = Int(self.turnIncrementButton.value)
         self.turnLabel.text! = "Number of Turns: \(turns)"
+        self.game.maxTurns = turns
         
     }
     
@@ -74,6 +83,8 @@ class SetupViewController: UIViewController {
         
         self.mapImageView.image! = self.mapImages[self.currentMap]
         self.mapLabel.text! = "Map: \(self.mapNames[self.currentMap])"
+        self.game.map = self.mapImages[self.currentMap]
+        
     }
     
     @IBAction func moveMapRight(_ sender: Any) {
@@ -91,6 +102,7 @@ class SetupViewController: UIViewController {
         
         self.mapImageView.image! = self.mapImages[self.currentMap]
         self.mapLabel.text! = "Map: \(self.mapNames[self.currentMap])"
+        self.game.map = self.mapImages[self.currentMap]
 
     }
     

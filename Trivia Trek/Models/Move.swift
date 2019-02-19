@@ -12,19 +12,15 @@ import UIKit
 class Move {
     
     // Move in the left direction
-    static let left = (-1, 0)
+    static let left = (-20, 0)
     
     // Move in the right direction
-    static let right = (1, 0)
+    static let right = (20, 0)
     
     // Move in the upward direction
-    static let up = (0, -1)
+    static let up = (0, -20)
     
     // Move in the downward direction
-    static let down = (0, 1)
-    
-    static let map = [up, up, up, up, up, right, up, up, up, right, right, right, right, down, down, down, right,
-               down, down, down, down, down, down, down, down, down, down, down, down, left, left, left,
-               left, left, left, up, up, up, up, right, right, up, up, up, left, left]
+    static let down = (0, 20)
     
 }

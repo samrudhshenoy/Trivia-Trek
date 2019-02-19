@@ -51,8 +51,7 @@ class Game: NSObject {
     
     /**
      Loads all the questions from the online database into the Questions array.
-     Throws command line errors in the case that the database is unreachable or
-     if no network connection is detected.
+     Prints error description in the console if query fails
      */
     func loadQuestions() {
         
