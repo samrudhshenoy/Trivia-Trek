@@ -14,6 +14,7 @@ class BoardViewController: UIViewController {
 
     @IBOutlet weak var boardView: SKView!
     @IBOutlet weak var turnLabel: UILabel!
+    @IBOutlet weak var roundLabel: UILabel!
     @IBOutlet weak var quitButton: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var readyButton: UIButton!
@@ -23,6 +24,7 @@ class BoardViewController: UIViewController {
     var isPaused: Bool = false
     var currentTurn: DispatchWorkItem?
     var currentTime: Double = 0
+    var currentRound: Int = 1
     
     override func viewDidLoad() {
         
@@ -31,6 +33,7 @@ class BoardViewController: UIViewController {
         self.quitButton.layer.cornerRadius = 7
         self.readyButton.layer.cornerRadius = 7
         self.moveButton.layer.cornerRadius = 7
+        
         
         self.currentTime = 0
         
@@ -52,6 +55,20 @@ class BoardViewController: UIViewController {
 
         self.readyButton.alpha = 0.8
         self.readyButton.isEnabled = true
+        
+        if self.game!.turnsTaken % 13 == 0 {
+            currentRound += 1
+            self.roundLabel.text = "Round \(self.currentRound)"
+            self.roundLabel.alpha = 1
+            
+            UIView.animate(withDuration: 1.5, animations: {
+                self.roundLabel.alpha = 0
+            })
+        }
+        
+        if self.game!.turnsTaken == 39 {
+            // SHOW THE FINAL VIEW CONTROLLER
+        }
         
     }
     

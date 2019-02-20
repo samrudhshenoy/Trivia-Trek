@@ -533,6 +533,12 @@
                                     <action selector="nextMove:" destination="D3Z-TO-FCo" eventType="touchUpInside" id="f9s-jI-VCJ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Round 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaV-Ee-Owb">
+                                <rect key="frame" x="101" y="211" width="173" height="62"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="45"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -540,6 +546,8 @@
                             <constraint firstItem="1BS-5x-GD5" firstAttribute="centerX" secondItem="bun-OM-EH3" secondAttribute="centerX" id="1rb-K4-kMN"/>
                             <constraint firstItem="qQ5-2h-2Ox" firstAttribute="top" secondItem="1BS-5x-GD5" secondAttribute="bottom" constant="11" id="2iw-OX-n7I"/>
                             <constraint firstItem="1BS-5x-GD5" firstAttribute="leading" secondItem="c6n-o3-a1S" secondAttribute="leading" id="2ns-wL-ewq"/>
+                            <constraint firstItem="30c-7D-rVH" firstAttribute="top" secondItem="YaV-Ee-Owb" secondAttribute="bottom" constant="29.5" id="4WG-ae-ahV"/>
+                            <constraint firstItem="YaV-Ee-Owb" firstAttribute="centerX" secondItem="1BS-5x-GD5" secondAttribute="centerX" id="6Bs-gy-jCS"/>
                             <constraint firstItem="1BS-5x-GD5" firstAttribute="top" secondItem="bun-OM-EH3" secondAttribute="top" id="8gw-od-XXu"/>
                             <constraint firstItem="c6n-o3-a1S" firstAttribute="trailing" secondItem="wXf-Di-kH4" secondAttribute="trailing" constant="138" id="ARt-WX-ygs"/>
                             <constraint firstItem="wXf-Di-kH4" firstAttribute="leading" secondItem="c6n-o3-a1S" secondAttribute="leading" constant="137" id="ESP-PF-cxq"/>
@@ -565,6 +573,7 @@
                         <outlet property="moveButton" destination="HyA-2P-oNo" id="zsw-BB-mfI"/>
                         <outlet property="quitButton" destination="qQ5-2h-2Ox" id="HLA-4H-Y0B"/>
                         <outlet property="readyButton" destination="wXf-Di-kH4" id="wAr-5d-Jpa"/>
+                        <outlet property="roundLabel" destination="YaV-Ee-Owb" id="w15-6V-zim"/>
                         <outlet property="scoreLabel" destination="dsA-2B-fy2" id="pOU-HX-RN8"/>
                         <outlet property="turnLabel" destination="30c-7D-rVH" id="8dn-wU-nun"/>
                         <segue destination="zz0-CW-76u" kind="unwind" identifier="rewindToHome" unwindAction="rewindToHomeWithSegue:" id="5jC-CY-cMv"/>
