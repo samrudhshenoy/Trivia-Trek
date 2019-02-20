@@ -21,6 +21,12 @@ class Map {
         
     }
     
+    // The hardcoded default map
+    static let defaultMap = Map(type: .normal) {
+        
+        
+    }
+    
     // A tuple storing the map selection images for the two map variations
     static let mapImages = [UIImage(named: "normal-map"), UIImage(named: "winter-map")]
     
