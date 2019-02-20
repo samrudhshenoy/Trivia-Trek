@@ -16,13 +16,12 @@ class Player {
     var pos: Int
     
     // The image (optional) of the player
-    var photo: UIImage?
+    var sprite: SKSpriteNode
     
     // Initializes a new player with an optional photo
-    init(photo: UIImage? = UIImage(named: "avatar-sample")) {
-        if photo != nil {
-            self.photo = photo
-        }
+    init(photo: UIImage = UIImage(named: "avatar-sample")!) {
+        self.sprite = SKSpriteNode(texture: SKTexture(image: photo))
+        self.sprite.size = CGSize(width: 30, height: 30)
         
         self.pos = 0
     }

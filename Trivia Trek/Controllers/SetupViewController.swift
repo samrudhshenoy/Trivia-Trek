@@ -24,7 +24,7 @@ class SetupViewController: UIViewController {
     var numberOfTurns: Int = 0
     
     var player: Player?
-    var game: Game = Game(maxTurns: 0, player: Player(), map: UIImage(named: "normal-map")!)
+    var game: Game = Game(maxTurns: 0, player: Player(), mapType: .normal)
     
     override func viewDidLoad() {
         
@@ -45,7 +45,7 @@ class SetupViewController: UIViewController {
         self.mapLabel.text! = "Map: \(self.mapNames[0])"
         
         self.game.maxTurns = Int(turnIncrementButton.value)
-        self.game.map = self.mapImages[self.currentMap]
+        self.game.map.type = Map.MapType(rawValue: self.currentMap)!
         self.game.player = self.player ?? Player()
         
     }
@@ -83,8 +83,8 @@ class SetupViewController: UIViewController {
         
         self.mapImageView.image! = self.mapImages[self.currentMap]
         self.mapLabel.text! = "Map: \(self.mapNames[self.currentMap])"
-        self.game.map = self.mapImages[self.currentMap]
-        
+        self.game.map.type = Map.MapType(rawValue: self.currentMap)!
+
     }
     
     @IBAction func moveMapRight(_ sender: Any) {
@@ -102,7 +102,7 @@ class SetupViewController: UIViewController {
         
         self.mapImageView.image! = self.mapImages[self.currentMap]
         self.mapLabel.text! = "Map: \(self.mapNames[self.currentMap])"
-        self.game.map = self.mapImages[self.currentMap]
+        self.game.map.type = Map.MapType(rawValue: self.currentMap)!
 
     }
     

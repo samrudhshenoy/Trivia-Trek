@@ -53,8 +53,6 @@ class QuestionViewController: UIViewController {
 
         self.doneButton.layer.cornerRadius = 7
         self.doneButton.isHidden = true
-
-        
         
         self.game?.turnsTaken += 1
         

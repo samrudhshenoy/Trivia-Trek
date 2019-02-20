@@ -81,8 +81,8 @@ class TitleViewController: UIViewController {
                     //                let profileUrl = URL(string: "http://graph.facebook.com/\(profile?.userID)/picture")
                     //                let data = Data(contentsOf: profileUrl)
                     //                let avatar = UIImage(data: data)
-                    self.player.photo = UIImage(contentsOfFile: "http://graph.facebook.com/\(String(describing: profile?.userID))/picture")
-                    self.avatarButton.imageView?.image = self.player.photo
+//                    self.player.photo = UIImage(contentsOfFile: "http://graph.facebook.com/\(String(describing: profile?.userID))/picture")
+//                    self.avatarButton.imageView?.image = self.player.photo
                     
                 }
                 
@@ -107,11 +107,11 @@ class TitleViewController: UIViewController {
                 
                 if avatarData != nil {
                     
-                    self.player.photo = UIImage(data: avatarData!)
+//                    self.player.photo = UIImage(data: avatarData!)
                     
                 }
                 
-                self.avatarButton.imageView?.image = self.player.photo
+//                self.avatarButton.imageView?.image = self.player.photo
                 
             }
         })

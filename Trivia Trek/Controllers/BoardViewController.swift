@@ -23,7 +23,6 @@ class BoardViewController: UIViewController {
     var isPaused: Bool = false
     var currentTurn: DispatchWorkItem?
     var currentTime: Double = 0
-    var playerNode: SKSpriteNode!
     
     override func viewDidLoad() {
         
@@ -33,23 +32,10 @@ class BoardViewController: UIViewController {
         self.readyButton.layer.cornerRadius = 7
         self.moveButton.layer.cornerRadius = 7
         
-        let board = SKScene(size: self.boardView.bounds.size)
-        board.backgroundColor = UIColor(red: 18/255, green: 126/255, blue: 13/255, alpha: 1)
-        
-        let background = SKSpriteNode(imageNamed: "background")
-        background.position = CGPoint(x: board.size.width / 2, y: board.size.height / 2)
-        background.size = CGSize(width: board.size.width, height: board.size.height - 10)
-        board.addChild(background)
-        
-        let player = SKSpriteNode(imageNamed: "avatar-sample")
-        player.position = CGPoint(x: Map.initialPosition.x, y: Map.initialPosition.y)
-        player.size = CGSize(width: 30, height: 30)
-        board.addChild(player)
-        self.playerNode = player
-        
         self.currentTime = 0
         
-        self.boardView.presentScene(board)
+        self.game!.size = self.boardView.bounds.size
+        self.boardView.presentScene(self.game)
         
     }
     
@@ -78,7 +64,7 @@ class BoardViewController: UIViewController {
         
     }
     
-    func move(direction: MoveVector) {
+    func move() {
         
         /*
         Make field for player node in BoardViewController
@@ -126,8 +112,7 @@ class BoardViewController: UIViewController {
 //
 //        let movement = SKAction.follow(movementPath.cgPath, duration: 1.5)
         
-        let movement = SKAction.moveBy(x: CGFloat(direction.x), y: CGFloat(direction.y), duration: 1.5)
-        self.playerNode.run(movement)
+        self.game?.movePlayer(numberOfSpaces: 1)
         
     }
     
@@ -204,8 +189,7 @@ class BoardViewController: UIViewController {
     
     @IBAction func nextMove(_ sender: Any) {
         
-        self.move(direction: Map.map[self.game!.player.pos])
-        self.game?.player.pos += 1
+        self.move()
         
     }
     

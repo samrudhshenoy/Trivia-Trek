@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import GameKit
+import SpriteKit
 import CloudKit
 
 // The game object of which the centrality of the entire game is based on
-class Game: NSObject {
+class Game: SKScene {
     
     // Maximum number of turns taken by a player
     var maxTurns: Int
@@ -22,11 +22,10 @@ class Game: NSObject {
     // Player object which is stored in the game
     var player: Player
     
-    // Game background image
-    var map: UIImage
-    
     // Array of questions with answers, sourced from the online database
     var questions: [Question] = []
+    
+    var map: Map
     
     /**
      Initializes a new game with given maximum turns, player object, and background image
@@ -37,16 +36,38 @@ class Game: NSObject {
      - map: The background image of the map
      
      */
-    init(maxTurns: Int, player: Player, map: UIImage) {
-        
+    init(maxTurns: Int, player: Player, mapType: Map.MapType) {
         self.maxTurns = maxTurns
         self.player = player
         self.turnsTaken = 1
-        self.map = map
+        self.map = Map.generateMap(size: 50, type: mapType)
         
         super.init()
 
+        self.backgroundColor = Map.mapBackgrounds[mapType.rawValue]
+
+        self.setupSprites()
         self.loadQuestions()
+    }
+    
+    override init(size: CGSize) {
+        
+        self.maxTurns = 0
+        self.player = Player()
+        self.turnsTaken = 1
+        self.map = Map.generateMap(size: 50, type: .normal)
+        
+        super.init(size: size)
+
+        self.backgroundColor = Map.mapBackgrounds[Map.MapType.normal.rawValue]
+        
+        self.setupSprites()
+        self.loadQuestions()
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     /**
@@ -81,6 +102,41 @@ class Game: NSObject {
             }
             
         })
+    }
+    
+    func movePlayer(numberOfSpaces: Int) {
+        
+        let newTile = self.map.path[self.player.pos + numberOfSpaces]
+        let movement = SKAction.move(to: newTile.sprite.position, duration: 1.5)
+        self.player.sprite.run(movement)
+        self.player.pos += numberOfSpaces
+        
+    }
+    
+    func setupSprites() {
+        
+        if self.player.sprite.parent == nil {
+            self.addChild(self.player.sprite)
+        }
+        
+        for tile in self.map.path {
+            
+            if tile.sprite.parent == nil {
+                self.addChild(tile.sprite)
+            }
+            
+        }
+        
+        for decoration in self.map.decorations {
+            
+            if decoration.parent == nil {
+                self.addChild(decoration)
+            }
+            
+        }
+        
+        print(self.map.path.count)
+        
     }
     
     /**
