@@ -34,7 +34,8 @@ class BoardViewController: UIViewController {
         
         self.currentTime = 0
         
-        self.game!.size = self.boardView.bounds.size
+        self.game!.initBackground(size: self.boardView.bounds.size)
+        self.game!.setupSprites()
         self.boardView.presentScene(self.game)
         
     }

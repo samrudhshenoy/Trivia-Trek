@@ -44,6 +44,109 @@ class Map {
         
     }
     
+    static func defaultMap(type: MapType) -> Map {
+        
+        let defaultMap = Map(type: type)
+        
+        var tilePos = CGPoint(x: 52, y: 58)
+        var tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
+        defaultMap.path.append(tile)
+        
+        // 3 up
+        for _ in 0..<4 {
+            
+            tilePos.y += 35
+            tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
+            defaultMap.path.append(tile)
+            
+        }
+        
+        // 2 right
+        for _ in 0..<2 {
+            
+            tilePos.x += 33
+            tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
+            defaultMap.path.append(tile)
+            
+        }
+        
+        // 3 up
+        for _ in 0..<3 {
+            
+            tilePos.y += 35
+            tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
+            defaultMap.path.append(tile)
+            
+        }
+        
+        // 2 left
+        for _ in 0..<2 {
+            
+            tilePos.x -= 33
+            tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
+            defaultMap.path.append(tile)
+            
+        }
+        
+        // 5 up
+        for _ in 0..<5 {
+            
+            tilePos.y += 35
+            tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
+            defaultMap.path.append(tile)
+            
+        }
+        
+        // 1 right
+        tilePos.x += 33
+        tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
+        defaultMap.path.append(tile)
+        
+        // 3 up
+        for _ in 0..<3 {
+            
+            tilePos.y += 35
+            tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
+            defaultMap.path.append(tile)
+            
+        }
+        
+        // 4 right
+        for _ in 0..<4 {
+            
+            tilePos.x += 33
+            tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
+            defaultMap.path.append(tile)
+            
+        }
+        
+        // 3 down
+        for _ in 0..<3 {
+            
+            tilePos.y -= 35
+            tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
+            defaultMap.path.append(tile)
+            
+        }
+        
+        // 1 right
+        tilePos.x += 33
+        tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
+        defaultMap.path.append(tile)
+        
+        // 11 down
+        for _ in 0..<11 {
+            
+            tilePos.y -= 35
+            tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
+            defaultMap.path.append(tile)
+            
+        }
+        
+        return defaultMap
+        
+    }
+    
     static func generateMap(size: Int, type: MapType) -> Map {
         
         let moves = ["left" : (-40, 0),

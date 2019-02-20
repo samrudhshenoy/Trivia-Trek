@@ -1289,8 +1289,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="MustangGameLogoBetter" width="135" height="135"/>
-        <image name="MustangGameLogoBetter.png" width="180" height="180"/>
+        <image name="MustangGameLogoBetter" width="90" height="90"/>
+        <image name="MustangGameLogoBetter.png" width="120" height="120"/>
         <image name="avatar-sample" width="203.25" height="203.25"/>
         <image name="betterstopwatch" width="409.60000610351562" height="409.60000610351562"/>
         <image name="fblogo" width="1878.2608642578125" height="1878.2608642578125"/>

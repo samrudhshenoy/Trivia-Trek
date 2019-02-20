@@ -27,6 +27,8 @@ class Game: SKScene {
     
     var map: Map
     
+    var background: SKSpriteNode?
+    
     /**
      Initializes a new game with given maximum turns, player object, and background image
      
@@ -40,13 +42,14 @@ class Game: SKScene {
         self.maxTurns = maxTurns
         self.player = player
         self.turnsTaken = 1
-        self.map = Map.generateMap(size: 50, type: mapType)
+        self.map = Map.defaultMap(type: .normal)
+
+        self.background = SKSpriteNode(imageNamed: "background")
         
         super.init()
-
+        
         self.backgroundColor = Map.mapBackgrounds[mapType.rawValue]
 
-        self.setupSprites()
         self.loadQuestions()
     }
     
@@ -55,13 +58,14 @@ class Game: SKScene {
         self.maxTurns = 0
         self.player = Player()
         self.turnsTaken = 1
-        self.map = Map.generateMap(size: 50, type: .normal)
+        self.map = Map.defaultMap(type: .normal)
+        
+        self.background = SKSpriteNode(imageNamed: "background")
         
         super.init(size: size)
-
+        
         self.backgroundColor = Map.mapBackgrounds[Map.MapType.normal.rawValue]
         
-        self.setupSprites()
         self.loadQuestions()
         
     }
@@ -81,27 +85,27 @@ class Game: SKScene {
 //
 //        self.questions = [question, secondQuestion]
         
-        let database = CKContainer.default().publicCloudDatabase
-        
-        let query = CKQuery(recordType: "Question", predicate: NSPredicate(value: true))
-        
-        database.perform(query, inZoneWith: nil, completionHandler: { questions, error in
-            if error != nil {
-                
-                print("Query failed with error \(error?.localizedDescription ?? "none")")
-                
-            }
-            else {
-                
-                for questionRecord in questions! {
-                    
-                    self.questions.append(Question(record: questionRecord))
-                    
-                }
-                
-            }
-            
-        })
+//        let database = CKContainer.default().publicCloudDatabase
+//
+//        let query = CKQuery(recordType: "Question", predicate: NSPredicate(value: true))
+//
+//        database.perform(query, inZoneWith: nil, completionHandler: { questions, error in
+//            if error != nil {
+//
+//                print("Query failed with error \(error?.localizedDescription ?? "none")")
+//
+//            }
+//            else {
+//
+//                for questionRecord in questions! {
+//
+//                    self.questions.append(Question(record: questionRecord))
+//
+//                }
+//
+//            }
+//
+//        })
     }
     
     func movePlayer(numberOfSpaces: Int) {
@@ -116,26 +120,40 @@ class Game: SKScene {
     func setupSprites() {
         
         if self.player.sprite.parent == nil {
+            self.player.sprite.position = self.map.path[self.player.pos].sprite.position
             self.addChild(self.player.sprite)
         }
         
-        for tile in self.map.path {
-            
-            if tile.sprite.parent == nil {
-                self.addChild(tile.sprite)
-            }
-            
-        }
+//        for tile in self.map.path {
+//
+//            if tile.sprite.parent == nil {
+//                self.addChild(tile.sprite)
+//            }
+//
+//        }
+//
+//        for decoration in self.map.decorations {
+//
+//            if decoration.parent == nil {
+//                self.addChild(decoration)
+//            }
+//
+//        }
+//
+//        print(self.map.path.count)
         
-        for decoration in self.map.decorations {
-            
-            if decoration.parent == nil {
-                self.addChild(decoration)
-            }
-            
-        }
+    }
+    
+    func initBackground(size: CGSize) {
         
-        print(self.map.path.count)
+        self.size = size
+        
+        self.background!.size = self.size
+        self.background!.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+        
+        if self.background!.parent == nil {
+            self.addChild(self.background!)
+        }
         
     }
     
