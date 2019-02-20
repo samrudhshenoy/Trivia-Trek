@@ -53,8 +53,6 @@ class QuestionViewController: UIViewController {
 
         self.doneButton.layer.cornerRadius = 7
         self.doneButton.isHidden = true
-
-        
         
         self.game?.turnsTaken += 1
         
@@ -88,23 +86,19 @@ class QuestionViewController: UIViewController {
             let timeTaken = (DispatchTime.now().uptimeNanoseconds - start.uptimeNanoseconds) / UInt64(1_000_000_000.0)
             
             if timeTaken <= 2 {
-            self.game!.player.points += 100
             self.pointsLabel.text = "+100"
             fadeOutPointsLabel()
                 
             }
             else if timeTaken <= 3 {
-                self.game!.player.points += 75
                 self.pointsLabel.text = "+75"
                 fadeOutPointsLabel()
             }
             else if timeTaken <= 4 {
-                self.game!.player.points += 50
                 self.pointsLabel.text = "+50"
                 fadeOutPointsLabel()
             }
             else {
-                self.game!.player.points += 25
                 self.pointsLabel.text = "+25"
                 fadeOutPointsLabel()
             }
