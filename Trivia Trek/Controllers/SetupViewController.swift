@@ -9,7 +9,7 @@
 import UIKit
 
 class SetupViewController: UIViewController {
-
+    
     @IBOutlet weak var difficultySelector: UISegmentedControl!
     @IBOutlet weak var mapLabel: UILabel!
     @IBOutlet weak var mapImageView: UIImageView!
@@ -29,7 +29,7 @@ class SetupViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-
+        
         self.turnIncrementButton.minimumValue = 10
         self.turnIncrementButton.maximumValue = 20
         
@@ -39,7 +39,7 @@ class SetupViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: navigationTitleFont, NSAttributedString.Key.foregroundColor: UIColor.white]
         
         self.mapImages = [UIImage(named: "normal-map")!,
-                     UIImage(named: "winter-map")!]
+                          UIImage(named: "winter-map")!]
         self.mapNames = ["Normal", "Winter"]
         self.mapImageView.image! = self.mapImages[0]
         self.mapLabel.text! = "Map: \(self.mapNames[0])"
@@ -84,7 +84,7 @@ class SetupViewController: UIViewController {
         self.mapImageView.image! = self.mapImages[self.currentMap]
         self.mapLabel.text! = "Map: \(self.mapNames[self.currentMap])"
         self.game.map.type = Map.MapType(rawValue: self.currentMap)!
-
+        
     }
     
     @IBAction func moveMapRight(_ sender: Any) {
@@ -103,13 +103,13 @@ class SetupViewController: UIViewController {
         self.mapImageView.image! = self.mapImages[self.currentMap]
         self.mapLabel.text! = "Map: \(self.mapNames[self.currentMap])"
         self.game.map.type = Map.MapType(rawValue: self.currentMap)!
-
+        
     }
     
     @IBAction func cancelButtonClicked(_ sender: Any) {
-    
+        
         performSegue(withIdentifier: "rewindToHome", sender: self)
         
     }
-
+    
 }

@@ -27,7 +27,9 @@ class TitleViewController: UIViewController {
     @IBOutlet weak var fbLoginButton: UIButton!
     @IBOutlet weak var scLoginButton: UIButton!
     
-    var player: Player = Player()
+    var playerName: String!
+    var avatar: UIImage!
+    var avatarPickerShowing: Bool = false
     
     var avatarPickerController: AvatarPickerViewController?
         
@@ -41,6 +43,8 @@ class TitleViewController: UIViewController {
         
         self.avatarPicker.alpha = 0
         
+        self.avatar = UIImage(named: "avatar-sample")
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -51,18 +55,12 @@ class TitleViewController: UIViewController {
             self.avatarPickerController = avatarPickerController ?? nil
             
         }
-        else if segue.identifier == "showSetup" {
-            
-            let setupController = ((segue.destination as? UINavigationController)?.viewControllers[0] as? SetupViewController)
-            setupController?.player = self.player
-            
-        }
         
     }
     
     @IBAction func toggleAvatarPicker(_ sender: Any) {
         
-        if self.avatarPicker.alpha > 0 {
+        if self.avatarPickerShowing {
             
             UIView.animate(withDuration: 0.7, animations: {
                 self.avatarPicker.alpha = 0
@@ -76,6 +74,8 @@ class TitleViewController: UIViewController {
             })
             
         }
+        
+        self.avatarPickerShowing = !self.avatarPickerShowing
         
     }
     
@@ -100,8 +100,8 @@ class TitleViewController: UIViewController {
                     //                let profileUrl = URL(string: "http://graph.facebook.com/\(profile?.userID)/picture")
                     //                let data = Data(contentsOf: profileUrl)
                     //                let avatar = UIImage(data: data)
-//                    self.player.photo = UIImage(contentsOfFile: "http://graph.facebook.com/\(String(describing: profile?.userID))/picture")
-//                    self.avatarButton.imageView?.image = self.player.photo
+                    self.avatar = UIImage(contentsOfFile: "http://graph.facebook.com/\(String(describing: profile?.userID))/picture")
+                    self.avatarButton.imageView?.image = self.avatar
                     
                 }
                 
@@ -126,11 +126,11 @@ class TitleViewController: UIViewController {
                 
                 if avatarData != nil {
                     
-//                    self.player.photo = UIImage(data: avatarData!)
+                    self.avatar = UIImage(data: avatarData!)
                     
                 }
                 
-//                self.avatarButton.imageView?.image = self.player.photo
+                self.avatarButton.imageView?.image = self.avatar
                 
             }
         })
@@ -153,6 +153,15 @@ class TitleViewController: UIViewController {
                 
             }
         })
+        
+    }
+    
+    @IBAction func showAvatarPicker(_ sender: Any) {
+        
+        UIView.animate(withDuration: 0.7, animations: {
+            self.avatarPicker.alpha = 1
+        })
+        
         
     }
     
