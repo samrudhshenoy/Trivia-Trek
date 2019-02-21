@@ -85,27 +85,28 @@ class Game: SKScene {
 //
 //        self.questions = [question, secondQuestion]
         
-//        let database = CKContainer.default().publicCloudDatabase
-//
-//        let query = CKQuery(recordType: "Question", predicate: NSPredicate(value: true))
-//
-//        database.perform(query, inZoneWith: nil, completionHandler: { questions, error in
-//            if error != nil {
-//
-//                print("Query failed with error \(error?.localizedDescription ?? "none")")
-//
-//            }
-//            else {
-//
-//                for questionRecord in questions! {
-//
-//                    self.questions.append(Question(record: questionRecord))
-//
-//                }
-//
-//            }
-//
-//        })
+        let database = CKContainer.default().publicCloudDatabase
+
+        let query = CKQuery(recordType: "Question", predicate: NSPredicate(value: true))
+
+        database.perform(query, inZoneWith: nil, completionHandler: { questions, error in
+            if error != nil {
+
+                print("Query failed with error \(error?.localizedDescription ?? "none")")
+
+            }
+            else {
+
+                for questionRecord in questions! {
+
+                    self.questions.append(Question(record: questionRecord))
+
+                }
+
+            }
+
+        })
+        
     }
     
     func movePlayer(numberOfSpaces: Int) {
