@@ -11,44 +11,84 @@ import FBSDKLoginKit
 import SCSDKLoginKit
 import SCSDKBitmojiKit
 
-class AvatarPickerViewController: UIViewController {
-
+class AvatarPickerViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     @IBOutlet var mainView: UIView!
+
     
-    @IBOutlet weak var defaultAvatarView: UIImageView!
-    @IBOutlet weak var fbAvatarView: UIImageView!
-    @IBOutlet weak var scAvatarView: UIImageView!
+    @IBOutlet weak var male: UIImageView!
+    @IBOutlet weak var photos: UIImageView!
+    @IBOutlet weak var female: UIImageView!
     
-    @IBOutlet weak var defaultSelectButton: UIButton!
-    @IBOutlet weak var fbSelectButton: UIButton!
-    @IBOutlet weak var scSelectButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var maleButton: UIButton!
+    @IBOutlet weak var photosButton: UIButton!
+    @IBOutlet weak var femaleButton: UIButton!
+    @IBOutlet weak var cancel: UIButton!
+    
+    let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.maleButton.layer.cornerRadius = 7
+        self.photosButton.layer.cornerRadius = 7
+        self.femaleButton.layer.cornerRadius = 7
+        self.cancel.layer.cornerRadius = 7
+        self.photos.layer.cornerRadius = 30
+        
+        imagePicker.delegate = self
+        
         self.mainView.layer.cornerRadius = 10
         
         // Do any additional setup after loading the view.
-        if FBSDKAccessToken.currentAccessTokenIsActive() {
-            
-            self.fbSelectButton.isEnabled = true
-            self.fbSelectButton.alpha = 0.8
-            
-        }
-        else {
-            
-            self.fbSelectButton.isEnabled = false
-            self.fbSelectButton.alpha = 0.5
-            
-        }
         
     }
     
+    
+    
     @IBAction func cancelSelection(_ sender: Any) {
+        
         self.performSegue(withIdentifier: "rewindToHome", sender: self)
         
     }
+    
+    // Male button is clicked
+    @IBAction func maleClicked(_ sender: Any) {
+        // SET THE IMAGE CALLED 'cpupicmale'
+        self.performSegue(withIdentifier: "rewindToHome", sender: self)
+    }
+    
+    // Female button is clicked
+    @IBAction func femaleClicked(_ sender: Any) {
+        // SET THE IMAGE CALLED 'cpupicfemale'
+        self.performSegue(withIdentifier: "rewindToHome", sender: self)
+    }
+    
+    @IBAction func loadImageButtonTapped(_ sender: UIButton) {
+        imagePicker.allowsEditing = false
+        imagePicker.sourceType = .photoLibrary
+        
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            photosButton.contentMode = .scaleAspectFit
+            photos.image = image
+            photos.clipsToBounds = true
+            self.photos.layer.cornerRadius = 44
+            // SET THE IMAGE CALLED 'image'
+        }
+
+        dismiss(animated: true, completion: nil)
+    }
+    
+   
     
     /*
     // MARK: - Navigation
