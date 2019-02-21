@@ -86,11 +86,6 @@ class Game: SKScene {
      */
     func loadQuestions() {
         
-//        let question = Question(text: "what's 1 + 2?", answers: ["1", "2", "3", "4"], correctAnswer: 2)
-//        let secondQuestion = Question(text: "what's 2 * 2?", answers: ["2", "4", "6", "8"], correctAnswer: 1)
-//
-//        self.questions = [question, secondQuestion]
-        
         let database = CKContainer.default().publicCloudDatabase
 
         let query = CKQuery(recordType: "Question", predicate: NSPredicate(value: true))
