@@ -29,6 +29,8 @@ class Game: SKScene {
     
     var background: SKSpriteNode?
     
+    var points: Int
+    
     /**
      Initializes a new game with given maximum turns, player object, and background image
      
@@ -43,10 +45,13 @@ class Game: SKScene {
         self.player = player
         self.turnsTaken = 1
         self.map = Map.defaultMap(type: .normal)
+        self.points = 0
 
         self.background = SKSpriteNode(imageNamed: "background")
         
         super.init()
+        
+        
         
         self.backgroundColor = Map.mapBackgrounds[mapType.rawValue]
 
@@ -59,6 +64,7 @@ class Game: SKScene {
         self.player = Player()
         self.turnsTaken = 1
         self.map = Map.defaultMap(type: .normal)
+        self.points = 0
         
         self.background = SKSpriteNode(imageNamed: "background")
         
@@ -85,27 +91,28 @@ class Game: SKScene {
 //
 //        self.questions = [question, secondQuestion]
         
-//        let database = CKContainer.default().publicCloudDatabase
-//
-//        let query = CKQuery(recordType: "Question", predicate: NSPredicate(value: true))
-//
-//        database.perform(query, inZoneWith: nil, completionHandler: { questions, error in
-//            if error != nil {
-//
-//                print("Query failed with error \(error?.localizedDescription ?? "none")")
-//
-//            }
-//            else {
-//
-//                for questionRecord in questions! {
-//
-//                    self.questions.append(Question(record: questionRecord))
-//
-//                }
-//
-//            }
-//
-//        })
+        let database = CKContainer.default().publicCloudDatabase
+
+        let query = CKQuery(recordType: "Question", predicate: NSPredicate(value: true))
+
+        database.perform(query, inZoneWith: nil, completionHandler: { questions, error in
+            if error != nil {
+
+                print("Query failed with error \(error?.localizedDescription ?? "none")")
+
+            }
+            else {
+
+                for questionRecord in questions! {
+
+                    self.questions.append(Question(record: questionRecord))
+
+                }
+
+            }
+
+        })
+        
     }
     
     func movePlayer(numberOfSpaces: Int) {

@@ -86,21 +86,25 @@ class QuestionViewController: UIViewController {
             let timeTaken = (DispatchTime.now().uptimeNanoseconds - start.uptimeNanoseconds) / UInt64(1_000_000_000.0)
             
             if timeTaken <= 2 {
-            self.pointsLabel.text = "+100"
-            fadeOutPointsLabel()
+                self.pointsLabel.text = "+100"
+                fadeOutPointsLabel()
+                self.game!.points += 100
                 
             }
             else if timeTaken <= 3 {
                 self.pointsLabel.text = "+75"
                 fadeOutPointsLabel()
+                self.game!.points += 75
             }
             else if timeTaken <= 4 {
                 self.pointsLabel.text = "+50"
                 fadeOutPointsLabel()
+                self.game!.points += 50
             }
             else {
                 self.pointsLabel.text = "+25"
                 fadeOutPointsLabel()
+                self.game!.points += 25
             }
             
         }
@@ -162,7 +166,7 @@ class QuestionViewController: UIViewController {
     func fadeOutPointsLabel() {
         
         self.pointsLabel.alpha = 1
-        self.pointsLabel.textColor = UIColor.black
+        self.pointsLabel.textColor = UIColor.white
         
         UIView.animate(withDuration: 1.5, animations: {
             self.pointsLabel.alpha = 0
