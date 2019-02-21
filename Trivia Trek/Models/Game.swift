@@ -31,6 +31,10 @@ class Game: SKScene {
     
     var points: Int
     
+    var streak: Int
+    
+    var qCorrect: Bool
+    
     /**
      Initializes a new game with given maximum turns, player object, and background image
      
@@ -46,8 +50,9 @@ class Game: SKScene {
         self.turnsTaken = 1
         self.map = Map.defaultMap(type: .normal)
         self.points = 0
-
+        self.streak = 1
         self.background = SKSpriteNode(imageNamed: "background")
+        self.qCorrect = false
         
         super.init()
         
@@ -65,9 +70,9 @@ class Game: SKScene {
         self.turnsTaken = 1
         self.map = Map.defaultMap(type: .normal)
         self.points = 0
-        
+        self.streak = 1
         self.background = SKSpriteNode(imageNamed: "background")
-        
+        self.qCorrect = false
         super.init(size: size)
         
         self.backgroundColor = Map.mapBackgrounds[Map.MapType.normal.rawValue]
@@ -85,6 +90,11 @@ class Game: SKScene {
      Prints error description in the console if query fails
      */
     func loadQuestions() {
+        
+//        let question = Question(text: "what's 1 + 2?", answers: ["1", "2", "3", "4"], correctAnswer: 2)
+//        let secondQuestion = Question(text: "what's 2 * 2?", answers: ["2", "4", "6", "8"], correctAnswer: 1)
+//
+//        self.questions = [question, secondQuestion]
         
         let database = CKContainer.default().publicCloudDatabase
 
@@ -112,10 +122,14 @@ class Game: SKScene {
     
     func movePlayer(numberOfSpaces: Int) {
         
-        let newTile = self.map.path[self.player.pos + numberOfSpaces]
-        let movement = SKAction.move(to: newTile.sprite.position, duration: 1.5)
-        self.player.sprite.run(movement)
-        self.player.pos += numberOfSpaces
+        for _ in 0..<numberOfSpaces {
+            
+            let nextTile = self.map.path[self.player.pos + 1]
+            let movement = SKAction.move(to: nextTile.sprite.position, duration: 1.0)
+            self.player.sprite.run(movement)
+            self.player.pos += 1
+            
+        }
         
     }
     
