@@ -256,6 +256,9 @@
                                     <constraint firstAttribute="width" secondItem="IcP-Uk-sYR" secondAttribute="height" multiplier="23:22" id="dtb-OJ-z82"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="avatar-sample"/>
+                                <connections>
+                                    <action selector="toggleAvatarPicker:" destination="miT-Rc-EUv" eventType="touchUpInside" id="pMR-sC-wBy"/>
+                                </connections>
                             </button>
                             <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yod-FH-Ifl">
                                 <rect key="frame" x="16" y="429" width="343" height="53"/>

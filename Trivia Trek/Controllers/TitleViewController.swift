@@ -60,6 +60,25 @@ class TitleViewController: UIViewController {
         
     }
     
+    @IBAction func toggleAvatarPicker(_ sender: Any) {
+        
+        if self.avatarPicker.alpha > 0 {
+            
+            UIView.animate(withDuration: 0.7, animations: {
+                self.avatarPicker.alpha = 0
+            })
+            
+        }
+        else {
+            
+            UIView.animate(withDuration: 0.7, animations: {
+                self.avatarPicker.alpha = 1
+            })
+            
+        }
+        
+    }
+    
     @IBAction func showFbLogin(_ sender: Any) {
         
         let loginManager = FBSDKLoginManager()

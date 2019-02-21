@@ -74,11 +74,11 @@ class BoardViewController: UIViewController {
     
     func takeTurn() {
         
-//        self.currentTurn = DispatchWorkItem(block: {
-//            self.performSegue(withIdentifier: "showQuestion", sender: self)
-//        })
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: self.currentTurn!)
+        self.currentTurn = DispatchWorkItem(block: {
+            self.performSegue(withIdentifier: "showQuestion", sender: self)
+        })
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: self.currentTurn!)
         
     }
     
