@@ -11,11 +11,15 @@ import UIKit
 class HelpFinalPageViewController: UIViewController {
     
     @IBOutlet weak var letsGo: UIButton!
+    
+    @IBOutlet weak var instructions: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.letsGo.layer.cornerRadius = 7
+        
+        self.instructions.layer.cornerRadius = 7
 
         // Do any additional setup after loading the view.
     }

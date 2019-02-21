@@ -11,14 +11,14 @@ import SpriteKit
 import GameKit
 
 class BoardViewController: UIViewController {
-
-    @IBOutlet weak var boardView: SKView!
-    @IBOutlet weak var turnLabel: UILabel!
-    @IBOutlet weak var roundLabel: UILabel!
-    @IBOutlet weak var quitButton: UIButton!
-    @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet weak var readyButton: UIButton!
-    @IBOutlet weak var moveButton: UIButton!
+    
+    @IBOutlet weak var board: SKView!
+    @IBOutlet weak var turn: UILabel!
+    @IBOutlet weak var round: UILabel!
+    @IBOutlet weak var quit: UIButton!
+    @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var ready: UIButton!
+    @IBOutlet weak var move: UIButton!
     
     var game: Game?
     var isPaused: Bool = false
@@ -29,17 +29,17 @@ class BoardViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-
-        self.quitButton.layer.cornerRadius = 7
-        self.readyButton.layer.cornerRadius = 7
-        self.moveButton.layer.cornerRadius = 7
+        
+        self.quit.layer.cornerRadius = 7
+        self.ready.layer.cornerRadius = 7
+        self.move.layer.cornerRadius = 7
         
         
         self.currentTime = 0
         
-        self.game!.initBackground(size: self.boardView.bounds.size)
+        self.game!.initBackground(size: self.board.bounds.size)
         self.game!.setupSprites()
-        self.boardView.presentScene(self.game)
+        self.board.presentScene(self.game)
         
     }
     
@@ -48,21 +48,21 @@ class BoardViewController: UIViewController {
         
         super.viewDidAppear(animated)
         
-        self.turnLabel.alpha = 1
-        self.turnLabel.text = "Turn \(self.game!.turnsTaken)"
+        self.turn.alpha = 1
+        self.turn.text = "Turn \(self.game!.turnsTaken)"
         
-        self.scoreLabel.text = "Score: \(self.game!.turnsTaken)"
-
-        self.readyButton.alpha = 0.8
-        self.readyButton.isEnabled = true
+        self.score.text = "Score: \(self.game!.turnsTaken)"
+        
+        self.ready.alpha = 0.8
+        self.ready.isEnabled = true
         
         if self.game!.turnsTaken % 13 == 0 {
             currentRound += 1
-            self.roundLabel.text = "Round \(self.currentRound)"
-            self.roundLabel.alpha = 1
+            self.round.text = "Round \(self.currentRound)"
+            self.round.alpha = 1
             
             UIView.animate(withDuration: 1.5, animations: {
-                self.roundLabel.alpha = 0
+                self.round.alpha = 0
             })
         }
         
@@ -74,61 +74,61 @@ class BoardViewController: UIViewController {
     
     func takeTurn() {
         
-//        self.currentTurn = DispatchWorkItem(block: {
-//            self.performSegue(withIdentifier: "showQuestion", sender: self)
-//        })
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: self.currentTurn!)
+                self.currentTurn = DispatchWorkItem(block: {
+                    self.performSegue(withIdentifier: "showQuestion", sender: self)
+                })
+        
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: self.currentTurn!)
         
     }
     
-    func move() {
+    func makeMove() {
         
         /*
-        Make field for player node in BoardViewController
-        Make a function for movement that takes in a Move
+         Make field for player node in BoardViewController
+         Make a function for movement that takes in a Move
          if left:
-            make SKAction.followPath action using:
-                UIBezierPath to define arc path up and left
+         make SKAction.followPath action using:
+         UIBezierPath to define arc path up and left
          if right:
-            make SKAction.followPath action using:
-                UIBezierPath to define arc path up and right
+         make SKAction.followPath action using:
+         UIBezierPath to define arc path up and right
          if up:
-            make SKAction.followPath action using:
-                UIBezierPath to define arc path left and up
+         make SKAction.followPath action using:
+         UIBezierPath to define arc path left and up
          if down:
-            make SKAction.followPath action using:
-                UIBezierPath to define arc path left and down
-        */
+         make SKAction.followPath action using:
+         UIBezierPath to define arc path left and down
+         */
         
-//        var movementPath: UIBezierPath!
-//
-//        if direction == Move.left {
-//
-//            // arcCenter in between old and new tile
-//            movementPath = UIBezierPath(arcCenter: CGPoint(x: self.playerNode.position.x - 20, y: self.playerNode.position.y), radius: 40, startAngle: 0, endAngle: CGFloat.pi, clockwise: false)
-//
-//        }
-//        else if direction == Move.right {
-//
-//            // arcCenter in between old and new tile
-//            movementPath = UIBezierPath(arcCenter: CGPoint(x: self.playerNode.position.x + 20, y: self.playerNode.position.y), radius: 40, startAngle: CGFloat.pi, endAngle: 0, clockwise: true)
-//
-//        }
-//        else if direction == Move.up {
-//
-//            // arcCenter in between old and new tile
-//            movementPath = UIBezierPath(arcCenter: CGPoint(x: self.playerNode.position.x, y: self.playerNode.position.y), radius: 40, startAngle: 1.5 * CGFloat.pi, endAngle: 0.5 * CGFloat.pi, clockwise: true)
-//
-//        }
-//        else {
-//
-//            // arcCenter in between old and new tile
-//            movementPath = UIBezierPath(arcCenter: CGPoint(x: self.playerNode.position.x, y: self.playerNode.position.y - 20), radius: 40, startAngle: 0.5 * CGFloat.pi, endAngle: 1.5 * CGFloat.pi, clockwise: false)
-//
-//        }
-//
-//        let movement = SKAction.follow(movementPath.cgPath, duration: 1.5)
+        //        var movementPath: UIBezierPath!
+        //
+        //        if direction == Move.left {
+        //
+        //            // arcCenter in between old and new tile
+        //            movementPath = UIBezierPath(arcCenter: CGPoint(x: self.playerNode.position.x - 20, y: self.playerNode.position.y), radius: 40, startAngle: 0, endAngle: CGFloat.pi, clockwise: false)
+        //
+        //        }
+        //        else if direction == Move.right {
+        //
+        //            // arcCenter in between old and new tile
+        //            movementPath = UIBezierPath(arcCenter: CGPoint(x: self.playerNode.position.x + 20, y: self.playerNode.position.y), radius: 40, startAngle: CGFloat.pi, endAngle: 0, clockwise: true)
+        //
+        //        }
+        //        else if direction == Move.up {
+        //
+        //            // arcCenter in between old and new tile
+        //            movementPath = UIBezierPath(arcCenter: CGPoint(x: self.playerNode.position.x, y: self.playerNode.position.y), radius: 40, startAngle: 1.5 * CGFloat.pi, endAngle: 0.5 * CGFloat.pi, clockwise: true)
+        //
+        //        }
+        //        else {
+        //
+        //            // arcCenter in between old and new tile
+        //            movementPath = UIBezierPath(arcCenter: CGPoint(x: self.playerNode.position.x, y: self.playerNode.position.y - 20), radius: 40, startAngle: 0.5 * CGFloat.pi, endAngle: 1.5 * CGFloat.pi, clockwise: false)
+        //
+        //        }
+        //
+        //        let movement = SKAction.follow(movementPath.cgPath, duration: 1.5)
         
         self.game?.movePlayer(numberOfSpaces: 1)
         
@@ -145,30 +145,29 @@ class BoardViewController: UIViewController {
     
     func fadeInTurnIntro() {
         
-        self.turnLabel.alpha = 0
+        self.turn.alpha = 0
         
         UIView.animate(withDuration: 1.5, animations: {
-            self.turnLabel.alpha = 1
+            self.turn.alpha = 1
         })
         
     }
     
     func fadeOutTurnIntro() {
         
-        self.turnLabel.alpha = 1
-        self.readyButton.alpha = 1
+        self.turn.alpha = 1
+        self.ready.alpha = 1
         
         UIView.animate(withDuration: 1.5, animations: {
-            self.turnLabel.alpha = 0
-            self.readyButton.alpha = 0
-            self.readyButton.isEnabled = false
+            self.turn.alpha = 0
+            self.ready.alpha = 0
+            self.ready.isEnabled = false
         })
         
     }
     
-    @IBAction func quitGame(_ sender: Any) {
+    @IBAction func quitOut (_ sender: Any) {
         
-//        self.currentTurn!.cancel()
         
         let alertController = UIAlertController(title: "Quit Game?", message: "Are you sure you want to quit?", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Quit", style: .default, handler: { action in
@@ -193,10 +192,9 @@ class BoardViewController: UIViewController {
         
     }
     
-    @IBAction func startNextTurn(_ sender: Any) {
-        
-        // fade out intro stuff
-        self.fadeOutTurnIntro()
+    @IBAction func startTurn (_ sender: Any) {
+    
+    self.fadeOutTurnIntro()
         
         // move (eventually)
         
@@ -205,9 +203,9 @@ class BoardViewController: UIViewController {
         
     }
     
-    @IBAction func nextMove(_ sender: Any) {
+    @IBAction func makeNextMove (_ sender: Any) {
         
-        self.move()
+        self.makeMove()
         
     }
     
