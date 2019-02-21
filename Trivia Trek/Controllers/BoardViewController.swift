@@ -55,13 +55,29 @@ class BoardViewController: UIViewController {
         self.turn.alpha = 1
         self.turn.text = "Turn \(self.game!.turnsTaken)"
         
-        self.score.text = "Score: \(self.game!.points)"
+        self.score.text = "Score: \(self.game!.turnsTaken)"
         
         self.ready.alpha = 0.8
         self.ready.isEnabled = true
         
-        if self.game!.turnsTaken != 1 {
-            self.makeMove()
+        if self.game!.player.pos == 39 {
+            // SHOW THE FINAL VIEW CONTROLLER
+        }
+        
+        else if self.game!.turnsTaken != 1 {
+            var ns: Int
+            if self.game!.qCorrect {
+                
+                ns = self.game!.streak
+                
+                if ns > (38-self.game!.player.pos) {
+                    ns = 38-self.game!.player.pos
+                }
+            }
+            else {
+                ns = 0
+            }
+            self.makeMove(numSpaces: ns)
         }
             
         if self.game!.turnsTaken % 13 == 0 && self.game!.turnsTaken <= 27 {
@@ -79,9 +95,7 @@ class BoardViewController: UIViewController {
             self.fadeOutRoundIntro()
         }
         
-        if self.game!.turnsTaken == 39 {
-            // SHOW THE FINAL VIEW CONTROLLER
-        }
+        
         
     }
     
@@ -95,7 +109,7 @@ class BoardViewController: UIViewController {
         
     }
     
-    func makeMove() {
+    func makeMove(numSpaces: Int) {
         
         /*
          Make field for player node in BoardViewController
@@ -143,7 +157,7 @@ class BoardViewController: UIViewController {
         //
         //        let movement = SKAction.follow(movementPath.cgPath, duration: 1.5)
         
-        self.game?.movePlayer(numberOfSpaces: 1)
+        self.game?.movePlayer(numberOfSpaces: numSpaces)
         
     }
     

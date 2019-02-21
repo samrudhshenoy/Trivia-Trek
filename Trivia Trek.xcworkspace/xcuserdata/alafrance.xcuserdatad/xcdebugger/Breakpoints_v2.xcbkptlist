@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Trivia Trek/Controllers/QuestionViewController.swift"
-            timestampString = "572430277.833849"
+            timestampString = "572337192.477504"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Trivia Trek/Controllers/QuestionViewController.swift"
-            timestampString = "572430277.83435"
+            timestampString = "572337192.477657"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -121,14 +121,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Trivia Trek/Controllers/TitleViewController.swift"
-            timestampString = "572406138.722555"
+            filePath = "Trivia Trek/Models/Game.swift"
+            timestampString = "572431190.3726079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "toggleAvatarPicker(_:)"
-            landmarkType = "7">
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "Game"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -137,13 +137,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Trivia Trek/Controllers/ScoreHistoryViewController.swift"
-            timestampString = "572430277.834782"
+            filePath = "Trivia Trek/Controllers/TitleViewController.swift"
+            timestampString = "572406138.722555"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "loadScores()"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "toggleAvatarPicker(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
