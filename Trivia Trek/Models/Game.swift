@@ -29,6 +29,8 @@ class Game: SKScene {
     
     var background: SKSpriteNode?
     
+    var points: Int
+    
     /**
      Initializes a new game with given maximum turns, player object, and background image
      
@@ -43,10 +45,13 @@ class Game: SKScene {
         self.player = player
         self.turnsTaken = 1
         self.map = Map.defaultMap(type: .normal)
+        self.points = 0
 
         self.background = SKSpriteNode(imageNamed: "background")
         
         super.init()
+        
+        
         
         self.backgroundColor = Map.mapBackgrounds[mapType.rawValue]
 
@@ -59,6 +64,7 @@ class Game: SKScene {
         self.player = Player()
         self.turnsTaken = 1
         self.map = Map.defaultMap(type: .normal)
+        self.points = 0
         
         self.background = SKSpriteNode(imageNamed: "background")
         

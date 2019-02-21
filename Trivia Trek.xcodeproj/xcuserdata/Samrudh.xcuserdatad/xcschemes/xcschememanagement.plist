@@ -7,7 +7,12 @@
 		<key>MAD 2018-19.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>8</integer>
+			<integer>0</integer>
+		</dict>
+		<key>Trivia Trek.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
 		</dict>
 	</dict>
 </dict>

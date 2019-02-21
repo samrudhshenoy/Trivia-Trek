@@ -18,7 +18,6 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var quit: UIButton!
     @IBOutlet weak var score: UILabel!
     @IBOutlet weak var ready: UIButton!
-    @IBOutlet weak var move: UIButton!
     
     var game: Game?
     var isPaused: Bool = false
@@ -32,7 +31,6 @@ class BoardViewController: UIViewController {
         
         self.quit.layer.cornerRadius = 7
         self.ready.layer.cornerRadius = 7
-        self.move.layer.cornerRadius = 7
         
         
         self.currentTime = 0
@@ -48,22 +46,37 @@ class BoardViewController: UIViewController {
         
         super.viewDidAppear(animated)
         
+        
+        if self.game!.turnsTaken == 40 {
+            let final = FinalPageViewController()
+            present(final, animated: true, completion: nil)
+        }
+        
         self.turn.alpha = 1
         self.turn.text = "Turn \(self.game!.turnsTaken)"
         
-        self.score.text = "Score: \(self.game!.turnsTaken)"
+        self.score.text = "Score: \(self.game!.points)"
         
         self.ready.alpha = 0.8
         self.ready.isEnabled = true
         
-        if self.game!.turnsTaken % 13 == 0 {
+        if self.game!.turnsTaken != 1 {
+            self.makeMove()
+        }
+            
+        if self.game!.turnsTaken % 13 == 0 && self.game!.turnsTaken <= 27 {
             currentRound += 1
             self.round.text = "Round \(self.currentRound)"
             self.round.alpha = 1
             
-            UIView.animate(withDuration: 1.5, animations: {
-                self.round.alpha = 0
-            })
+            self.fadeOutRoundIntro()
+        }
+        
+        else if self.game!.turnsTaken == 1 {
+            self.round.text = "Round \(self.currentRound)"
+            self.round.alpha = 1
+            
+            self.fadeOutRoundIntro()
         }
         
         if self.game!.turnsTaken == 39 {
@@ -166,6 +179,16 @@ class BoardViewController: UIViewController {
         
     }
     
+    func fadeOutRoundIntro() {
+        
+        self.round.alpha = 1
+        
+        UIView.animate(withDuration: 1.5, animations: {
+            self.round.alpha = 0
+        })
+        
+    }
+    
     @IBAction func quitOut (_ sender: Any) {
         
         
@@ -200,12 +223,6 @@ class BoardViewController: UIViewController {
         
         // take turn (eventually)
         self.takeTurn()
-        
-    }
-    
-    @IBAction func makeNextMove (_ sender: Any) {
-        
-        self.makeMove()
         
     }
     
