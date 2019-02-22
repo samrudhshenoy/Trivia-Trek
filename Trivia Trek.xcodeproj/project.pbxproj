@@ -25,6 +25,8 @@
 		A5ACC4F9221B7EEC00982E1C /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ACC4F8221B7EEC00982E1C /* Map.swift */; };
 		A5ACC4FB221BD4D900982E1C /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ACC4FA221BD4D800982E1C /* Tile.swift */; };
 		A5ACC4FD221CA27600982E1C /* MapBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ACC4FC221CA27600982E1C /* MapBounds.swift */; };
+		A5ACC505221FC0DA00982E1C /* ScoreHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ACC504221FC0DA00982E1C /* ScoreHistoryViewController.swift */; };
+		A5ACC507221FC12E00982E1C /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ACC506221FC12E00982E1C /* Score.swift */; };
 		A5C333D521F830BA00A3D4C0 /* HelpPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C333D421F830BA00A3D4C0 /* HelpPageViewController.swift */; };
 		A5CE3CA62211F16300121B61 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CE3CA52211F16300121B61 /* QuestionViewController.swift */; };
 		A5CE3CA82211F24500121B61 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CE3CA72211F24500121B61 /* Question.swift */; };
@@ -80,6 +82,8 @@
 		A5ACC4F8221B7EEC00982E1C /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		A5ACC4FA221BD4D800982E1C /* Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		A5ACC4FC221CA27600982E1C /* MapBounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBounds.swift; sourceTree = "<group>"; };
+		A5ACC504221FC0DA00982E1C /* ScoreHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreHistoryViewController.swift; sourceTree = "<group>"; };
+		A5ACC506221FC12E00982E1C /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		A5C333D421F830BA00A3D4C0 /* HelpPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPageViewController.swift; sourceTree = "<group>"; };
 		A5CE3CA52211F16300121B61 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		A5CE3CA72211F24500121B61 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 				2CD53C60221E53DA00702B83 /* FinalPageViewController.swift */,
 				2CD53C61221E53DA00702B83 /* InstructionsViewController.swift */,
 				2CD53C64221E6C6400702B83 /* FeedbackViewController.swift */,
+				A5ACC504221FC0DA00982E1C /* ScoreHistoryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -177,6 +182,7 @@
 				A5ACC4F8221B7EEC00982E1C /* Map.swift */,
 				A5ACC4FA221BD4D800982E1C /* Tile.swift */,
 				A5ACC4FC221CA27600982E1C /* MapBounds.swift */,
+				A5ACC506221FC12E00982E1C /* Score.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -528,8 +534,10 @@
 				A5779E7421FE734A00D755AA /* BoardViewController.swift in Sources */,
 				2CD53C62221E53DB00702B83 /* FinalPageViewController.swift in Sources */,
 				A5CE3CA62211F16300121B61 /* QuestionViewController.swift in Sources */,
+				A5ACC505221FC0DA00982E1C /* ScoreHistoryViewController.swift in Sources */,
 				A5F0E49E21F686AA00908F6E /* SetupViewController.swift in Sources */,
 				A5C333D521F830BA00A3D4C0 /* HelpPageViewController.swift in Sources */,
+				A5ACC507221FC12E00982E1C /* Score.swift in Sources */,
 				2CD53C65221E6C6400702B83 /* FeedbackViewController.swift in Sources */,
 				2C7FDD3921FAC19B009CC4FD /* ConnectViewController.swift in Sources */,
 				2CD47DD321FD0D68007A9D0F /* Player.swift in Sources */,
