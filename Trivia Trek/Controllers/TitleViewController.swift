@@ -29,6 +29,7 @@ class TitleViewController: UIViewController {
     
     var playerName: String!
     var avatar: UIImage!
+    var avatarPickerShowing: Bool = false
     
     var avatarPickerController: AvatarPickerViewController?
         
@@ -54,6 +55,27 @@ class TitleViewController: UIViewController {
             self.avatarPickerController = avatarPickerController ?? nil
             
         }
+        
+    }
+    
+    @IBAction func toggleAvatarPicker(_ sender: Any) {
+        
+        if self.avatarPickerShowing {
+            
+            UIView.animate(withDuration: 0.7, animations: {
+                self.avatarPicker.alpha = 0
+            })
+            
+        }
+        else {
+            
+            UIView.animate(withDuration: 0.7, animations: {
+                self.avatarPicker.alpha = 1
+            })
+            
+        }
+        
+        self.avatarPickerShowing = !self.avatarPickerShowing
         
     }
     

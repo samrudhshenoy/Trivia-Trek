@@ -29,6 +29,12 @@ class Game: SKScene {
     
     var background: SKSpriteNode?
     
+    var points: Int
+    
+    var streak: Int
+    
+    var qCorrect: Bool
+    
     /**
      Initializes a new game with given maximum turns, player object, and background image
      
@@ -43,10 +49,14 @@ class Game: SKScene {
         self.player = player
         self.turnsTaken = 1
         self.map = Map.defaultMap(type: .normal)
-
+        self.points = 0
+        self.streak = 1
         self.background = SKSpriteNode(imageNamed: "background")
+        self.qCorrect = false
         
         super.init()
+        
+        self.scaleMode = .fill
         
         self.backgroundColor = Map.mapBackgrounds[mapType.rawValue]
 
@@ -59,9 +69,10 @@ class Game: SKScene {
         self.player = Player()
         self.turnsTaken = 1
         self.map = Map.defaultMap(type: .normal)
-        
+        self.points = 0
+        self.streak = 1
         self.background = SKSpriteNode(imageNamed: "background")
-        
+        self.qCorrect = false
         super.init(size: size)
         
         self.backgroundColor = Map.mapBackgrounds[Map.MapType.normal.rawValue]
@@ -80,40 +91,47 @@ class Game: SKScene {
      */
     func loadQuestions() {
         
-//        let question = Question(text: "what's 1 + 2?", answers: ["1", "2", "3", "4"], correctAnswer: 2)
-//        let secondQuestion = Question(text: "what's 2 * 2?", answers: ["2", "4", "6", "8"], correctAnswer: 1)
-//
-//        self.questions = [question, secondQuestion]
+        let database = CKContainer.default().publicCloudDatabase
+
+        let query = CKQuery(recordType: "Question", predicate: NSPredicate(value: true))
+
+        database.perform(query, inZoneWith: nil, completionHandler: { questions, error in
+            if error != nil {
+
+                print("Query failed with error \(error?.localizedDescription ?? "none")")
+
+            }
+            else {
+
+                for questionRecord in questions! {
+
+                    let currentQuestion = Question(record: questionRecord)
+                    self.questions.append(currentQuestion)
+
+                }
+
+            }
+
+        })
         
-//        let database = CKContainer.default().publicCloudDatabase
-//
-//        let query = CKQuery(recordType: "Question", predicate: NSPredicate(value: true))
-//
-//        database.perform(query, inZoneWith: nil, completionHandler: { questions, error in
-//            if error != nil {
-//
-//                print("Query failed with error \(error?.localizedDescription ?? "none")")
-//
-//            }
-//            else {
-//
-//                for questionRecord in questions! {
-//
-//                    self.questions.append(Question(record: questionRecord))
-//
-//                }
-//
-//            }
-//
-//        })
     }
     
     func movePlayer(numberOfSpaces: Int) {
         
-        let newTile = self.map.path[self.player.pos + numberOfSpaces]
-        let movement = SKAction.move(to: newTile.sprite.position, duration: 1.5)
-        self.player.sprite.run(movement)
-        self.player.pos += numberOfSpaces
+        var mvmtChain: SKAction
+        var movements: [SKAction] = []
+        
+        for _ in 0..<numberOfSpaces {
+        
+            let nextTile = self.map.path[self.player.pos + 1]
+            let movement = SKAction.move(to: nextTile.sprite.position, duration: 1.0)
+            movements.append(movement)
+            self.player.pos += 1
+        
+        }
+        
+        mvmtChain = SKAction.sequence(movements)
+        self.player.sprite.run(mvmtChain)
         
     }
     

@@ -21,8 +21,13 @@ class FinalPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.feedBackButton.layer.cornerRadius = 7
-        self.homeButton.layer.cornerRadius = 7
+        if feedBackButton != nil {
+            self.feedBackButton.layer.cornerRadius = 7
+        }
+        
+        if homeButton != nil {
+            self.homeButton.layer.cornerRadius = 4
+        }
         
         let shareButton = FBSDKShareButton()
         let content = FBSDKShareLinkContent()

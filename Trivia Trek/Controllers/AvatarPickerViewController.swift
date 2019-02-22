@@ -13,8 +13,6 @@ import SCSDKBitmojiKit
 
 class AvatarPickerViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-        
-
     @IBOutlet var mainView: UIView!
 
     

@@ -18,7 +18,6 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var quit: UIButton!
     @IBOutlet weak var score: UILabel!
     @IBOutlet weak var ready: UIButton!
-    @IBOutlet weak var move: UIButton!
     
     var game: Game?
     var isPaused: Bool = false
@@ -32,7 +31,6 @@ class BoardViewController: UIViewController {
         
         self.quit.layer.cornerRadius = 7
         self.ready.layer.cornerRadius = 7
-        self.move.layer.cornerRadius = 7
         
         
         self.currentTime = 0
@@ -48,6 +46,12 @@ class BoardViewController: UIViewController {
         
         super.viewDidAppear(animated)
         
+        
+        if self.game!.turnsTaken == 40 {
+            let final = FinalPageViewController()
+            present(final, animated: true, completion: nil)
+        }
+        
         self.turn.alpha = 1
         self.turn.text = "Turn \(self.game!.turnsTaken)"
         
@@ -56,33 +60,56 @@ class BoardViewController: UIViewController {
         self.ready.alpha = 0.8
         self.ready.isEnabled = true
         
-        if self.game!.turnsTaken % 13 == 0 {
+        if self.game!.player.pos == 39 {
+            // SHOW THE FINAL VIEW CONTROLLER
+        }
+        
+        else if self.game!.turnsTaken != 1 {
+            var ns: Int
+            if self.game!.qCorrect {
+                
+                ns = self.game!.streak
+                
+                if ns > (38-self.game!.player.pos) {
+                    ns = 38-self.game!.player.pos
+                }
+            }
+            else {
+                ns = 0
+            }
+            self.makeMove(numSpaces: ns)
+        }
+            
+        if self.game!.turnsTaken % 13 == 0 && self.game!.turnsTaken <= 27 {
             currentRound += 1
             self.round.text = "Round \(self.currentRound)"
             self.round.alpha = 1
             
-            UIView.animate(withDuration: 1.5, animations: {
-                self.round.alpha = 0
-            })
+            self.fadeOutRoundIntro()
         }
         
-        if self.game!.turnsTaken == 39 {
-            // SHOW THE FINAL VIEW CONTROLLER
+        else if self.game!.turnsTaken == 1 {
+            self.round.text = "Round \(self.currentRound)"
+            self.round.alpha = 1
+            
+            self.fadeOutRoundIntro()
         }
+        
+        
         
     }
     
     func takeTurn() {
         
-                self.currentTurn = DispatchWorkItem(block: {
-                    self.performSegue(withIdentifier: "showQuestion", sender: self)
-                })
-        
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: self.currentTurn!)
+        self.currentTurn = DispatchWorkItem(block: {
+            self.performSegue(withIdentifier: "showQuestion", sender: self)
+        })
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: self.currentTurn!)
         
     }
     
-    func makeMove() {
+    func makeMove(numSpaces: Int) {
         
         /*
          Make field for player node in BoardViewController
@@ -130,7 +157,7 @@ class BoardViewController: UIViewController {
         //
         //        let movement = SKAction.follow(movementPath.cgPath, duration: 1.5)
         
-        self.game?.movePlayer(numberOfSpaces: 1)
+        self.game?.movePlayer(numberOfSpaces: numSpaces)
         
     }
     
@@ -162,6 +189,16 @@ class BoardViewController: UIViewController {
             self.turn.alpha = 0
             self.ready.alpha = 0
             self.ready.isEnabled = false
+        })
+        
+    }
+    
+    func fadeOutRoundIntro() {
+        
+        self.round.alpha = 1
+        
+        UIView.animate(withDuration: 1.5, animations: {
+            self.round.alpha = 0
         })
         
     }
@@ -200,12 +237,6 @@ class BoardViewController: UIViewController {
         
         // take turn (eventually)
         self.takeTurn()
-        
-    }
-    
-    @IBAction func makeNextMove (_ sender: Any) {
-        
-        self.makeMove()
         
     }
     

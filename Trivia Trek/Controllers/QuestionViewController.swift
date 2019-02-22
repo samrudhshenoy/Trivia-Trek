@@ -25,6 +25,7 @@ class QuestionViewController: UIViewController {
     var game: Game?
     var questionIndex: Int = -1
     var start: DispatchTime = DispatchTime.now()
+    var correct: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,7 +75,7 @@ class QuestionViewController: UIViewController {
         let correctIndex = self.game!.questions[self.questionIndex].correctAnswer + 1
         
         if choiceButton.tag != correctIndex {
-            
+            self.game!.streak = 1
             UIView.animate(withDuration: 0.7, animations: {
                 choiceButton.backgroundColor = UIColor.red
             })
@@ -82,26 +83,32 @@ class QuestionViewController: UIViewController {
         }
         else {
             
+            self.game!.streak += 1
+            self.correct = true
             
-            let timeTaken = (DispatchTime.now().uptimeNanoseconds - start.uptimeNanoseconds) / UInt64(1_000_000_000.0)
-            
-            if timeTaken <= 2 {
-            self.pointsLabel.text = "+100"
-            fadeOutPointsLabel()
-                
-            }
-            else if timeTaken <= 3 {
-                self.pointsLabel.text = "+75"
-                fadeOutPointsLabel()
-            }
-            else if timeTaken <= 4 {
-                self.pointsLabel.text = "+50"
-                fadeOutPointsLabel()
-            }
-            else {
-                self.pointsLabel.text = "+25"
-                fadeOutPointsLabel()
-            }
+//            let timeTaken = (DispatchTime.now().uptimeNanoseconds - start.uptimeNanoseconds) / UInt64(1_000_000_000.0)
+//
+//            if timeTaken <= 2 {
+//                self.pointsLabel.text = "+100"
+//                fadeOutPointsLabel()
+//                self.game!.points += 100
+//
+//            }
+//            else if timeTaken <= 3 {
+//                self.pointsLabel.text = "+75"
+//                fadeOutPointsLabel()
+//                self.game!.points += 75
+//            }
+//            else if timeTaken <= 4 {
+//                self.pointsLabel.text = "+50"
+//                fadeOutPointsLabel()
+//                self.game!.points += 50
+//            }
+//            else {
+//                self.pointsLabel.text = "+25"
+//                fadeOutPointsLabel()
+//                self.game!.points += 25
+//            }
             
         }
         
@@ -154,6 +161,12 @@ class QuestionViewController: UIViewController {
     }
     
     @IBAction func doneButtonPressed(_ sender: Any) {
+        if correct {
+            self.game!.qCorrect = true
+        }
+        else {
+            self.game!.qCorrect = false
+        }
         
         self.performSegue(withIdentifier: "backToBoard", sender: self)
         
@@ -162,7 +175,7 @@ class QuestionViewController: UIViewController {
     func fadeOutPointsLabel() {
         
         self.pointsLabel.alpha = 1
-        self.pointsLabel.textColor = UIColor.black
+        self.pointsLabel.textColor = UIColor.white
         
         UIView.animate(withDuration: 1.5, animations: {
             self.pointsLabel.alpha = 0
