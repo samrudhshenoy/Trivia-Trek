@@ -56,7 +56,7 @@ class Game: SKScene {
         
         super.init()
         
-        
+        self.scaleMode = .fill
         
         self.backgroundColor = Map.mapBackgrounds[mapType.rawValue]
 
@@ -91,11 +91,6 @@ class Game: SKScene {
      */
     func loadQuestions() {
         
-//        let question = Question(text: "what's 1 + 2?", answers: ["1", "2", "3", "4"], correctAnswer: 2)
-//        let secondQuestion = Question(text: "what's 2 * 2?", answers: ["2", "4", "6", "8"], correctAnswer: 1)
-//
-//        self.questions = [question, secondQuestion]
-        
         let database = CKContainer.default().publicCloudDatabase
 
         let query = CKQuery(recordType: "Question", predicate: NSPredicate(value: true))
@@ -110,7 +105,8 @@ class Game: SKScene {
 
                 for questionRecord in questions! {
 
-                    self.questions.append(Question(record: questionRecord))
+                    let currentQuestion = Question(record: questionRecord)
+                    self.questions.append(currentQuestion)
 
                 }
 
@@ -122,14 +118,20 @@ class Game: SKScene {
     
     func movePlayer(numberOfSpaces: Int) {
         
+        var mvmtChain: SKAction
+        var movements: [SKAction] = []
+        
         for _ in 0..<numberOfSpaces {
-            
+        
             let nextTile = self.map.path[self.player.pos + 1]
             let movement = SKAction.move(to: nextTile.sprite.position, duration: 1.0)
-            self.player.sprite.run(movement)
+            movements.append(movement)
             self.player.pos += 1
-            
+        
         }
+        
+        mvmtChain = SKAction.sequence(movements)
+        self.player.sprite.run(mvmtChain)
         
     }
     
