@@ -10,13 +10,10 @@ import UIKit
 
 class SetupViewController: UIViewController {
     
-    @IBOutlet weak var difficultySelector: UISegmentedControl!
     @IBOutlet weak var mapLabel: UILabel!
     @IBOutlet weak var mapImageView: UIImageView!
     @IBOutlet weak var leftMapButton: UIButton!
     @IBOutlet weak var rightMapButton: UIButton!
-    @IBOutlet weak var turnLabel: UILabel!
-    @IBOutlet weak var turnIncrementButton: UIStepper!
     
     var mapImages: [UIImage] = []
     var mapNames: [String] = []
@@ -30,11 +27,6 @@ class SetupViewController: UIViewController {
         
         super.viewDidLoad()
         
-        self.turnIncrementButton.minimumValue = 10
-        self.turnIncrementButton.maximumValue = 20
-        
-        self.turnLabel.text! = "Number of Turns: \(Int(self.turnIncrementButton.value))"
-        
         let navigationTitleFont = UIFont(name: "AvenirNext-Bold", size: 16)!
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: navigationTitleFont, NSAttributedString.Key.foregroundColor: UIColor.white]
         
@@ -44,7 +36,6 @@ class SetupViewController: UIViewController {
         self.mapImageView.image! = self.mapImages[0]
         self.mapLabel.text! = "Map: \(self.mapNames[0])"
         
-        self.game.maxTurns = Int(turnIncrementButton.value)
         self.game.map.type = Map.MapType(rawValue: self.currentMap)!
         self.game.player = self.player ?? Player()
         
@@ -58,14 +49,6 @@ class SetupViewController: UIViewController {
             board?.game = self.game
             
         }
-    }
-    
-    @IBAction func changeTurns(_ sender: Any) {
-        
-        let turns = Int(self.turnIncrementButton.value)
-        self.turnLabel.text! = "Number of Turns: \(turns)"
-        self.game.maxTurns = turns
-        
     }
     
     @IBAction func moveMapLeft(_ sender: Any) {
