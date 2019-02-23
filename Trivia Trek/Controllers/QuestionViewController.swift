@@ -30,6 +30,8 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("number of questions: \(self.game!.questions.count)")
+        
         let start = DispatchTime.now() // <<<<<<<<<< Start time
         
         self.pointsLabel.alpha = 0
@@ -74,10 +76,13 @@ class QuestionViewController: UIViewController {
         
         let correctIndex = self.game!.questions[self.questionIndex].correctAnswer + 1
         
+        self.game!.questions.remove(at: self.questionIndex)
+        
         if choiceButton.tag != correctIndex {
             self.game!.streak = 1
             UIView.animate(withDuration: 0.7, animations: {
                 choiceButton.backgroundColor = UIColor.red
+          
             })
 
         }

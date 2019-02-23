@@ -20,5 +20,4 @@ class Score: NSObject {
         self.date = record.object(forKey: "date") as! String
         
     }
-    
 }
