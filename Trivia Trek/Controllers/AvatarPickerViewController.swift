@@ -47,9 +47,9 @@ class AvatarPickerViewController: UIViewController, UIImagePickerControllerDeleg
     
     
     @IBAction func cancelSelection(_ sender: Any) {
-        
+
         self.performSegue(withIdentifier: "rewindToHome", sender: self)
-        
+
     }
     
     // Male button is clicked

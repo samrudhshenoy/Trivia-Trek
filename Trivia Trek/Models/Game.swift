@@ -105,9 +105,15 @@ class Game: SKScene {
 
                 for questionRecord in questions! {
 
-                    let currentQuestion = Question(record: questionRecord)
-                    self.questions.append(currentQuestion)
-
+                    let queue = DispatchQueue(label: "questionQuery")
+                    
+                    queue.sync {
+                        
+                        let currentQuestion = Question(record: questionRecord)
+                        self.questions.append(currentQuestion)
+                        
+                    }
+                    
                 }
 
             }
