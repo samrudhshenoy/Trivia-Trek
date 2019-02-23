@@ -7,7 +7,18 @@
 //
 
 import UIKit
+import CloudKit
 
 class Score: NSObject {
 
+    var value: Int
+    var date: String
+    
+    init(fromRecord record: CKRecord) {
+        
+        self.value = record.object(forKey: "value") as! Int
+        self.date = record.object(forKey: "date") as! String
+        
+    }
+    
 }
