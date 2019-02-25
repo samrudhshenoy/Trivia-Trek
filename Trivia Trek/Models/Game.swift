@@ -16,33 +16,50 @@ class Game: NSObject {
     var record: CKRecord
     
     override init() {
-        
         self.date = Date()
         self.score = 0
         self.record = CKRecord(recordType: "Game")
         
         super.init()
-        
     }
     
     init(fromRecord record: CKRecord) {
-        
-        self.score = record.object(forKey: "score") as! Int
-        self.record = CKRecord(recordType: "Game")
-        self.date = record.creationDate!
-        
-        super.init()
-        
+        let database = CKContainer.default().publicCloudDatabase
+
+        let query = CKQuery(recordType: "Question", predicate: NSPredicate(value: true))
+
+        database.perform(query, inZoneWith: nil, completionHandler: { questions, error in
+            if error != nil {
+
+                print("Query failed with error \(error?.localizedDescription ?? "none")")
+
+            }
+            else {
+
+                for questionRecord in questions! {
+
+                    let queue = DispatchQueue(label: "questionQuery")
+                    
+                    queue.sync {
+                        
+                        let currentQuestion = Question(record: questionRecord)
+                        self.questions.append(currentQuestion)
+                        
+                    }
+                    
+                }
+
+            }
+
+        })
     }
     
     func addToDatabase() {
-        
         let db = CKContainer.default().privateCloudDatabase
         
         self.record.setObject(self.score as __CKRecordObjCValue, forKey: "score")
         
         db.save(record, completionHandler: { record, error in })
-        
     }
     
     func getDate() {

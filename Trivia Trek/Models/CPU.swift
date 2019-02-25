@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// Serves as a CPU object, multiple of which compete against the player
+/// Serves as a CPU object, multiple of which will compete against the player in a future version of the game
 class CPU {
     
     /// The tile the CPU is currently positioned on

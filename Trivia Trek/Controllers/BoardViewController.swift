@@ -39,7 +39,6 @@ class BoardViewController: UIViewController {
         self.done.isEnabled = false
         
         self.currentTime = 0
-        
         self.game!.initBackground(size: self.board.bounds.size)
         self.game!.setupSprites()
         self.board.presentScene(self.game)
@@ -76,7 +75,7 @@ class BoardViewController: UIViewController {
             self.turn.text = "Turn \(self.game!.turnsTaken)"
         }
         
-        self.score.text = "Score: \(self.game!.turnsTaken)"
+        self.score.text = "Score: \(self.game!.turnsTaken - 1)"
         
         if self.game!.player.pos == 39 {
             // SHOW THE FINAL VIEW CONTROLLER
@@ -86,16 +85,28 @@ class BoardViewController: UIViewController {
             var ns: Int
             if self.game!.qCorrect {
                 
-                ns = self.game!.streak
+                if self.game!.streak % 2 != 0 {
+                    ns = self.game!.streak / 2 + 1
+                }
+                
+                else {
+                    ns = self.game!.streak / 2
+                }
                 
                 if ns > (38-self.game!.player.pos) {
-                    ns = 38-self.game!.player.pos
+                    if (38-self.game!.player.pos) % 2 != 0 {
+                        ns = (38-self.game!.player.pos) / 2 + 1
+                    }
+                    else {
+                        ns = (38-self.game!.player.pos) / 2
+                    }
                 }
             }
             else {
                 ns = 0
             }
             self.makeMove(numSpaces: ns)
+
         }
             
         if self.game!.turnsTaken % 13 == 0 && self.game!.turnsTaken <= 27 {
@@ -214,7 +225,7 @@ class BoardViewController: UIViewController {
         
         self.round.alpha = 1
         
-        UIView.animate(withDuration: 1.5, animations: {
+        UIView.animate(withDuration: 3, animations: {
             self.round.alpha = 0
         })
         
