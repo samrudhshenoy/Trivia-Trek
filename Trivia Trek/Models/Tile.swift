@@ -11,9 +11,17 @@ import SpriteKit
 
 class Tile {
     
-    // The tile's graphical node that appears on the game board
+    /// The tile's graphical node that appears on the game board
     var sprite: SKSpriteNode
     
+    /**
+     Initializes a tile with given coordinates
+     
+     - Parameters:
+     - x: The x-coordinate dimension of the tile
+     - y: The y-coordinate dimension of the tile
+     
+     */
     init(x: Int, y: Int) {
         
         self.sprite = SKSpriteNode(imageNamed: "trail-normal")
