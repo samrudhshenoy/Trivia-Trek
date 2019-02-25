@@ -18,23 +18,19 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var secondChoiceButton: UIButton!
     @IBOutlet weak var thirdChoiceButton: UIButton!
     @IBOutlet weak var fourthChoiceButton: UIButton!
-    @IBOutlet weak var pointsLabel: UILabel!
+    @IBOutlet weak var streakLabel: UILabel!
     
     @IBOutlet weak var doneButton: UIButton!
     
     var game: Game?
     var questionIndex: Int = -1
-    var start: DispatchTime = DispatchTime.now()
     var correct: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("number of questions: \(self.game!.questions.count)")
         
-        let start = DispatchTime.now() // <<<<<<<<<< Start time
-        
-        self.pointsLabel.alpha = 0
+        self.streakLabel.alpha = 0
         
         // get random question from game
         self.questionIndex = Int.random(in: 0..<self.game!.questions.count)
@@ -79,17 +75,21 @@ class QuestionViewController: UIViewController {
         self.game!.questions.remove(at: self.questionIndex)
         
         if choiceButton.tag != correctIndex {
-            self.game!.streak = 1
+            self.game!.streak = 0
             UIView.animate(withDuration: 0.7, animations: {
                 choiceButton.backgroundColor = UIColor.red
           
             })
+            self.streakLabel.text = "Streak - \(self.game!.streak)"
+            fadeOutStreakLabel()
 
         }
         else {
             
             self.game!.streak += 1
             self.correct = true
+            self.streakLabel.text = "Streak - \(self.game!.streak)"
+            fadeOutStreakLabel()
             
             
 //            let timeTaken = (DispatchTime.now().uptimeNanoseconds - start.uptimeNanoseconds) / UInt64(1_000_000_000.0)
@@ -179,13 +179,17 @@ class QuestionViewController: UIViewController {
         
     }
     
-    func fadeOutPointsLabel() {
+    func fadeOutStreakLabel() {
         
-        self.pointsLabel.alpha = 1
-        self.pointsLabel.textColor = UIColor.white
+        self.streakLabel.alpha = 0
+        self.streakLabel.textColor = UIColor.white
         
         UIView.animate(withDuration: 1.5, animations: {
-            self.pointsLabel.alpha = 0
+            self.streakLabel.alpha = 1
+        })
+        
+        UIView.animate(withDuration: 1.5, animations: {
+            self.streakLabel.alpha = 0
         })
         
     }

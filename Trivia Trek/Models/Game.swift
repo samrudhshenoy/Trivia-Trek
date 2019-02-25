@@ -10,29 +10,34 @@ import UIKit
 import SpriteKit
 import CloudKit
 
-// The game object of which the centrality of the entire game is based on
+/// The game object of which the centrality of the entire game is based on
 class Game: SKScene {
     
-    // Maximum number of turns taken by a player
+    /// Maximum number of turns taken by a player
     var maxTurns: Int
     
-    // Current number of turns taken by a player
+    /// Current number of turns taken by a player
     var turnsTaken: Int
     
-    // Player object which is stored in the game
+    /// Player object which is stored in the game
     var player: Player
     
-    // Array of questions with answers, sourced from the online database
+    /// Array of questions with answers, sourced from the online database
     var questions: [Question] = []
     
+    /// Map object which the game's locations and coordinates are stored in
     var map: Map
     
+    /// SpriteKit node of the game's background
     var background: SKSpriteNode?
     
+    /// Current amount of points possessed by the player
     var points: Int
     
+    /// Current answer streak kept up by the player
     var streak: Int
     
+    /// Whether the player has gotten the most recent question correct or incorrect
     var qCorrect: Bool
     
     /**
@@ -41,7 +46,7 @@ class Game: SKScene {
      - Parameters:
      - maxTurns: The maximum number of turns the player has opted for
      - player: The player object to be stored in the program
-     - map: The background image of the map
+     - mapType: The specific type of map sourced from the Map class
      
      */
     init(maxTurns: Int, player: Player, mapType: Map.MapType) {
@@ -63,6 +68,14 @@ class Game: SKScene {
         self.loadQuestions()
     }
     
+    
+    /**
+     Initializes a new game with given CGSize for initialization of the SKScene
+     
+     - Parameters:
+     - size: The size value to be used for SKScene initialization
+     
+     */
     override init(size: CGSize) {
         
         self.maxTurns = 0
@@ -122,6 +135,13 @@ class Game: SKScene {
         
     }
     
+    /**
+     Moves a player around the board, consistent with a given amount of spaces
+     
+     - Parameters:
+     - numberOfSpaces: Amount of tiles that the player should move forward by
+     
+     */
     func movePlayer(numberOfSpaces: Int) {
         
         var mvmtChain: SKAction
@@ -141,6 +161,7 @@ class Game: SKScene {
         
     }
     
+    /// Sets up the player sprite to be used in gameplay
     func setupSprites() {
         
         if self.player.sprite.parent == nil {
@@ -168,6 +189,7 @@ class Game: SKScene {
         
     }
     
+    /// Sets up the background to be used in gameplay
     func initBackground(size: CGSize) {
         
         self.size = size
