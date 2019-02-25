@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="MustangGameLogoBetter" translatesAutoresizingMaskIntoConstraints="NO" id="3vn-bL-Gx7">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="launchscreenicon" translatesAutoresizingMaskIntoConstraints="NO" id="3vn-bL-Gx7">
                                 <rect key="frame" x="33" y="179" width="308" height="308"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="3vn-bL-Gx7" secondAttribute="height" multiplier="1:1" id="YU6-CH-ebW"/>
@@ -57,6 +57,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="MustangGameLogoBetter" width="1536" height="1536"/>
+        <image name="launchscreenicon" width="1186.5" height="1183.5"/>
     </resources>
 </document>

@@ -216,7 +216,7 @@ class BoardViewController: UIViewController {
         
         self.round.alpha = 1
         
-        UIView.animate(withDuration: 1.5, animations: {
+        UIView.animate(withDuration: 3, animations: {
             self.round.alpha = 0
         })
         
