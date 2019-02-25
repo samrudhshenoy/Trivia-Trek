@@ -68,10 +68,8 @@ class ScoreHistoryViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath)
 
-        cell.textLabel!.text = "Finished in \(self.games[indexPath.row].score) turns on \(self.games[indexPath.row].getDateStr())"
-        cell.textLabel!.font = UIFont(name: "AvenirNext-Regular", size: 14)
-        cell.textLabel!.textColor = UIColor.white
-        
+        cell.textLabel!.text = "Finished in \(self.games[indexPath.row].score) turns on \(self.games[indexPath.row].date.description)"
+
         return cell
     }
 
