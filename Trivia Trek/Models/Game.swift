@@ -42,7 +42,7 @@ class Game: NSObject {
                     
                     queue.sync {
                         
-                        let currentQuestion = Question(record: questionRecord)
+                        let currentQuestion = Question(fromRecord: questionRecord)
                         self.questions.append(currentQuestion)
                         
                     }
@@ -71,7 +71,7 @@ class Game: NSObject {
         while end != nil {
             
             let component = String(self.date.description[start..<end!])
-            start = self.date.description.index(after: end)
+//            start = self.date.description.index(after: end!)
 //            end = self.date.description.index
             
         }
@@ -83,6 +83,27 @@ class Game: NSObject {
 //        fullStr = String(fullStr[separator!..<fullStr.endIndex])
 //        separator = fullStr.firstIndex(of: "-")
 //        let month =
+    }
+    
+}
+
+extension String {
+    
+    func index(of char: Character, after start: String.Index?) -> String.Index {
+        
+        var start = start
+        
+        if start == nil {
+            start = self.startIndex
+        }
+
+        // find relevant subset of string from start -> end
+        var subset = String(self[self.startIndex..<start!])
+        
+        // offset start by distance from startIndex
+        // find char in subset
+        // scale back index in subset and return it
+        
     }
     
 }
