@@ -18,9 +18,10 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var quit: UIButton!
     @IBOutlet weak var score: UILabel!
     @IBOutlet weak var ready: UIButton!
+
     @IBOutlet weak var done: UIButton!
     
-    var game: Game?
+    var game: Board?
     var isPaused: Bool = false
     var currentTurn: DispatchWorkItem?
     var currentTime: Double = 0
@@ -32,11 +33,10 @@ class BoardViewController: UIViewController {
         
         self.quit.layer.cornerRadius = 7
         self.ready.layer.cornerRadius = 7
+
         self.done.layer.cornerRadius = 11
         self.done.alpha = 0
         self.done.isEnabled = false
-        
-        
         
         self.currentTime = 0
         self.game!.initBackground(size: self.board.bounds.size)
@@ -49,6 +49,14 @@ class BoardViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
+        
+        if self.game!.turnsTaken == 40 {
+            let final = FinalPageViewController()
+            present(final, animated: true, completion: nil)
+        }
+        
+        self.turn.alpha = 1
+        self.turn.text = "Turn \(self.game!.turnsTaken)"
         
         var finished: Bool = false
 
@@ -69,8 +77,10 @@ class BoardViewController: UIViewController {
         
         self.score.text = "Score: \(self.game!.turnsTaken - 1)"
         
-        
-        
+        if self.game!.player.pos == 39 {
+            // SHOW THE FINAL VIEW CONTROLLER
+        }
+                
         if self.game!.turnsTaken != 1 {
             var ns: Int
             if self.game!.qCorrect {
@@ -96,7 +106,7 @@ class BoardViewController: UIViewController {
                 ns = 0
             }
             self.makeMove(numSpaces: ns)
-            
+
         }
             
         if self.game!.turnsTaken % 13 == 0 && self.game!.turnsTaken <= 27 {
@@ -106,7 +116,6 @@ class BoardViewController: UIViewController {
             
             self.fadeOutRoundIntro()
         }
-        
         else if self.game!.turnsTaken == 1 {
             self.round.text = "Round \(self.currentRound)"
             self.round.alpha = 1

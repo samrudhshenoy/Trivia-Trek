@@ -21,10 +21,9 @@ class SetupViewController: UIViewController {
     var numberOfTurns: Int = 0
     
     var player: Player?
-    var game: Game = Game(maxTurns: 0, player: Player(), mapType: .normal)
+    var game: Board = Board(maxTurns: 0, player: Player(), mapType: .normal)
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         
         let navigationTitleFont = UIFont(name: "AvenirNext-Bold", size: 16)!

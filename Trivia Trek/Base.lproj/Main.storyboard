@@ -101,21 +101,38 @@
             </objects>
             <point key="canvasLocation" x="-1346.4000000000001" y="802.848575712144"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Score History View Controller-->
         <scene sceneID="HSK-ht-Tl8">
             <objects>
-                <tableViewController id="97g-DN-WU6" sceneMemberID="viewController">
+                <tableViewController id="97g-DN-WU6" customClass="ScoreHistoryViewController" customModule="Trivia_Trek" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jc6-Ck-zrw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.80392156859999997" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" translucent="NO" id="fli-Zy-QLS">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="barTintColor" red="1" green="0.80392156859999997" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <items>
+                                <navigationItem title="My Scores" id="T7n-aY-ZNa"/>
+                            </items>
+                        </navigationBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="hSe-p2-1GX">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameCell" id="hSe-p2-1GX">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hSe-p2-1GX" id="VcY-pG-vMg">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Udh-Jk-KsT">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.41176470590000003" green="0.64705882349999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
@@ -256,6 +273,9 @@
                                 <state key="normal" title="History">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="97g-DN-WU6" kind="show" id="hE9-ro-3e0"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trivia Trek" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lcb-ZD-3YA">
                                 <rect key="frame" x="116" y="53" width="241" height="54.5"/>
@@ -328,13 +348,6 @@
                                     <segue destination="pDI-9C-spm" kind="embed" identifier="showAvatarPicker" id="UX6-JN-nIm"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="od0-FV-hwP">
-                                <rect key="frame" x="232" y="575" width="29" height="28"/>
-                                <state key="normal" title="Button" image="fblogo"/>
-                                <connections>
-                                    <action selector="showFbLogin:" destination="miT-Rc-EUv" eventType="touchUpInside" id="6b2-Pz-8KV"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dYC-Lr-OBE">
                                 <rect key="frame" x="269" y="575" width="29" height="28"/>
                                 <constraints>
@@ -345,15 +358,15 @@
                                     <action selector="showScLogin:" destination="miT-Rc-EUv" eventType="touchUpInside" id="cQ2-fi-gf2"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect to Social Media:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKe-od-Jml">
-                                <rect key="frame" x="78" y="578" width="151" height="22"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Try your hand at some FBLA Trivia!!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSG-rr-29X">
+                                <rect key="frame" x="52" y="253" width="271" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Try your hand at some FBLA Trivia!!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSG-rr-29X">
-                                <rect key="frame" x="52" y="127" width="271" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect to Social Media:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKe-od-Jml">
+                                <rect key="frame" x="16" y="580" width="149" height="18"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -361,19 +374,15 @@
                         <color key="backgroundColor" red="0.41167658567428589" green="0.64030134677886963" blue="0.98686724901199341" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="zan-4b-qUi" firstAttribute="centerY" secondItem="AdF-Ny-A0x" secondAttribute="centerY" constant="31.5" id="1WN-aF-hvM"/>
-                            <constraint firstItem="od0-FV-hwP" firstAttribute="leading" secondItem="hAX-RF-sVo" secondAttribute="leading" constant="232" id="2EQ-VG-VuS"/>
-                            <constraint firstItem="aKe-od-Jml" firstAttribute="leading" secondItem="hAX-RF-sVo" secondAttribute="leading" constant="78" id="5dE-Tc-FCf"/>
+                            <constraint firstItem="aKe-od-Jml" firstAttribute="leading" secondItem="hAX-RF-sVo" secondAttribute="leading" constant="16" id="4ww-Hu-j6B"/>
                             <constraint firstItem="6C8-hT-fxA" firstAttribute="leading" secondItem="hAX-RF-sVo" secondAttribute="leading" constant="16" id="5ho-GI-Rs4"/>
                             <constraint firstItem="6C8-hT-fxA" firstAttribute="centerY" secondItem="Lcb-ZD-3YA" secondAttribute="centerY" id="6Tv-gn-iqf"/>
-                            <constraint firstItem="od0-FV-hwP" firstAttribute="height" secondItem="dYC-Lr-OBE" secondAttribute="height" id="6ga-eu-NsM"/>
                             <constraint firstItem="zan-4b-qUi" firstAttribute="leading" secondItem="hAX-RF-sVo" secondAttribute="leading" constant="16" id="84i-gz-Ayd"/>
-                            <constraint firstItem="od0-FV-hwP" firstAttribute="width" secondItem="dYC-Lr-OBE" secondAttribute="width" id="8iU-Dx-TEw"/>
                             <constraint firstItem="Cgn-Hc-as3" firstAttribute="leading" secondItem="IcP-Uk-sYR" secondAttribute="trailing" constant="8" id="9Wc-5s-7PT"/>
                             <constraint firstItem="Lcb-ZD-3YA" firstAttribute="top" secondItem="hAX-RF-sVo" secondAttribute="top" constant="33" id="AbH-RU-zYO"/>
                             <constraint firstItem="hAX-RF-sVo" firstAttribute="trailing" secondItem="8fZ-0C-bvq" secondAttribute="trailing" constant="103.5" id="Agq-Fh-1i1"/>
-                            <constraint firstItem="8fZ-0C-bvq" firstAttribute="top" secondItem="aKe-od-Jml" secondAttribute="bottom" constant="23" id="CeQ-F4-YA2"/>
+                            <constraint firstItem="8fZ-0C-bvq" firstAttribute="top" secondItem="aKe-od-Jml" secondAttribute="bottom" constant="25" id="BeU-Xk-LgT"/>
                             <constraint firstItem="Yod-FH-Ifl" firstAttribute="leading" secondItem="hAX-RF-sVo" secondAttribute="leading" constant="16" id="DBP-Cz-7pR"/>
-                            <constraint firstItem="aKe-od-Jml" firstAttribute="centerY" secondItem="od0-FV-hwP" secondAttribute="centerY" id="FIx-hM-qI1"/>
                             <constraint firstItem="hAX-RF-sVo" firstAttribute="trailing" secondItem="dYC-Lr-OBE" secondAttribute="trailing" constant="77" id="Has-Es-2oR"/>
                             <constraint firstItem="zan-4b-qUi" firstAttribute="centerX" secondItem="AdF-Ny-A0x" secondAttribute="centerX" id="NNZ-f6-bs5"/>
                             <constraint firstItem="IcP-Uk-sYR" firstAttribute="centerY" secondItem="Cgn-Hc-as3" secondAttribute="centerY" id="O7S-0g-J0i"/>
@@ -382,16 +391,13 @@
                             <constraint firstItem="wP8-nx-thg" firstAttribute="leading" secondItem="hAX-RF-sVo" secondAttribute="leading" constant="16" id="Qoi-l9-Zgd"/>
                             <constraint firstItem="hAX-RF-sVo" firstAttribute="bottom" secondItem="8fZ-0C-bvq" secondAttribute="bottom" constant="20" id="RCg-Dy-1GC"/>
                             <constraint firstItem="8fZ-0C-bvq" firstAttribute="top" secondItem="zan-4b-qUi" secondAttribute="bottom" constant="119" id="SV9-rK-OVB"/>
-                            <constraint firstItem="NSG-rr-29X" firstAttribute="top" secondItem="Lcb-ZD-3YA" secondAttribute="bottom" constant="19.5" id="SWp-Qi-V8Z"/>
                             <constraint firstItem="hAX-RF-sVo" firstAttribute="trailing" secondItem="owf-95-HvK" secondAttribute="trailing" constant="16" id="Wh0-FI-i0q"/>
                             <constraint firstItem="owf-95-HvK" firstAttribute="leading" secondItem="hAX-RF-sVo" secondAttribute="leading" constant="16" id="YSb-yz-rtz"/>
                             <constraint firstItem="NSG-rr-29X" firstAttribute="centerX" secondItem="hAX-RF-sVo" secondAttribute="centerX" id="Ztz-XT-cuO"/>
                             <constraint firstItem="6C8-hT-fxA" firstAttribute="top" secondItem="hAX-RF-sVo" secondAttribute="top" constant="21" id="aSN-TK-HS5"/>
+                            <constraint firstItem="wP8-nx-thg" firstAttribute="top" secondItem="NSG-rr-29X" secondAttribute="bottom" constant="33" id="bAs-Hs-uhV"/>
                             <constraint firstItem="Yod-FH-Ifl" firstAttribute="top" secondItem="owf-95-HvK" secondAttribute="bottom" constant="8" id="cxx-68-oQg"/>
                             <constraint firstItem="IcP-Uk-sYR" firstAttribute="leading" secondItem="hAX-RF-sVo" secondAttribute="leading" constant="16" id="d0e-oY-fhl"/>
-                            <constraint firstItem="Cgn-Hc-as3" firstAttribute="top" secondItem="NSG-rr-29X" secondAttribute="bottom" constant="30.5" id="e0Z-Jq-GSe"/>
-                            <constraint firstItem="od0-FV-hwP" firstAttribute="leading" secondItem="aKe-od-Jml" secondAttribute="trailing" constant="3" id="f9c-JS-vLQ"/>
-                            <constraint firstItem="od0-FV-hwP" firstAttribute="centerY" secondItem="dYC-Lr-OBE" secondAttribute="centerY" id="fiw-jW-Rg5"/>
                             <constraint firstItem="Cgn-Hc-as3" firstAttribute="top" secondItem="6C8-hT-fxA" secondAttribute="bottom" constant="59" id="fxj-T1-Jdf"/>
                             <constraint firstItem="hAX-RF-sVo" firstAttribute="trailing" secondItem="Lcb-ZD-3YA" secondAttribute="trailing" constant="18" id="iZy-55-QWt"/>
                             <constraint firstItem="owf-95-HvK" firstAttribute="top" secondItem="wP8-nx-thg" secondAttribute="bottom" constant="8" id="jYx-c7-SsL"/>
@@ -401,6 +407,7 @@
                             <constraint firstItem="wP8-nx-thg" firstAttribute="centerY" secondItem="AdF-Ny-A0x" secondAttribute="centerY" id="prr-Ro-dhg"/>
                             <constraint firstItem="8fZ-0C-bvq" firstAttribute="leading" secondItem="hAX-RF-sVo" secondAttribute="leading" constant="103.5" id="uzW-7P-pMM"/>
                             <constraint firstItem="hAX-RF-sVo" firstAttribute="trailing" secondItem="zan-4b-qUi" secondAttribute="trailing" constant="16" id="vXj-Km-PaD"/>
+                            <constraint firstItem="NSG-rr-29X" firstAttribute="top" secondItem="Cgn-Hc-as3" secondAttribute="bottom" constant="47" id="w2J-GL-Qh0"/>
                             <constraint firstItem="Lcb-ZD-3YA" firstAttribute="leading" secondItem="6C8-hT-fxA" secondAttribute="trailing" constant="18" id="zFR-d3-gg7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hAX-RF-sVo"/>
@@ -408,7 +415,6 @@
                     <connections>
                         <outlet property="avatarButton" destination="IcP-Uk-sYR" id="qsV-72-Ddg"/>
                         <outlet property="avatarPicker" destination="zan-4b-qUi" id="SG1-tI-eIL"/>
-                        <outlet property="fbLoginButton" destination="od0-FV-hwP" id="07x-E3-vFi"/>
                         <outlet property="helpButton" destination="Yod-FH-Ifl" id="Pgp-y0-10v"/>
                         <outlet property="highScoreLabel" destination="Cgn-Hc-as3" id="cTj-Vs-7yw"/>
                         <outlet property="playButton" destination="wP8-nx-thg" id="fCS-fn-D8I"/>
@@ -1461,7 +1467,6 @@
         <image name="betterstopwatch" width="409.60000610351562" height="409.60000610351562"/>
         <image name="cpupicfemale" width="152.16000366210938" height="152.16000366210938"/>
         <image name="cpupicmale" width="152.16000366210938" height="152.16000366210938"/>
-        <image name="fblogo" width="1878.2608642578125" height="1878.2608642578125"/>
         <image name="gifticon" width="256" height="256"/>
         <image name="left-arrow" width="225" height="225"/>
         <image name="normal-map" width="180.75" height="156.75"/>
