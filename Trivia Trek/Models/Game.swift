@@ -24,34 +24,11 @@ class Game: NSObject {
     }
     
     init(fromRecord record: CKRecord) {
-        let database = CKContainer.default().publicCloudDatabase
-
-        let query = CKQuery(recordType: "Question", predicate: NSPredicate(value: true))
-
-        database.perform(query, inZoneWith: nil, completionHandler: { questions, error in
-            if error != nil {
-
-                print("Query failed with error \(error?.localizedDescription ?? "none")")
-
-            }
-            else {
-
-                for questionRecord in questions! {
-
-                    let queue = DispatchQueue(label: "questionQuery")
-                    
-                    queue.sync {
-                        
-                        let currentQuestion = Question(fromRecord: questionRecord)
-                        self.questions.append(currentQuestion)
-                        
-                    }
-                    
-                }
-
-            }
-
-        })
+        self.date = Date()
+        self.score = 0
+        self.record = CKRecord(recordType: "Game")
+        
+        super.init()
     }
     
     func addToDatabase() {
@@ -103,6 +80,8 @@ extension String {
         // offset start by distance from startIndex
         // find char in subset
         // scale back index in subset and return it
+        
+        return self.startIndex
         
     }
     
