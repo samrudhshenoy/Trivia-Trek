@@ -21,7 +21,7 @@ class BoardViewController: UIViewController {
 
     @IBOutlet weak var done: UIButton!
     
-    var game: Game?
+    var game: Board?
     var isPaused: Bool = false
     var currentTurn: DispatchWorkItem?
     var currentTime: Double = 0

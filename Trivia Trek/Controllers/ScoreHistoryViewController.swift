@@ -11,20 +11,20 @@ import CloudKit
 
 class ScoreHistoryViewController: UITableViewController {
 
-    var scores: [Score] = []
+    var games: [Game] = []
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         self.loadScores()
+        super.viewDidLoad()
     }
 
     func loadScores() {
         
         let db = CKContainer.default().privateCloudDatabase
         
-        let query = CKQuery(recordType: "Score", predicate: NSPredicate(value: true))
+        let query = CKQuery(recordType: "Game", predicate: NSPredicate(value: true))
         
-        db.perform(query, inZoneWith: nil, completionHandler: { scores, error in
+        db.perform(query, inZoneWith: nil, completionHandler: { games, error in
             if error != nil {
                 
                 print("Query failed with error \(error?.localizedDescription ?? "none")")
@@ -32,20 +32,23 @@ class ScoreHistoryViewController: UITableViewController {
             }
             else {
                 
-                for score in scores! {
+                for game in games! {
                     
-                    let queue = DispatchQueue(label: "scoreQuery")
+                    let queue = DispatchQueue(label: "gameQuery")
                     
                     queue.sync {
                         
-                        let currentScore = Score(fromRecord: score)
-                        self.scores.append(currentScore)
+                        let current = Game(fromRecord: game)
+                        print(current.score)
+                        self.games.append(current)
                         
                     }
                     
                 }
                 
             }
+            
+            self.tableView.reloadData()
             
         })
         
@@ -58,14 +61,14 @@ class ScoreHistoryViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.scores.count
+        return self.games.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ScoreCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GameCell", for: indexPath)
 
-        cell.textLabel?.text = "Finished in \(self.scores[indexPath.count].value) turns on \(self.scores[indexPath.count].date)"
+        cell.textLabel!.text = "Finished in \(self.games[indexPath.row].score) turns on \(self.games[indexPath.row].date.description)"
 
         return cell
     }

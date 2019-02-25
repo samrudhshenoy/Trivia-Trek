@@ -22,7 +22,7 @@ class QuestionViewController: UIViewController {
     
     @IBOutlet weak var doneButton: UIButton!
     
-    var game: Game?
+    var game: Board?
     var questionIndex: Int = -1
     var start: DispatchTime = DispatchTime.now()
     var correct: Bool = false
