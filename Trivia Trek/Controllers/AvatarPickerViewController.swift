@@ -23,7 +23,6 @@ class AvatarPickerViewController: UIViewController, UIImagePickerControllerDeleg
     @IBOutlet weak var maleButton: UIButton!
     @IBOutlet weak var photosButton: UIButton!
     @IBOutlet weak var femaleButton: UIButton!
-    @IBOutlet weak var cancel: UIButton!
     
     let imagePicker = UIImagePickerController()
     
@@ -33,7 +32,6 @@ class AvatarPickerViewController: UIViewController, UIImagePickerControllerDeleg
         self.maleButton.layer.cornerRadius = 7
         self.photosButton.layer.cornerRadius = 7
         self.femaleButton.layer.cornerRadius = 7
-        self.cancel.layer.cornerRadius = 7
         self.photos.layer.cornerRadius = 30
         
         imagePicker.delegate = self
@@ -42,14 +40,6 @@ class AvatarPickerViewController: UIViewController, UIImagePickerControllerDeleg
         
         // Do any additional setup after loading the view.
         
-    }
-    
-    
-    
-    @IBAction func cancelSelection(_ sender: Any) {
-
-        self.performSegue(withIdentifier: "rewindToHome", sender: self)
-
     }
     
     // Male button is clicked

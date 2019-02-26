@@ -14,7 +14,6 @@ class BoardViewController: UIViewController {
     
     @IBOutlet weak var board: SKView!
     @IBOutlet weak var turn: UILabel!
-    @IBOutlet weak var round: UILabel!
     @IBOutlet weak var quit: UIButton!
     @IBOutlet weak var score: UILabel!
     @IBOutlet weak var ready: UIButton!
@@ -50,142 +49,93 @@ class BoardViewController: UIViewController {
         
         super.viewDidAppear(animated)
         
-        if self.game!.turnsTaken == 40 {
-            let final = FinalPageViewController()
-            present(final, animated: true, completion: nil)
-        }
-        
+        // show turn label
         self.turn.alpha = 1
         self.turn.text = "Turn \(self.game!.turnsTaken)"
         
-        var finished: Bool = false
-
+        // show appropriate ui for turn intro
         if self.game!.player.pos == 38 {
-            finished = true
             self.done.alpha = 0.8
             self.done.isEnabled = true
             self.ready.alpha = 0
             self.ready.isEnabled = false
         }
-        
-        if !finished {
+        else {
             self.ready.alpha = 0.8
             self.ready.isEnabled = true
             self.turn.alpha = 1
-            self.turn.text = "Turn \(self.game!.turnsTaken)"
+            self.turn.text = "Turn \(self.game!.turnsTaken + 1)"
         }
         
-        self.score.text = "Score: \(self.game!.turnsTaken - 1)"
-        
-        if self.game!.player.pos == 39 {
-            // SHOW THE FINAL VIEW CONTROLLER
-        }
-                
-        if self.game!.turnsTaken != 1 {
-            var ns: Int
-            if self.game!.qCorrect {
-                
-                if self.game!.streak % 2 != 0 {
-                    ns = self.game!.streak / 2 + 1
-                }
-                
-                else {
-                    ns = self.game!.streak / 2
-                }
-                
-                if ns > (38-self.game!.player.pos) {
-                    if (38-self.game!.player.pos) % 2 != 0 {
-                        ns = (38-self.game!.player.pos) / 2 + 1
-                    }
-                    else {
-                        ns = (38-self.game!.player.pos) / 2
-                    }
-                }
-            }
-            else {
-                ns = 0
-            }
-            self.makeMove(numSpaces: ns)
-
-        }
-            
-        if self.game!.turnsTaken % 13 == 0 && self.game!.turnsTaken <= 27 {
-            currentRound += 1
-            self.round.text = "Round \(self.currentRound)"
-            self.round.alpha = 1
-            
-            self.fadeOutRoundIntro()
-        }
-        else if self.game!.turnsTaken == 1 {
-            self.round.text = "Round \(self.currentRound)"
-            self.round.alpha = 1
-            
-            self.fadeOutRoundIntro()
-        }
-        
-        
+        self.score.text = "Score: \(self.game!.turnsTaken)"
         
     }
     
-    func takeTurn() {
+    func nextMove() {
+        
+        if self.game!.turnsTaken > 1 {
+            
+            var mvmtChain: SKAction
+            var movements: [SKAction] = []
+            var numberOfSpaces = Int(self.game!.streak / 2.0 + 0.5)
+            
+            if self.game!.player.pos + numberOfSpaces > self.game!.map.path.count - 1 {
+                numberOfSpaces = self.game!.map.path.count - self.game!.player.pos - 1
+            }
+            
+            for _ in 0..<numberOfSpaces {
+                
+                let nextTile = self.game!.map.path[self.game!.player.pos + 1]
+                let movement = SKAction.move(to: nextTile.sprite.position, duration: 1.0)
+                movements.append(movement)
+                self.game!.player.pos += 1
+                
+            }
+            
+            mvmtChain = SKAction.sequence(movements)
+            
+            if (self.game?.player.pos)! >= (self.game?.map.path.count)! - 1 {
+                
+                self.game!.player.sprite.run(mvmtChain, completion: self.finishGame)
+
+            }
+            else {
+                
+                self.game!.player.sprite.run(mvmtChain, completion: self.askQuestion)
+
+            }
+            
+            
+        }
+        else {
+            
+            self.askQuestion()
+            
+        }
+        
+    }
+    
+    func askQuestion() {
         
         self.currentTurn = DispatchWorkItem(block: {
             self.performSegue(withIdentifier: "showQuestion", sender: self)
         })
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: self.currentTurn!)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: self.currentTurn!)
+    }
+    
+    func finishGame() {
+        
+        self.writeScoreToPlist()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
+            self.performSegue(withIdentifier: "showFinalScreen", sender: self)
+        })
         
     }
     
-    func makeMove(numSpaces: Int) {
+    func writeScoreToPlist() {
         
-        /*
-         Make field for player node in BoardViewController
-         Make a function for movement that takes in a Move
-         if left:
-         make SKAction.followPath action using:
-         UIBezierPath to define arc path up and left
-         if right:
-         make SKAction.followPath action using:
-         UIBezierPath to define arc path up and right
-         if up:
-         make SKAction.followPath action using:
-         UIBezierPath to define arc path left and up
-         if down:
-         make SKAction.followPath action using:
-         UIBezierPath to define arc path left and down
-         */
-        
-        //        var movementPath: UIBezierPath!
-        //
-        //        if direction == Move.left {
-        //
-        //            // arcCenter in between old and new tile
-        //            movementPath = UIBezierPath(arcCenter: CGPoint(x: self.playerNode.position.x - 20, y: self.playerNode.position.y), radius: 40, startAngle: 0, endAngle: CGFloat.pi, clockwise: false)
-        //
-        //        }
-        //        else if direction == Move.right {
-        //
-        //            // arcCenter in between old and new tile
-        //            movementPath = UIBezierPath(arcCenter: CGPoint(x: self.playerNode.position.x + 20, y: self.playerNode.position.y), radius: 40, startAngle: CGFloat.pi, endAngle: 0, clockwise: true)
-        //
-        //        }
-        //        else if direction == Move.up {
-        //
-        //            // arcCenter in between old and new tile
-        //            movementPath = UIBezierPath(arcCenter: CGPoint(x: self.playerNode.position.x, y: self.playerNode.position.y), radius: 40, startAngle: 1.5 * CGFloat.pi, endAngle: 0.5 * CGFloat.pi, clockwise: true)
-        //
-        //        }
-        //        else {
-        //
-        //            // arcCenter in between old and new tile
-        //            movementPath = UIBezierPath(arcCenter: CGPoint(x: self.playerNode.position.x, y: self.playerNode.position.y - 20), radius: 40, startAngle: 0.5 * CGFloat.pi, endAngle: 1.5 * CGFloat.pi, clockwise: false)
-        //
-        //        }
-        //
-        //        let movement = SKAction.follow(movementPath.cgPath, duration: 1.5)
-        
-        self.game?.movePlayer(numberOfSpaces: numSpaces)
         
     }
     
@@ -221,18 +171,7 @@ class BoardViewController: UIViewController {
         
     }
     
-    func fadeOutRoundIntro() {
-        
-        self.round.alpha = 1
-        
-        UIView.animate(withDuration: 3, animations: {
-            self.round.alpha = 0
-        })
-        
-    }
-    
     @IBAction func quitOut (_ sender: Any) {
-        
         
         let alertController = UIAlertController(title: "Quit Game?", message: "Are you sure you want to quit?", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Quit", style: .default, handler: { action in
@@ -259,12 +198,14 @@ class BoardViewController: UIViewController {
     
     @IBAction func startTurn (_ sender: Any) {
     
-    self.fadeOutTurnIntro()
+        // increment turnsTaken
+        self.game?.turnsTaken += 1
         
-        // move (eventually)
+        // - fade out ui stuff
+        self.fadeOutTurnIntro()
         
-        // take turn (eventually)
-        self.takeTurn()
+        // - move player
+        self.nextMove()
         
     }
     
