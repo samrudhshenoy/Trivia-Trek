@@ -34,7 +34,7 @@ class Question: NSObject {
     var correctAnswer: Int
     
     // Question category, according to the specified enum
-    var category: Category
+    var category: Category?
     
     // The question's unique ID in the database
     var id: CKRecord.ID
@@ -47,7 +47,7 @@ class Question: NSObject {
      - answers: The array of answers which belong to a question
      - correctAnswer: Index of 'answers' which contains the correct answer
      */
-    init(text: String, answers: [String], correctAnswer: Int, category: Category, id: CKRecord.ID) {
+    init(text: String, answers: [String], correctAnswer: Int, category: Category?, id: CKRecord.ID) {
         
         self.text = text
         self.answers = answers
@@ -68,8 +68,8 @@ class Question: NSObject {
         self.text = record.object(forKey: "text") as! String
         self.answers = record.object(forKey: "answers") as! [String]
         self.correctAnswer = record.object(forKey: "correctAnswer") as! Int
-        self.category = Category(rawValue: record.object(forKey: "category") as! String)!
-        self.id = record.object(forKey: "recordName") as! CKRecord.ID
+        self.category = Category(rawValue: record.object(forKey: "category") as! String)
+        self.id = record.recordID
         
     }
     

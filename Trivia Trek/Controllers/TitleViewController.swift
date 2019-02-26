@@ -37,9 +37,21 @@ class TitleViewController: UIViewController {
         super.viewDidLoad()
         
         self.playButton.layer.cornerRadius = 7
+        self.playButton.layer.borderWidth = 3
+        self.playButton.layer.borderColor = UIColor.white.cgColor
+        
         self.scoreHistoryButton.layer.cornerRadius = 7
+        self.scoreHistoryButton.layer.borderWidth = 3
+        self.scoreHistoryButton.layer.borderColor = UIColor.white.cgColor
+        
         self.helpButton.layer.cornerRadius = 7
+        self.helpButton.layer.borderWidth = 3
+        self.helpButton.layer.borderColor = UIColor.white.cgColor
+        
         self.reportBug.layer.cornerRadius = 7
+        self.reportBug.layer.borderWidth = 3
+        self.reportBug.layer.borderColor = UIColor.white.cgColor
+        
         let loginButton = FBSDKLoginButton(frame: CGRect(x: 170, y: 573, width: 90, height: 30))
         
         self.avatarPicker.alpha = 0
