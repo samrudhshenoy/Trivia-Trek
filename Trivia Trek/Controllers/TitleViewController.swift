@@ -32,25 +32,27 @@ class TitleViewController: UIViewController {
     var avatarPickerShowing: Bool = false
     
     var avatarPickerController: AvatarPickerViewController?
-        
+    
+    let goldColor = UIColor(red: 1, green: 0.8, blue: 0.196, alpha: 0.8).cgColor
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.playButton.layer.cornerRadius = 7
+        self.playButton.layer.cornerRadius = 15
         self.playButton.layer.borderWidth = 3
-        self.playButton.layer.borderColor = UIColor.white.cgColor
+        self.playButton.layer.borderColor = self.goldColor
         
-        self.scoreHistoryButton.layer.cornerRadius = 7
+        self.scoreHistoryButton.layer.cornerRadius = 15
         self.scoreHistoryButton.layer.borderWidth = 3
-        self.scoreHistoryButton.layer.borderColor = UIColor.white.cgColor
+        self.scoreHistoryButton.layer.borderColor = self.goldColor
         
-        self.helpButton.layer.cornerRadius = 7
+        self.helpButton.layer.cornerRadius = 15
         self.helpButton.layer.borderWidth = 3
-        self.helpButton.layer.borderColor = UIColor.white.cgColor
+        self.helpButton.layer.borderColor = self.goldColor
         
-        self.reportBug.layer.cornerRadius = 7
-        self.reportBug.layer.borderWidth = 3
-        self.reportBug.layer.borderColor = UIColor.white.cgColor
+        self.reportBug.layer.cornerRadius = 15
+        self.reportBug.layer.borderWidth = 2
+        self.reportBug.layer.borderColor = self.goldColor
         
         let loginButton = FBSDKLoginButton(frame: CGRect(x: 170, y: 573, width: 90, height: 30))
         
@@ -76,14 +78,14 @@ class TitleViewController: UIViewController {
         
         if self.avatarPickerShowing {
             
-            UIView.animate(withDuration: 0.7, animations: {
+            UIView.animate(withDuration: 1.2, animations: {
                 self.avatarPicker.alpha = 0
             })
             
         }
         else {
             
-            UIView.animate(withDuration: 0.7, animations: {
+            UIView.animate(withDuration: 1.2, animations: {
                 self.avatarPicker.alpha = 1
             })
             
