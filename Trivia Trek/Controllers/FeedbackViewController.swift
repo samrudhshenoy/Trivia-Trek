@@ -42,27 +42,27 @@ class FeedbackViewController: UIViewController, UITextViewDelegate {
         
         database.save(feedback, completionHandler: { record, error in
             DispatchQueue.main.sync {
-                if error != nil {
-                    
-                    let alertController = UIAlertController(title: "Thank You", message: "Your feedback has been inputted into our database, we will shortly look into it", preferredStyle: .alert)
-                    alertController.addAction(UIAlertAction(title: "Great", style: .default, handler: { action in
-                        self.performSegue(withIdentifier: "rewindToHome", sender: self)
-                    }))
-                    self.present(alertController, animated: true, completion: nil)
-                    
-                }
-                else {
-                    
-                    let alert = UIAlertController(title: "Error", message: "There was a problem reporting your bug", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                        self.performSegue(withIdentifier: "rewindToHome", sender: self)
-                    }))
-                    self.present(alert, animated: true, completion: nil)
-                }
+//                if error != nil {
+//
+//                    let alertController = UIAlertController(title: "Thank You", message: "Your feedback has been inputted into our database, we will shortly look into it", preferredStyle: .alert)
+//                    alertController.addAction(UIAlertAction(title: "Great", style: .default, handler: { action in
+//                        self.performSegue(withIdentifier: "rewindToHome", sender: self)
+//                    }))
+//                    self.present(alertController, animated: true, completion: nil)
+//
+//                }
+//                else {
+//
+//                    let alert = UIAlertController(title: "Error", message: "There was a problem reporting your bug", preferredStyle: .alert)
+//                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+//                        self.performSegue(withIdentifier: "rewindToHome", sender: self)
+//                    }))
+//                    self.present(alert, animated: true, completion: nil)
+//                }
                 
             }
         })
-        
+//        self.performSegue(withIdentifier: "rewindToHome", sender: self)
         
     }
         

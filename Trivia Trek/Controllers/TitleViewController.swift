@@ -16,7 +16,7 @@ import SCSDKBitmojiKit
 class TitleViewController: UIViewController {
 
     @IBOutlet weak var playButton: UIButton!
-    @IBOutlet weak var scoreHistoryButton: UIButton!
+//    @IBOutlet weak var scoreHistoryButton: UIButton!
     @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var reportBug: UIButton!
     
@@ -24,7 +24,7 @@ class TitleViewController: UIViewController {
     @IBOutlet weak var avatarButton: UIButton!
     @IBOutlet weak var avatarPicker: UIView!
 
-    @IBOutlet weak var fbLoginButton: UIButton!
+    @IBOutlet weak var loginButton: FBSDKLoginButton!
     @IBOutlet weak var scLoginButton: UIButton!
     
     var playerName: String!
@@ -32,18 +32,34 @@ class TitleViewController: UIViewController {
     var avatarPickerShowing: Bool = false
     
     var avatarPickerController: AvatarPickerViewController?
-        
+    
+    let goldColor = UIColor(red: 1, green: 0.8, blue: 0.196, alpha: 0.8).cgColor
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.playButton.layer.cornerRadius = 7
-        self.scoreHistoryButton.layer.cornerRadius = 7
-        self.helpButton.layer.cornerRadius = 7
-        self.reportBug.layer.cornerRadius = 7
+        self.playButton.layer.cornerRadius = 15
+        self.playButton.layer.borderWidth = 3
+        self.playButton.layer.borderColor = self.goldColor
+        
+//        self.scoreHistoryButton.layer.cornerRadius = 15
+//        self.scoreHistoryButton.layer.borderWidth = 3
+//        self.scoreHistoryButton.layer.borderColor = self.goldColor
+        
+        self.helpButton.layer.cornerRadius = 15
+        self.helpButton.layer.borderWidth = 3
+        self.helpButton.layer.borderColor = self.goldColor
+        
+        self.reportBug.layer.cornerRadius = 15
+        self.reportBug.layer.borderWidth = 2
+        self.reportBug.layer.borderColor = self.goldColor
+        
+        let loginButton = FBSDKLoginButton(frame: CGRect(x: 170, y: 573, width: 90, height: 30))
         
         self.avatarPicker.alpha = 0
         
         self.avatar = UIImage(named: "avatar-sample")
+        view.addSubview(loginButton)
         
     }
     
@@ -59,55 +75,47 @@ class TitleViewController: UIViewController {
     }
     
     @IBAction func toggleAvatarPicker(_ sender: Any) {
-        
+
         if self.avatarPickerShowing {
-            
-            UIView.animate(withDuration: 0.7, animations: {
+
+            UIView.animate(withDuration: 1.2, animations: {
                 self.avatarPicker.alpha = 0
             })
-            
+
         }
         else {
-            
-            UIView.animate(withDuration: 0.7, animations: {
+
+            UIView.animate(withDuration: 1.2, animations: {
                 self.avatarPicker.alpha = 1
             })
-            
+
         }
-        
+
         self.avatarPickerShowing = !self.avatarPickerShowing
-        
+
     }
     
-    @IBAction func showFbLogin(_ sender: Any) {
-        
-        let loginManager = FBSDKLoginManager()
-        loginManager.logIn(withReadPermissions: ["public_profile"], from: self, handler: { (result, error) in
-            
-            if error != nil {
-                
-                
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        print("User Logged In")
+        if ((error) != nil)
+        {
+            // Process error
+        }
+        else if result.isCancelled {
+            // Handle cancellations
+        }
+        else {
+            // If you ask for multiple permissions at once, you
+            // should check if specific permissions missing
+            if result.grantedPermissions.contains("public_profile")
+            {
+                // Do work
             }
-            else if result?.isCancelled ?? true {
-                
-                
-            }
-            else {
-                
-                if FBSDKAccessToken.currentAccessTokenIsActive() {
-                 
-                    let profile = FBSDKProfile.current()
-                    //                let profileUrl = URL(string: "http://graph.facebook.com/\(profile?.userID)/picture")
-                    //                let data = Data(contentsOf: profileUrl)
-                    //                let avatar = UIImage(data: data)
-                    self.avatar = UIImage(contentsOfFile: "http://graph.facebook.com/\(String(describing: profile?.userID))/picture")
-                    self.avatarButton.imageView?.image = self.avatar
-                    
-                }
-                
-            }
-            
-        })
+        }
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        print("User Logged Out")
     }
     
     func downloadBitmojiAvatar() {
@@ -156,14 +164,20 @@ class TitleViewController: UIViewController {
         
     }
     
-    @IBAction func showAvatarPicker(_ sender: Any) {
-        
-        UIView.animate(withDuration: 0.7, animations: {
-            self.avatarPicker.alpha = 1
-        })
-        
-        
-    }
+//    @IBAction func showAvatarPicker(_ sender: Any) {
+//        
+////        UIView.animate(withDuration: 0.7, animations: {
+////            self.avatarPicker.alpha = 1
+////        })
+//        
+//        let avatarVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "avatarVC")
+//        self.addChild(avatarVC)
+//        avatarVC.view.frame = self.view.frame
+//        self.view.addSubview(avatarVC.view)
+//        avatarVC.didMove(toParent: self)
+//        
+//        
+//    }
     
     @IBAction func rewindToHome(segue: UIStoryboardSegue) {
         
