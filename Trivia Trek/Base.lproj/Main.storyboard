@@ -523,6 +523,7 @@
                         <outlet property="turn" destination="30c-7D-rVH" id="OB4-HB-1YF"/>
                         <segue destination="zz0-CW-76u" kind="unwind" identifier="rewindToHome" unwindAction="rewindToHomeWithSegue:" id="5jC-CY-cMv"/>
                         <segue destination="kuZ-hc-9yE" kind="show" identifier="showQuestion" id="iX5-Mo-mYq"/>
+                        <segue destination="OvD-cP-VMb" kind="show" identifier="showFinalScreen" id="KQV-0Y-vvF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J58-sP-4RB" userLabel="First Responder" sceneMemberID="firstResponder"/>

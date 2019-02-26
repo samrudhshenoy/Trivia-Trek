@@ -17,8 +17,6 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var quit: UIButton!
     @IBOutlet weak var score: UILabel!
     @IBOutlet weak var ready: UIButton!
-
-    @IBOutlet weak var done: UIButton!
     
     var game: Board?
     var isPaused: Bool = false
@@ -32,10 +30,6 @@ class BoardViewController: UIViewController {
         
         self.quit.layer.cornerRadius = 7
         self.ready.layer.cornerRadius = 7
-
-        self.done.layer.cornerRadius = 11
-        self.done.alpha = 0
-        self.done.isEnabled = false
         
         self.currentTime = 0
         self.game!.initBackground(size: self.board.bounds.size)
@@ -54,26 +48,18 @@ class BoardViewController: UIViewController {
         self.turn.text = "Turn \(self.game!.turnsTaken)"
         
         // show appropriate ui for turn intro
-        if self.game!.player.pos == 38 {
-            self.done.alpha = 0.8
-            self.done.isEnabled = true
-            self.ready.alpha = 0
-            self.ready.isEnabled = false
-        }
-        else {
-            self.ready.alpha = 0.8
-            self.ready.isEnabled = true
-            self.turn.alpha = 1
-            self.turn.text = "Turn \(self.game!.turnsTaken + 1)"
-        }
+        self.ready.alpha = 0.8
+        self.ready.isEnabled = true
+        self.turn.alpha = 1
+        self.turn.text = "Turn \(self.game!.turnsTaken + 1)"
         
         self.score.text = "Score: \(self.game!.turnsTaken)"
         
     }
     
-    func nextMove() {
+    func takeTurn() {
         
-        if self.game!.turnsTaken > 1 {
+        if self.game!.streak > 0 {
             
             var mvmtChain: SKAction
             var movements: [SKAction] = []
@@ -205,7 +191,7 @@ class BoardViewController: UIViewController {
         self.fadeOutTurnIntro()
         
         // - move player
-        self.nextMove()
+        self.takeTurn()
         
     }
     

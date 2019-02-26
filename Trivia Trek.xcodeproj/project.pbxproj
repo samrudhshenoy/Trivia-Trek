@@ -16,7 +16,6 @@
 		2CD53C65221E6C6400702B83 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD53C64221E6C6400702B83 /* FeedbackViewController.swift */; };
 		2CF52C3621FCD55700863B39 /* MustangGameLogoBetter.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF52C3521FCD55700863B39 /* MustangGameLogoBetter.png */; };
 		30715BC65B59A891FAD5A312 /* Pods_Trivia_Trek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90CD36C5078681D90BFF7459 /* Pods_Trivia_Trek.framework */; };
-		31BAA9233273A2135EDE2922 /* Pods_MAD_2018_19.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB2FAFFF6FABB4FE2C40F95 /* Pods_MAD_2018_19.framework */; };
 		350E9869EB3D3BE5184DAC05 /* Pods_MAD_2018_19Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F62D4D5893E71B6BC8DB1D4C /* Pods_MAD_2018_19Tests.framework */; };
 		A50ADBDA220665BE0061F7D5 /* CPU.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50ADBD9220665BE0061F7D5 /* CPU.swift */; };
 		A50CDD7922254D0800C98AA6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A50CDD7822254D0800C98AA6 /* GoogleService-Info.plist */; };
@@ -120,7 +119,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5CE3CAA2214DA9E00121B61 /* CloudKit.framework in Frameworks */,
-				31BAA9233273A2135EDE2922 /* Pods_MAD_2018_19.framework in Frameworks */,
 				30715BC65B59A891FAD5A312 /* Pods_Trivia_Trek.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
