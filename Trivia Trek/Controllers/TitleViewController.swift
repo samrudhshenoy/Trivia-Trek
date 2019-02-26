@@ -24,7 +24,7 @@ class TitleViewController: UIViewController {
     @IBOutlet weak var avatarButton: UIButton!
     @IBOutlet weak var avatarPicker: UIView!
 
-    @IBOutlet weak var loginButton: FBSDKLoginButton!
+    @IBOutlet weak var fbLoginButton: UIButton!
     @IBOutlet weak var scLoginButton: UIButton!
     
     var playerName: String!
@@ -40,12 +40,10 @@ class TitleViewController: UIViewController {
         self.scoreHistoryButton.layer.cornerRadius = 7
         self.helpButton.layer.cornerRadius = 7
         self.reportBug.layer.cornerRadius = 7
-        let loginButton = FBSDKLoginButton(frame: CGRect(x: 170, y: 573, width: 90, height: 30))
         
         self.avatarPicker.alpha = 0
         
         self.avatar = UIImage(named: "avatar-sample")
-        view.addSubview(loginButton)
         
     }
     
@@ -81,27 +79,35 @@ class TitleViewController: UIViewController {
         
     }
     
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        print("User Logged In")
-        if ((error) != nil)
-        {
-            // Process error
-        }
-        else if result.isCancelled {
-            // Handle cancellations
-        }
-        else {
-            // If you ask for multiple permissions at once, you
-            // should check if specific permissions missing
-            if result.grantedPermissions.contains("public_profile")
-            {
-                // Do work
+    @IBAction func showFbLogin(_ sender: Any) {
+        
+        let loginManager = FBSDKLoginManager()
+        loginManager.logIn(withReadPermissions: ["public_profile"], from: self, handler: { (result, error) in
+            
+            if error != nil {
+                
+                
             }
-        }
-    }
-    
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        print("User Logged Out")
+            else if result?.isCancelled ?? true {
+                
+                
+            }
+            else {
+                
+                if FBSDKAccessToken.currentAccessTokenIsActive() {
+                 
+                    let profile = FBSDKProfile.current()
+                    //                let profileUrl = URL(string: "http://graph.facebook.com/\(profile?.userID)/picture")
+                    //                let data = Data(contentsOf: profileUrl)
+                    //                let avatar = UIImage(data: data)
+                    self.avatar = UIImage(contentsOfFile: "http://graph.facebook.com/\(String(describing: profile?.userID))/picture")
+                    self.avatarButton.imageView?.image = self.avatar
+                    
+                }
+                
+            }
+            
+        })
     }
     
     func downloadBitmojiAvatar() {

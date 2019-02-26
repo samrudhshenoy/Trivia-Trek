@@ -22,7 +22,7 @@ class QuestionViewController: UIViewController {
     
     @IBOutlet weak var doneButton: UIButton!
     
-    var game: Board?
+    var game: Game?
     var questionIndex: Int = -1
     var correct: Bool = false
     
@@ -90,6 +90,7 @@ class QuestionViewController: UIViewController {
             self.correct = true
             self.streakLabel.text = "Streak - \(self.game!.streak)"
             fadeOutStreakLabel()
+            
             
 //            let timeTaken = (DispatchTime.now().uptimeNanoseconds - start.uptimeNanoseconds) / UInt64(1_000_000_000.0)
 //
@@ -172,6 +173,7 @@ class QuestionViewController: UIViewController {
         else {
             self.game!.qCorrect = false
         }
+        
         
         self.performSegue(withIdentifier: "backToBoard", sender: self)
         
