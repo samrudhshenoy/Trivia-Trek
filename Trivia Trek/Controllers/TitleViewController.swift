@@ -16,7 +16,7 @@ import SCSDKBitmojiKit
 class TitleViewController: UIViewController {
 
     @IBOutlet weak var playButton: UIButton!
-    @IBOutlet weak var scoreHistoryButton: UIButton!
+//    @IBOutlet weak var scoreHistoryButton: UIButton!
     @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var reportBug: UIButton!
     
@@ -42,9 +42,9 @@ class TitleViewController: UIViewController {
         self.playButton.layer.borderWidth = 3
         self.playButton.layer.borderColor = self.goldColor
         
-        self.scoreHistoryButton.layer.cornerRadius = 15
-        self.scoreHistoryButton.layer.borderWidth = 3
-        self.scoreHistoryButton.layer.borderColor = self.goldColor
+//        self.scoreHistoryButton.layer.cornerRadius = 15
+//        self.scoreHistoryButton.layer.borderWidth = 3
+//        self.scoreHistoryButton.layer.borderColor = self.goldColor
         
         self.helpButton.layer.cornerRadius = 15
         self.helpButton.layer.borderWidth = 3
@@ -75,24 +75,24 @@ class TitleViewController: UIViewController {
     }
     
     @IBAction func toggleAvatarPicker(_ sender: Any) {
-        
+
         if self.avatarPickerShowing {
-            
+
             UIView.animate(withDuration: 1.2, animations: {
                 self.avatarPicker.alpha = 0
             })
-            
+
         }
         else {
-            
+
             UIView.animate(withDuration: 1.2, animations: {
                 self.avatarPicker.alpha = 1
             })
-            
+
         }
-        
+
         self.avatarPickerShowing = !self.avatarPickerShowing
-        
+
     }
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
@@ -164,14 +164,20 @@ class TitleViewController: UIViewController {
         
     }
     
-    @IBAction func showAvatarPicker(_ sender: Any) {
-        
-        UIView.animate(withDuration: 0.7, animations: {
-            self.avatarPicker.alpha = 1
-        })
-        
-        
-    }
+//    @IBAction func showAvatarPicker(_ sender: Any) {
+//        
+////        UIView.animate(withDuration: 0.7, animations: {
+////            self.avatarPicker.alpha = 1
+////        })
+//        
+//        let avatarVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "avatarVC")
+//        self.addChild(avatarVC)
+//        avatarVC.view.frame = self.view.frame
+//        self.view.addSubview(avatarVC.view)
+//        avatarVC.didMove(toParent: self)
+//        
+//        
+//    }
     
     @IBAction func rewindToHome(segue: UIStoryboardSegue) {
         

@@ -37,21 +37,26 @@ class AvatarPickerViewController: UIViewController, UIImagePickerControllerDeleg
         imagePicker.delegate = self
         
         self.mainView.layer.cornerRadius = 10
+//        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         
         // Do any additional setup after loading the view.
         
     }
     
+    
+
+    
     // Male button is clicked
     @IBAction func maleClicked(_ sender: Any) {
         // SET THE IMAGE CALLED 'cpupicmale'
-        self.performSegue(withIdentifier: "rewindToHome", sender: self)
+//        self.view.removeFromSuperview()
     }
     
     // Female button is clicked
     @IBAction func femaleClicked(_ sender: Any) {
         // SET THE IMAGE CALLED 'cpupicfemale'
-        self.performSegue(withIdentifier: "rewindToHome", sender: self)
+//        self.view.removeFromSuperview()
+        
     }
     
     @IBAction func loadImageButtonTapped(_ sender: UIButton) {
@@ -64,6 +69,7 @@ class AvatarPickerViewController: UIViewController, UIImagePickerControllerDeleg
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+//        self.view.removeFromSuperview()
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -75,7 +81,7 @@ class AvatarPickerViewController: UIViewController, UIImagePickerControllerDeleg
             // SET THE IMAGE CALLED 'image'
         }
 
-        dismiss(animated: true, completion: nil)
+//        self.view.removeFromSuperview()
     }
     
    

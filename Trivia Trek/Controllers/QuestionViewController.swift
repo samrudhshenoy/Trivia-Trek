@@ -29,6 +29,12 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.questionLabel.adjustsFontSizeToFitWidth = true
+        self.firstChoiceButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        self.secondChoiceButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        self.thirdChoiceButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        self.fourthChoiceButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        
         self.streakLabel.alpha = 0
         
         // get random question from game
@@ -50,7 +56,9 @@ class QuestionViewController: UIViewController {
         self.fourthChoiceButton.layer.cornerRadius = 7
 
         self.doneButton.layer.cornerRadius = 7
-        self.doneButton.alpha = 0
+        self.doneButton.isHidden = true
+        
+        self.game?.turnsTaken += 1
         
     }
     
@@ -77,13 +85,42 @@ class QuestionViewController: UIViewController {
                 choiceButton.backgroundColor = UIColor.red
           
             })
+            self.streakLabel.text = "Streak - \(self.game!.streak)"
+            fadeOutStreakLabel()
+
         }
         else {
+            
             self.game!.streak += 1
+            self.correct = true
+            self.streakLabel.text = "Streak - \(self.game!.streak)"
+            fadeOutStreakLabel()
+            
+//            let timeTaken = (DispatchTime.now().uptimeNanoseconds - start.uptimeNanoseconds) / UInt64(1_000_000_000.0)
+//
+//            if timeTaken <= 2 {
+//                self.pointsLabel.text = "+100"
+//                fadeOutPointsLabel()
+//                self.game!.points += 100
+//
+//            }
+//            else if timeTaken <= 3 {
+//                self.pointsLabel.text = "+75"
+//                fadeOutPointsLabel()
+//                self.game!.points += 75
+//            }
+//            else if timeTaken <= 4 {
+//                self.pointsLabel.text = "+50"
+//                fadeOutPointsLabel()
+//                self.game!.points += 50
+//            }
+//            else {
+//                self.pointsLabel.text = "+25"
+//                fadeOutPointsLabel()
+//                self.game!.points += 25
+//            }
+            
         }
-        
-        self.streakLabel.text = "Streak - \(self.game!.streak)"
-        fadeOutStreakLabel()
         
         switch correctIndex {
             
@@ -129,16 +166,30 @@ class QuestionViewController: UIViewController {
         }
         
         UIView.animate(withDuration: 0.7, animations: {
-            self.doneButton.alpha = 1
+            self.doneButton.isHidden = false
         })
     }
     
     @IBAction func doneButtonPressed(_ sender: Any) {
+        if correct {
+            self.game!.qCorrect = true
+        }
+        else {
+            self.game!.qCorrect = false
+        }
+        
         self.performSegue(withIdentifier: "backToBoard", sender: self)
         
     }
     
     func fadeOutStreakLabel() {
+        
+        self.streakLabel.alpha = 0
+        self.streakLabel.textColor = UIColor.white
+        
+        UIView.animate(withDuration: 1.5, animations: {
+            self.streakLabel.alpha = 1
+        })
         
         UIView.animate(withDuration: 1.5, animations: {
             self.streakLabel.alpha = 0

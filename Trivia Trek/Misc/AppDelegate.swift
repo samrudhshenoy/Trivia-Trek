@@ -9,7 +9,6 @@
 import UIKit
 import FBSDKCoreKit
 import SCSDKLoginKit
-import Firebase
 
 @UIApplicationMain
 
@@ -21,8 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        
-        FirebaseApp.configure()
         return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options) || SCSDKLoginClient.application(app, open: url, options: options)
     }
     
@@ -34,8 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let buttonFont = NSDictionary(object: UIFont(name: "AvenirNext-Regular", size: 16.0)!, forKey: NSAttributedString.Key.font as NSCopying)
         UIBarButtonItem.appearance().setTitleTextAttributes(buttonFont as? [NSAttributedString.Key : Any], for: .normal)
-        
-        FirebaseApp.configure()
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         return true

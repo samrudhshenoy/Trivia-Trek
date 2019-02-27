@@ -36,7 +36,7 @@ class Game: NSObject {
         
         self.record.setObject(self.score as __CKRecordObjCValue, forKey: "score")
         
-        db.save(record, completionHandler: { record, error in print(error?.localizedDescription ?? "none")})
+        db.save(record, completionHandler: { record, error in })
     }
     
     func getDateStr() -> String {

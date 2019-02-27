@@ -29,13 +29,12 @@ class FinalPageViewController: UIViewController {
             self.homeButton.layer.cornerRadius = 7
         }
         
-        let shareButton = FBSDKShareButton()
+        let shareButton = FBSDKShareButton(frame: CGRect(x: 115, y: 280, width: 150, height: 30))
         let content = FBSDKShareLinkContent()
         content.contentURL = URL(string: "https://github.com/arthurlafrance/MustangGame")
         content.quote = "I scored \(finalScore) points on Trivia Trek!! You should give it a try too!"
         shareButton.shareContent = content
         shareButton.setTitle("Share your score", for: .normal)
-        shareButton.center = view.center
         self.view.addSubview(shareButton)
         // Do any additional setup after loading the view.
     }
