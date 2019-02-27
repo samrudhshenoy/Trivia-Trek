@@ -17,8 +17,8 @@
 		2CF52C3621FCD55700863B39 /* MustangGameLogoBetter.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CF52C3521FCD55700863B39 /* MustangGameLogoBetter.png */; };
 		30715BC65B59A891FAD5A312 /* Pods_Trivia_Trek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90CD36C5078681D90BFF7459 /* Pods_Trivia_Trek.framework */; };
 		350E9869EB3D3BE5184DAC05 /* Pods_MAD_2018_19Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F62D4D5893E71B6BC8DB1D4C /* Pods_MAD_2018_19Tests.framework */; };
+		A50478752226F0A10091EC92 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A50478742226F0A10091EC92 /* GoogleService-Info.plist */; };
 		A50ADBDA220665BE0061F7D5 /* CPU.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50ADBD9220665BE0061F7D5 /* CPU.swift */; };
-		A50CDD7922254D0800C98AA6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A50CDD7822254D0800C98AA6 /* GoogleService-Info.plist */; };
 		A571D2F42210EAB0002AF7CD /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = A571D2F32210EAB0002AF7CD /* Board.swift */; };
 		A571D2F82210F660002AF7CD /* HelpIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A571D2F72210F660002AF7CD /* HelpIntroViewController.swift */; };
 		A5779E7421FE734A00D755AA /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5779E7321FE734A00D755AA /* BoardViewController.swift */; };
@@ -77,8 +77,8 @@
 		8B2647E7835C02F470D94879 /* Pods_MAD_2018_19UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MAD_2018_19UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB2FAFFF6FABB4FE2C40F95 /* Pods_MAD_2018_19.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MAD_2018_19.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90CD36C5078681D90BFF7459 /* Pods_Trivia_Trek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trivia_Trek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A50478742226F0A10091EC92 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A50ADBD9220665BE0061F7D5 /* CPU.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPU.swift; sourceTree = "<group>"; };
-		A50CDD7822254D0800C98AA6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A512BCFD2206303A00C538EB /* MAD 2018-19.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MAD 2018-19.entitlements"; sourceTree = "<group>"; };
 		A571D2F32210EAB0002AF7CD /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		A571D2F72210F660002AF7CD /* HelpIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpIntroViewController.swift; sourceTree = "<group>"; };
@@ -234,8 +234,8 @@
 				C572256721CEEC330013D534 /* Main.storyboard */,
 				C572256C21CEEC340013D534 /* LaunchScreen.storyboard */,
 				C572256F21CEEC340013D534 /* Info.plist */,
-				A50CDD7822254D0800C98AA6 /* GoogleService-Info.plist */,
 				2CF52C3521FCD55700863B39 /* MustangGameLogoBetter.png */,
+				A50478742226F0A10091EC92 /* GoogleService-Info.plist */,
 			);
 			path = "Trivia Trek";
 			sourceTree = "<group>";
@@ -392,7 +392,7 @@
 			files = (
 				C572256921CEEC330013D534 /* Main.storyboard in Resources */,
 				C572256B21CEEC340013D534 /* Assets.xcassets in Resources */,
-				A50CDD7922254D0800C98AA6 /* GoogleService-Info.plist in Resources */,
+				A50478752226F0A10091EC92 /* GoogleService-Info.plist in Resources */,
 				2CF52C3621FCD55700863B39 /* MustangGameLogoBetter.png in Resources */,
 				C572256E21CEEC340013D534 /* LaunchScreen.storyboard in Resources */,
 			);
