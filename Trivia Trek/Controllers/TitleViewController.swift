@@ -27,8 +27,7 @@ class TitleViewController: UIViewController {
     @IBOutlet weak var loginButton: FBSDKLoginButton!
     @IBOutlet weak var scLoginButton: UIButton!
     
-    var playerName: String!
-    var avatar: UIImage!
+    var player: Player = Player()
     var avatarPickerShowing: Bool = false
     
     var avatarPickerController: AvatarPickerViewController?
@@ -58,17 +57,26 @@ class TitleViewController: UIViewController {
         
         self.avatarPicker.alpha = 0
         
-        self.avatar = UIImage(named: "avatar-sample")
+        
         view.addSubview(loginButton)
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.avatarButton.setImage(self.player.getAvatar(), for: .normal)
+
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.destination is AvatarPickerViewController {
             
             let avatarPickerController = segue.destination as? AvatarPickerViewController
             self.avatarPickerController = avatarPickerController ?? nil
+            self.avatarPickerController!.player = self.player
+            self.avatarPickerController!.delegate = self
             
         }
         
@@ -91,6 +99,7 @@ class TitleViewController: UIViewController {
 
         }
 
+        self.avatarButton.setImage(self.player.getAvatar(), for: .normal)
         self.avatarPickerShowing = !self.avatarPickerShowing
 
     }
@@ -122,25 +131,25 @@ class TitleViewController: UIViewController {
         
         SCSDKBitmojiClient.fetchAvatarURL(completion: { avatarUrl, error in
             
-            print("fetched bitmoji avatar")
-            if error != nil {
-                
-                print("\(error?.localizedDescription ?? "none")")
-            }
-            else {
-                
-                let url = URL(string: avatarUrl!)
-                let avatarData = try? Data(contentsOf: url!)
-                
-                if avatarData != nil {
-                    
-                    self.avatar = UIImage(data: avatarData!)
-                    
-                }
-                
-                self.avatarButton.imageView?.image = self.avatar
-                
-            }
+//            print("fetched bitmoji avatar")
+//            if error != nil {
+//
+//                print("\(error?.localizedDescription ?? "none")")
+//            }
+//            else {
+//
+//                let url = URL(string: avatarUrl!)
+//                let avatarData = try? Data(contentsOf: url!)
+//
+//                if avatarData != nil {
+//
+//                    self.avatar = UIImage(data: avatarData!)
+//
+//                }
+//
+//                self.avatarButton.imageView?.image = self.avatar
+//
+//            }
         })
         
     }

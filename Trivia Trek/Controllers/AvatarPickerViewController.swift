@@ -25,6 +25,8 @@ class AvatarPickerViewController: UIViewController, UIImagePickerControllerDeleg
     @IBOutlet weak var femaleButton: UIButton!
     
     let imagePicker = UIImagePickerController()
+    var player: Player!
+    var delegate: TitleViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,12 +51,20 @@ class AvatarPickerViewController: UIViewController, UIImagePickerControllerDeleg
     // Male button is clicked
     @IBAction func maleClicked(_ sender: Any) {
         // SET THE IMAGE CALLED 'cpupicmale'
+        UserDefaults.standard.set("cpupicmale", forKey: "avatar")
+        self.player.updateImg()
+        self.delegate.toggleAvatarPicker(self)
+        
 //        self.view.removeFromSuperview()
     }
     
     // Female button is clicked
     @IBAction func femaleClicked(_ sender: Any) {
         // SET THE IMAGE CALLED 'cpupicfemale'
+        UserDefaults.standard.set("cpupicfemale", forKey: "avatar")
+        self.player.updateImg()
+        self.delegate.toggleAvatarPicker(self)
+
 //        self.view.removeFromSuperview()
         
     }

@@ -29,11 +29,7 @@ class Board: SKScene {
     
     var background: SKSpriteNode?
     
-    var game: Game
-    
-    var streak: Int
-    
-    var qCorrect: Bool
+    var streak: Double
     
     /**
      Initializes a new game with given maximum turns, player object, and background image
@@ -47,11 +43,9 @@ class Board: SKScene {
     init(maxTurns: Int, player: Player, mapType: Map.MapType) {
         self.maxTurns = maxTurns
         self.player = player
-        self.turnsTaken = 1
+        self.turnsTaken = 0
         self.map = Map.defaultMap(type: .normal)
-        self.game = Game()
         self.streak = 0
-        self.qCorrect = false
         
         super.init()
         
@@ -66,11 +60,10 @@ class Board: SKScene {
         
         self.maxTurns = 0
         self.player = Player()
-        self.turnsTaken = 1
+        self.turnsTaken = 0
         self.map = Map.defaultMap(type: .normal)
-        self.game = Game()
-        self.streak = 1
-        self.qCorrect = false
+        self.streak = 0
+
         super.init(size: size)
         
         self.backgroundColor = Map.mapBackgrounds[Map.MapType.normal.rawValue]
@@ -117,25 +110,6 @@ class Board: SKScene {
             }
 
         })
-        
-    }
-    
-    func movePlayer(numberOfSpaces: Int) {
-        
-        var mvmtChain: SKAction
-        var movements: [SKAction] = []
-        
-        for _ in 0..<numberOfSpaces {
-        
-            let nextTile = self.map.path[self.player.pos + 1]
-            let movement = SKAction.move(to: nextTile.sprite.position, duration: 1.0)
-            movements.append(movement)
-            self.player.pos += 1
-        
-        }
-        
-        mvmtChain = SKAction.sequence(movements)
-        self.player.sprite.run(mvmtChain)
         
     }
     

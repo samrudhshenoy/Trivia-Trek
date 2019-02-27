@@ -71,7 +71,7 @@ class Map {
         /// 3 up
         for _ in 0..<3 {
             
-            tilePos.y += 37
+            tilePos.y += 36
             tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
             defaultMap.path.append(tile)
             
@@ -89,7 +89,7 @@ class Map {
         /// 3 up
         for _ in 0..<3 {
             
-            tilePos.y += 37
+            tilePos.y += 36
             tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
             defaultMap.path.append(tile)
             
@@ -107,7 +107,7 @@ class Map {
         /// 5 up
         for _ in 0..<5 {
             
-            tilePos.y += 37
+            tilePos.y += 36
             tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
             defaultMap.path.append(tile)
             
@@ -121,7 +121,7 @@ class Map {
         /// 3 up
         for _ in 0..<3 {
             
-            tilePos.y += 37
+            tilePos.y += 35
             tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
             defaultMap.path.append(tile)
             
@@ -139,7 +139,7 @@ class Map {
         /// 3 down
         for _ in 0..<3 {
             
-            tilePos.y -= 37
+            tilePos.y -= 36
             tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
             defaultMap.path.append(tile)
             
@@ -151,9 +151,17 @@ class Map {
         defaultMap.path.append(tile)
         
         /// 11 down
-        for _ in 0..<11 {
+        for _ in 0..<6 {
             
-            tilePos.y -= 37
+            tilePos.y -= 36
+            tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
+            defaultMap.path.append(tile)
+            
+        }
+        
+        for _ in 0..<5 {
+            
+            tilePos.y -= 35
             tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
             defaultMap.path.append(tile)
             

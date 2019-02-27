@@ -19,11 +19,40 @@ class Player {
     var sprite: SKSpriteNode
     
     /// Initializes a new player with a photo and dimensions
-    init(photo: UIImage = UIImage(named: "avatar-sample")!) {
-        self.sprite = SKSpriteNode(texture: SKTexture(image: photo))
-        self.sprite.size = CGSize(width: 30, height: 30)
-        
+    init() {
         self.pos = 0
+        
+        self.sprite = SKSpriteNode(texture: SKTexture(image: UIImage(named: "cpupicmale")!))
+        self.sprite.size = CGSize(width: 30, height: 30)
+        self.updateImg()
+    }
+    
+    func updateImg() {
+        
+        self.sprite.texture = SKTexture(image: self.getAvatar())
+        
+    }
+    
+    func getAvatar() -> UIImage {
+        
+        let path = UserDefaults.standard.object(forKey: "avatar") as! String
+        var img: UIImage
+        
+        if path.starts(with: "@") {
+            
+            let url = URL(string: String(path[path.index(path.startIndex, offsetBy: 1)..<path.endIndex]))
+            let data = try? Data(contentsOf: url!)
+            img = UIImage(data: data!)!
+            
+        }
+        else {
+            
+            img = UIImage(named: path)!
+            
+        }
+        
+        return img
+        
     }
     
 }
