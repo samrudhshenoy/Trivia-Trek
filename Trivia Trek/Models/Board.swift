@@ -51,7 +51,6 @@ class Board: SKScene {
         self.map = Map.defaultMap(type: .normal)
         self.game = Game()
         self.streak = 0
-        self.background = SKSpriteNode(imageNamed: "background")
         self.qCorrect = false
         
         super.init()
@@ -71,7 +70,6 @@ class Board: SKScene {
         self.map = Map.defaultMap(type: .normal)
         self.game = Game()
         self.streak = 1
-        self.background = SKSpriteNode(imageNamed: "background")
         self.qCorrect = false
         super.init(size: size)
         

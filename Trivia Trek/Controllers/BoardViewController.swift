@@ -47,6 +47,7 @@ class BoardViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
+        
         super.viewDidAppear(animated)
         
         if self.game!.turnsTaken == 40 {
@@ -55,6 +56,9 @@ class BoardViewController: UIViewController {
         }
         
         self.turn.alpha = 1
+        if self.game!.background?.name == "background-winter" {
+            self.turn.textColor = UIColor.black
+        }
         self.turn.text = "Turn \(self.game!.turnsTaken)"
         
         var finished: Bool = false
@@ -74,6 +78,9 @@ class BoardViewController: UIViewController {
             self.turn.text = "Turn \(self.game!.turnsTaken)"
         }
         
+        if self.game!.background?.name == "background-winter" {
+            self.score.textColor = UIColor.black
+        }
         self.score.text = "Score: \(self.game!.turnsTaken - 1)"
         
                 

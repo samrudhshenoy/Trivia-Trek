@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SpriteKit
 
 class SetupViewController: UIViewController {
     
@@ -46,6 +47,12 @@ class SetupViewController: UIViewController {
             
             let board = segue.destination as? BoardViewController
             board?.game = self.game
+            if mapLabel.text == "Map: Normal" {
+                board?.game!.background = SKSpriteNode(imageNamed: "background")
+            }
+            else {
+                board?.game!.background = SKSpriteNode(imageNamed: "background-winter")
+            }
             
         }
     }
@@ -93,5 +100,6 @@ class SetupViewController: UIViewController {
         performSegue(withIdentifier: "rewindToHome", sender: self)
         
     }
+    
     
 }
