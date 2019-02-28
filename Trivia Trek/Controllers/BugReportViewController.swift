@@ -18,7 +18,7 @@ class BugReportViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.textField.layer.cornerRadius = 8
+        self.textField.layer.cornerRadius = 10
         self.textField.layer.masksToBounds = true
         self.textField.layer.borderColor = UIColor.darkGray.cgColor
         self.textField.layer.borderWidth = 2
@@ -27,8 +27,8 @@ class BugReportViewController: UIViewController, UITextViewDelegate {
         self.textField.resignFirstResponder()
         self.textField.delegate = self
         
-        self.submitButton.layer.cornerRadius = 7
-        self.cancelButton.layer.cornerRadius = 7
+        self.submitButton.layer.cornerRadius = 15
+        self.cancelButton.layer.cornerRadius = 15
         
     }
     

@@ -29,8 +29,8 @@ class AvatarPickerViewController: UIViewController, UIImagePickerControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.maleButton.layer.cornerRadius = 7
-        self.femaleButton.layer.cornerRadius = 7
+        self.maleButton.layer.cornerRadius = 15
+        self.femaleButton.layer.cornerRadius = 15
         
         imagePicker.delegate = self
         

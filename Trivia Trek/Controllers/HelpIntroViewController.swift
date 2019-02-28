@@ -17,8 +17,8 @@ class HelpIntroViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.startButton.layer.cornerRadius = 7
-        self.backButton.layer.cornerRadius = 7
+        self.startButton.layer.cornerRadius = 15
+        self.backButton.layer.cornerRadius = 15
         
     }
     
