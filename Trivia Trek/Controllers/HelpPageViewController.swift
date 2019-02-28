@@ -8,12 +8,10 @@
 
 import UIKit
 
-
-
 class HelpPageViewController: UIPageViewController, UIPageViewControllerDataSource {
 
+    /// The pages to display
     var pages: [UIViewController] = []
-    
     
     override func viewDidLoad() {
         
@@ -30,6 +28,7 @@ class HelpPageViewController: UIPageViewController, UIPageViewControllerDataSour
         
     }
     
+    /// Find the page to the left of the current one, if it exists
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         guard let index = self.pages.firstIndex(of: viewController) else {
@@ -50,6 +49,7 @@ class HelpPageViewController: UIPageViewController, UIPageViewControllerDataSour
 
     }
     
+    /// Find the page to the right of the current one, if it exists
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
         guard let index = self.pages.firstIndex(of: viewController) else {
@@ -70,6 +70,7 @@ class HelpPageViewController: UIPageViewController, UIPageViewControllerDataSour
 
     }
     
+    /// Load the desired page from the storyboard
     private func loadPage(number: String) -> UIViewController {
         
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Page\(number)")

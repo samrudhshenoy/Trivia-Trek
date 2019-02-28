@@ -15,15 +15,22 @@ class AvatarPickerViewController: UIViewController, UIImagePickerControllerDeleg
     
     @IBOutlet var mainView: UIView!
 
-    
+    /// Male icon
     @IBOutlet weak var male: UIImageView!
+    
+    /// Female icon
     @IBOutlet weak var female: UIImageView!
     
+    /// Male icon chooser button
     @IBOutlet weak var maleButton: UIButton!
+    
+    /// Female icon chooser button
     @IBOutlet weak var femaleButton: UIButton!
     
-    let imagePicker = UIImagePickerController()
+    /// Player of which the profile picture is being set
     var player: Player!
+    
+    /// View controller which the avatar picker window is popping up on
     var delegate: TitleViewController!
     
     override func viewDidLoad() {
@@ -32,47 +39,23 @@ class AvatarPickerViewController: UIViewController, UIImagePickerControllerDeleg
         self.maleButton.layer.cornerRadius = 15
         self.femaleButton.layer.cornerRadius = 15
         
-        imagePicker.delegate = self
-        
         self.mainView.layer.cornerRadius = 10
-//        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-        
-        // Do any additional setup after loading the view.
-        
     }
-    
-    
 
-    
-    // Male button is clicked
+    /// Male button is clicked
     @IBAction func maleClicked(_ sender: Any) {
-        // SET THE IMAGE CALLED 'cpupicmale'
+        /// SET THE IMAGE CALLED 'cpupicmale'
         UserDefaults.standard.set("cpupicmale", forKey: "avatar")
         self.player.updateImg()
         self.delegate.toggleAvatarPicker(self)
-        
-//        self.view.removeFromSuperview()
     }
     
-    // Female button is clicked
+    /// Female button is clicked
     @IBAction func femaleClicked(_ sender: Any) {
-        // SET THE IMAGE CALLED 'cpupicfemale'
+        /// SET THE IMAGE CALLED 'cpupicfemale'
         UserDefaults.standard.set("cpupicfemale", forKey: "avatar")
         self.player.updateImg()
         self.delegate.toggleAvatarPicker(self)
-
-//        self.view.removeFromSuperview()
-        
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

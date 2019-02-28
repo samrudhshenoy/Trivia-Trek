@@ -12,11 +12,19 @@ import FBSDKShareKit
 
 class FinalPageViewController: UIViewController {
     
+    /// Share button, where the user can share their experience to Facebook
     @IBOutlet weak var shareButton: FBSDKShareButton!
+    
+    /// Button which allows the user to submit feedback
     @IBOutlet weak var feedBackButton: UIButton!
+    
+    /// Returns the user to the home page
     @IBOutlet weak var homeButton: UIButton!
+    
+    /// Tells the user how many points they had scored in the game
     @IBOutlet weak var message: UILabel!
     
+    /// The final score of the player
     var finalScore: Int = 0
     
     override func viewDidLoad() {
@@ -58,6 +66,7 @@ class FinalPageViewController: UIViewController {
         }
     }
     
+    /// Toggles the Facebook share, and allows the user to post a generated, or personalized message with a link to our repository
     @IBAction func onShareClicked(_ sender: UIButton) {
         do{
             var myContent = PhotoShareContent(photos: [Photo(image: UIImage(named: "MustangGameLogoBetter")!, userGenerated: false)])
@@ -84,6 +93,7 @@ class FinalPageViewController: UIViewController {
         }
     }
     
+    /// Allows the user to share to their followers, as a news update, or onto their story
     func faceBookShare()
     {
         
@@ -106,6 +116,7 @@ class FinalPageViewController: UIViewController {
         }
     }
     
+    /// Return to the title screen if the appropriate button is clicked
     @IBAction func returnToTitle(_ sender: Any) {
         
         self.performSegue(withIdentifier: "rewindToHome", sender: self)

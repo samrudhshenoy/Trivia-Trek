@@ -11,20 +11,32 @@ import GameKit
 
 class BoardViewController: UIViewController {
     
+    /// The main board view
     @IBOutlet weak var board: SKView!
-    @IBOutlet weak var turn: UILabel!
-    @IBOutlet weak var quit: UIButton!
-    @IBOutlet weak var score: UILabel!
-    @IBOutlet weak var ready: UIButton!
-    @IBOutlet weak var bannerView: UIView!
-    @IBOutlet weak var highScoreLabel: UILabel!
-    @IBOutlet weak var currentScore: UILabel!
     
+    /// The label displaying the current turn number
+    @IBOutlet weak var turn: UILabel!
+    
+    /// The button to exit the game
+    @IBOutlet weak var quit: UIButton!
+    
+    /// The label displaying the user's current streak
+    @IBOutlet weak var streak: UILabel!
+    
+    /// The button to start the next turn
+    @IBOutlet weak var ready: UIButton!
+    
+    /// The turn intro GUI banner
+    @IBOutlet weak var bannerView: UIView!
+    
+    /// The label displaying the current high score
+    @IBOutlet weak var highScoreLabel: UILabel!
+    
+    /// The game model
     var game: Board?
-    var isPaused: Bool = false
+    
+    /// The current turn as an item to run in the DispatchQueue
     var currentTurn: DispatchWorkItem?
-    var currentTime: Double = 0
-    var currentRound: Int = 1
     
     override func viewDidLoad() {
         
@@ -33,29 +45,23 @@ class BoardViewController: UIViewController {
         self.quit.layer.cornerRadius = 15
         self.ready.layer.cornerRadius = 15
         
-        self.currentTime = 0
         self.game!.initBackground(size: self.board.bounds.size)
-        self.game!.setupSprites()
+        self.game!.addPlayerSprite()
         self.board.presentScene(self.game)
         self.turn.adjustsFontSizeToFitWidth = true
         self.highScoreLabel.adjustsFontSizeToFitWidth = true
         
+        /// Load the user's best score
         let score = UserDefaults.standard.integer(forKey: "bestScore")
         self.highScoreLabel.text = "High Score: \(score == -1 ? "N/A" : "\(score)")"
-        self.score.adjustsFontSizeToFitWidth = true
+        self.streak.adjustsFontSizeToFitWidth = true
         
         self.view.bringSubviewToFront(self.ready)
         self.view.bringSubviewToFront(self.turn)
         
     }
     
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
-        super.viewDidAppear(animated)
-        
-    }
-    
+    /// Move the player the appropriate amount of spaces for this turn
     func nextMove() {
         
         var mvmtChain: SKAction
@@ -100,6 +106,7 @@ class BoardViewController: UIViewController {
         
     }
     
+    /// Ask the player a question
     func askQuestion() {
         
         self.currentTurn = DispatchWorkItem(block: {
@@ -110,6 +117,7 @@ class BoardViewController: UIViewController {
         
     }
     
+    /// Direct the user to the game end screen
     func finishGame() {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
@@ -118,6 +126,7 @@ class BoardViewController: UIViewController {
         
     }
     
+    /// Prepare for an incoming segue, passing appropriate data along depending on the destination
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is QuestionViewController {
             
@@ -138,9 +147,7 @@ class BoardViewController: UIViewController {
                 
         self.turn.text = "Turn \(self.game!.turnsTaken + 1)"
         
-        self.score.text = "Streak: \(Int(self.game!.streak))"
-        
-        self.currentScore.text = "Score: \(self.game!.turnsTaken)"
+        self.streak.text = "Streak: \(Int(self.game!.streak))"
         
         UIView.animate(withDuration: 1.5, animations: {
             self.turn.alpha = 1
@@ -165,6 +172,7 @@ class BoardViewController: UIViewController {
         
     }
     
+    /// Quit the game after displaying an alert confirmation message
     @IBAction func quitOut (_ sender: Any) {
         
         let alertController = UIAlertController(title: "Quit Game?", message: "Are you sure you want to quit?", preferredStyle: .alert)
@@ -179,6 +187,7 @@ class BoardViewController: UIViewController {
         
     }
     
+    /// Placeholder function for the segue leading back to the board
     @IBAction func backToBoard(segue: UIStoryboardSegue) {
         
         if segue.source is QuestionViewController {
@@ -190,6 +199,7 @@ class BoardViewController: UIViewController {
         
     }
     
+    /// The function to start a turn once the Ready button is clicked
     @IBAction func startTurn (_ sender: Any) {
         
         // increment turnsTaken

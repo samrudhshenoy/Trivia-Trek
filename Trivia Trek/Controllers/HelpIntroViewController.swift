@@ -10,7 +10,10 @@ import UIKit
 
 class HelpIntroViewController: UIViewController {
 
+    /// Start button
     @IBOutlet weak var startButton: UIButton!
+    
+    /// Back button
     @IBOutlet weak var backButton: UIButton!
     
     override func viewDidLoad() {
@@ -22,20 +25,11 @@ class HelpIntroViewController: UIViewController {
         
     }
     
+    /// Returns to title screen if the back button is clicked
     @IBAction func backButtonClicked(_ sender: Any) {
         
         self.performSegue(withIdentifier: "rewindToHome", sender: self)
         
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

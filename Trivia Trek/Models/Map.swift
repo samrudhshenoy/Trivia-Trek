@@ -9,11 +9,9 @@
 import UIKit
 import SpriteKit
 
-typealias Bounds = (left: Int, right: Int, up: Int, down: Int)
-typealias MoveVector = (x: Int, y: Int)
-
 class Map {
 
+    /// The two possible map types
     enum MapType: Int {
         
         case normal = 0
@@ -36,12 +34,7 @@ class Map {
     /// A property representing the type of map
     var type: MapType
     
-    /**
-     Initializes a new map with given MapType
-     
-     - Parameters:
-     - type: Declared type of map
-     */
+    /// Initializes a new map with given MapType
     init(type: MapType = .normal) {
         
         self.path = []
@@ -50,22 +43,14 @@ class Map {
         
     }
     
-    /**
-     Initializes a new game with given maximum turns, player object, and background image
-     
-     - Parameters:
-     - type: MapType considered when calculating precise coordinates
-     
-     - Returns:
-     - The entire map represented as a series of coordinates
-     
-     */
+    /// Initializes a new game with given maximum turns, player object, and background image
     static func defaultMap(type: MapType) -> Map {
         
         let defaultMap = Map(type: type)
         
         var tilePos: CGPoint
         
+        // Set up the initial tile position as necessary
         if type == .normal {
             
             tilePos = CGPoint(x: 60, y: 56)
@@ -80,7 +65,7 @@ class Map {
         var tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
         defaultMap.path.append(tile)
         
-        /// 3 up
+        // Add 3 tiles up
         for _ in 0..<3 {
             
             tilePos.y += 36
@@ -89,7 +74,7 @@ class Map {
             
         }
         
-        /// 2 right
+        // Add 2 tiles right
         for _ in 0..<2 {
             
             tilePos.x += 37
@@ -98,7 +83,7 @@ class Map {
             
         }
         
-        /// 3 up
+        // Add 3 tiles up
         for _ in 0..<3 {
             
             tilePos.y += 36
@@ -107,7 +92,7 @@ class Map {
             
         }
         
-        /// 2 left
+        // Add 2 tiles left
         for _ in 0..<2 {
             
             tilePos.x -= 37
@@ -116,7 +101,7 @@ class Map {
             
         }
         
-        /// 5 up
+        // Add 5 tiles up
         for _ in 0..<5 {
             
             tilePos.y += 36
@@ -125,12 +110,12 @@ class Map {
             
         }
         
-        /// 1 right
+        // Add 1 tile right
         tilePos.x += 37
         tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
         defaultMap.path.append(tile)
         
-        /// 3 up
+        // Add 3 tiles up
         for _ in 0..<3 {
             
             tilePos.y += 35
@@ -139,7 +124,7 @@ class Map {
             
         }
         
-        /// 4 right
+        // Add 4 tiles right
         for _ in 0..<4 {
             
             tilePos.x += 37
@@ -148,7 +133,7 @@ class Map {
             
         }
         
-        /// 3 down
+        // Add 3 tiles down
         for _ in 0..<3 {
             
             tilePos.y -= 36
@@ -157,12 +142,12 @@ class Map {
             
         }
         
-        /// 1 right
+        // Add 1 tile right
         tilePos.x += 37
         tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
         defaultMap.path.append(tile)
         
-        /// 11 down
+        // Add 6 tiles down
         for _ in 0..<6 {
             
             tilePos.y -= 36
@@ -171,6 +156,7 @@ class Map {
             
         }
         
+        // Add 5 tiles down
         for _ in 0..<5 {
             
             tilePos.y -= 35
@@ -183,6 +169,7 @@ class Map {
         
     }
     
+    /// Toggle the map type and adjust the path position accordingly
     func toggleType() {
         
         switch self.type {
@@ -208,6 +195,7 @@ class Map {
 
 extension Dictionary {
     
+    /// Find the index of a given key
     func index(ofKey key: Key) -> Int {
         
         for i in 0..<self.keys.count {
@@ -222,12 +210,14 @@ extension Dictionary {
         
     }
     
+    /// Find the key at a given index
     func key(forIndex index: Int) -> Key {
         
         return Array(self.keys)[index]
     
     }
     
+    /// Direct subscript from index to value
     subscript(index: Int) -> Value {
         
         return self[Array(self.keys)[index]]!

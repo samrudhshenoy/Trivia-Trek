@@ -9,6 +9,8 @@
 import UIKit
 import CloudKit
 
+/// This view is an incoming feature, where users can view a table of their preivous
+/// games, full with data, graphs, and analytics of their skill areas
 class ScoreHistoryViewController: UITableViewController {
 
     var games: [Game] = []

@@ -11,16 +11,22 @@ import SpriteKit
 
 class SetupViewController: UIViewController {
     
+    /// Label displaying current map's name
     @IBOutlet weak var mapLabel: UILabel!
+    
+    /// View displaying current map's image
     @IBOutlet weak var mapImageView: UIImageView!
+    
+    /// Buttons to shift map left and right
     @IBOutlet weak var leftMapButton: UIButton!
     @IBOutlet weak var rightMapButton: UIButton!
     
+    /// Various properties of the two maps
     var mapImages: [UIImage] = []
     var mapNames: [String] = []
     var currentMap: Int = 0
-    var numberOfTurns: Int = 0
     
+    /// Game model classes to be modified during setup
     var player: Player?
     var game: Board = Board(maxTurns: 0, player: Player(), mapType: .normal)
     
@@ -41,6 +47,7 @@ class SetupViewController: UIViewController {
         
     }
     
+    /// Prepare to transition to the game board scene, pass along necessary data
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.destination is BoardViewController {
@@ -57,6 +64,7 @@ class SetupViewController: UIViewController {
         }
     }
     
+    /// Find map to the left of the current one
     @IBAction func moveMapLeft(_ sender: Any) {
         
         if self.currentMap - 1 >= 0 {
@@ -76,6 +84,7 @@ class SetupViewController: UIViewController {
 
     }
     
+    /// Find map to the right of the current one
     @IBAction func moveMapRight(_ sender: Any) {
         
         if self.currentMap + 1 <= self.mapImages.count - 1 {
@@ -95,6 +104,7 @@ class SetupViewController: UIViewController {
 
     }
     
+    /// Return to the home screen if the Cancel button is clicked
     @IBAction func cancelButtonClicked(_ sender: Any) {
         
         performSegue(withIdentifier: "rewindToHome", sender: self)

@@ -15,14 +15,17 @@ import SCSDKBitmojiKit
 
 class TitleViewController: UIViewController {
 
+    /// 3  main buttons on the screen
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var reportBug: UIButton!
     
+    /// Secondary buttons and labels
     @IBOutlet weak var highScoreLabel: UILabel!
     @IBOutlet weak var avatarButton: UIButton!
     @IBOutlet weak var avatarPicker: UIView!
     
+    /// Facebook login button
     @IBOutlet weak var loginButton: FBSDKLoginButton!
     
     var player: Player = Player()
@@ -32,6 +35,7 @@ class TitleViewController: UIViewController {
     
     let goldColor = UIColor(red: 1, green: 0.8, blue: 0.196, alpha: 0.8).cgColor
     
+    /// Configures settings when the apap first starts up
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,6 +64,7 @@ class TitleViewController: UIViewController {
         view.addSubview(loginButton)
     }
     
+    /// Refreshes the high score when the page appears (if there is a new high score)
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -79,6 +84,7 @@ class TitleViewController: UIViewController {
 
     }
 
+    /// Configures avatar picker view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.destination is AvatarPickerViewController {
@@ -92,6 +98,7 @@ class TitleViewController: UIViewController {
         
     }
     
+    /// Facebook login completion
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         print("User Logged In")
         if ((error) != nil) {}
@@ -102,6 +109,7 @@ class TitleViewController: UIViewController {
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
     }
     
+    /// Show or remove the avatar picker
     @IBAction func toggleAvatarPicker(_ sender: Any) {
 
         if self.avatarPickerShowing {
@@ -124,8 +132,8 @@ class TitleViewController: UIViewController {
 
     }
     
+    /// Placeholder function for the segue leading back to the title screen
     @IBAction func rewindToHome(segue: UIStoryboardSegue) {
-        
         
     }
 

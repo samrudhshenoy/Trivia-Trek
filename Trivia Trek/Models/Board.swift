@@ -10,36 +10,31 @@ import UIKit
 import SpriteKit
 import CloudKit
 
-// The game object of which the centrality of the entire game is based on
+/// The game object of which the centrality of the entire game is based on
 class Board: SKScene {
     
-    // Maximum number of turns taken by a player
+    /// Maximum number of turns taken by a player
     var maxTurns: Int
     
-    // Current number of turns taken by a player
+    /// Current number of turns taken by a player
     var turnsTaken: Int
     
-    // Player object which is stored in the game
+    /// Player object which is stored in the game
     var player: Player
     
-    // Array of questions with answers, sourced from the online database
+    /// Array of questions with answers, sourced from the online database
     var questions: [Question] = []
     
+    /// The board's map course
     var map: Map
     
+    /// The background image for the map
     var background: SKSpriteNode?
     
+    /// The player's current answer streak
     var streak: Double
     
-    /**
-     Initializes a new game with given maximum turns, player object, and background image
-     
-     - Parameters:
-     - maxTurns: The maximum number of turns the player has opted for
-     - player: The player object to be stored in the program
-     - map: The background image of the map
-     
-     */
+    /// Initializes a new game with given maximum turns, player object, and background image
     init(maxTurns: Int, player: Player, mapType: Map.MapType) {
         self.maxTurns = maxTurns
         self.player = player
@@ -56,6 +51,7 @@ class Board: SKScene {
         self.loadQuestions()
     }
     
+    /// Initializes a new game with given size and default game parameters
     override init(size: CGSize) {
         
         self.maxTurns = 0
@@ -76,24 +72,26 @@ class Board: SKScene {
         fatalError("init(coder:) has not been implemented")
     }
     
-    /**
-     Loads all the questions from the online database into the Questions array.
-     Prints error description in the console if query fails
-     */
+    /// Loads the questions from the database
     func loadQuestions() {
         
+        /// Initialize the database
         let database = CKContainer.default().publicCloudDatabase
 
+        /// Formulate the query
         let query = CKQuery(recordType: "Question", predicate: NSPredicate(value: true))
 
+        /// Perform the query
         database.perform(query, inZoneWith: nil, completionHandler: { questions, error in
             if error != nil {
 
+                /// Print the error if the query fails
                 print("Query failed with error \(error?.localizedDescription ?? "none")")
 
             }
             else {
 
+                /// Load all the questions into a local array
                 for questionRecord in questions! {
 
                     let queue = DispatchQueue(label: "questionQuery")
@@ -113,7 +111,8 @@ class Board: SKScene {
         
     }
     
-    func setupSprites() {
+    /// Add the player sprite to the scene
+    func addPlayerSprite() {
         
         if self.player.sprite.parent == nil {
             self.player.sprite.position = self.map.path[self.player.pos].sprite.position
@@ -122,6 +121,7 @@ class Board: SKScene {
     
     }
     
+    /// Add the map image to the scene
     func initBackground(size: CGSize) {
         
         self.size = size
@@ -135,7 +135,7 @@ class Board: SKScene {
         
     }
     
-    
+    /// Switch the map type and update the player's positio accordingly
     func toggleMapType() {
         
         self.map.toggleType()
