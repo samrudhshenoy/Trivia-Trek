@@ -12,10 +12,8 @@ class InstructionsViewController: UIViewController, UIScrollViewDelegate {
     
     /// View which allows the user to scroll down the page
     @IBOutlet weak var scrollView: UIScrollView!
-    
     /// Image of the instructions text
     @IBOutlet weak var text: UIImageView!
-    
     /// Back button
     @IBOutlet weak var backButton: UIButton!
     
@@ -31,10 +29,9 @@ class InstructionsViewController: UIViewController, UIScrollViewDelegate {
         
     }
     
-    /// Close the instructions page if the back button is pressed
+    /// Closes the instructions page if the back button is pressed
     @IBAction func close(_ sender: Any) {
         
         self.performSegue(withIdentifier: "close", sender: self)
     }
-
 }

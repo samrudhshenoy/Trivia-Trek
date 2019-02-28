@@ -10,19 +10,19 @@ import UIKit
 import SpriteKit
 import CloudKit
 
-/// The game object of which the centrality of the entire game is based on
+// The game object of which the centrality of the entire game is based on
 class Board: SKScene {
     
-    /// Maximum number of turns taken by a player
+    // Maximum number of turns taken by a player
     var maxTurns: Int
     
-    /// Current number of turns taken by a player
+    // Current number of turns taken by a player
     var turnsTaken: Int
     
-    /// Player object which is stored in the game
+    // Player object which is stored in the game
     var player: Player
     
-    /// Array of questions with answers, sourced from the online database
+    // Array of questions with answers, sourced from the online database
     var questions: [Question] = []
     
     /// The board's map course
@@ -112,7 +112,7 @@ class Board: SKScene {
     }
     
     /// Add the player sprite to the scene
-    func addPlayerSprite() {
+    func setupSprites() {
         
         if self.player.sprite.parent == nil {
             self.player.sprite.position = self.map.path[self.player.pos].sprite.position

@@ -27,7 +27,7 @@ class Player {
         self.updateImg()
     }
     
-    /// Update the sprite's image (called when avatar changes)
+     /// Update the sprite's image (called when avatar changes)
     func updateImg() {
         
         self.sprite.texture = SKTexture(image: self.getAvatar())
@@ -39,14 +39,26 @@ class Player {
         
         var path = UserDefaults.standard.object(forKey: "avatar") as? String
         
-        /// Set path to a default if necessary
         if path == nil {
             
             path = "cpupicmale"
             
         }
         
-        let img = UIImage(named: path!)!
+        var img: UIImage
+        
+        if path!.starts(with: "@") {
+            
+            let url = URL(string: String(path![path!.index(path!.startIndex, offsetBy: 1)..<path!.endIndex]))
+            let data = try? Data(contentsOf: url!)
+            img = UIImage(data: data!)!
+            
+        }
+        else {
+            
+            img = UIImage(named: path!)!
+            
+        }
         
         return img
         

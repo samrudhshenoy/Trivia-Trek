@@ -16,20 +16,20 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var timeProgressBar: UIProgressView!
     
     /// All 4 answer choice buttons
+
     @IBOutlet weak var firstChoiceButton: UIButton!
     @IBOutlet weak var secondChoiceButton: UIButton!
     @IBOutlet weak var thirdChoiceButton: UIButton!
     @IBOutlet weak var fourthChoiceButton: UIButton!
+    
     
     /// Button which pops up after a question is answered, and allows the user to return back to the game board
     @IBOutlet weak var doneButton: UIButton!
     
     /// Game board
     var game: Board?
-    
     /// Index of correct question in question array
     var questionIndex: Int = -1
-    
     /// Whether the user has gotten the question correct or incorrect
     var correct: Bool = false
     
@@ -42,7 +42,7 @@ class QuestionViewController: UIViewController {
         self.thirdChoiceButton.titleLabel?.adjustsFontSizeToFitWidth = true
         self.fourthChoiceButton.titleLabel?.adjustsFontSizeToFitWidth = true
         
-        // Get random question from array
+        // get random question from game
         self.questionIndex = Int.random(in: 0..<self.game!.questions.count)
         let question = self.game!.questions[self.questionIndex]
         
@@ -61,7 +61,6 @@ class QuestionViewController: UIViewController {
         self.fourthChoiceButton.layer.cornerRadius = 15
         
         self.doneButton.layer.cornerRadius = 15
-
         self.doneButton.alpha = 0
         
     }
@@ -74,6 +73,11 @@ class QuestionViewController: UIViewController {
             return
             
         }
+        
+        // if correct, highlight chosen button green
+        // else if incorrect, highlight chosen button red, highlight correct button green
+        // unhide done button
+        // update game state
         
         let correctIndex = self.game!.questions[self.questionIndex].correctAnswer + 1
         
@@ -143,7 +147,8 @@ class QuestionViewController: UIViewController {
     }
     
     
-     /// Preparation before navigation back to the game board screen
+     // MARK: - Navigation
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.destination is BoardViewController {

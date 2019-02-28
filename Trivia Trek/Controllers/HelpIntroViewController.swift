@@ -31,5 +31,5 @@ class HelpIntroViewController: UIViewController {
         self.performSegue(withIdentifier: "rewindToHome", sender: self)
         
     }
-    
+
 }
