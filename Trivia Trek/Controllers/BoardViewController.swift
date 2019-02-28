@@ -53,7 +53,7 @@ class BoardViewController: UIViewController {
         self.highScoreLabel.adjustsFontSizeToFitWidth = true
         
         let score = UserDefaults.standard.integer(forKey: "bestScore")
-        self.highScoreLabel.text = "High Score: \(score == -1 ? "N/A" : "\(score)")"
+        self.highScoreLabel.text = "Best Score: \(score == -1 ? "N/A" : "\(score)")"
         self.score.adjustsFontSizeToFitWidth = true
         
         self.view.bringSubviewToFront(self.ready)
