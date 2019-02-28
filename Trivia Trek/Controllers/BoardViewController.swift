@@ -17,6 +17,7 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var score: UILabel!
     @IBOutlet weak var ready: UIButton!
     @IBOutlet weak var bannerView: UIView!
+    @IBOutlet weak var streak: UILabel!
     
     var game: Board?
     var isPaused: Bool = false
@@ -35,6 +36,8 @@ class BoardViewController: UIViewController {
         self.game!.initBackground(size: self.board.bounds.size)
         self.game!.setupSprites()
         self.board.presentScene(self.game)
+        self.turn.adjustsFontSizeToFitWidth = true
+        self.streak.adjustsFontSizeToFitWidth = true
         
         self.view.bringSubviewToFront(self.ready)
         self.view.bringSubviewToFront(self.turn)
@@ -57,6 +60,7 @@ class BoardViewController: UIViewController {
         self.turn.alpha = 1
         self.turn.text = "Turn \(self.game!.turnsTaken + 1)"
         
+        self.streak.text = "Streak: \(Int(self.game!.streak))"
         self.score.text = "Score: \(self.game!.turnsTaken)"
         
     }

@@ -24,6 +24,8 @@ class TitleViewController: UIViewController {
     @IBOutlet weak var avatarButton: UIButton!
     @IBOutlet weak var avatarPicker: UIView!
     
+    @IBOutlet weak var loginButton: FBSDKLoginButton!
+    
     var player: Player = Player()
     var avatarPickerShowing: Bool = false
     
@@ -45,6 +47,8 @@ class TitleViewController: UIViewController {
         self.reportBug.layer.cornerRadius = 15
         
         self.avatarPicker.alpha = 0
+        
+        let loginButton = FBSDKLoginButton(frame: CGRect(x: view.center.x - 45, y: view.center.y * 1.6, width: 90, height: 30))
     
         if UserDefaults.standard.hasObject(forKey: "bestScore") {
             
@@ -57,6 +61,8 @@ class TitleViewController: UIViewController {
             self.highScoreLabel.text = "Best Score: N/A"
 
         }
+        
+        view.addSubview(loginButton)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -77,6 +83,16 @@ class TitleViewController: UIViewController {
             
         }
         
+    }
+    
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        print("User Logged In")
+        if ((error) != nil) {}
+        else if result.isCancelled {}
+        else { if result.grantedPermissions.contains("public_profile") {} }
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
     }
     
     @IBAction func toggleAvatarPicker(_ sender: Any) {
