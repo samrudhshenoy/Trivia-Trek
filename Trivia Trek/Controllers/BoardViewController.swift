@@ -17,6 +17,7 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var score: UILabel!
     @IBOutlet weak var ready: UIButton!
     @IBOutlet weak var bannerView: UIView!
+    @IBOutlet weak var highScoreLabel: UILabel!
     
     var game: Board?
     var isPaused: Bool = false
@@ -35,9 +36,13 @@ class BoardViewController: UIViewController {
         self.game!.initBackground(size: self.board.bounds.size)
         self.game!.setupSprites()
         self.board.presentScene(self.game)
-        
         self.turn.adjustsFontSizeToFitWidth = true
-
+        self.highScoreLabel.adjustsFontSizeToFitWidth = true
+        
+        let score = UserDefaults.standard.integer(forKey: "bestScore")
+        self.highScoreLabel.text = "Best Score: \(score == -1 ? "N/A" : "\(score)")"
+        self.score.adjustsFontSizeToFitWidth = true
+        
         self.view.bringSubviewToFront(self.ready)
         self.view.bringSubviewToFront(self.turn)
         
@@ -47,8 +52,6 @@ class BoardViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
-        
-        
         
     }
     
@@ -71,20 +74,28 @@ class BoardViewController: UIViewController {
             
         }
         
-        mvmtChain = SKAction.sequence(movements)
-        
-        self.game!.player.sprite.run(mvmtChain)
-        
-        if self.game!.player.pos >= self.game!.map.path.count - 1 {
+        if movements.count > 0 {
             
-            self.game!.player.sprite.run(mvmtChain, completion: self.finishGame)
+            mvmtChain = SKAction.sequence(movements)
+            
+            if self.game!.player.pos >= self.game!.map.path.count - 1 {
+                
+                self.game!.player.sprite.run(mvmtChain, completion: self.finishGame)
+                
+            }
+            else {
+                
+                self.game!.player.sprite.run(mvmtChain, completion: self.fadeInTurnIntro)
+                
+            }
             
         }
         else {
             
-            self.game!.player.sprite.run(mvmtChain, completion: self.showTurnIntro)
-
+            self.fadeInTurnIntro()
+            
         }
+        
         
     }
     
@@ -122,7 +133,7 @@ class BoardViewController: UIViewController {
         
     }
     
-    func showTurnIntro() {
+    func fadeInTurnIntro() {
                 
         self.turn.text = "Turn \(self.game!.turnsTaken + 1)"
         

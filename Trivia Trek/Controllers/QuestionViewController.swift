@@ -71,8 +71,6 @@ class QuestionViewController: UIViewController {
         
         let correctIndex = self.game!.questions[self.questionIndex].correctAnswer + 1
         
-        self.game!.questions.remove(at: self.questionIndex)
-        
         if choiceButton.tag != correctIndex {
             self.game!.streak = 0
             UIView.animate(withDuration: 0.7, animations: {
@@ -145,6 +143,7 @@ class QuestionViewController: UIViewController {
         if segue.destination is BoardViewController {
             
             let boardVC = segue.destination as? BoardViewController
+            boardVC!.game!.questions.remove(at: self.questionIndex)
             boardVC!.nextMove()
             
         }

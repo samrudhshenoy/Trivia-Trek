@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Trivia Trek/Controllers/SetupViewController.swift"
-            timestampString = "573039746.863333"
+            timestampString = "573041030.1060309"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "65"
@@ -240,6 +240,22 @@
             startingLineNumber = "28"
             endingLineNumber = "28"
             landmarkName = "initSettings()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Trivia Trek/Controllers/BoardViewController.swift"
+            timestampString = "573041091.775121"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "askQuestion()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
