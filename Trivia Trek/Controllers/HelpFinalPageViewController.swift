@@ -8,10 +8,13 @@
 
 import UIKit
 
+/// Represents the last page of the series of help pages
 class HelpFinalPageViewController: UIViewController {
     
+    /// Button which returns user to title screen
     @IBOutlet weak var letsGo: UIButton!
     
+    /// Button which redirects user to the detailed instructions page
     @IBOutlet weak var instructions: UIButton!
 
     override func viewDidLoad() {
@@ -25,6 +28,7 @@ class HelpFinalPageViewController: UIViewController {
     }
     
 
+    /// Returns the user to the title screen after the letsGo button is clicked
     @IBAction func buttonClicked(_ sender: Any) {
         
         self.performSegue(withIdentifier: "rewindToHome", sender: self)

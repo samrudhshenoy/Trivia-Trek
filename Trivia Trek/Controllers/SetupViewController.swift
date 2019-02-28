@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SpriteKit
 
 class SetupViewController: UIViewController {
     
@@ -46,6 +47,12 @@ class SetupViewController: UIViewController {
             
             let board = segue.destination as? BoardViewController
             board?.game = self.game
+            if mapLabel.text == "Map: Normal" {
+                board?.game!.background = SKSpriteNode(imageNamed: "background")
+            }
+            else {
+                board?.game!.background = SKSpriteNode(imageNamed: "background-winter")
+            }
             
         }
     }
@@ -65,8 +72,8 @@ class SetupViewController: UIViewController {
         
         self.mapImageView.image! = self.mapImages[self.currentMap]
         self.mapLabel.text! = "Map: \(self.mapNames[self.currentMap])"
-        self.game.map.type = Map.MapType(rawValue: self.currentMap)!
-        
+        self.game.toggleMapType()
+
     }
     
     @IBAction func moveMapRight(_ sender: Any) {
@@ -84,8 +91,8 @@ class SetupViewController: UIViewController {
         
         self.mapImageView.image! = self.mapImages[self.currentMap]
         self.mapLabel.text! = "Map: \(self.mapNames[self.currentMap])"
-        self.game.map.type = Map.MapType(rawValue: self.currentMap)!
-        
+        self.game.toggleMapType()
+
     }
     
     @IBAction func cancelButtonClicked(_ sender: Any) {
@@ -93,5 +100,6 @@ class SetupViewController: UIViewController {
         performSegue(withIdentifier: "rewindToHome", sender: self)
         
     }
+    
     
 }

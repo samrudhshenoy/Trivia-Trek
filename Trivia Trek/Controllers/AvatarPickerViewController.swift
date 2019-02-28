@@ -15,29 +15,32 @@ class AvatarPickerViewController: UIViewController, UIImagePickerControllerDeleg
     
     @IBOutlet var mainView: UIView!
 
-    
+    /// Male icon
     @IBOutlet weak var male: UIImageView!
-    @IBOutlet weak var photos: UIImageView!
+    
+    /// Female icon
     @IBOutlet weak var female: UIImageView!
     
+    /// Male icon chooser button
     @IBOutlet weak var maleButton: UIButton!
-    @IBOutlet weak var photosButton: UIButton!
+    
+    /// Female icon chooser button
     @IBOutlet weak var femaleButton: UIButton!
     
-    let imagePicker = UIImagePickerController()
+    /// Player of which the profile picture is being set
+    var player: Player!
+    
+    /// View controller which the avatar picker window is popping up on
+    var delegate: TitleViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.maleButton.layer.cornerRadius = 7
-        self.photosButton.layer.cornerRadius = 7
         self.femaleButton.layer.cornerRadius = 7
-        self.photos.layer.cornerRadius = 30
         
-        imagePicker.delegate = self
         
         self.mainView.layer.cornerRadius = 10
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         
         // Do any additional setup after loading the view.
         
@@ -46,45 +49,20 @@ class AvatarPickerViewController: UIViewController, UIImagePickerControllerDeleg
     
 
     
-    // Male button is clicked
+    /// Male button is clicked
     @IBAction func maleClicked(_ sender: Any) {
         // SET THE IMAGE CALLED 'cpupicmale'
-//        self.view.removeFromSuperview()
+        UserDefaults.standard.set("cpupicmale", forKey: "avatar")
+        self.player.updateImg()
+        self.delegate.toggleAvatarPicker(self)
     }
     
-    // Female button is clicked
+    /// Female button is clicked
     @IBAction func femaleClicked(_ sender: Any) {
-        // SET THE IMAGE CALLED 'cpupicfemale'
-//        self.view.removeFromSuperview()
-        
+        UserDefaults.standard.set("cpupicfemale", forKey: "avatar")
+        self.player.updateImg()
+        self.delegate.toggleAvatarPicker(self)
     }
-    
-    @IBAction func loadImageButtonTapped(_ sender: UIButton) {
-        imagePicker.allowsEditing = false
-        imagePicker.sourceType = .photoLibrary
-        
-        present(imagePicker, animated: true, completion: nil)
-    }
-    
-
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
-//        self.view.removeFromSuperview()
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            photosButton.contentMode = .scaleAspectFit
-            photos.image = image
-            photos.clipsToBounds = true
-            self.photos.layer.cornerRadius = 44
-            // SET THE IMAGE CALLED 'image'
-        }
-
-//        self.view.removeFromSuperview()
-    }
-    
-   
     
     /*
     // MARK: - Navigation

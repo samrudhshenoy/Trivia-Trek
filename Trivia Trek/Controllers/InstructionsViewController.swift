@@ -10,8 +10,13 @@ import UIKit
 
 class InstructionsViewController: UIViewController, UIScrollViewDelegate {
     
+    /// View which allows the user to scroll down the page
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    /// Image of the instructions text
     @IBOutlet weak var text: UIImageView!
+    
+    /// Back button
     @IBOutlet weak var backButton: UIButton!
     
     override func viewDidLoad() {
@@ -25,22 +30,6 @@ class InstructionsViewController: UIViewController, UIScrollViewDelegate {
         self.backButton.layer.cornerRadius = 7
         
     }
-    
-    
-//    func setupGestureRecognizer() {
-//        let doubleTap = UITapGestureRecognizer(target: self, action: "handleDoubleTap:")
-//        doubleTap.numberOfTapsRequired = 2
-//        scrollView.addGestureRecognizer(doubleTap)
-//    }
-//
-//    func handleDoubleTap(recognizer: UITapGestureRecognizer) {
-//
-//        if (scrollView.zoomScale > scrollView.minimumZoomScale) {
-//            scrollView.setZoomScale(scrollView.minimumZoomScale, animated: true)
-//        } else {
-//            scrollView.setZoomScale(scrollView.maximumZoomScale, animated: true)
-//        }
-//    }
     
     
     /*

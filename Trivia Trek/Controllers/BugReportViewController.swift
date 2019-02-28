@@ -11,9 +11,13 @@ import CloudKit
 
 class BugReportViewController: UIViewController, UITextViewDelegate {
     
+    /// Field where the user enters their description
     @IBOutlet weak var textField: UITextView!
+    
+    /// Submits the text to our online databases
     @IBOutlet weak var submitButton: UIButton!
     
+    /// Cancels and returns to the home screen
     @IBOutlet weak var cancelButton: UIButton!
     
     override func viewDidLoad() {
@@ -32,6 +36,7 @@ class BugReportViewController: UIViewController, UITextViewDelegate {
         
     }
     
+    /// Submits user-entered text into our database
     @IBAction func submitButton(_ sender: Any) {
         
         // do the query
@@ -52,10 +57,12 @@ class BugReportViewController: UIViewController, UITextViewDelegate {
         super.didReceiveMemoryWarning()
     }
     
+    /// Returns to the title screen
     @IBAction func rewindToHome(_ sender: Any) {
         
         self.performSegue(withIdentifier: "rewindToHome", sender: self)
     }
+    
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if(text == "\n") {

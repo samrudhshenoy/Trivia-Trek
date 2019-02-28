@@ -18,13 +18,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /// UIWindow from which the app is displayed from
     var window: UIWindow?
     
+    func initSettings() {
+        
+        if !UserDefaults.standard.hasObject(forKey: "bestScore") {
+            UserDefaults.standard.set(-1, forKey: "bestScore")
+        }
+        
+        if !UserDefaults.standard.hasObject(forKey: "avatar") {
+            UserDefaults.standard.set("cpupicmale", forKey: "avatar")
+        }
+        
+    }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        self.initSettings()
+        
         return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options) || SCSDKLoginClient.application(app, open: url, options: options)
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        self.initSettings()
         
         let selectorFont = NSDictionary(object: UIFont(name: "AvenirNext-Regular", size: 11.0)!, forKey: NSAttributedString.Key.font as NSCopying)
         UISegmentedControl.appearance().setTitleTextAttributes(selectorFont as? [NSAttributedString.Key : Any] , for: .normal)
@@ -62,3 +78,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 }
 
+extension UserDefaults {
+    
+    func hasObject(forKey key: String) -> Bool {
+        return self.object(forKey: key) != nil
+    }
+    
+}

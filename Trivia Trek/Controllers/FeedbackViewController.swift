@@ -11,8 +11,13 @@ import CloudKit
 
 class FeedbackViewController: UIViewController, UITextViewDelegate {
 
+    /// Cancel button which takes the user to the home screen
     @IBOutlet weak var cancelButton: UIButton!
+    
+    /// Submits the user's feedback to our online database
     @IBOutlet weak var submitButton: UIButton!
+    
+    /// The text box in which the user is typing
     @IBOutlet weak var text: UITextView!
     
     override func viewDidLoad() {
@@ -30,9 +35,9 @@ class FeedbackViewController: UIViewController, UITextViewDelegate {
         self.text.resignFirstResponder()
         self.text.delegate = self
 
-        // Do any additional setup after loading the view.
     }
     
+    /// Submits the text that the user has typed into our online database and returns the user to the home screen
     @IBAction func submitButton(_ sender: Any) {
             
         let feedback = CKRecord(recordType: "Bug")
@@ -42,27 +47,8 @@ class FeedbackViewController: UIViewController, UITextViewDelegate {
         
         database.save(feedback, completionHandler: { record, error in
             DispatchQueue.main.sync {
-//                if error != nil {
-//
-//                    let alertController = UIAlertController(title: "Thank You", message: "Your feedback has been inputted into our database, we will shortly look into it", preferredStyle: .alert)
-//                    alertController.addAction(UIAlertAction(title: "Great", style: .default, handler: { action in
-//                        self.performSegue(withIdentifier: "rewindToHome", sender: self)
-//                    }))
-//                    self.present(alertController, animated: true, completion: nil)
-//
-//                }
-//                else {
-//
-//                    let alert = UIAlertController(title: "Error", message: "There was a problem reporting your bug", preferredStyle: .alert)
-//                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-//                        self.performSegue(withIdentifier: "rewindToHome", sender: self)
-//                    }))
-//                    self.present(alert, animated: true, completion: nil)
-//                }
-                
             }
         })
-//        self.performSegue(withIdentifier: "rewindToHome", sender: self)
         
     }
         
