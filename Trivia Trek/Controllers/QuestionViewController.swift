@@ -17,7 +17,6 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var secondChoiceButton: UIButton!
     @IBOutlet weak var thirdChoiceButton: UIButton!
     @IBOutlet weak var fourthChoiceButton: UIButton!
-    @IBOutlet weak var streakLabel: UILabel!
     
     @IBOutlet weak var doneButton: UIButton!
     
@@ -33,8 +32,6 @@ class QuestionViewController: UIViewController {
         self.secondChoiceButton.titleLabel?.adjustsFontSizeToFitWidth = true
         self.thirdChoiceButton.titleLabel?.adjustsFontSizeToFitWidth = true
         self.fourthChoiceButton.titleLabel?.adjustsFontSizeToFitWidth = true
-
-        self.streakLabel.alpha = 0
         
         // get random question from game
         self.questionIndex = Int.random(in: 0..<self.game!.questions.count)
@@ -74,8 +71,6 @@ class QuestionViewController: UIViewController {
         
         let correctIndex = self.game!.questions[self.questionIndex].correctAnswer + 1
         
-        self.game!.questions.remove(at: self.questionIndex)
-        
         if choiceButton.tag != correctIndex {
             self.game!.streak = 0
             UIView.animate(withDuration: 0.7, animations: {
@@ -86,9 +81,6 @@ class QuestionViewController: UIViewController {
         else {
             self.game!.streak += 1
         }
-        
-        self.streakLabel.text = "Streak - \(self.game!.streak)"
-        fadeOutStreakLabel()
         
         switch correctIndex {
             
@@ -143,21 +135,19 @@ class QuestionViewController: UIViewController {
         
     }
     
-    func fadeOutStreakLabel() {
-        
-        UIView.animate(withDuration: 1.5, animations: {
-            self.streakLabel.alpha = 0
-        })
-        
-    }
     
-    /*
      // MARK: - Navigation
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
+        
+        if segue.destination is BoardViewController {
+            
+            let boardVC = segue.destination as? BoardViewController
+            boardVC!.game!.questions.remove(at: self.questionIndex)
+            boardVC!.nextMove()
+            
+        }
      }
-     */
+    
     
 }

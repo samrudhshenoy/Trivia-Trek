@@ -16,7 +16,6 @@ import SCSDKBitmojiKit
 class TitleViewController: UIViewController {
 
     @IBOutlet weak var playButton: UIButton!
-//    @IBOutlet weak var scoreHistoryButton: UIButton!
     @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var reportBug: UIButton!
     
@@ -37,10 +36,6 @@ class TitleViewController: UIViewController {
         super.viewDidLoad()
         
         self.playButton.layer.cornerRadius = 15
-        
-//        self.scoreHistoryButton.layer.cornerRadius = 15
-//        self.scoreHistoryButton.layer.borderWidth = 3
-//        self.scoreHistoryButton.layer.borderColor = self.goldColor
         
         self.helpButton.layer.cornerRadius = 15
         
@@ -69,6 +64,18 @@ class TitleViewController: UIViewController {
         super.viewDidAppear(animated)
         
         self.avatarButton.setImage(self.player.getAvatar(), for: .normal)
+        
+        if UserDefaults.standard.hasObject(forKey: "bestScore") {
+            
+            let score = UserDefaults.standard.object(forKey: "bestScore") as! Int
+            self.highScoreLabel.text = "Best Score: \(score == -1 ? "N/A" : "\(score)")"
+            
+        }
+        else {
+            
+            self.highScoreLabel.text = "Best Score: N/A"
+            
+        }
 
     }
 

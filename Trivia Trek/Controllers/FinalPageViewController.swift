@@ -15,6 +15,7 @@ class FinalPageViewController: UIViewController {
     @IBOutlet weak var shareButton: FBSDKShareButton!
     @IBOutlet weak var feedBackButton: UIButton!
     @IBOutlet weak var homeButton: UIButton!
+    @IBOutlet weak var message: UILabel!
     
     var finalScore: Int = 0
     
@@ -29,18 +30,32 @@ class FinalPageViewController: UIViewController {
             self.homeButton.layer.cornerRadius = 7
         }
         
-        let shareButton = FBSDKShareButton(frame: CGRect(x: view.center.x - 75, y: view.center.y * 0.85, width: 150, height: 30))
+        self.message.text = "You finished the course in \(finalScore) turns!"
+        let shareButton = FBSDKShareButton(frame: CGRect(x: view.center.x - 75, y: view.center.y * 0.65, width: 150, height: 30))
         let content = FBSDKShareLinkContent()
         content.contentURL = URL(string: "https://github.com/arthurlafrance/MustangGame")
-            
-        self.finalScore = UserDefaults.standard.object(forKey: "bestScore") as! Int
             
         content.quote = "I scored \(finalScore) points on Trivia Trek!! You should give it a try too!"
         
         shareButton.shareContent = content
         shareButton.setTitle("Share your score", for: .normal)
         self.view.addSubview(shareButton)
-        // Do any additional setup after loading the view.
+        
+        let bestScore = UserDefaults.standard.object(forKey: "bestScore") as? Int
+        
+        if bestScore != nil {
+        
+            if bestScore == -1 || self.finalScore < bestScore! {
+            
+                UserDefaults.standard.set(self.finalScore, forKey: "bestScore")
+            
+            }
+        }
+        else {
+            
+            UserDefaults.standard.set(self.finalScore, forKey: "bestScore")
+
+        }
     }
     
     @IBAction func onShareClicked(_ sender: UIButton) {
