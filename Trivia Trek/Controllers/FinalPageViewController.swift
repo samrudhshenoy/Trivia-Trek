@@ -22,11 +22,11 @@ class FinalPageViewController: UIViewController {
         super.viewDidLoad()
         
         if feedBackButton != nil {
-            self.feedBackButton.layer.cornerRadius = 7
+            self.feedBackButton.layer.cornerRadius = 15
         }
         
         if homeButton != nil {
-            self.homeButton.layer.cornerRadius = 7
+            self.homeButton.layer.cornerRadius = 15
         }
         
         let shareButton = FBSDKShareButton(frame: CGRect(x: view.center.x - 75, y: view.center.y * 0.85, width: 150, height: 30))
@@ -106,6 +106,11 @@ class FinalPageViewController: UIViewController {
         }
     }
     
+    @IBAction func returnToHome(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "rewindToHome", sender: self)
+        
+    }
     
     /*
      // MARK: - Navigation

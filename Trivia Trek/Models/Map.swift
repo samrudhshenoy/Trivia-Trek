@@ -9,11 +9,10 @@
 import UIKit
 import SpriteKit
 
-typealias Bounds = (left: Int, right: Int, up: Int, down: Int)
-typealias MoveVector = (x: Int, y: Int)
-
+/// A model class representing a map course in Trivia Trek
 class Map {
 
+    /// The two possible types of maps
     enum MapType: Int {
         
         case normal = 0
@@ -30,42 +29,25 @@ class Map {
     /// An array of tile nodes representing the map path
     var path: [Tile]
     
-    /// An array of decorative nodes representing the map decorations
-    var decorations: [SKSpriteNode]
-    
     /// A property representing the type of map
     var type: MapType
     
-    /**
-     Initializes a new map with given MapType
-     
-     - Parameters:
-     - type: Declared type of map
-     */
+    /// Initializes a new map with given MapType
     init(type: MapType = .normal) {
         
         self.path = []
-        self.decorations = []
         self.type = type
         
     }
     
-    /**
-     Initializes a new game with given maximum turns, player object, and background image
-     
-     - Parameters:
-     - type: MapType considered when calculating precise coordinates
-     
-     - Returns:
-     - The entire map represented as a series of coordinates
-     
-     */
+    /// Initializes and returns a new instance of the default map, as loaded from the appropriate asset
     static func defaultMap(type: MapType) -> Map {
         
         let defaultMap = Map(type: type)
         
         var tilePos: CGPoint
         
+        /// Use the appropriate starting coordinate
         if type == .normal {
             
             tilePos = CGPoint(x: 60, y: 56)
@@ -77,10 +59,11 @@ class Map {
 
         }
         
+        /// Add the first tile
         var tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
         defaultMap.path.append(tile)
         
-        /// 3 up
+        /// Add 3 tiles up
         for _ in 0..<3 {
             
             tilePos.y += 36
@@ -89,7 +72,7 @@ class Map {
             
         }
         
-        /// 2 right
+        /// Add 2 tiles right
         for _ in 0..<2 {
             
             tilePos.x += 37
@@ -98,7 +81,7 @@ class Map {
             
         }
         
-        /// 3 up
+        /// Add 3 tiles up
         for _ in 0..<3 {
             
             tilePos.y += 36
@@ -107,7 +90,7 @@ class Map {
             
         }
         
-        /// 2 left
+        /// Add 2 tiles left
         for _ in 0..<2 {
             
             tilePos.x -= 37
@@ -116,7 +99,7 @@ class Map {
             
         }
         
-        /// 5 up
+        /// Add 5 tiles up
         for _ in 0..<5 {
             
             tilePos.y += 36
@@ -125,12 +108,12 @@ class Map {
             
         }
         
-        /// 1 right
+        /// Add 1 tile right
         tilePos.x += 37
         tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
         defaultMap.path.append(tile)
         
-        /// 3 up
+        /// Add 3 tiles up
         for _ in 0..<3 {
             
             tilePos.y += 35
@@ -139,7 +122,7 @@ class Map {
             
         }
         
-        /// 4 right
+        /// Add 4 tiles right
         for _ in 0..<4 {
             
             tilePos.x += 37
@@ -148,7 +131,7 @@ class Map {
             
         }
         
-        /// 3 down
+        /// Add 3 tiles down
         for _ in 0..<3 {
             
             tilePos.y -= 36
@@ -157,12 +140,12 @@ class Map {
             
         }
         
-        /// 1 right
+        /// Add 1 tile right
         tilePos.x += 37
         tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
         defaultMap.path.append(tile)
         
-        /// 11 down
+        /// Add 6 tiles down
         for _ in 0..<6 {
             
             tilePos.y -= 36
@@ -171,6 +154,7 @@ class Map {
             
         }
         
+        /// Add 5 additional tiles down
         for _ in 0..<5 {
             
             tilePos.y -= 35
@@ -183,6 +167,7 @@ class Map {
         
     }
     
+    /// Switch the map type, adjusting the position of its path accordingly
     func toggleType() {
         
         switch self.type {

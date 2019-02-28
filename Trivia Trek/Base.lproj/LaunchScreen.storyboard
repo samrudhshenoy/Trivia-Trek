@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchscreenicon" translatesAutoresizingMaskIntoConstraints="NO" id="3vn-bL-Gx7">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TriviaTrekShoe" translatesAutoresizingMaskIntoConstraints="NO" id="3vn-bL-Gx7">
                                 <rect key="frame" x="61" y="207" width="253" height="253.5"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trivia Trek" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUl-z2-3t7">
@@ -64,6 +64,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launchscreenicon" width="1186.5" height="1183.5"/>
+        <image name="TriviaTrekShoe" width="1440" height="1194"/>
     </resources>
 </document>

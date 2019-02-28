@@ -27,8 +27,8 @@ class BugReportViewController: UIViewController, UITextViewDelegate {
         self.textField.resignFirstResponder()
         self.textField.delegate = self
         
-        self.submitButton.layer.cornerRadius = 7
-        self.cancelButton.layer.cornerRadius = 7
+        self.submitButton.layer.cornerRadius = 15
+        self.cancelButton.layer.cornerRadius = 15
         
     }
     

@@ -10,6 +10,7 @@ import UIKit
 
 class HelpFinalPageViewController: UIViewController {
     
+    /// The button to return to the home screen
     @IBOutlet weak var letsGo: UIButton!
     
     @IBOutlet weak var instructions: UIButton!
@@ -17,9 +18,9 @@ class HelpFinalPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.letsGo.layer.cornerRadius = 7
+        self.letsGo.layer.cornerRadius = 15
         
-        self.instructions.layer.cornerRadius = 7
+        self.instructions.layer.cornerRadius = 15
 
         // Do any additional setup after loading the view.
     }
@@ -30,6 +31,12 @@ class HelpFinalPageViewController: UIViewController {
         self.performSegue(withIdentifier: "rewindToHome", sender: self)
         
     }
+    
+    @IBAction func closeInstructions(segue: UIStoryboardSegue) {
+        
+        
+    }
+    
     /*
     // MARK: - Navigation
 

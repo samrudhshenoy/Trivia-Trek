@@ -40,18 +40,18 @@ class QuestionViewController: UIViewController {
         self.questionLabel.text = question.text
         
         self.firstChoiceButton.setTitle(question.answers[0], for: .normal)
-        self.firstChoiceButton.layer.cornerRadius = 7
+        self.firstChoiceButton.layer.cornerRadius = 15
         
         self.secondChoiceButton.setTitle(question.answers[1], for: .normal)
-        self.secondChoiceButton.layer.cornerRadius = 7
+        self.secondChoiceButton.layer.cornerRadius = 15
         
         self.thirdChoiceButton.setTitle(question.answers[2], for: .normal)
-        self.thirdChoiceButton.layer.cornerRadius = 7
+        self.thirdChoiceButton.layer.cornerRadius = 15
         
         self.fourthChoiceButton.setTitle(question.answers[3], for: .normal)
-        self.fourthChoiceButton.layer.cornerRadius = 7
+        self.fourthChoiceButton.layer.cornerRadius = 15
         
-        self.doneButton.layer.cornerRadius = 7
+        self.doneButton.layer.cornerRadius = 15
         self.doneButton.alpha = 0
         
     }

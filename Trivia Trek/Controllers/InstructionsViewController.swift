@@ -19,38 +19,15 @@ class InstructionsViewController: UIViewController, UIScrollViewDelegate {
         
         if text != nil {
             text.clipsToBounds = true
-            text.layer.cornerRadius = 15
         }
         
-        self.backButton.layer.cornerRadius = 7
+        self.backButton.layer.cornerRadius = 15
         
     }
-    
-    
-//    func setupGestureRecognizer() {
-//        let doubleTap = UITapGestureRecognizer(target: self, action: "handleDoubleTap:")
-//        doubleTap.numberOfTapsRequired = 2
-//        scrollView.addGestureRecognizer(doubleTap)
-//    }
-//
-//    func handleDoubleTap(recognizer: UITapGestureRecognizer) {
-//
-//        if (scrollView.zoomScale > scrollView.minimumZoomScale) {
-//            scrollView.setZoomScale(scrollView.minimumZoomScale, animated: true)
-//        } else {
-//            scrollView.setZoomScale(scrollView.maximumZoomScale, animated: true)
-//        }
-//    }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+
+    @IBAction func returnToHelp(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "close", sender: self)
+        
+    }
 }

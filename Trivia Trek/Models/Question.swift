@@ -9,12 +9,10 @@
 import UIKit
 import CloudKit
 
-/**
- Serves as a singular question in the game, with an array of answers,
- three of which are wrong, and one of which is correct
-*/
+/// A model class for a Trivia Trek question
 class Question: NSObject {
 
+    /// All possible categories of questions
     enum Category: String {
         
         case officers = "Officers"
@@ -24,29 +22,22 @@ class Question: NSObject {
         
     }
     
-    // Question (stored as a String)
+    /// Question (stored as a String)
     var text: String
     
-    // Array of answers which belong to a question
+    /// Array of answers which belong to a question
     var answers: [String]
     
-    // Array index of correct answer
+    /// Array index of correct answer
     var correctAnswer: Int
     
-    // Question category, according to the specified enum
+    /// Question category, according to the specified enum
     var category: Category?
     
-    // The question's unique ID in the database
+    /// The question's unique ID in the database
     var id: CKRecord.ID
     
-    /**
-     Initializes a new Question with text, answers, and correct answer given
-     
-     - Parameters:
-     - text: The stored text of the question
-     - answers: The array of answers which belong to a question
-     - correctAnswer: Index of 'answers' which contains the correct answer
-     */
+    /// Initializes a new Question with text, answers, and correct answer given
     init(text: String, answers: [String], correctAnswer: Int, category: Category?, id: CKRecord.ID) {
         
         self.text = text
@@ -57,12 +48,7 @@ class Question: NSObject {
         
     }
     
-    /**
-     Initializes a new Question with information given in a CloudKit Record
-     
-     - Parameters:
-     - CKRecord: The CloudKit Record in which the data is stored
-     */
+    /// Initializes a new Question with information given in a CloudKit Record
     init(fromRecord record: CKRecord) {
         
         self.text = record.object(forKey: "text") as! String

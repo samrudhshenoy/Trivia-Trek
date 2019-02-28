@@ -29,12 +29,12 @@ class BoardViewController: UIViewController {
         
         super.viewDidLoad()
         
-        self.quit.layer.cornerRadius = 7
-        self.ready.layer.cornerRadius = 7
+        self.quit.layer.cornerRadius = 15
+        self.ready.layer.cornerRadius = 15
         
         self.currentTime = 0
         self.game!.initBackground(size: self.board.bounds.size)
-        self.game!.setupSprites()
+        self.game!.addPlayerSprite()
         self.board.presentScene(self.game)
         self.turn.adjustsFontSizeToFitWidth = true
         self.highScoreLabel.adjustsFontSizeToFitWidth = true
