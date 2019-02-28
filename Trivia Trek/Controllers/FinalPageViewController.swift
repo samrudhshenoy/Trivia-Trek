@@ -113,5 +113,10 @@ class FinalPageViewController: UIViewController {
         }
     }
     
+    @IBAction func retutnToTitle(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "rewindToHome", sender: self)
+        
+    }
     
 }

@@ -36,8 +36,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchscreenicon" translatesAutoresizingMaskIntoConstraints="NO" id="3vn-bL-Gx7">
-                                <rect key="frame" x="52" y="206" width="271" height="254.5"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TriviaTrekShoe" translatesAutoresizingMaskIntoConstraints="NO" id="3vn-bL-Gx7">
+                                <rect key="frame" x="45" y="206" width="285" height="255"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.80392156859999997" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -49,9 +49,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Cc1-Kc-8ad" secondAttribute="bottom" constant="155.5" id="I0g-nW-qbs"/>
                             <constraint firstItem="Cc1-Kc-8ad" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Pcn-ts-cig"/>
                             <constraint firstItem="Cc1-Kc-8ad" firstAttribute="top" secondItem="3vn-bL-Gx7" secondAttribute="bottom" constant="28" id="QC8-lv-fca"/>
-                            <constraint firstItem="3vn-bL-Gx7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="52" id="Uqg-vO-lMY"/>
+                            <constraint firstItem="3vn-bL-Gx7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="45" id="Uqg-vO-lMY"/>
                             <constraint firstItem="3vn-bL-Gx7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="fBn-Eh-oJ7"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3vn-bL-Gx7" secondAttribute="trailing" constant="52" id="fYq-8q-ZvK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3vn-bL-Gx7" secondAttribute="trailing" constant="45" id="fYq-8q-ZvK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Cc1-Kc-8ad" secondAttribute="trailing" constant="16" id="gIt-u3-msN"/>
                             <constraint firstItem="3vn-bL-Gx7" firstAttribute="top" secondItem="lUl-z2-3t7" secondAttribute="bottom" constant="30" id="lda-ua-OgT"/>
                         </constraints>
@@ -64,6 +64,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launchscreenicon" width="1186.5" height="1183.5"/>
+        <image name="TriviaTrekShoe" width="1440" height="1194"/>
     </resources>
 </document>

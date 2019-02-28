@@ -728,7 +728,6 @@
                         <constraints>
                             <constraint firstItem="VeR-5b-z7d" firstAttribute="centerX" secondItem="bN3-iS-kDQ" secondAttribute="centerX" id="6hM-P5-YoZ"/>
                             <constraint firstItem="bN3-iS-kDQ" firstAttribute="bottom" secondItem="EFk-e8-s22" secondAttribute="bottom" constant="10" id="7xB-fn-7yd"/>
-                            <constraint firstItem="sy8-2T-ri7" firstAttribute="top" secondItem="VeR-5b-z7d" secondAttribute="bottom" constant="63" id="94s-Ss-NUT"/>
                             <constraint firstItem="nQc-Iz-lsu" firstAttribute="top" secondItem="bN3-iS-kDQ" secondAttribute="top" constant="352" id="Acq-XQ-jN5"/>
                             <constraint firstItem="VeR-5b-z7d" firstAttribute="top" secondItem="nQc-Iz-lsu" secondAttribute="bottom" constant="50" id="Dtb-3f-Ve4"/>
                             <constraint firstItem="sy8-2T-ri7" firstAttribute="centerX" secondItem="bN3-iS-kDQ" secondAttribute="centerX" id="GMr-hJ-DdZ"/>
@@ -1133,9 +1132,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="miT-Rc-EUv" kind="popoverPresentation" popoverAnchorView="Zly-TO-huL" id="5CF-wT-xFp">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <action selector="retutnToTitle:" destination="OvD-cP-VMb" eventType="touchUpInside" id="gKD-QT-8QU"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Win!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q6N-vS-H8L">
@@ -1190,7 +1187,7 @@
                         <outlet property="feedBackButton" destination="Kt8-st-gtY" id="vbb-6V-x1k"/>
                         <outlet property="homeButton" destination="Zly-TO-huL" id="zeO-ft-hWz"/>
                         <outlet property="message" destination="ICU-rq-rel" id="VUP-Kz-rWk"/>
-                        <segue destination="Qge-d7-vlW" kind="unwind" unwindAction="rewindToHomeWithSegue:" id="Je7-Bx-fOc"/>
+                        <segue destination="Qge-d7-vlW" kind="unwind" identifier="rewindToHome" unwindAction="rewindToHomeWithSegue:" id="Je7-Bx-fOc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rjD-Jn-Vi4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1227,7 +1224,6 @@
         <image name="videogameicon" width="2000" height="2000"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5CF-wT-xFp"/>
         <segue reference="zaD-g3-GhT"/>
     </inferredMetricsTieBreakers>
 </document>
