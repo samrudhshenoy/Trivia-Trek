@@ -23,9 +23,6 @@ class TitleViewController: UIViewController {
     @IBOutlet weak var highScoreLabel: UILabel!
     @IBOutlet weak var avatarButton: UIButton!
     @IBOutlet weak var avatarPicker: UIView!
-
-    @IBOutlet weak var loginButton: FBSDKLoginButton!
-    @IBOutlet weak var scLoginButton: UIButton!
     
     var player: Player = Player()
     var avatarPickerShowing: Bool = false
@@ -38,28 +35,28 @@ class TitleViewController: UIViewController {
         super.viewDidLoad()
         
         self.playButton.layer.cornerRadius = 15
-        self.playButton.layer.borderWidth = 3
-        self.playButton.layer.borderColor = self.goldColor
         
 //        self.scoreHistoryButton.layer.cornerRadius = 15
 //        self.scoreHistoryButton.layer.borderWidth = 3
 //        self.scoreHistoryButton.layer.borderColor = self.goldColor
         
         self.helpButton.layer.cornerRadius = 15
-        self.helpButton.layer.borderWidth = 3
-        self.helpButton.layer.borderColor = self.goldColor
         
         self.reportBug.layer.cornerRadius = 15
-        self.reportBug.layer.borderWidth = 2
-        self.reportBug.layer.borderColor = self.goldColor
-        
-        let loginButton = FBSDKLoginButton(frame: CGRect(x: 170, y: 573, width: 90, height: 30))
         
         self.avatarPicker.alpha = 0
-        
-        
-        view.addSubview(loginButton)
-        
+    
+        if UserDefaults.standard.hasObject(forKey: "bestScore") {
+            
+            let score = UserDefaults.standard.object(forKey: "bestScore") as! Int
+            self.highScoreLabel.text = "Best Score: \(score == -1 ? "N/A" : "\(score)")"
+            
+        }
+        else {
+            
+            self.highScoreLabel.text = "Best Score: N/A"
+
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -103,90 +100,6 @@ class TitleViewController: UIViewController {
         self.avatarPickerShowing = !self.avatarPickerShowing
 
     }
-    
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        print("User Logged In")
-        if ((error) != nil)
-        {
-            // Process error
-        }
-        else if result.isCancelled {
-            // Handle cancellations
-        }
-        else {
-            // If you ask for multiple permissions at once, you
-            // should check if specific permissions missing
-            if result.grantedPermissions.contains("public_profile")
-            {
-                // Do work
-            }
-        }
-    }
-    
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        print("User Logged Out")
-    }
-    
-    func downloadBitmojiAvatar() {
-        
-        SCSDKBitmojiClient.fetchAvatarURL(completion: { avatarUrl, error in
-            
-//            print("fetched bitmoji avatar")
-//            if error != nil {
-//
-//                print("\(error?.localizedDescription ?? "none")")
-//            }
-//            else {
-//
-//                let url = URL(string: avatarUrl!)
-//                let avatarData = try? Data(contentsOf: url!)
-//
-//                if avatarData != nil {
-//
-//                    self.avatar = UIImage(data: avatarData!)
-//
-//                }
-//
-//                self.avatarButton.imageView?.image = self.avatar
-//
-//            }
-        })
-        
-    }
-    
-    @IBAction func showScLogin(_ sender: Any) {
-        
-        SCSDKLoginClient.login(from: self, completion: { success, error in
-
-            print("hi") 
-            if error != nil {
-                
-                print("\(error?.localizedDescription ?? "none")")
-            }
-
-            if success {
-                
-                self.downloadBitmojiAvatar()
-                
-            }
-        })
-        
-    }
-    
-//    @IBAction func showAvatarPicker(_ sender: Any) {
-//        
-////        UIView.animate(withDuration: 0.7, animations: {
-////            self.avatarPicker.alpha = 1
-////        })
-//        
-//        let avatarVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "avatarVC")
-//        self.addChild(avatarVC)
-//        avatarVC.view.frame = self.view.frame
-//        self.view.addSubview(avatarVC.view)
-//        avatarVC.didMove(toParent: self)
-//        
-//        
-//    }
     
     @IBAction func rewindToHome(segue: UIStoryboardSegue) {
         

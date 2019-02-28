@@ -20,8 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func initSettings() {
         
+        if !UserDefaults.standard.hasObject(forKey: "bestScore") {
+            UserDefaults.standard.set(-1, forKey: "bestScore")
+        }
+        
         if !UserDefaults.standard.hasObject(forKey: "avatar") {
-            UserDefaults.standard.set("avatar-sample", forKey: "avatar")
+            UserDefaults.standard.set("cpupicmale", forKey: "avatar")
         }
         
     }

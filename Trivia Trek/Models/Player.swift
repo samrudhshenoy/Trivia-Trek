@@ -35,19 +35,26 @@ class Player {
     
     func getAvatar() -> UIImage {
         
-        let path = UserDefaults.standard.object(forKey: "avatar") as! String
+        var path = UserDefaults.standard.object(forKey: "avatar") as? String
+        
+        if path == nil {
+            
+            path = "cpupicmale"
+            
+        }
+        
         var img: UIImage
         
-        if path.starts(with: "@") {
+        if path!.starts(with: "@") {
             
-            let url = URL(string: String(path[path.index(path.startIndex, offsetBy: 1)..<path.endIndex]))
+            let url = URL(string: String(path![path!.index(path!.startIndex, offsetBy: 1)..<path!.endIndex]))
             let data = try? Data(contentsOf: url!)
             img = UIImage(data: data!)!
             
         }
         else {
             
-            img = UIImage(named: path)!
+            img = UIImage(named: path!)!
             
         }
         

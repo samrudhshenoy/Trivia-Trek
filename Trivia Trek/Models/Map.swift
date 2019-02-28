@@ -64,7 +64,19 @@ class Map {
         
         let defaultMap = Map(type: type)
         
-        var tilePos = CGPoint(x: 60, y: 56)
+        var tilePos: CGPoint
+        
+        if type == .normal {
+            
+            tilePos = CGPoint(x: 60, y: 56)
+
+        }
+        else {
+            
+            tilePos = CGPoint(x: 57, y: 56)
+
+        }
+        
         var tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
         defaultMap.path.append(tile)
         

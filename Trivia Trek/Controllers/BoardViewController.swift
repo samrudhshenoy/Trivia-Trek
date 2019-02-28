@@ -16,6 +16,7 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var quit: UIButton!
     @IBOutlet weak var score: UILabel!
     @IBOutlet weak var ready: UIButton!
+    @IBOutlet weak var bannerView: UIView!
     
     var game: Board?
     var isPaused: Bool = false
@@ -35,6 +36,9 @@ class BoardViewController: UIViewController {
         self.game!.setupSprites()
         self.board.presentScene(self.game)
         
+        self.view.bringSubviewToFront(self.ready)
+        self.view.bringSubviewToFront(self.turn)
+        
     }
     
     
@@ -47,7 +51,8 @@ class BoardViewController: UIViewController {
         self.turn.text = "Turn \(self.game!.turnsTaken)"
         
         // show appropriate ui for turn intro
-        self.ready.alpha = 0.8
+        self.bannerView.alpha = 0.7
+        self.ready.alpha = 1
         self.ready.isEnabled = true
         self.turn.alpha = 1
         self.turn.text = "Turn \(self.game!.turnsTaken + 1)"
@@ -152,6 +157,7 @@ class BoardViewController: UIViewController {
             self.turn.alpha = 0
             self.ready.alpha = 0
             self.ready.isEnabled = false
+            self.bannerView.alpha = 0
         })
         
     }
