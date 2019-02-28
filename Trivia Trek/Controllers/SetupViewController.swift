@@ -72,8 +72,8 @@ class SetupViewController: UIViewController {
         
         self.mapImageView.image! = self.mapImages[self.currentMap]
         self.mapLabel.text! = "Map: \(self.mapNames[self.currentMap])"
-        self.game.toggleMapType()
-
+        self.game.map.type = Map.MapType(rawValue: self.currentMap)!
+        
     }
     
     @IBAction func moveMapRight(_ sender: Any) {
@@ -91,8 +91,8 @@ class SetupViewController: UIViewController {
         
         self.mapImageView.image! = self.mapImages[self.currentMap]
         self.mapLabel.text! = "Map: \(self.mapNames[self.currentMap])"
-        self.game.toggleMapType()
-
+        self.game.map.type = Map.MapType(rawValue: self.currentMap)!
+        
     }
     
     @IBAction func cancelButtonClicked(_ sender: Any) {

@@ -22,11 +22,11 @@ class FinalPageViewController: UIViewController {
         super.viewDidLoad()
         
         if feedBackButton != nil {
-            self.feedBackButton.layer.cornerRadius = 15
+            self.feedBackButton.layer.cornerRadius = 7
         }
         
         if homeButton != nil {
-            self.homeButton.layer.cornerRadius = 15
+            self.homeButton.layer.cornerRadius = 7
         }
         
         let shareButton = FBSDKShareButton(frame: CGRect(x: view.center.x - 75, y: view.center.y * 0.85, width: 150, height: 30))
@@ -40,22 +40,7 @@ class FinalPageViewController: UIViewController {
         shareButton.shareContent = content
         shareButton.setTitle("Share your score", for: .normal)
         self.view.addSubview(shareButton)
-        
-        let bestScore = UserDefaults.standard.object(forKey: "bestScore") as? Int
-        
-        if bestScore != nil {
-        
-            if bestScore == -1 || self.finalScore < bestScore! {
-            
-                UserDefaults.standard.set(self.finalScore, forKey: "bestScore")
-            
-            }
-        }
-        else {
-            
-            UserDefaults.standard.set(self.finalScore, forKey: "bestScore")
-
-        }
+        // Do any additional setup after loading the view.
     }
     
     @IBAction func onShareClicked(_ sender: UIButton) {
@@ -106,11 +91,6 @@ class FinalPageViewController: UIViewController {
         }
     }
     
-    @IBAction func returnToHome(_ sender: Any) {
-        
-        self.performSegue(withIdentifier: "rewindToHome", sender: self)
-        
-    }
     
     /*
      // MARK: - Navigation

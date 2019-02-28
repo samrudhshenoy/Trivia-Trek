@@ -18,10 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /// UIWindow from which the app is displayed from
     var window: UIWindow?
     
-    /// Initialize the local user's settings if it's their first time using the app
     func initSettings() {
         
-        /// Check to see if each setting exists, if not set it to its default value
         if !UserDefaults.standard.hasObject(forKey: "bestScore") {
             UserDefaults.standard.set(-1, forKey: "bestScore")
         }
@@ -82,7 +80,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension UserDefaults {
     
-    /// Convenience method to check whether or not the object at a certain key exists
     func hasObject(forKey key: String) -> Bool {
         return self.object(forKey: key) != nil
     }

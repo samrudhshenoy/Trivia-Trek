@@ -31,7 +31,15 @@ class Board: SKScene {
     
     var streak: Double
     
-    /// Initializes a new game with given maximum turns, player object, and background image
+    /**
+     Initializes a new game with given maximum turns, player object, and background image
+     
+     - Parameters:
+     - maxTurns: The maximum number of turns the player has opted for
+     - player: The player object to be stored in the program
+     - map: The background image of the map
+     
+     */
     init(maxTurns: Int, player: Player, mapType: Map.MapType) {
         self.maxTurns = maxTurns
         self.player = player
@@ -39,17 +47,15 @@ class Board: SKScene {
         self.map = Map.defaultMap(type: .normal)
         self.streak = 0
         
-        /// Initialize the SKScene superclass
         super.init()
         
-        /// Set the scaling to fill the view
         self.scaleMode = .fill
         
-        /// Download the questions from the database
+        self.backgroundColor = Map.mapBackgrounds[mapType.rawValue]
+
         self.loadQuestions()
     }
     
-    /// Initializes a new game with given size and default game properties
     override init(size: CGSize) {
         
         self.maxTurns = 0
@@ -58,10 +64,10 @@ class Board: SKScene {
         self.map = Map.defaultMap(type: .normal)
         self.streak = 0
 
-        /// Initialize the SKScene superclass
         super.init(size: size)
         
-        /// Download the questions from the database
+        self.backgroundColor = Map.mapBackgrounds[Map.MapType.normal.rawValue]
+        
         self.loadQuestions()
         
     }
@@ -70,26 +76,24 @@ class Board: SKScene {
         fatalError("init(coder:) has not been implemented")
     }
     
-    /// Loads the question data from the CloudKit database
+    /**
+     Loads all the questions from the online database into the Questions array.
+     Prints error description in the console if query fails
+     */
     func loadQuestions() {
         
-        /// Initialize the database
         let database = CKContainer.default().publicCloudDatabase
 
-        /// Formulate the query
         let query = CKQuery(recordType: "Question", predicate: NSPredicate(value: true))
 
-        /// Perform the query
         database.perform(query, inZoneWith: nil, completionHandler: { questions, error in
             if error != nil {
 
-                /// Print the error to the console if query fails
                 print("Query failed with error \(error?.localizedDescription ?? "none")")
 
             }
             else {
 
-                /// Add each question to the game's question array
                 for questionRecord in questions! {
 
                     let queue = DispatchQueue(label: "questionQuery")
@@ -109,17 +113,33 @@ class Board: SKScene {
         
     }
     
-    /// Add the player sprite to the scene
-    func addPlayerSprite() {
+    func setupSprites() {
         
         if self.player.sprite.parent == nil {
             self.player.sprite.position = self.map.path[self.player.pos].sprite.position
             self.addChild(self.player.sprite)
         }
-    
+        
+//        for tile in self.map.path {
+//
+//            if tile.sprite.parent == nil {
+//                self.addChild(tile.sprite)
+//            }
+//
+//        }
+//
+//        for decoration in self.map.decorations {
+//
+//            if decoration.parent == nil {
+//                self.addChild(decoration)
+//            }
+//
+//        }
+//
+//        print(self.map.path.count)
+        
     }
     
-    /// Add the map background image to the scene
     func initBackground(size: CGSize) {
         
         self.size = size
@@ -133,11 +153,43 @@ class Board: SKScene {
         
     }
     
-    /// Change the map type and adjust player position accordingly
-    func toggleMapType() {
+    /**
+        Initializes the setup of the game, and executes basic game functions
+     */
+    func start() {
         
-        self.map.toggleType()
-        self.player.sprite.position = self.map.path[0].sprite.position
+        while self.turnsTaken <= self.maxTurns {
+            
+            /*
+             - roll dice
+                - show moving number node thing, fast forward through number set behind the scenes
+                - when user hits roll button, choose current number -> that's user's roll
+                - multiply by answer streak multiplier thing
+             - move one tile at a time
+            */
+            
+        }
+        
+    }
+    
+    /**
+     Serves as a player's or CPU's turn taken
+     */
+    func takeTurn() {
+        
+        /*
+         Game flow (main loop pseudocode):
+         - roll dice (or other do movement decision thing)
+         - move
+            - do any actions necessary while moving (depending on spaces hit, etc)
+            - do final action for space landed on if any
+         - pull up minigame screen
+            - choose random minigame to do (maybe animate choice screen)
+            - do minigame
+            - update game state based on results
+         - continue to next turn
+         */
+        
     }
     
 }

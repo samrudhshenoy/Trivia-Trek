@@ -17,6 +17,7 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var secondChoiceButton: UIButton!
     @IBOutlet weak var thirdChoiceButton: UIButton!
     @IBOutlet weak var fourthChoiceButton: UIButton!
+    @IBOutlet weak var streakLabel: UILabel!
     
     @IBOutlet weak var doneButton: UIButton!
     
@@ -32,6 +33,8 @@ class QuestionViewController: UIViewController {
         self.secondChoiceButton.titleLabel?.adjustsFontSizeToFitWidth = true
         self.thirdChoiceButton.titleLabel?.adjustsFontSizeToFitWidth = true
         self.fourthChoiceButton.titleLabel?.adjustsFontSizeToFitWidth = true
+
+        self.streakLabel.alpha = 0
         
         // get random question from game
         self.questionIndex = Int.random(in: 0..<self.game!.questions.count)
@@ -40,18 +43,18 @@ class QuestionViewController: UIViewController {
         self.questionLabel.text = question.text
         
         self.firstChoiceButton.setTitle(question.answers[0], for: .normal)
-        self.firstChoiceButton.layer.cornerRadius = 15
+        self.firstChoiceButton.layer.cornerRadius = 7
         
         self.secondChoiceButton.setTitle(question.answers[1], for: .normal)
-        self.secondChoiceButton.layer.cornerRadius = 15
+        self.secondChoiceButton.layer.cornerRadius = 7
         
         self.thirdChoiceButton.setTitle(question.answers[2], for: .normal)
-        self.thirdChoiceButton.layer.cornerRadius = 15
+        self.thirdChoiceButton.layer.cornerRadius = 7
         
         self.fourthChoiceButton.setTitle(question.answers[3], for: .normal)
-        self.fourthChoiceButton.layer.cornerRadius = 15
+        self.fourthChoiceButton.layer.cornerRadius = 7
         
-        self.doneButton.layer.cornerRadius = 15
+        self.doneButton.layer.cornerRadius = 7
         self.doneButton.alpha = 0
         
     }
@@ -71,6 +74,8 @@ class QuestionViewController: UIViewController {
         
         let correctIndex = self.game!.questions[self.questionIndex].correctAnswer + 1
         
+        self.game!.questions.remove(at: self.questionIndex)
+        
         if choiceButton.tag != correctIndex {
             self.game!.streak = 0
             UIView.animate(withDuration: 0.7, animations: {
@@ -81,6 +86,9 @@ class QuestionViewController: UIViewController {
         else {
             self.game!.streak += 1
         }
+        
+        self.streakLabel.text = "Streak - \(self.game!.streak)"
+        fadeOutStreakLabel()
         
         switch correctIndex {
             
@@ -135,19 +143,21 @@ class QuestionViewController: UIViewController {
         
     }
     
+    func fadeOutStreakLabel() {
+        
+        UIView.animate(withDuration: 1.5, animations: {
+            self.streakLabel.alpha = 0
+        })
+        
+    }
     
+    /*
      // MARK: - Navigation
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.destination is BoardViewController {
-            
-            let boardVC = segue.destination as? BoardViewController
-            boardVC!.game!.questions.remove(at: self.questionIndex)
-            boardVC!.nextMove()
-            
-        }
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
      }
-    
+     */
     
 }

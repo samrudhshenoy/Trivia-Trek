@@ -17,7 +17,7 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var score: UILabel!
     @IBOutlet weak var ready: UIButton!
     @IBOutlet weak var bannerView: UIView!
-    @IBOutlet weak var highScoreLabel: UILabel!
+    @IBOutlet weak var streak: UILabel!
     
     var game: Board?
     var isPaused: Bool = false
@@ -29,19 +29,15 @@ class BoardViewController: UIViewController {
         
         super.viewDidLoad()
         
-        self.quit.layer.cornerRadius = 15
-        self.ready.layer.cornerRadius = 15
+        self.quit.layer.cornerRadius = 7
+        self.ready.layer.cornerRadius = 7
         
         self.currentTime = 0
         self.game!.initBackground(size: self.board.bounds.size)
-        self.game!.addPlayerSprite()
+        self.game!.setupSprites()
         self.board.presentScene(self.game)
         self.turn.adjustsFontSizeToFitWidth = true
-        self.highScoreLabel.adjustsFontSizeToFitWidth = true
-        
-        let score = UserDefaults.standard.integer(forKey: "bestScore")
-        self.highScoreLabel.text = "Best Score: \(score == -1 ? "N/A" : "\(score)")"
-        self.score.adjustsFontSizeToFitWidth = true
+        self.streak.adjustsFontSizeToFitWidth = true
         
         self.view.bringSubviewToFront(self.ready)
         self.view.bringSubviewToFront(self.turn)
@@ -53,49 +49,63 @@ class BoardViewController: UIViewController {
         
         super.viewDidAppear(animated)
         
+        // show turn label
+        self.turn.alpha = 1
+        self.turn.text = "Turn \(self.game!.turnsTaken)"
+        
+        // show appropriate ui for turn intro
+        self.bannerView.alpha = 0.7
+        self.ready.alpha = 1
+        self.ready.isEnabled = true
+        self.turn.alpha = 1
+        self.turn.text = "Turn \(self.game!.turnsTaken + 1)"
+        
+        self.streak.text = "Streak: \(Int(self.game!.streak))"
+        self.score.text = "Score: \(self.game!.turnsTaken)"
+        
     }
     
-    func nextMove() {
+    func takeTurn() {
         
-        var mvmtChain: SKAction
-        var movements: [SKAction] = []
-        var numberOfSpaces = Int(self.game!.streak / 2.0 + 0.5)
-        
-        if self.game!.player.pos + numberOfSpaces > self.game!.map.path.count - 1 {
-            numberOfSpaces = self.game!.map.path.count - self.game!.player.pos - 1
-        }
-        
-        for _ in 0..<numberOfSpaces {
+        if self.game!.streak > 0 {
             
-            let nextTile = self.game!.map.path[self.game!.player.pos + 1]
-            let movement = SKAction.move(to: nextTile.sprite.position, duration: 1.0)
-            movements.append(movement)
-            self.game!.player.pos += 1
+            var mvmtChain: SKAction
+            var movements: [SKAction] = []
+            var numberOfSpaces = Int(self.game!.streak / 2.0 + 0.5)
             
-        }
-        
-        if movements.count > 0 {
+            if self.game!.player.pos + numberOfSpaces > self.game!.map.path.count - 1 {
+                numberOfSpaces = self.game!.map.path.count - self.game!.player.pos - 1
+            }
+            
+            for _ in 0..<numberOfSpaces {
+                
+                let nextTile = self.game!.map.path[self.game!.player.pos + 1]
+                let movement = SKAction.move(to: nextTile.sprite.position, duration: 1.0)
+                movements.append(movement)
+                self.game!.player.pos += 1
+                
+            }
             
             mvmtChain = SKAction.sequence(movements)
             
-            if self.game!.player.pos >= self.game!.map.path.count - 1 {
+            if (self.game?.player.pos)! >= (self.game?.map.path.count)! - 1 {
                 
                 self.game!.player.sprite.run(mvmtChain, completion: self.finishGame)
                 
             }
             else {
                 
-                self.game!.player.sprite.run(mvmtChain, completion: self.fadeInTurnIntro)
+                self.game!.player.sprite.run(mvmtChain, completion: self.askQuestion)
                 
             }
+            
             
         }
         else {
             
-            self.fadeInTurnIntro()
+            self.askQuestion()
             
         }
-        
         
     }
     
@@ -106,14 +116,20 @@ class BoardViewController: UIViewController {
         })
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: self.currentTurn!)
-        
     }
     
     func finishGame() {
         
+        self.writeScoreToPlist()
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5, execute: {
             self.performSegue(withIdentifier: "showFinalScreen", sender: self)
         })
+        
+    }
+    
+    func writeScoreToPlist() {
+        
         
     }
     
@@ -124,28 +140,16 @@ class BoardViewController: UIViewController {
             questionController?.game = self.game
             
         }
-        else if segue.destination is FinalPageViewController {
-            
-            let finalScreen = segue.destination as? FinalPageViewController
-            finalScreen?.finalScore = self.game!.turnsTaken
-            
-        }
-        
     }
     
     func fadeInTurnIntro() {
-                
-        self.turn.text = "Turn \(self.game!.turnsTaken + 1)"
         
-        self.score.text = "Streak: \(Int(self.game!.streak))"
+        self.turn.alpha = 0
         
         UIView.animate(withDuration: 1.5, animations: {
             self.turn.alpha = 1
-            self.bannerView.alpha = 0.7
-            self.ready.alpha = 1
-            self.ready.isEnabled = true
-            
         })
+        
     }
     
     func fadeOutTurnIntro() {
@@ -190,13 +194,13 @@ class BoardViewController: UIViewController {
     @IBAction func startTurn (_ sender: Any) {
         
         // increment turnsTaken
-        self.game!.turnsTaken += 1
+        self.game?.turnsTaken += 1
         
         // - fade out ui stuff
         self.fadeOutTurnIntro()
         
         // - move player
-        self.askQuestion()
+        self.takeTurn()
         
     }
     
