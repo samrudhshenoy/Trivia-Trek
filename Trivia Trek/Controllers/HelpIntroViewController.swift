@@ -10,32 +10,26 @@ import UIKit
 
 class HelpIntroViewController: UIViewController {
 
+    /// The button to start the tutorial
     @IBOutlet weak var startButton: UIButton!
+    
+    /// The button to quit the tutorial
     @IBOutlet weak var backButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        /// Make the buttons rounded
         self.startButton.layer.cornerRadius = 15
         self.backButton.layer.cornerRadius = 15
         
     }
     
+    /// Return to the title screen if the back button is clicked
     @IBAction func backButtonClicked(_ sender: Any) {
         
         self.performSegue(withIdentifier: "rewindToHome", sender: self)
         
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

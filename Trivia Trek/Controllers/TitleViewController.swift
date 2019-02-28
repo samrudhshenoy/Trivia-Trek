@@ -88,6 +88,7 @@ class TitleViewController: UIViewController {
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        
     }
     
     @IBAction func toggleAvatarPicker(_ sender: Any) {
