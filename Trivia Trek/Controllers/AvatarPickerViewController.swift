@@ -17,11 +17,9 @@ class AvatarPickerViewController: UIViewController, UIImagePickerControllerDeleg
 
     
     @IBOutlet weak var male: UIImageView!
-    @IBOutlet weak var photos: UIImageView!
     @IBOutlet weak var female: UIImageView!
     
     @IBOutlet weak var maleButton: UIButton!
-    @IBOutlet weak var photosButton: UIButton!
     @IBOutlet weak var femaleButton: UIButton!
     
     let imagePicker = UIImagePickerController()
@@ -32,9 +30,7 @@ class AvatarPickerViewController: UIViewController, UIImagePickerControllerDeleg
         super.viewDidLoad()
 
         self.maleButton.layer.cornerRadius = 7
-        self.photosButton.layer.cornerRadius = 7
         self.femaleButton.layer.cornerRadius = 7
-        self.photos.layer.cornerRadius = 30
         
         imagePicker.delegate = self
         
@@ -68,33 +64,6 @@ class AvatarPickerViewController: UIViewController, UIImagePickerControllerDeleg
 //        self.view.removeFromSuperview()
         
     }
-    
-    @IBAction func loadImageButtonTapped(_ sender: UIButton) {
-        imagePicker.allowsEditing = false
-        imagePicker.sourceType = .photoLibrary
-        
-        present(imagePicker, animated: true, completion: nil)
-    }
-    
-
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
-//        self.view.removeFromSuperview()
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            photosButton.contentMode = .scaleAspectFit
-            photos.image = image
-            photos.clipsToBounds = true
-            self.photos.layer.cornerRadius = 44
-            // SET THE IMAGE CALLED 'image'
-        }
-
-//        self.view.removeFromSuperview()
-    }
-    
-   
     
     /*
     // MARK: - Navigation

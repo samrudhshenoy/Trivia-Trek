@@ -16,7 +16,6 @@ import SCSDKBitmojiKit
 class TitleViewController: UIViewController {
 
     @IBOutlet weak var playButton: UIButton!
-//    @IBOutlet weak var scoreHistoryButton: UIButton!
     @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var reportBug: UIButton!
     
@@ -35,10 +34,6 @@ class TitleViewController: UIViewController {
         super.viewDidLoad()
         
         self.playButton.layer.cornerRadius = 15
-        
-//        self.scoreHistoryButton.layer.cornerRadius = 15
-//        self.scoreHistoryButton.layer.borderWidth = 3
-//        self.scoreHistoryButton.layer.borderColor = self.goldColor
         
         self.helpButton.layer.cornerRadius = 15
         

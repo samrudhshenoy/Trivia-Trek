@@ -119,25 +119,7 @@ class Board: SKScene {
             self.player.sprite.position = self.map.path[self.player.pos].sprite.position
             self.addChild(self.player.sprite)
         }
-        
-//        for tile in self.map.path {
-//
-//            if tile.sprite.parent == nil {
-//                self.addChild(tile.sprite)
-//            }
-//
-//        }
-//
-//        for decoration in self.map.decorations {
-//
-//            if decoration.parent == nil {
-//                self.addChild(decoration)
-//            }
-//
-//        }
-//
-//        print(self.map.path.count)
-        
+    
     }
     
     func initBackground(size: CGSize) {
@@ -153,43 +135,12 @@ class Board: SKScene {
         
     }
     
-    /**
-        Initializes the setup of the game, and executes basic game functions
-     */
-    func start() {
-        
-        while self.turnsTaken <= self.maxTurns {
-            
-            /*
-             - roll dice
-                - show moving number node thing, fast forward through number set behind the scenes
-                - when user hits roll button, choose current number -> that's user's roll
-                - multiply by answer streak multiplier thing
-             - move one tile at a time
-            */
-            
-        }
-        
-    }
     
-    /**
-     Serves as a player's or CPU's turn taken
-     */
-    func takeTurn() {
+    func toggleMapType() {
         
-        /*
-         Game flow (main loop pseudocode):
-         - roll dice (or other do movement decision thing)
-         - move
-            - do any actions necessary while moving (depending on spaces hit, etc)
-            - do final action for space landed on if any
-         - pull up minigame screen
-            - choose random minigame to do (maybe animate choice screen)
-            - do minigame
-            - update game state based on results
-         - continue to next turn
-         */
+        self.map.toggleType()
         
+        self.player.sprite.position = self.map.path[0].sprite.position
     }
     
 }

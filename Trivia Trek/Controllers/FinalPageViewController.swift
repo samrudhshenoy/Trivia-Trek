@@ -36,7 +36,22 @@ class FinalPageViewController: UIViewController {
         shareButton.shareContent = content
         shareButton.setTitle("Share your score", for: .normal)
         self.view.addSubview(shareButton)
-        // Do any additional setup after loading the view.
+        
+        let bestScore = UserDefaults.standard.object(forKey: "bestScore") as? Int
+        
+        if bestScore != nil {
+        
+            if bestScore == -1 || self.finalScore < bestScore! {
+            
+                UserDefaults.standard.set(self.finalScore, forKey: "bestScore")
+            
+            }
+        }
+        else {
+            
+            UserDefaults.standard.set(self.finalScore, forKey: "bestScore")
+
+        }
     }
     
     @IBAction func onShareClicked(_ sender: UIButton) {
