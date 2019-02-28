@@ -342,14 +342,14 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxX-HU-9pf">
                                 <rect key="frame" x="19" y="269" width="35.5" height="65"/>
-                                <state key="normal" title="Button" image="left-arrow"/>
+                                <state key="normal" image="left-arrow"/>
                                 <connections>
                                     <action selector="moveMapLeft:" destination="zEc-ou-xD4" eventType="touchUpInside" id="owi-qn-tsu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQd-VD-IBr">
                                 <rect key="frame" x="320.5" y="269" width="34.5" height="65"/>
-                                <state key="normal" title="Button" image="right-arrow"/>
+                                <state key="normal" image="right-arrow"/>
                                 <connections>
                                     <action selector="moveMapRight:" destination="zEc-ou-xD4" eventType="touchUpInside" id="tNS-RA-W0v"/>
                                 </connections>
