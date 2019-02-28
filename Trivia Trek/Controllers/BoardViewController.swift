@@ -13,30 +13,30 @@ class BoardViewController: UIViewController {
     
     /// The main board view
     @IBOutlet weak var board: SKView!
-    
     /// The label displaying the current turn number
     @IBOutlet weak var turn: UILabel!
-    
     /// The button to exit the game
     @IBOutlet weak var quit: UIButton!
-    
-    /// The label displaying the user's current streak
-    @IBOutlet weak var streak: UILabel!
-    
+    /// The label displaying the user's current score
+    @IBOutlet weak var score: UILabel!
     /// The button to start the next turn
     @IBOutlet weak var ready: UIButton!
-    
     /// The turn intro GUI banner
     @IBOutlet weak var bannerView: UIView!
-    
     /// The label displaying the current high score
     @IBOutlet weak var highScoreLabel: UILabel!
+    /// The label displaying the current score
+    @IBOutlet weak var currentScore: UILabel!
     
     /// The game model
     var game: Board?
-    
+    /// Whether the game is paused or not
+    var isPaused: Bool = false
     /// The current turn as an item to run in the DispatchQueue
     var currentTurn: DispatchWorkItem?
+    var currentTime: Double = 0
+    /// The current round
+    var currentRound: Int = 1
     
     override func viewDidLoad() {
         
@@ -45,19 +45,26 @@ class BoardViewController: UIViewController {
         self.quit.layer.cornerRadius = 15
         self.ready.layer.cornerRadius = 15
         
+        self.currentTime = 0
         self.game!.initBackground(size: self.board.bounds.size)
-        self.game!.addPlayerSprite()
+        self.game!.setupSprites()
         self.board.presentScene(self.game)
         self.turn.adjustsFontSizeToFitWidth = true
         self.highScoreLabel.adjustsFontSizeToFitWidth = true
         
-        /// Load the user's best score
         let score = UserDefaults.standard.integer(forKey: "bestScore")
         self.highScoreLabel.text = "High Score: \(score == -1 ? "N/A" : "\(score)")"
-        self.streak.adjustsFontSizeToFitWidth = true
+        self.score.adjustsFontSizeToFitWidth = true
         
         self.view.bringSubviewToFront(self.ready)
         self.view.bringSubviewToFront(self.turn)
+        
+    }
+    
+    /// Signifies when the board screen loads
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(animated)
         
     }
     
@@ -147,7 +154,9 @@ class BoardViewController: UIViewController {
                 
         self.turn.text = "Turn \(self.game!.turnsTaken + 1)"
         
-        self.streak.text = "Streak: \(Int(self.game!.streak))"
+        self.score.text = "Streak: \(Int(self.game!.streak))"
+        
+        self.currentScore.text = "Score: \(self.game!.turnsTaken)"
         
         UIView.animate(withDuration: 1.5, animations: {
             self.turn.alpha = 1

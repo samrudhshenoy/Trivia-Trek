@@ -20,13 +20,13 @@ class HelpFinalPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /// Make buttons bordered
         self.letsGo.layer.cornerRadius = 15
+        
         self.instructions.layer.cornerRadius = 15
 
+        // Do any additional setup after loading the view.
     }
     
-
     /// Returns the user to the title screen after the letsGo button is clicked
     @IBAction func buttonClicked(_ sender: Any) {
         
@@ -36,7 +36,6 @@ class HelpFinalPageViewController: UIViewController {
     
     /// Placeholder function for segue back from instructions page
     @IBAction func closeInstructions(segue: UIStoryboardSegue) {
-        
         
     }
 

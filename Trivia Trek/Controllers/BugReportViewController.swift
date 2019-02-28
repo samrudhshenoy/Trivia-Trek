@@ -63,7 +63,6 @@ class BugReportViewController: UIViewController, UITextViewDelegate {
         self.performSegue(withIdentifier: "rewindToHome", sender: self)
     }
     
-    
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if(text == "\n") {
             self.textField.endEditing(true)

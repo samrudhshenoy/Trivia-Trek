@@ -9,9 +9,11 @@
 import UIKit
 import SpriteKit
 
+typealias Bounds = (left: Int, right: Int, up: Int, down: Int)
+typealias MoveVector = (x: Int, y: Int)
+
 class Map {
 
-    /// The two possible map types
     enum MapType: Int {
         
         case normal = 0
@@ -34,7 +36,12 @@ class Map {
     /// A property representing the type of map
     var type: MapType
     
-    /// Initializes a new map with given MapType
+    /**
+     Initializes a new map with given MapType
+     
+     - Parameters:
+     - type: Declared type of map
+     */
     init(type: MapType = .normal) {
         
         self.path = []
@@ -43,14 +50,22 @@ class Map {
         
     }
     
-    /// Initializes a new game with given maximum turns, player object, and background image
+    /**
+     Initializes a new game with given maximum turns, player object, and background image
+     
+     - Parameters:
+     - type: MapType considered when calculating precise coordinates
+     
+     - Returns:
+     - The entire map represented as a series of coordinates
+     
+     */
     static func defaultMap(type: MapType) -> Map {
         
         let defaultMap = Map(type: type)
         
         var tilePos: CGPoint
         
-        // Set up the initial tile position as necessary
         if type == .normal {
             
             tilePos = CGPoint(x: 60, y: 56)
@@ -65,7 +80,7 @@ class Map {
         var tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
         defaultMap.path.append(tile)
         
-        // Add 3 tiles up
+        /// 3 up
         for _ in 0..<3 {
             
             tilePos.y += 36
@@ -74,7 +89,7 @@ class Map {
             
         }
         
-        // Add 2 tiles right
+        /// 2 right
         for _ in 0..<2 {
             
             tilePos.x += 37
@@ -83,7 +98,7 @@ class Map {
             
         }
         
-        // Add 3 tiles up
+        /// 3 up
         for _ in 0..<3 {
             
             tilePos.y += 36
@@ -92,7 +107,7 @@ class Map {
             
         }
         
-        // Add 2 tiles left
+        /// 2 left
         for _ in 0..<2 {
             
             tilePos.x -= 37
@@ -101,7 +116,7 @@ class Map {
             
         }
         
-        // Add 5 tiles up
+        /// 5 up
         for _ in 0..<5 {
             
             tilePos.y += 36
@@ -110,12 +125,12 @@ class Map {
             
         }
         
-        // Add 1 tile right
+        /// 1 right
         tilePos.x += 37
         tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
         defaultMap.path.append(tile)
         
-        // Add 3 tiles up
+        /// 3 up
         for _ in 0..<3 {
             
             tilePos.y += 35
@@ -124,7 +139,7 @@ class Map {
             
         }
         
-        // Add 4 tiles right
+        /// 4 right
         for _ in 0..<4 {
             
             tilePos.x += 37
@@ -133,7 +148,7 @@ class Map {
             
         }
         
-        // Add 3 tiles down
+        /// 3 down
         for _ in 0..<3 {
             
             tilePos.y -= 36
@@ -142,12 +157,12 @@ class Map {
             
         }
         
-        // Add 1 tile right
+        /// 1 right
         tilePos.x += 37
         tile = Tile(x: Int(tilePos.x), y: Int(tilePos.y))
         defaultMap.path.append(tile)
         
-        // Add 6 tiles down
+        /// 11 down
         for _ in 0..<6 {
             
             tilePos.y -= 36
@@ -156,7 +171,6 @@ class Map {
             
         }
         
-        // Add 5 tiles down
         for _ in 0..<5 {
             
             tilePos.y -= 35

@@ -8,10 +8,13 @@
 
 import UIKit
 
+
+
 class HelpPageViewController: UIPageViewController, UIPageViewControllerDataSource {
 
     /// The pages to display
     var pages: [UIViewController] = []
+    
     
     override func viewDidLoad() {
         
@@ -27,7 +30,6 @@ class HelpPageViewController: UIPageViewController, UIPageViewControllerDataSour
         self.setViewControllers([self.pages[0]], direction: .forward, animated: true, completion: nil)
         
     }
-    
     /// Find the page to the left of the current one, if it exists
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         

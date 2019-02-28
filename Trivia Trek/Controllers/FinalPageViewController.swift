@@ -14,13 +14,10 @@ class FinalPageViewController: UIViewController {
     
     /// Share button, where the user can share their experience to Facebook
     @IBOutlet weak var shareButton: FBSDKShareButton!
-    
     /// Button which allows the user to submit feedback
     @IBOutlet weak var feedBackButton: UIButton!
-    
     /// Returns the user to the home page
     @IBOutlet weak var homeButton: UIButton!
-    
     /// Tells the user how many points they had scored in the game
     @IBOutlet weak var message: UILabel!
     
@@ -116,11 +113,5 @@ class FinalPageViewController: UIViewController {
         }
     }
     
-    /// Return to the title screen if the appropriate button is clicked
-    @IBAction func returnToTitle(_ sender: Any) {
-        
-        self.performSegue(withIdentifier: "rewindToHome", sender: self)
-        
-    }
     
 }

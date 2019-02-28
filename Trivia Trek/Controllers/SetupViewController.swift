@@ -25,6 +25,7 @@ class SetupViewController: UIViewController {
     var mapImages: [UIImage] = []
     var mapNames: [String] = []
     var currentMap: Int = 0
+    var numberOfTurns: Int = 0
     
     /// Game model classes to be modified during setup
     var player: Player?
