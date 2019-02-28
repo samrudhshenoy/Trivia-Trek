@@ -471,8 +471,8 @@
                                     <action selector="startTurn:" destination="D3Z-TO-FCo" eventType="touchUpInside" id="iKF-uD-YXJ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Score: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4TN-xa-Ekl">
-                                <rect key="frame" x="137" y="606" width="100" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4TN-xa-Ekl">
+                                <rect key="frame" x="156" y="606" width="63.5" height="24"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -491,9 +491,9 @@
                             <constraint firstItem="CNI-Ax-Ckh" firstAttribute="bottom" secondItem="1BS-5x-GD5" secondAttribute="bottom" constant="72" id="JLk-a8-64E"/>
                             <constraint firstItem="1BS-5x-GD5" firstAttribute="top" secondItem="CNI-Ax-Ckh" secondAttribute="top" id="JNE-bz-B8k"/>
                             <constraint firstItem="1BS-5x-GD5" firstAttribute="trailing" secondItem="CNI-Ax-Ckh" secondAttribute="trailing" id="Kbz-ge-Tkh"/>
-                            <constraint firstItem="4TN-xa-Ekl" firstAttribute="top" secondItem="1BS-5x-GD5" secondAttribute="bottom" constant="11" id="M2A-Be-qdg"/>
+                            <constraint firstItem="4TN-xa-Ekl" firstAttribute="leading" secondItem="dsA-2B-fy2" secondAttribute="trailing" constant="72.5" id="N4V-gZ-HoO"/>
+                            <constraint firstItem="4TN-xa-Ekl" firstAttribute="centerY" secondItem="dsA-2B-fy2" secondAttribute="centerY" id="TQd-6A-2Ai"/>
                             <constraint firstItem="dsA-2B-fy2" firstAttribute="leading" secondItem="CNI-Ax-Ckh" secondAttribute="leading" constant="16" id="UiT-oP-kZl"/>
-                            <constraint firstItem="CNI-Ax-Ckh" firstAttribute="bottom" secondItem="4TN-xa-Ekl" secondAttribute="bottom" constant="37" id="WL9-y7-lte"/>
                             <constraint firstItem="CNI-Ax-Ckh" firstAttribute="trailing" secondItem="30c-7D-rVH" secondAttribute="trailing" constant="124" id="Zfb-Oh-jRV"/>
                             <constraint firstItem="qQ5-2h-2Ox" firstAttribute="leading" secondItem="CNI-Ax-Ckh" secondAttribute="leading" constant="259" id="aJD-qg-EBU"/>
                             <constraint firstItem="1BS-5x-GD5" firstAttribute="leading" secondItem="CNI-Ax-Ckh" secondAttribute="leading" id="adE-P5-JQD"/>
@@ -502,9 +502,8 @@
                             <constraint firstItem="1BS-5x-GD5" firstAttribute="top" secondItem="30c-7D-rVH" secondAttribute="bottom" constant="-318" id="h6M-7T-KNb"/>
                             <constraint firstItem="kHx-Fj-jWO" firstAttribute="leading" secondItem="CNI-Ax-Ckh" secondAttribute="leading" id="jbG-1c-Lqx"/>
                             <constraint firstItem="nLD-Bb-n3U" firstAttribute="leading" secondItem="CNI-Ax-Ckh" secondAttribute="leading" constant="16" id="kLb-Zh-lkZ"/>
-                            <constraint firstItem="qQ5-2h-2Ox" firstAttribute="leading" secondItem="4TN-xa-Ekl" secondAttribute="trailing" constant="22" id="nfn-AI-IHA"/>
+                            <constraint firstItem="4TN-xa-Ekl" firstAttribute="top" secondItem="1BS-5x-GD5" secondAttribute="bottom" constant="11" id="kME-ta-Ydz"/>
                             <constraint firstItem="AX8-Zb-4la" firstAttribute="leading" secondItem="CNI-Ax-Ckh" secondAttribute="leading" constant="137" id="y6f-5E-5oS"/>
-                            <constraint firstItem="4TN-xa-Ekl" firstAttribute="centerX" secondItem="CNI-Ax-Ckh" secondAttribute="centerX" id="zfj-xg-PAu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CNI-Ax-Ckh"/>
                     </view>

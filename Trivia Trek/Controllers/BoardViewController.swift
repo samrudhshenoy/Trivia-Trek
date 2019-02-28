@@ -34,9 +34,6 @@ class BoardViewController: UIViewController {
     var isPaused: Bool = false
     /// The current turn as an item to run in the DispatchQueue
     var currentTurn: DispatchWorkItem?
-    var currentTime: Double = 0
-    /// The current round
-    var currentRound: Int = 1
     
     override func viewDidLoad() {
         
@@ -45,7 +42,6 @@ class BoardViewController: UIViewController {
         self.quit.layer.cornerRadius = 15
         self.ready.layer.cornerRadius = 15
         
-        self.currentTime = 0
         self.game!.initBackground(size: self.board.bounds.size)
         self.game!.setupSprites()
         self.board.presentScene(self.game)
