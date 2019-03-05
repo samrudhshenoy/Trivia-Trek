@@ -12,6 +12,7 @@ import CloudKit
 import SCSDKLoginKit
 import FBSDKLoginKit
 import SCSDKBitmojiKit
+import FirebaseAuth
 
 class TitleViewController: UIViewController {
 
@@ -62,6 +63,12 @@ class TitleViewController: UIViewController {
         }
         
         view.addSubview(loginButton)
+        
+        let currentUser = Auth.auth().currentUser
+        if currentUser == nil {
+            self.performSegue(withIdentifier: "showLogin", sender: self)
+        }
+        
     }
     
     /// Refreshes the high score when the page appears (if there is a new high score)

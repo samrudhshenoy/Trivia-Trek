@@ -16,6 +16,9 @@
 		30715BC65B59A891FAD5A312 /* Pods_Trivia_Trek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90CD36C5078681D90BFF7459 /* Pods_Trivia_Trek.framework */; };
 		350E9869EB3D3BE5184DAC05 /* Pods_MAD_2018_19Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F62D4D5893E71B6BC8DB1D4C /* Pods_MAD_2018_19Tests.framework */; };
 		A50478752226F0A10091EC92 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A50478742226F0A10091EC92 /* GoogleService-Info.plist */; };
+		A52F6DF8222DDD4C00C25F3D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52F6DF7222DDD4C00C25F3D /* LoginViewController.swift */; };
+		A52F6DFA222F2F6600C25F3D /* LoginFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52F6DF9222F2F6600C25F3D /* LoginFormViewController.swift */; };
+		A52F6DFC222F2F7000C25F3D /* SignupFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52F6DFB222F2F7000C25F3D /* SignupFormViewController.swift */; };
 		A571D2F42210EAB0002AF7CD /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = A571D2F32210EAB0002AF7CD /* Board.swift */; };
 		A571D2F82210F660002AF7CD /* HelpIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A571D2F72210F660002AF7CD /* HelpIntroViewController.swift */; };
 		A5779E7421FE734A00D755AA /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5779E7321FE734A00D755AA /* BoardViewController.swift */; };
@@ -71,6 +74,9 @@
 		90CD36C5078681D90BFF7459 /* Pods_Trivia_Trek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trivia_Trek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A50478742226F0A10091EC92 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A512BCFD2206303A00C538EB /* MAD 2018-19.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MAD 2018-19.entitlements"; sourceTree = "<group>"; };
+		A52F6DF7222DDD4C00C25F3D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A52F6DF9222F2F6600C25F3D /* LoginFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormViewController.swift; sourceTree = "<group>"; };
+		A52F6DFB222F2F7000C25F3D /* SignupFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupFormViewController.swift; sourceTree = "<group>"; };
 		A571D2F32210EAB0002AF7CD /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		A571D2F72210F660002AF7CD /* HelpIntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpIntroViewController.swift; sourceTree = "<group>"; };
 		A5779E7321FE734A00D755AA /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +166,9 @@
 				A5ACC4F62218B29B00982E1C /* AvatarPickerViewController.swift */,
 				2CD53C60221E53DA00702B83 /* FinalPageViewController.swift */,
 				2CD53C61221E53DA00702B83 /* InstructionsViewController.swift */,
+				A52F6DF7222DDD4C00C25F3D /* LoginViewController.swift */,
+				A52F6DF9222F2F6600C25F3D /* LoginFormViewController.swift */,
+				A52F6DFB222F2F7000C25F3D /* SignupFormViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -524,6 +533,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A52F6DF8222DDD4C00C25F3D /* LoginViewController.swift in Sources */,
 				A5CE3CA82211F24500121B61 /* Question.swift in Sources */,
 				A5CE3CAC2216038900121B61 /* BugReportViewController.swift in Sources */,
 				A5ACC4F72218B29B00982E1C /* AvatarPickerViewController.swift in Sources */,
@@ -533,11 +543,13 @@
 				2CD53C62221E53DB00702B83 /* FinalPageViewController.swift in Sources */,
 				A5CE3CA62211F16300121B61 /* QuestionViewController.swift in Sources */,
 				A5F0E49E21F686AA00908F6E /* SetupViewController.swift in Sources */,
+				A52F6DFC222F2F7000C25F3D /* SignupFormViewController.swift in Sources */,
 				A5C333D521F830BA00A3D4C0 /* HelpPageViewController.swift in Sources */,
 				2CD47DD321FD0D68007A9D0F /* Player.swift in Sources */,
 				A571D2F42210EAB0002AF7CD /* Board.swift in Sources */,
 				2CD53C63221E53DB00702B83 /* InstructionsViewController.swift in Sources */,
 				C572255E21CEEC330013D534 /* AppDelegate.swift in Sources */,
+				A52F6DFA222F2F6600C25F3D /* LoginFormViewController.swift in Sources */,
 				A5ACC4FB221BD4D900982E1C /* Tile.swift in Sources */,
 				2C81464A21FCFF6700EFDB6B /* HelpFinalPageViewController.swift in Sources */,
 				A5F0E4A021F6912D00908F6E /* TitleViewController.swift in Sources */,
