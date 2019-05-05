@@ -9,6 +9,7 @@
 import UIKit
 import SpriteKit
 import CloudKit
+import FirebaseFirestore
 
 // The game object of which the centrality of the entire game is based on
 class Board: SKScene {
@@ -24,6 +25,9 @@ class Board: SKScene {
     
     // Array of questions with answers, sourced from the online database
     var questions: [Question] = []
+    
+    /// Dictionary linking questions to the provided answers, as the game progresses
+    var game: [String: Int] = [:]
     
     /// The board's map course
     var map: Map
@@ -46,7 +50,7 @@ class Board: SKScene {
         
         self.scaleMode = .fill
         
-        self.backgroundColor = Map.mapBackgrounds[mapType.rawValue]
+        self.backgroundColor = UIColor.green
 
         self.loadQuestions()
     }
@@ -62,7 +66,7 @@ class Board: SKScene {
 
         super.init(size: size)
         
-        self.backgroundColor = Map.mapBackgrounds[Map.MapType.normal.rawValue]
+        self.backgroundColor = UIColor.green
         
         self.loadQuestions()
         
@@ -75,38 +79,18 @@ class Board: SKScene {
     /// Loads the questions from the database
     func loadQuestions() {
         
-        /// Initialize the database
-        let database = CKContainer.default().publicCloudDatabase
-
-        /// Formulate the query
-        let query = CKQuery(recordType: "Question", predicate: NSPredicate(value: true))
-
-        /// Perform the query
-        database.perform(query, inZoneWith: nil, completionHandler: { questions, error in
+        let db = Firestore.firestore()
+        let questions = db.collection("questions")
+        
+        questions.getDocuments(completion: { result, error in
             if error != nil {
-
-                /// Print the error if the query fails
-                print("Query failed with error \(error?.localizedDescription ?? "none")")
-
+                print("\(error?.localizedDescription ?? "none")")
             }
             else {
-
-                /// Load all the questions into a local array
-                for questionRecord in questions! {
-
-                    let queue = DispatchQueue(label: "questionQuery")
-                    
-                    queue.sync {
-                        
-                        let currentQuestion = Question(fromRecord: questionRecord)
-                        self.questions.append(currentQuestion)
-                        
-                    }
-                    
+                for question in result!.documents {
+                    self.questions.append(Question(fromObj: question))
                 }
-
             }
-
         })
         
     }
@@ -137,9 +121,7 @@ class Board: SKScene {
     
     /// Switch the map type and update the player's positio accordingly
     func toggleMapType() {
-        
-        self.map.toggleType()
-        
+//        self.map.toggleType()
         self.player.sprite.position = self.map.path[0].sprite.position
     }
     

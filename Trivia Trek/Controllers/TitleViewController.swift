@@ -21,13 +21,15 @@ class TitleViewController: UIViewController {
     @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var reportBug: UIButton!
     
-    /// Secondary buttons and labels
+    /// Profile area
     @IBOutlet weak var highScoreLabel: UILabel!
     @IBOutlet weak var avatarButton: UIButton!
     @IBOutlet weak var avatarPicker: UIView!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var loginButton: UIButton!
     
     /// Facebook login button
-    @IBOutlet weak var loginButton: FBSDKLoginButton!
+    @IBOutlet weak var fbLoginButton: FBSDKLoginButton!
     
     var player: Player = Player()
     var avatarPickerShowing: Bool = false
@@ -41,14 +43,14 @@ class TitleViewController: UIViewController {
         super.viewDidLoad()
         
         self.playButton.layer.cornerRadius = 15
-        
         self.helpButton.layer.cornerRadius = 15
-        
         self.reportBug.layer.cornerRadius = 15
+        self.loginButton.layer.cornerRadius = 15
+        self.loginButton.titleLabel?.adjustsFontSizeToFitWidth = true
         
         self.avatarPicker.alpha = 0
         
-        let loginButton = FBSDKLoginButton(frame: CGRect(x: view.center.x - 45, y: view.center.y * 1.6, width: 90, height: 30))
+        let fbLoginButton = FBSDKLoginButton(frame: CGRect(x: view.center.x - 45, y: view.center.y * 1.6, width: 90, height: 30))
     
         if UserDefaults.standard.hasObject(forKey: "bestScore") {
             
@@ -62,12 +64,7 @@ class TitleViewController: UIViewController {
 
         }
         
-        view.addSubview(loginButton)
-        
-        let currentUser = Auth.auth().currentUser
-        if currentUser == nil {
-            self.performSegue(withIdentifier: "showLogin", sender: self)
-        }
+        view.addSubview(fbLoginButton)
         
     }
     
@@ -89,6 +86,17 @@ class TitleViewController: UIViewController {
             
         }
 
+        let currentUser = Auth.auth().currentUser
+        
+        if currentUser == nil {
+            self.usernameLabel.text = "Guest"
+            self.loginButton.titleLabel!.text = "Log in"
+        }
+        else {
+            self.usernameLabel.text = Auth.auth().currentUser?.displayName
+            self.loginButton.titleLabel!.text = "Log out"
+        }
+        
     }
 
     /// Configures avatar picker view
@@ -101,6 +109,26 @@ class TitleViewController: UIViewController {
             self.avatarPickerController!.player = self.player
             self.avatarPickerController!.delegate = self
             
+        }
+        
+    }
+    
+    @IBAction func doLogin(_ sender: Any) {
+        
+        let user = Auth.auth().currentUser
+        
+        if user != nil {
+            do {
+                try Auth.auth().signOut()
+                self.usernameLabel.text = "Guest"
+            }
+            catch {
+                
+            }
+            
+        }
+        else {
+            self.performSegue(withIdentifier: "showLogin", sender: self)
         }
         
     }

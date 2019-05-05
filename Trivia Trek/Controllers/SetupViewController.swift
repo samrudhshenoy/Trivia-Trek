@@ -43,7 +43,7 @@ class SetupViewController: UIViewController {
         self.mapImageView.image! = self.mapImages[0]
         self.mapLabel.text! = "Map: \(self.mapNames[0])"
         
-        self.game.map.type = Map.MapType(rawValue: self.currentMap)!
+        self.game.map.type = Map.MapType.normal
         self.game.player = self.player ?? Player()
         
     }

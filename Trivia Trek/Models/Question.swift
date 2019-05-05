@@ -8,6 +8,7 @@
 
 import UIKit
 import CloudKit
+import FirebaseFirestore
 
 /**
  Serves as a singular question in the game, with an array of answers,
@@ -37,10 +38,10 @@ class Question: NSObject {
     var category: Category?
     
     // The question's unique ID in the database
-    var id: CKRecord.ID
+    var id: String
     
     /// Initializes a new Question with text, answers, and correct answer given
-    init(text: String, answers: [String], correctAnswer: Int, category: Category?, id: CKRecord.ID) {
+    init(text: String, answers: [String], correctAnswer: Int, category: Category?, id: String) {
         
         self.text = text
         self.answers = answers
@@ -51,14 +52,23 @@ class Question: NSObject {
     }
     
     /// Initializes a new Question with information given in a CloudKit Record
-    init(fromRecord record: CKRecord) {
+//    init(fromRecord record: CKRecord) {
+//
+//        self.text = record.object(forKey: "text") as! String
+//        self.answers = record.object(forKey: "answers") as! [String]
+//        self.correctAnswer = record.object(forKey: "correctAnswer") as! Int
+//        self.category = Category(rawValue: record.object(forKey: "category") as! String)
+//        self.id = record.recordID
+//
+//    }
+    
+    init(fromObj obj: DocumentSnapshot) {
         
-        self.text = record.object(forKey: "text") as! String
-        self.answers = record.object(forKey: "answers") as! [String]
-        self.correctAnswer = record.object(forKey: "correctAnswer") as! Int
-        self.category = Category(rawValue: record.object(forKey: "category") as! String)
-        self.id = record.recordID
+        self.text = obj.get("text") as! String
+        self.answers = obj.get("answers") as! [String]
+        self.correctAnswer = obj.get("correctAnswer") as! Int
+        self.category = Question.Category.competitions
+        self.id = obj.documentID
         
     }
-    
 }

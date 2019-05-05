@@ -8,6 +8,8 @@
 import UIKit
 import SpriteKit
 import GameKit
+import FirebaseFirestore
+import FirebaseAuth
 
 class BoardViewController: UIViewController {
     
@@ -145,6 +147,12 @@ class BoardViewController: UIViewController {
             
             let finalScreen = segue.destination as? FinalPageViewController
             finalScreen?.finalScore = self.game!.turnsTaken
+            
+            let db = Firestore.firestore()
+            let data: [String: Any] = ["user" : Auth.auth().currentUser!.uid,
+                        "history" : self.game!.game,
+                        "date" : Timestamp(date: Date())]
+            db.collection("games").document().setData(data)
             
         }
         
