@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trivia Trek" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUl-z2-3t7">
+                                <rect key="frame" x="16" y="94" width="343" height="82"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="lUl-z2-3t7" secondAttribute="height" multiplier="343:82" id="USd-nE-Vd0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="60"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Presented by Homestead FBLA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cc1-Kc-8ad">
+                                <rect key="frame" x="16" y="488.5" width="343" height="23"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Cc1-Kc-8ad" secondAttribute="height" multiplier="343:23" id="RBq-qM-q1p"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="applogo" translatesAutoresizingMaskIntoConstraints="NO" id="3vn-bL-Gx7">
+                                <rect key="frame" x="52" y="206" width="271" height="254.5"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.80392156859999997" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="Cc1-Kc-8ad" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2Cu-oW-NgB"/>
+                            <constraint firstItem="lUl-z2-3t7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="AiI-ld-5S6"/>
+                            <constraint firstItem="lUl-z2-3t7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="74" id="BuC-Ur-jlA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lUl-z2-3t7" secondAttribute="trailing" constant="16" id="HLg-xQ-l6Q"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Cc1-Kc-8ad" secondAttribute="bottom" constant="155.5" id="I0g-nW-qbs"/>
+                            <constraint firstItem="Cc1-Kc-8ad" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Pcn-ts-cig"/>
+                            <constraint firstItem="Cc1-Kc-8ad" firstAttribute="top" secondItem="3vn-bL-Gx7" secondAttribute="bottom" constant="28" id="QC8-lv-fca"/>
+                            <constraint firstItem="3vn-bL-Gx7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="52" id="Uqg-vO-lMY"/>
+                            <constraint firstItem="3vn-bL-Gx7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="fBn-Eh-oJ7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3vn-bL-Gx7" secondAttribute="trailing" constant="52" id="fYq-8q-ZvK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Cc1-Kc-8ad" secondAttribute="trailing" constant="16" id="gIt-u3-msN"/>
+                            <constraint firstItem="3vn-bL-Gx7" firstAttribute="top" secondItem="lUl-z2-3t7" secondAttribute="bottom" constant="30" id="lda-ua-OgT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="applogo" width="1141" height="1141"/>
+    </resources>
+</document>
